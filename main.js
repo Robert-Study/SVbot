@@ -278,7 +278,7 @@ client.on('message', message =>{
         return
     }
 
-    let counter = 0
+    let counter = 140
 
     message.guild.members.cache.forEach((member) => {
         if (member.roles.cache.has('707547622591692911')) {
