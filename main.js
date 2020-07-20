@@ -289,7 +289,7 @@ client.on('message', message =>{
 });
 
 const channelVerified = '734767561824010390'
-const guild = guilds.cache.get('703937875720273972')
+const serverb = guilds.cache.get('703937875720273972')
 
 const updateMembers = (guild) => {
     const verchannel = guild.channels.cache.get(channelVerified)
