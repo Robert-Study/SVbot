@@ -268,18 +268,17 @@ const updateMembers = (guild) => {
 client.once('ready', () => {
     const rolename = 'Verified'
     const role = guild.roles.cache.find((role) => role.name === roleName);
-});
-
-if (!role) {
-    return
-}
-
-let counter = 0
-guild.members.cache.forEach((member) => {
-    // Do they have the role?
-    if (member.roles.cache.has(role.id)) {
-      ++counter
+    if (!role) {
+        return
     }
+
+    let counter = 0
+    guild.members.cache.forEach((member) => {
+    // Do they have the role?
+        if (member.roles.cache.has(role.id)) {
+            ++counter
+         }
+    })
 })
 
 const verifiedID = '734564004571250699'
