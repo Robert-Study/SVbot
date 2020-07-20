@@ -272,7 +272,7 @@ client.on('guildMemberRemove', (member) => updateMembers(member.guild))
 
 
 const roleName = 'Verified'
-const role = message.guild.roles.cache.find((role) => role.name === roleName)
+const role = member.guild.roles.cache.find((role) => role.name === roleName)
 
 if (!role) {
   return
