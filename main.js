@@ -293,7 +293,8 @@ client.on('message', message =>{
             const verchannel = message.guild.channels.cache.get(channelVerified)
             verchannel.setName(`Verified count: ${counter}`)
         }
-        client.on('message', (message) => VerMembers(message.guild))
+        
+        VerMembers(message.guild)
         console.log(`${roleName} has ${counter} user(s)!`)
     }
 });
