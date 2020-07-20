@@ -259,4 +259,7 @@ client.on("guildMemberAdd", member => {
         member.send(welcomeembed);
 });
 
+const MemberCount = require('./MemberCounter')
+MemberCount(client)
+
 client.login(process.env.token);
