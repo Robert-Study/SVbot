@@ -294,6 +294,7 @@ client.on('message', message =>{
             verchannel.setName(`Verified count: ${counter}`)
         }
         client.on('message', (message) => VerMembers(message.guild))
+        console.log(`${roleName} has ${counter} user(s)!`)
     }
 });
 
