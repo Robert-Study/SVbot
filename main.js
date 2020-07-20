@@ -286,15 +286,16 @@ client.on('message', message =>{
             ++counter
         }
     })
-
-    const channelVerified = '734767561824010390'
-    const guild = guilds.cache.get('703937875720273972')
-
-    const updateMembers = (guild) => {
-        const verchannel = guild.channels.cache.get(channelVerified)
-        verchannel.setName(`Verified Count: ${counter}`)
-    }   
 });
+
+const channelVerified = '734767561824010390'
+const guild = guilds.cache.get('703937875720273972')
+
+const updateMembers = (guild) => {
+    const verchannel = guild.channels.cache.get(channelVerified)
+    verchannel.setName(`Verified Count: ${counter}`)
+    }   
+
 
 
 client.login(process.env.token);
