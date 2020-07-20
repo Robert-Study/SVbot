@@ -28,7 +28,7 @@ client.on('message', message =>{
     const command = args.shift().toLowerCase();
     
     if(command === 'cal'){
-        message.reply('a link to the Study Vibes calendar can be found here: https://tinyurl.com/yawqzozw');
+        client.commands.get('cal').execute(message, args);
     }
 });
 
@@ -207,6 +207,7 @@ client.on('message', message =>{
         }
 });
 
+//Focus Mode section
 client.on('message', message =>{
     if (message.content.startsWith(`${prefic}focus`)) {
         message.reply(`went into deep Focus Mode - don't disturb!`);
@@ -217,6 +218,7 @@ client.on('message', message =>{
     }
 });
 
+//Study Team section
 client.on('message', message =>{
     if (message.content.startsWith(`${prefic}start`)) {
         message.reply(`You are now part of the *@Study Team* and will be pinged with every Team reminder!`);
@@ -224,6 +226,7 @@ client.on('message', message =>{
         }
 });
 
+//End command section
 client.on('message', message =>{
     if (message.content.startsWith(`${prefic}end`)) {
         const general = client.channels.cache.get('703937876634894388');
@@ -234,6 +237,7 @@ client.on('message', message =>{
     }
 });
 
+//Welcome message DM section
 client.on("guildMemberAdd", member => {
     const welcomeembed = new Discord.MessageEmbed()
             .setColor('#337f4e')
@@ -270,7 +274,7 @@ const updateMembers = (guild) => {
 client.on('guildMemberAdd', (member) => updateMembers(member.guild))
 client.on('guildMemberRemove', (member) => updateMembers(member.guild))
 
-
+//Verified counter section
 client.on('message', message =>{
     if (message.content.startsWith(`${prefic}end`)) {
         const roleName = 'Verified'
