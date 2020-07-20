@@ -291,7 +291,7 @@ client.on('message', message =>{
         const channelVerified = '734767561824010390'
         const VerMembers = (guild) => {
             const verchannel = message.guild.channels.cache.get(channelVerified)
-            verchannel.setName(`Verified Count: ${counter}`)
+            verchannel.setName(`Verified Members: ${counter}`)
         }
         
         VerMembers(message.guild)
