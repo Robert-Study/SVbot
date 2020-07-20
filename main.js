@@ -264,7 +264,7 @@ const guild = client.guilds.cache.get('703937875720273972')
 
 const updateMembers = (guild) => {
     const channel = guild.channels.cache.get(channelId)
-    channel.setName(`Member Count: ${guild.memberCount}`)
+    channel.setName(`Member count: ${guild.memberCount}`)
 }
 
 client.on('guildMemberAdd', (member) => updateMembers(member.guild))
@@ -291,7 +291,7 @@ client.on('message', message =>{
         const channelVerified = '734767561824010390'
         const VerMembers = (guild) => {
             const verchannel = message.guild.channels.cache.get(channelVerified)
-            verchannel.setName(`Verified Count: ${counter}`)
+            verchannel.setName(`Verified count: ${counter}`)
         }
         client.on('message', (message) => VerMembers(message.guild))
     }
