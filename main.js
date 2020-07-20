@@ -270,9 +270,10 @@ const updateMembers = (guild) => {
 client.on('guildMemberAdd', (member) => updateMembers(member.guild))
 client.on('guildMemberRemove', (member) => updateMembers(member.guild))
 
-client.on('message', message =>{
+
+client.on('guildMemberAdd', (member) =>{
     const roleName = 'Verified'
-    const role = message.guild.roles.cache.find((role) => role.name === roleName)
+    const role = member.guild.roles.cache.find((role) => role.name === roleName)
 
     if (!role) {
         return
@@ -280,13 +281,46 @@ client.on('message', message =>{
 
     let counter = 140
 
-    message.guild.members.cache.forEach((member) => {
+    member.guild.members.cache.forEach((member) => {
         if (member.roles.cache.has('707547622591692911')) {
             ++counter
         }
     })
 
-    console.log(`${roleName} has ${counter} user(s)!`)
+    console.log(`${roleName} has ${counter} user(s)!`);
+    const channelVerified = '734767561824010390'
+    const guild = client.guilds.cache.get('703937875720273972')
+
+    const updateMembers = (guild) => {
+        const channel = guild.channels.cache.get(channelVerified)
+        channel.setName(`Verified Count: ${counter}`)
+    }   
+});
+
+client.on('guildMemberRemove', (member) =>{
+    const roleName = 'Verified'
+    const role = member.guild.roles.cache.find((role) => role.name === roleName)
+
+    if (!role) {
+        return
+    }
+
+    let counter = 140
+
+    member.guild.members.cache.forEach((member) => {
+        if (member.roles.cache.has('707547622591692911')) {
+            ++counter
+        }
+    })
+
+    console.log(`${roleName} has ${counter} user(s)!`);
+    const channelVerified = '734767561824010390'
+    const guild = client.guilds.cache.get('703937875720273972')
+
+    const updateMembers = (guild) => {
+        const channel = guild.channels.cache.get(channelVerified)
+        channel.setName(`Verified Count: ${counter}`)
+    }   
 });
 
 client.login(process.env.token);
