@@ -291,11 +291,12 @@ client.on('message', message =>{
 const channelVerified = '734767561824010390'
 const serverb = guilds.cache.get('703937875720273972')
 
-const updateMembers = (guild) => {
+const VerMembers = (guild) => {
     const verchannel = guild.channels.cache.get(channelVerified)
     verchannel.setName(`Verified Count: ${counter}`)
     }   
-
+client.on('guildMemberAdd', (member) => VerMembers(member.guild))
+client.on('guildMemberRemove', (member) => VerMembers(member.guild))
 
 
 client.login(process.env.token);
