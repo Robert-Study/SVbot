@@ -270,9 +270,9 @@ const updateMembers = (guild) => {
 client.on('guildMemberAdd', (member) => updateMembers(member.guild))
 client.on('guildMemberRemove', (member) => updateMembers(member.guild))
 
-const role = message.guild.roles.cache.find
+
 const roleName = 'Verified'
-const role = guild.roles.cache.find((role) => role.name === roleName)
+const role = message.guild.roles.cache.find((role) => role.name === roleName)
 
 if (!role) {
   return
