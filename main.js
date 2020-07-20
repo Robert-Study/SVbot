@@ -287,7 +287,7 @@ client.on('guildMemberAdd', (member) =>{
         }
     })
 
-    console.log(`${roleName} has ${counter} user(s)!`);
+    console.log(`${roleName} has ${counter} user(s)!`)
     const channelVerified = '734767561824010390'
     const guild = client.guilds.cache.get('703937875720273972')
 
@@ -313,7 +313,7 @@ client.on('guildMemberRemove', (member) =>{
         }
     })
 
-    console.log(`${roleName} has ${counter} user(s)!`);
+    console.log(`${roleName} has ${counter} user(s)!`)
     const channelVerified = '734767561824010390'
     const guild = client.guilds.cache.get('703937875720273972')
 
