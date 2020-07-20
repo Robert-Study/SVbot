@@ -270,22 +270,23 @@ const updateMembers = (guild) => {
 client.on('guildMemberAdd', (member) => updateMembers(member.guild))
 client.on('guildMemberRemove', (member) => updateMembers(member.guild))
 
+client.on('message', message =>{
+    const roleName = 'Verified'
+    const role = message.guild.roles.cache.find((role) => role.name === roleName)
 
-const roleName = 'Verified'
-const role = client.guild.roles.cache.find((role) => role.name === roleName)
+    if (!role) {
+        return
+    }
 
-if (!role) {
-  return
-}
+    let counter = 0
 
-let counter = 0
+    guild.members.cache.forEach((member) => {
+        if (member.roles.cache.has(role.id)) {
+            ++counter
+        }
+    })
 
-guild.members.cache.forEach((member) => {
-  if (member.roles.cache.has(role.id)) {
-    ++counter
-  }
-})
-
-console.log(`${roleName} has ${counter} user(s)!`)
+    console.log(`${roleName} has ${counter} user(s)!`)
+});
 
 client.login(process.env.token);
