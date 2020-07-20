@@ -280,8 +280,8 @@ client.on('message', message =>{
 
     let counter = 0
 
-    guild.members.cache.forEach((member) => {
-        if (member.roles.cache.has(role.id)) {
+    message.guild.members.cache.forEach((member) => {
+        if (member.roles.cache.has('729706682308886548')) {
             ++counter
         }
     })
