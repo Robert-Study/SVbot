@@ -259,8 +259,8 @@ client.on("guildMemberAdd", member => {
         member.send(welcomeembed);
 });
 
-const channelId = '734563927769219073'
-const guild = client.guilds.cache.get('705785746350669888')
+const channelId = '734716661885829160'
+const guild = client.guilds.cache.get('703937875720273972')
 
 const updateMembers = (guild) => {
     const channel = guild.channels.cache.get(channelId)
