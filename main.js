@@ -270,8 +270,4 @@ const updateMembers = (guild) => {
 client.on('guildMemberAdd', (member) => updateMembers(member.guild))
 client.on('guildMemberRemove', (member) => updateMembers(member.guild))
 
-const guild = client.guilds.cache.get('705785746350669888')
-updateMembers(guild)
-
-
 client.login(process.env.token);
