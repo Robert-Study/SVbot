@@ -265,9 +265,10 @@ const updateMembers = (guild) => {
     const channel = guild.channels.cache.get(channelId)
     channel.setName(`Members: ${guild.memberCount}`)
 }
-
-const rolename = 'Verified'
-const role = guild.roles.cache.find((role) => role.name === roleName)
+client.once('ready', () => {
+    const rolename = 'Verified'
+    const role = guild.roles.cache.find((role) => role.name === roleName);
+});
 
 if (!role) {
     return
