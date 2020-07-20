@@ -272,27 +272,29 @@ client.on('guildMemberRemove', (member) => updateMembers(member.guild))
 
 
 client.on('message', message =>{
-    const roleName = 'Verified'
-    const role = message.guild.roles.cache.find((role) => role.name === roleName)
+    if (message.content.startsWith(`${prefic}update`)) {
+        const roleName = 'Verified'
+        const role = message.guild.roles.cache.find((role) => role.name === roleName)
 
-    if (!role) {
-        return
-    }
-
-    let counter = 140
-
-    message.guild.members.cache.forEach((member) => {
-        if (member.roles.cache.has('707547622591692911')) {
-            ++counter
+        if (!role) {
+            return
         }
-    })
 
-    const channelVerified = '734767561824010390'
-    const VerMembers = (guild) => {
-        const verchannel = message.guild.channels.cache.get(channelVerified)
-        verchannel.setName(`Verified Count: ${counter}`)
+        let counter = 140
+
+        message.guild.members.cache.forEach((member) => {
+            if (member.roles.cache.has('707547622591692911')) {
+             ++counter
+            }
+        })
+
+        const channelVerified = '734767561824010390'
+        const VerMembers = (guild) => {
+            const verchannel = message.guild.channels.cache.get(channelVerified)
+            verchannel.setName(`Verified Count: ${counter}`)
+        }
+        client.on('message', (message) => VerMembers(message.guild))
     }
-    client.on('message', (message) => VerMembers(message.guild))
 });
 
 
