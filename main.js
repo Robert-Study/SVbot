@@ -279,13 +279,12 @@ client.once('ready', () => {
             ++counter
          }
     })
-})
-
-const verifiedID = '734564004571250699'
-const Verified = (guild) => {
-    const channel = guild.channels.cache.get(verifiedID)
-    channel.setName(`Verified Count: ${counter}`)  
+    const verifiedID = '734564004571250699'
+    const Verified = (guild) => {
+        const channel = guild.channels.cache.get(verifiedID)
+        channel.setName(`Verified Count: ${counter}`)  
 }
+});
 
 client.on('guildMemberAdd', (member) => updateMembers(member.guild))
 client.on('guildMemberRemove', (member) => updateMembers(member.guild))
