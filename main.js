@@ -270,6 +270,8 @@ client.on("guildMemberAdd", member => {
 });
 
 //Birthday send message to Announcements
+
+//Logging User-Study time section (work in P.)
 client.on('message', message =>{
     if(!message.content.startsWith(prefic) || message.author.bot) return;
  
@@ -346,7 +348,7 @@ client.on('message', message => {
             message.channel.send(`@${person.user.tag} has now been locked in Focus for ${ms(ms(time))}`)
  
             setTimeout(function(){
-                person.removeRole(role.id);
+                person.roles.remove(role.id);
                 console.log(role.id)
                 message.channel.send(`@${person.user.tag} has been unlocked.`)
             }, ms(time));
