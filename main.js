@@ -328,7 +328,7 @@ client.on('message', message => {
     let args = message.content.substring(prefic.length).split(" ");
  
     switch (args[0]) {
-        case 'lock':
+        case 'focuslock':
             var person  = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get(args[1]));
             if(!person) return  message.reply("I CANT FIND THE USER " + person)
  
