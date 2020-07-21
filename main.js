@@ -375,12 +375,12 @@ client.on('message', message =>{
             }
  
             message.member.roles.add(role.id)
-            message.channel.send(`<@${message.author.username}>, you have now been locked in Focus Mode for ${ms(ms(time))}`)
+            message.channel.send(`"<@" + ${message.author.id} + ">", you have now been locked in Focus Mode for ${ms(ms(time))}`)
  
             setTimeout(function(){
                 message.member.roles.remove(role.id);
                 console.log(role.id)
-                message.channel.send(`<@${message.author.username}>, you have now been unlocked, use !end to exit Focus Mode`)
+                message.channel.send(`"<@" + ${message.author.id} + ">", you have now been unlocked, use !end to exit Focus Mode`)
             }, ms(time));
             break;
         }  
