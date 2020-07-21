@@ -265,6 +265,11 @@ client.on("guildMemberAdd", member => {
 
 //Birthday send message to Announcements
 client.on('message', message =>{
+    if(!message.content.startsWith(prefic) || message.author.bot) return;
+ 
+    const args = message.content.slice(prefic.length).split(/ +/);
+    const command = args.shift().toLowerCase();
+    
     if (message.content.startsWith(`${prefic}add`)){
         message.reply(` your ${args[0]} of study time have been logged.`);
     }
