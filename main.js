@@ -6,6 +6,7 @@ const prefic = "!"
 const pref = "?"
 
 const fs = require('fs');
+const ms = require('ms');
 
 client.commands = new Discord.Collection();
 
@@ -322,5 +323,37 @@ client.on('message', message =>{
     }
 });
 
+//Locked in Focus section
+client.on('message', message => {
+    let args = message.content.substring(prefic.length).split(" ");
+ 
+    switch (args[0]) {
+        case 'lock':
+            var person  = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get(args[1]));
+            if(!person) return  message.reply("I CANT FIND THE USER " + person)
+ 
+            let role = message.guild.roles.cache.find(role => role.name === "Locked in Focus");           
+ 
+            if(!role) return message.reply("Couldn't find the lock role.")
+ 
+ 
+            let time = args[2];
+            if(!time){
+                return message.reply("You didnt specify a time!");
+            }
+ 
+            person.roles.add(role.id)
+            message.channel.send(`@${person.user.tag} has now been locked in Focus for ${ms(ms(time))}`)
+ 
+            setTimeout(function(){
+                person.removeRole(role.id);
+                console.log(role.id)
+                message.channel.send(`@${person.user.tag} has been unlocked.`)
+            }, ms(time));
+            break;
+        }
+     
+     
+});
 
 client.login(process.env.token);
