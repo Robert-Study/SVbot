@@ -231,7 +231,7 @@ client.on('message', message =>{
     if (message.content.startsWith(`${prefic}end`)) {
         const general = client.channels.cache.get('703937876634894388');
         if(message.member.roles.cache.has('735089477088837673')){
-            message.channel.send('You are locked in Focus mode and cannot do that now!')
+            message.channel.send('You are **locked in Focus mode** and cannot do that now!')
         
         }else{
         general.send(`<@${message.author.id}> you have left the *Focus Mode* and the *Study Group*!`)
