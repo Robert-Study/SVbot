@@ -358,4 +358,32 @@ client.on('message', message => {
      
 });
 
+//Locked in Focus user-section
+client.on('message', message =>{
+    let args = message.content.substring(prefic.length).split(" ");
+ 
+    switch (args[0]) {
+        case 'lock':
+            let role = message.guild.roles.cache.find(role => role.name === "Locked in Focus");           
+ 
+            if(!role) return message.reply("Couldn't find the lock role.")
+ 
+ 
+            let time = args[1];
+            if(!time){
+                return message.reply("You didnt specify a time!");
+            }
+ 
+            message.member.roles.add(role.id)
+            message.channel.reply(`,you have now been locked in Focus Mode for ${ms(ms(time))}`)
+ 
+            setTimeout(function(){
+                message.member.roles.remove(role.id);
+                console.log(role.id)
+                message.channel.reply(`,you have now been unlocked, use !end to exit Focus Mode`)
+            }, ms(time));
+            break;
+        }  
+});
+
 client.login(process.env.token);
