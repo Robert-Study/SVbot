@@ -263,6 +263,14 @@ client.on("guildMemberAdd", member => {
         member.send(welcomeembed);
 });
 
+//Birthday send message to Announcements
+client.on('message', message =>{
+    if (message.content.startsWith(`${prefic}log`)){
+        message.reply(` your ${args[0]} of study time have been logged.`);
+    }
+});
+
+//Member counter section
 const channelId = '734716661885829160'
 const guild = client.guilds.cache.get('703937875720273972')
 
