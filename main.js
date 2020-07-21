@@ -265,7 +265,7 @@ client.on("guildMemberAdd", member => {
 
 //Birthday send message to Announcements
 client.on('message', message =>{
-    if (message.content.startsWith(`${prefic}log`)){
+    if (message.content.startsWith(`${prefic}add`)){
         message.reply(` your ${args[0]} of study time have been logged.`);
     }
 });
