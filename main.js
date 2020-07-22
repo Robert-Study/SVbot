@@ -270,6 +270,12 @@ client.on("guildMemberAdd", member => {
 });
 
 //Birthday send message to Announcements
+client.on('message', message =>{
+    if (message.content.startsWith(`${bprefix}`)){
+        const ann = client.channels.cache.get('732559541895561226')
+        ann.send(`Happy Birthday!`)
+    }
+});
 
 //Logging User-Study time section (work in P.)
 client.on('message', message =>{
