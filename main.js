@@ -22,7 +22,9 @@ client.once('ready', () => {
     console.log('StudyVibesBot is online!');
 });
 
-//Calendar commands section
+
+
+//Help commands section
 client.on('message', message =>{
     if(!message.content.startsWith(prefic) || message.author.bot) return;
  
@@ -31,11 +33,8 @@ client.on('message', message =>{
     
     if(command === 'cal'){
         client.commands.get('cal').execute(message, args);
-    }
-});
+    };
 
-//Help commands section
-client.on('message', message =>{
     if (message.content.startsWith(`${pref}help`)) {
         message.channel.send('Help categories include: **?cmd**, **?forest**, **?VC**, **?hydra**, **?focus**, **?team**, **?birthday**, **?timers**, **?todo**. Please type either one to get more info!.');
     } else if (message.content.startsWith(`${pref}forest`)){
@@ -376,8 +375,8 @@ client.on('message', message =>{
             let verifiedrole = message.guild.roles.cache.find(role => role.name === "Verified");        
  
             if(!role) return message.reply("Couldn't find the lock role.")
-            if(!focusrole) return message.reply("Couldn't find the lock role.")
-            if(!verifiedrole) return message.reply("Couldn't find the lock role.")
+            if(!focusrole) return message.reply("Couldn't find the focus role.")
+            if(!verifiedrole) return message.reply("Couldn't find the verified role.")
  
             let time = args[1];
             if(!time){
