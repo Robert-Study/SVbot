@@ -401,7 +401,8 @@ client.on('message', message =>{
     const command = args.shift().toLowerCase();
 
     if(command === 'suggest'){
-    client.commands.get('suggest').execute(message, args);
+        message.delete(1000);
+        client.commands.get('suggest').execute(message, args);
     }
 });
 
