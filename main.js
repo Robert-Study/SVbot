@@ -4,6 +4,7 @@ const client = new Discord.Client();
 const prefix = "Plant trees with me on Forest! Enter "
 const prefic = "!"
 const pref = "?"
+const bprefix = "Birthday"
 
 const fs = require('fs');
 const ms = require('ms');
