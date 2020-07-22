@@ -392,4 +392,16 @@ client.on('message', message =>{
         }  
 });
 
+//Suggestion channel section
+client.on('message', message =>{
+    if(!message.content.startsWith(prefic) || message.author.bot) return;
+ 
+    const args = message.content.slice(prefic.length).split(/ +/);
+    const command = args.shift().toLowerCase();
+
+    if(command === 'suggest'){
+    client.commands.get('suggest').execute(message, args);
+    }
+});
+
 client.login(process.env.token);
