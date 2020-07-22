@@ -384,17 +384,19 @@ client.on('message', message =>{
                 return message.reply("You didnt specify a time!");
             }
  
-            message.member.roles.add(role.id)
-            message.member.roles.add(focusrole.id)
-            message.member.roles.remove(verifiedrole.id)
-            message.channel.send(`${"<@" + message.author.id + ">"}, you have now been locked in Focus Mode for ${ms(ms(time))}`)
+            message.member.roles.add(role.id);
+            message.member.roles.add(focusrole.id);
+            message.member.roles.remove(verifiedrole.id);
+            const focus = client.channels.cache.get('730185814822223962');
+            focus.send(`${"<@" + message.author.id + ">"}, you have now been locked in Focus Mode for ${ms(ms(time))}`)
  
             setTimeout(function(){
                 message.member.roles.remove(role.id);
                 message.member.roles.remove(focusrole.id);
                 message.member.roles.add(verifiedrole.id);
                 console.log(role.id)
-                message.channel.send(`${"<@" + message.author.id + ">"}, you have now been unlocked, use !end to exit Focus Mode`)
+                const general = client.channels.cache.get('703937876634894388');
+                general.send(`${"<@" + message.author.id + ">"}, you have now been unlocked`)
             }, ms(time));
             break;
         }  
