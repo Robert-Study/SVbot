@@ -400,7 +400,7 @@ client.on('message', message =>{
     const args = message.content.slice(prefic.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
-    if(command === 'suggest'){
+    if(command === 'calendar'){
         message.delete();
         client.commands.get('suggest').execute(message, args);
     }
