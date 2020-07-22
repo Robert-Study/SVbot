@@ -371,10 +371,13 @@ client.on('message', message =>{
  
     switch (args[0]) {
         case 'lock':
-            let role = message.guild.roles.cache.find(role => role.name === "Locked in Focus");           
+            let role = message.guild.roles.cache.find(role => role.name === "Locked in Focus");  
+            let focusrole = message.guild.roles.cache.find(role => role.name === "Focused");
+            let verifiedrole = message.guild.roles.cache.find(role => role.name === "Verified");        
  
             if(!role) return message.reply("Couldn't find the lock role.")
- 
+            if(!focusrole) return message.reply("Couldn't find the lock role.")
+            if(!verifiedrole) return message.reply("Couldn't find the lock role.")
  
             let time = args[1];
             if(!time){
@@ -382,10 +385,14 @@ client.on('message', message =>{
             }
  
             message.member.roles.add(role.id)
+            message.member.roles.add(focusrole.id)
+            message.member.roles.remove(verifiedrole.id)
             message.channel.send(`${"<@" + message.author.id + ">"}, you have now been locked in Focus Mode for ${ms(ms(time))}`)
  
             setTimeout(function(){
                 message.member.roles.remove(role.id);
+                message.member.roles.remove(focusrole.id);
+                message.members.roles.add(verifiedrole.id);
                 console.log(role.id)
                 message.channel.send(`${"<@" + message.author.id + ">"}, you have now been unlocked, use !end to exit Focus Mode`)
             }, ms(time));
