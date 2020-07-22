@@ -392,7 +392,7 @@ client.on('message', message =>{
             setTimeout(function(){
                 message.member.roles.remove(role.id);
                 message.member.roles.remove(focusrole.id);
-                message.members.roles.add(verifiedrole.id);
+                message.member.roles.add(verifiedrole.id);
                 console.log(role.id)
                 message.channel.send(`${"<@" + message.author.id + ">"}, you have now been unlocked, use !end to exit Focus Mode`)
             }, ms(time));
