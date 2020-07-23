@@ -48,9 +48,9 @@ client.on('message', message =>{
 
 //Prefic = '?' commands:
 client.on('message', message =>{
-    if(!message.content.startsWith(prefic) || message.author.bot) return;
+    if(!message.content.startsWith(pref) || message.author.bot) return;
  
-    const args = message.content.slice(prefic.length).split(/ +/);
+    const args = message.content.slice(pref.length).split(/ +/);
     const command = args.shift().toLowerCase();
     
     if(command === 'help'){
