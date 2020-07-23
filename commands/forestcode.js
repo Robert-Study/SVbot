@@ -2,7 +2,7 @@ module.exports = {
     name: 'forestcode',
     description: "!code command that gives forest embed",
     execute(message, args){
-        const channel = client.channels.cache.get('703937876634894388');
+        const channel = message.client.channels.cache.get('703937876634894388');
         const exampleEmbed = new Discord.MessageEmbed()
             .setColor('#337f4e')
             .setTitle(`${message.author.username} wants to plant a tree! :evergreen_tree:`)
@@ -18,7 +18,7 @@ module.exports = {
                 )
 
         channel.send(exampleEmbed);
-        const welcome = client.channels.cache.get('732292791287283862');
+        const welcome = message.client.channels.cache.get('732292791287283862');
         welcome.send(exampleEmbed);
         }    
 }
