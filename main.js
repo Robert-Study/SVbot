@@ -22,9 +22,7 @@ client.once('ready', () => {
     console.log('StudyVibesBot is online!');
 });
 
-
-
-//Help commands section
+//Prefic = '!' commands:
 client.on('message', message =>{
     if(!message.content.startsWith(prefic) || message.author.bot) return;
  
@@ -32,11 +30,24 @@ client.on('message', message =>{
     const command = args.shift().toLowerCase();
     
     if(command === 'cal'){
-        client.commands.get('cal').execute(message, args);
+        client.commands.get('1-cal').execute(message, args);
     } else if(command === 'code'){
-        client.commands.get('forestcode').execute(message, args);
-    };
+        client.commands.get('2-forestcode').execute(message, args);
+    } else if(command === 'end'){
+        client.commands.get('3-endcommand').execute(message, args);
+    } else if(command === 'start'){
+        client.commands.get('4-studyteam').execute(message, args);
+    } else if(command === 'focus'){
+        client.commands.get('5-focus').execute(message, args);
+    } else if(command === 'ticket'){
+        client.commands.get('6-ticket').execute(message, args);
+    } else if(command === 'log'){
+        client.commands.get('7-log').execute(message, args);
+    }
+});
 
+//Prefic = '?' commands:
+client.on('message', message =>{
     if (message.content.startsWith(`${pref}help`)) {
         message.channel.send('Help categories include: **?cmd**, **?forest**, **?VC**, **?hydra**, **?focus**, **?team**, **?birthday**, **?timers**, **?todo**. Please type either one to get more info!.');
     } else if (message.content.startsWith(`${pref}forest`)){
@@ -181,40 +192,6 @@ client.on('message', message =>{
         }
 });
 
-//Focus Mode section
-client.on('message', message =>{
-    if (message.content.startsWith(`${prefic}focus`)) {
-        message.reply(`went into deep Focus Mode - don't disturb!`);
-        const focus = client.channels.cache.get('730185814822223962');
-        focus.send(`Welcome in **Focus Mode** <@${message.author.id}> - to exit please use **!end**.`);
-        message.member.roles.add('729706682308886548');
-        message.member.roles.remove('707547622591692911');
-    }
-});
-
-//Study Team section
-client.on('message', message =>{
-    if (message.content.startsWith(`${prefic}start`)) {
-        message.reply(`You are now part of the *@Study Team* and will be pinged with every Team reminder!`);
-        message.member.roles.add('729444698812579870');
-        }
-});
-
-//End command section
-client.on('message', message =>{
-    if (message.content.startsWith(`${prefic}end`)) {
-        const general = client.channels.cache.get('703937876634894388');
-        if(message.member.roles.cache.has('735089477088837673')){
-            message.channel.send('You are **locked in Focus mode** and cannot do that now!')
-        
-        }else{
-        general.send(`<@${message.author.id}> you have left the *Focus Mode* and the *Study Group*!`)
-        message.member.roles.remove('729706682308886548');
-        message.member.roles.remove('729444698812579870');
-        message.member.roles.add('707547622591692911');
-        }
-    }
-});
 
 //Welcome message DM section
 client.on("guildMemberAdd", member => {
@@ -247,18 +224,6 @@ client.on('message', message =>{
     if (message.content.startsWith(`${bprefix}`)){
         const ann = client.channels.cache.get('732559541895561226')
         ann.send(`Happy Birthday!`)
-    }
-});
-
-//Logging User-Study time section (work in P.)
-client.on('message', message =>{
-    if(!message.content.startsWith(prefic) || message.author.bot) return;
- 
-    const args = message.content.slice(prefic.length).split(/ +/);
-    const command = args.shift().toLowerCase();
-
-    if (message.content.startsWith(`${prefic}add`)){
-        message.reply(` your ${args[0]} of study time have been logged.`);
     }
 });
 

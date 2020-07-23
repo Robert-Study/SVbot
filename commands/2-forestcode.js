@@ -1,5 +1,5 @@
 module.exports = {
-    name: 'forestcode',
+    name: '2-forestcode',
     description: "!code command that gives forest embed",
     execute(message, args){
         const Discord = require('discord.js');
