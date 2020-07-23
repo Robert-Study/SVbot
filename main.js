@@ -48,118 +48,32 @@ client.on('message', message =>{
 
 //Prefic = '?' commands:
 client.on('message', message =>{
-    if (message.content.startsWith(`${pref}help`)) {
-        message.channel.send('Help categories include: **?cmd**, **?forest**, **?VC**, **?hydra**, **?focus**, **?team**, **?birthday**, **?timers**, **?todo**. Please type either one to get more info!.');
-    } else if (message.content.startsWith(`${pref}forest`)){
-        const forestembed = new Discord.MessageEmbed()
-            .setColor('#337f4e')
-            .addFields(
-                { name: 'How to use Forest app', value: 
-                `:evergreen_tree: Forest is an App that helps you stay focused by growing a tree. :evergreen_tree:
-                If you leave the app or give up, the tree dies. :fallen_leaf:
-                
-                You will need the Premium App if you want to join our forest rooms.
-                Download link: https://www.forestapp.cc/
-                
-                To announce your tree use **!code 'forest-code' 'duration' 'starttime'**
-                It's also possible to share your link directly from forest in an embed!` }
-                )
-                message.channel.send(forestembed);
-    } else if (message.content.startsWith(`${pref}todo`)){
-        const todoembed = new Discord.MessageEmbed()
-            .setColor('#337f4e')
-            .addFields(
-                { name: 'Set up your To-Do List:', value: ` 
-                1). **$todo** (this will show your todo list)
-                2). **$todo add** "what you want to add to list"
-                3). **$todo remove** "number in the list you want to remove"
-                4). **$todo clear** (this will remove your whole list)` }
-                )
-        message.channel.send(todoembed);
-    } else if (message.content.startsWith(`${pref}VC`)){
-        const vcembed = new Discord.MessageEmbed()
-            .setColor('#337f4e')
-            .addFields(
-                { name: 'Private Voice-Channels', value: 
-                `Click the -Join to Create VC- to create a private room, **user commands:**
-                
-                1). **!voice lock/unlock** : 
-                    locks or unlocks a room so that no one else is able to join. 
-                2). **!voice name** "*channelname*" : 
-                    changes the name of your created channel.
-                3). **!voice claim** : gives you ownership over a created channel` }
-                )
-        message.channel.send(vcembed);
-    } else if (message.content.startsWith(`${pref}hydra`)){
-        const hydraembed = new Discord.MessageEmbed()
-            .setColor('#337f4e')
-            .addFields(
-                { name: 'How to use Hydra for music:', value: `**I.** Make sure you are in _any_ voice channel.
-                **II.** Just drop in an YT-URL of your favorite song or the title of a song in the #Hydra-channel - it starts playing or gets queed up.
-                **III.** Use the reaction features underneath the Player in this channel to control the Radio (play, pause, stop, next etc.)` }
-                )
-        message.channel.send(hydraembed);
-    } else if (message.content.startsWith(`${pref}focus`)){
-        const focusembed = new Discord.MessageEmbed()
-            .setColor('#337f4e')
-            .addFields(
-                { name: 'How to use Focus Mode:', value: `Focus mode is designed to keep you away from distracting channels, gifs and pings so you can work in peace.
-                Enter the Focus world by typing **!focus**, come back to the server by using **!end**.
-                
-                *note: you will still be able to be tagged in the Study Team timers via the #timers-forest channel!*` }
-                )
-        message.channel.send(focusembed);
-    } else if (message.content.startsWith(`${pref}team`)){
-        const focusembed = new Discord.MessageEmbed()
-            .setColor('#337f4e')
-            .addFields(
-                { name: 'How to use the Study Team:', value: `The Study Team is designed to work together in a session. Once you have entered the command **!start** you will get added the role @Study Team. when a reminder is set for the group, you will get tagged. Use **!end** to leave the Team at any moment. 
-                
-                *Note: if setting a reminder for the Team, use @Study Team*` }
-                )
-        message.channel.send(focusembed);
-    } else if (message.content.startsWith(`${pref}birthday`)){
-        const focusembed = new Discord.MessageEmbed()
-            .setColor('#337f4e')
-            .addFields(
-                { name: 'Set up your Birthday!', value: ` If you want to be added to the Birthday list and get mentioned on your birthday in the server (+birthday role) use: **bb.set day-month** (*example: bb.set 28-dec*). 
-                *Note: use a 3 letter month code!*
-
-                Use: **bb.remove** to remove yourself from the birthday list.` }
-                )
-        message.channel.send(focusembed);
-    } else if (message.content.startsWith(`${pref}timer`)){
-        const focusembed = new Discord.MessageEmbed()
-            .setColor('#337f4e')
-            .addFields(
-                { name: 'How to set session Timers:', value: ` If you want to set a timer or reminder for your session use the commands:
-                
-                **!timer**: Set a timer with a specific duration (example: !timer 60m Study, sets a timer for 60 min with the name study). :clock1: 
-                **!remindme**: Same as the timer function above, but will @mention you when timer is finished.
-                **!showtimers**: Shows all current timers :timer:  
-                
-                *Note: Session timers only work in the #timers-forest channel!*` }
-                )
-        message.channel.send(focusembed);
-    } else if (message.content.startsWith(`${pref}cmd`)){
-        message.author.send(`
-
-        __**Commands you can use in the Study Vibes Server:**__
-        0). **!cmd** : Gives this command window
-        1). **!tree** : Gives an explanation about the Forest app :evergreen_tree: 
-        2). **!cal** : Gives a link to the Study Vibes Calendar for Live Streams :movie_camera: 
-        3). **!timer**: Set a timer with a specific duration 
-        (example: !timer 60m Study, sets a timer for 60 min with the name study). :clock1: 
-        4). **!remindme**: Same as the timer function above, but will @mention you when timer is finished.
-        5). **!showtimers**: Shows all current timers :timer: 
-        6). **!todo** : Gives an explanation about the Reminder Bot in the #📌-to-do channel
-        7). **!suggest** : make an anonymous suggestion in the english channel.
-        8). **!poll** *'question'* : poll you can use for simple yes or no questions
-        9). **!highlight** *'word'* : Carl will DM you if the word is said anywhere on the server
-        
-        Use: **?help**, **?cmd**, **?forest**, **?VC**, **?hydra**, **?focus**, **?team**, **?birthday**, **?timers**, **?todo** for more specific info!`);
-            }
-
+    if(!message.content.startsWith(prefic) || message.author.bot) return;
+ 
+    const args = message.content.slice(prefic.length).split(/ +/);
+    const command = args.shift().toLowerCase();
+    
+    if(command === 'help'){
+        client.commands.get('8-helpgeneral').execute(message, args);
+    } else if(command === 'todo'){
+        client.commands.get('9-helptodo').execute(message, args);
+    } else if(command === 'vc'){
+        client.commands.get('10-helpvc').execute(message, args);
+    } else if(command === 'hydra'){
+        client.commands.get('11-helphydra').execute(message, args);
+    } else if(command === 'focus'){
+        client.commands.get('12-helpfocus').execute(message, args);
+    } else if(command === 'team'){
+        client.commands.get('13-helpteam').execute(message, args);
+    } else if(command === 'birthday'){
+        client.commands.get('14-helpbirthday').execute(message, args);
+    } else if(command === 'timer'){
+        client.commands.get('15-helptimer').execute(message, args);
+    } else if(command === 'cmd'){
+        client.commands.get('16-helpcmd').execute(message, args);
+    } else if(command === 'forest'){
+        client.commands.get('17-helpforest').execute(message, args);
+    }
 });
 
 //Forest automatic link section
@@ -338,19 +252,5 @@ client.on('message', message =>{
             break;
         }  
 });
-
-//Suggestion channel section
-client.on('message', message =>{
-    if(!message.content.startsWith(prefic) || message.author.bot) return;
- 
-    const args = message.content.slice(prefic.length).split(/ +/);
-    const command = args.shift().toLowerCase();
-
-    if(command === 'calendar'){
-        message.delete();
-        client.commands.get('suggest').execute(message, args);
-    }
-});
-
 
 client.login(process.env.token);
