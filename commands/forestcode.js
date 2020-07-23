@@ -2,6 +2,7 @@ module.exports = {
     name: 'forestcode',
     description: "!code command that gives forest embed",
     execute(message, args){
+        const Discord = require('discord.js');
         const channel = message.client.channels.cache.get('703937876634894388');
         const exampleEmbed = new Discord.MessageEmbed()
             .setColor('#337f4e')
