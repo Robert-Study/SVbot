@@ -33,9 +33,7 @@ client.on('message', message =>{
     
     if(command === 'cal'){
         client.commands.get('cal').execute(message, args);
-    };
-
-    if(command === 'code'){
+    } else if(command === 'code'){
         client.commands.get('forestcode').execute(message, args);
     };
 
