@@ -66,7 +66,7 @@ client.on('message', async message =>{
                 { name: `Use code: ${args[0]} or click this link: https://www.forestapp.cc/join-room?token=${args[0]}.`, value: '\u200B' },
                 { name: ':stopwatch: Duration:', value:`${args[1]}` , inline: true},
                 { name: ':closed_lock_with_key: Starting in:', value: `${args[2]}`, inline: true},
-                { name: '\u200B', value: 'Good luck! :palm_tree:' }
+                { name: '\u200B', value: 'Good luck! :palm_tree: | Join the team 👥 or go in focus 🔇 by reacting.' }
                 )
 
         let channelembed = await channel.send(exampleEmbed);
