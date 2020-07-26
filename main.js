@@ -68,13 +68,13 @@ client.on('message', async message =>{
                 )
 
         let channelembed = await channel.send(exampleEmbed);
-        channelembed.react(':busts_in_silhouette:')
-        channelembed.react(':🔇:')
+        channelembed.react('👥')
+        channelembed.react('🔇')
 
         const welcome = message.client.channels.cache.get('732292791287283862');
         let welcomeembed = await welcome.send(exampleEmbed);
-        welcomeembed.react(':busts_in_silhouette:')
-        welcomeembed.react(':🔇:')
+        welcomeembed.react('👥')
+        welcomeembed.react('🔇')
         }    
     
 });
