@@ -133,7 +133,7 @@ client.on('message', message =>{
 });
 
 //Forest automatic link section
-client.on('message', message =>{
+client.on('message', async message =>{
     if(!message.content.startsWith(prefix) || message.author.bot) return;
  
     const args = message.content.slice(prefix.length).split(/ +/);
@@ -152,14 +152,17 @@ client.on('message', message =>{
                 { name: `Use ${args[0]}`, value: '\u200B' },
                 { name: '\u200B', value:'Forest link:' , inline: true},
                 { name: `${args[6]}`, value: '\u200B' }
-                
                 )
 
-               
-        channel.send(exampleEmbed);
-        const welcome = client.channels.cache.get('732292791287283862');
-        welcome.send(exampleEmbed);
-        }
+        let channelembed = await channel.send(exampleEmbed);
+        channelembed.react('👥')
+        channelembed.react('🔇')
+        
+        const welcome = message.client.channels.cache.get('732292791287283862');
+        let welcomeembed = await welcome.send(exampleEmbed);
+        welcomeembed.react('👥')
+        welcomeembed.react('🔇')
+        } 
 });
 
 
