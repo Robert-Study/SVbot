@@ -87,7 +87,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 
     if (user.bot) return;
     if (reaction.emoji.name === '👥'){
-        await reaction.message.guild.members.cache.get(user.id).roles.add("")
+        await reaction.message.guild.members.cache.get(user.id).roles.add("729444698812579870")
     }
 });
 
