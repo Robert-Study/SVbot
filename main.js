@@ -31,8 +31,6 @@ client.on('message', message =>{
     
     if(command === 'cal'){
         client.commands.get('1-cal').execute(message, args);
-    } else if(command === 'code'){
-        client.commands.get('2-forestcode').execute(message, args);
     } else if(command === 'end'){
         client.commands.get('3-endcommand').execute(message, args);
     } else if(command === 'start'){
@@ -45,6 +43,18 @@ client.on('message', message =>{
         client.commands.get('7-log').execute(message, args);
     }
 });
+
+client.on('message', async message =>{
+    if(!message.content.startsWith(prefic) || message.author.bot) return;
+ 
+    const args = message.content.slice(prefic.length).split(/ +/);
+    const command = args.shift().toLowerCase();
+
+    if(command === 'code'){
+    client.commands.get('2-forestcode').execute(message, args);
+    }
+});
+
 
 //Prefic = '?' commands:
 client.on('message', message =>{
