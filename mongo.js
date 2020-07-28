@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const { mongoPass } = require('./config.json')
+
 const mongoPath = `mongodb+srv://DatabaseUser:9q2HgkPYsIvwL6mL@cluster0.s12v0.mongodb.net/first-db?retryWrites=true&w=majority`
 
 module.exports = async () => {
