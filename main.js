@@ -13,6 +13,20 @@ const ms = require('ms');
 
 client.commands = new Discord.Collection();
 
+const mongo = require('./mongo')
+
+const connectToMongoDB = async () => {
+  await mongo().then((mongoose) => {
+    try {
+      console.log('Connected to mongodb!')
+    } finally {
+      mongoose.connection.close()
+    }
+  })
+}
+
+connectToMongoDB()
+
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
 for(const file of commandFiles){
     const command = require(`./commands/${file}`);
