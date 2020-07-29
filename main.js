@@ -145,7 +145,7 @@ client.on('message', message =>{
         client.commands.get('17-helpforest').execute(message, args);
     } else if(command === 'life'){
         client.commands.get('2-life').execute(message, args);
-    }
+    } else message.channel.send('Ask your mom, your dad, your brother. I am just a simple bot. Created by mankinds smartest mod')
 });
 
 //Forest automatic link section
