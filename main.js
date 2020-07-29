@@ -143,7 +143,7 @@ client.on('message', message =>{
         client.commands.get('16-helpcmd').execute(message, args);
     } else if(command === 'forest'){
         client.commands.get('17-helpforest').execute(message, args);
-    } else if(command === 'log'){
+    } else if(command === 'life'){
         client.commands.get('2-life').execute(message, args);
     }
 });
