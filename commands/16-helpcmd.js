@@ -17,6 +17,6 @@ module.exports = {
         8). **!poll** *'question'* : poll you can use for simple yes or no questions
         9). **!highlight** *'word'* : Carl will DM you if the word is said anywhere on the server
         
-        Use: **?help**, **?cmd**, **?forest**, **?VC**, **?hydra**, **?focus**, **?team**, **?birthday**, **?timers**, **?todo** for more specific info!`);
+        Use: **?help**, **?cmd**, **?forest**, **?VC**, **?hydra**, **?focus**, **?team**, **?birthday**, **?timer**, **?todo** for more specific info!`);
             }
 }
