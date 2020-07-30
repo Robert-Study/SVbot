@@ -8,7 +8,6 @@ module.exports = {
             new Discord.MessageEmbed()
             .setColor('#000')
             .setAuthor(`Action By ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
-            .setThumbnail(message.author.displayAvatarURL({ dynamic: true }))
             .setTitle(`${message.author.username} Here is a personalized quote:`)
             .addField( 'Personalized quote:',`${randomQuotes[Math.floor(Math.random() * randomQuotes.length )]}`)
             .setTimestamp()
