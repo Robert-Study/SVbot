@@ -14,6 +14,8 @@ const ms = require('ms');
 client.commands = new Discord.Collection();
 
 const mongo = require('./mongo')
+const messageCount = require('./message-counter')
+messageCount(client)
 
 const connectToMongoDB = async () => {
   await mongo().then((mongoose) => {
