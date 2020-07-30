@@ -72,9 +72,9 @@ client.on('message', async message =>{
         const target = message.mentions.users.first() || message.author
         const targetId = target.id
 
-        const userId = targetId
+        const UserId = target.id
 
-        const messages = await messagecounter.getmessageCount(userId)
+        const messages = await messagecounter.getmessageCount(UserId)
         message.reply(`You have already written ${messages} messages on this server!`)
         }
     });
