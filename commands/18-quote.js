@@ -2,7 +2,7 @@ module.exports = {
     name: '18-quote',
     description: "!focus command that enables focus mode",
     execute(message, args){
-        const { randomQuotes } = require('./randomQuotes.json');
+        const { randomQuotes } = require('../randomQuotes.json/');
         message.channel.send(
             new Discord.MessageEmbed()
             .setColor('#000')
