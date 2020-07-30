@@ -9,9 +9,8 @@ module.exports = {
             .setColor('#000')
             .setAuthor(`Action By ${message.author.tag}`, message.author.displayAvatarURL({ dynamic: true }))
             .setThumbnail(message.author.displayAvatarURL({ dynamic: true }))
-            .setTitle(`${message.author.username} Here Is Two Random Quotes:`)
-            .addField( 'Random Quote 1:',`-->|${randomQuotes[Math.floor(Math.random() * randomQuotes.length )]}`)
-            .addField( 'Random Quote 2:', `-->|${randomQuotes[Math.floor(Math.random() * randomQuotes.length )]}`)
+            .setTitle(`${message.author.username} Here is a personalized quote:`)
+            .addField( 'Personalized quote:',`${randomQuotes[Math.floor(Math.random() * randomQuotes.length )]}`)
             .setTimestamp()
         )
     }
