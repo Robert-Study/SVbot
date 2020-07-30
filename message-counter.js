@@ -11,7 +11,7 @@ module.exports = (client) => {
         await messageCountSchema
           .findOneAndUpdate(
             {
-              _id: id,
+              UserId: id,
             },
             {
               $inc: {
@@ -29,3 +29,31 @@ module.exports = (client) => {
     })
   })
 }
+
+module.exports.getmessageCount = async (UserId) => {
+    return await mongo().then(async (mongoose) => {
+      try {
+        console.log('Running findOne()')
+  
+        const result = await profileSchema.findOne({
+          UserId,
+        })
+  
+        let messageCount = 0
+        
+        if (result) {
+          messageCount = result.messageCount
+        } else {
+          console.log('Inserting a document')
+          await new profileSchema({
+            UserId,
+            messageCount,
+          }).save()
+        }
+  
+        return messageCount
+      } finally {
+        mongoose.connection.close()
+      }
+    })
+  }

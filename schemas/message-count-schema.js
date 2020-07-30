@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const messageCountSchema = mongoose.Schema({
-  _id: {
+  UserId: {
     type: String,
     required: true,
   },

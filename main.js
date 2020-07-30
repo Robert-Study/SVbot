@@ -64,6 +64,21 @@ client.on('message', message =>{
     }
 });
 
+const messagecounter = require('message-counter')
+
+client.on('message', async message =>{
+    if(!message.content.startsWith(prefic) || message.author.bot) return;
+    if(command === 'message'){
+        const target = message.mentions.users.first() || message.author
+        const targetId = target.id
+
+        const userId = targetId
+
+        const messages = await messagecounter.getmessageCount(userId)
+        message.reply(`You have already written ${messages} messages on this server!`)
+        }
+    });
+
 client.on('message', async message =>{
     if(!message.content.startsWith(prefic) || message.author.bot) return;
  
