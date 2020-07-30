@@ -57,6 +57,8 @@ client.on('message', message =>{
         client.commands.get('6-ticket').execute(message, args);
     } else if(command === 'log'){
         client.commands.get('7-log').execute(message, args);
+    } else if(command === 'quote'){
+        client.commands.get('18-quote').execute(message, args);
     }
 });
 
