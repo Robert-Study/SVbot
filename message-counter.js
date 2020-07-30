@@ -35,17 +35,17 @@ module.exports.getmessageCount = async (UserId) => {
       try {
         console.log('Running findOne()')
   
-        const result = await profileSchema.findOne({
+        const result = await messageCountSchema.findOne({
           UserId,
         })
   
         let messageCount = 0
-        
+
         if (result) {
           messageCount = result.messageCount
         } else {
           console.log('Inserting a document')
-          await new profileSchema({
+          await new messageCountSchema({
             UserId,
             messageCount,
           }).save()
