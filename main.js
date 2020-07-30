@@ -68,6 +68,10 @@ const messagecounter = require('./getmessagecount')
 
 client.on('message', async message =>{
     if(!message.content.startsWith(prefic) || message.author.bot) return;
+    
+    const args = message.content.slice(prefic.length).split(/ +/);
+    const command = args.shift().toLowerCase();
+    
     if(command === 'message'){
         const target = message.mentions.users.first() || message.author
         const targetId = target.id
