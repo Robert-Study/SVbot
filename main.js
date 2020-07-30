@@ -64,7 +64,7 @@ client.on('message', message =>{
     }
 });
 
-const messagecounter = require('message-counter')
+const messagecounter = require('./message-counter')
 
 client.on('message', async message =>{
     if(!message.content.startsWith(prefic) || message.author.bot) return;
