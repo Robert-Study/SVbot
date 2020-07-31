@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const logcountSchema = mongoose.Schema({
-  UserId: {
+  UserID: {
     type: String,
     required: true,
   },
