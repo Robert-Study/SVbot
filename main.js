@@ -97,9 +97,9 @@ client.on('message', async message =>{
             const target = message.mentions.users.first() || message.author
             const targetId = target.id
 
-            const UserId = target.id
+            const UserID = target.id
             
-            const logtotal = await logcounter.getLog(UserId)
+            const logtotal = await logcounter.getLog(UserID)
             message.reply(`You have already written ${logtotal} messages on this server!`)};
         
     }catch (error){
