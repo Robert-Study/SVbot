@@ -25,7 +25,7 @@ module.exports.getLog = async (UserID) => {
                 }) .save()
             }
         return timeLog
-    }finally{
+        }finally{
         mongoose.connection.close()
     }
 })
