@@ -2,6 +2,10 @@ const mongo = require('./mongo')
 const logcountSchema = require('./schemas/2-logcountschema')
 
 module.exports.getLog = async (UserID) => {
+    const cachedValue = logCache[`${userId}`]
+        if (cachedValue) {
+        return cachedValue}
+    
     return await mongo().then(async (mongoose) =>{
         try {
             console.log('running logsearch')
