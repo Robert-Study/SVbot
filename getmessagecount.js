@@ -1,5 +1,5 @@
 const mongo = require('./mongo')
-const messageCountSchema = require('./schemas/message-count-schema')
+const messageCountSchema = require('./schemas/1-messagecountschema')
 
 module.exports.getmessageCount = async (UserId) => {
     return await mongo().then(async (mongoose) => {
@@ -15,13 +15,8 @@ module.exports.getmessageCount = async (UserId) => {
         if (result) {
           messageCount = result.messageCount
         } else {
-          console.log('Inserting a document')
-          await new messageCountSchema({
-            UserId,
-            messageCount,
-          }).save()
-        }
-  
+          console.log('No messages for this user')}
+        
         return messageCount
       } finally {
         mongoose.connection.close()

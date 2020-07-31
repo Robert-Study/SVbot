@@ -6,7 +6,7 @@ const client = new Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
 const prefix = "Plant trees with me on Forest! Enter "
 const prefic = "!"
 const pref = "?"
-const bprefix = "Birthday"
+const bprefix = "Happy Birthday to our "
 
 const fs = require('fs');
 const ms = require('ms');
@@ -14,7 +14,7 @@ const ms = require('ms');
 client.commands = new Discord.Collection();
 
 const mongo = require('./mongo')
-const messageCount = require('./message-counter')
+const messageCount = require('./1-messagecounter')
 messageCount(client)
 
 const connectToMongoDB = async () => {
@@ -234,8 +234,20 @@ client.on("guildMemberAdd", member => {
 //Birthday send message to Announcements
 client.on('message', message =>{
     if (message.content.startsWith(`${bprefix}`)){
+    
+        const args = message.content.slice(prefix.length).split(/ +/);
+        const command = args.shift().toLowerCase();
+
+        if (command === 'beloved'){
+            const birthdayembed = new Discord.MessageEmbed()
+            .setColor('#337f4e')
+            .addFields(
+            { name: 'Happy Birthday!', value: `Happy Birthday to our beloved ${args[0]}! We all wish you a beautiful day! 🎈🎉` }
+            )
+        } 
+
         const ann = client.channels.cache.get('732559541895561226')
-        ann.send(`Happy Birthday!`)
+        ann.send(birthdayembed)
     }
 });
 
