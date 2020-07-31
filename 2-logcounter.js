@@ -1,9 +1,6 @@
 const mongo = require('./mongo')
 const logcountSchema = require('./schemas/2-logcountschema')
 
-module.exports = (client) => {}
-
-
 module.exports.getLog = async (UserID) => {
     return await mongo().then(async (mongoose) =>{
         try {
