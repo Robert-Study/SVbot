@@ -93,7 +93,7 @@ client.on('message', async message =>{
         const args = message.content.slice(prefic.length).split(/ +/);
         const command = args.shift().toLowerCase();
     
-        if(command === 'log'){
+        if(command === 'week'){
             const target = message.mentions.users.first() || message.author
             const targetId = target.id
 
