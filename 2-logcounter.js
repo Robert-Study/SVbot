@@ -1,5 +1,6 @@
 const mongo = require('./mongo')
 const logcountSchema = require('./schemas/2-logcountschema')
+const logCache = {}
 
 module.exports.getLog = async (UserID) => {
     const cachedValue = logCache[`${UserId}`]
