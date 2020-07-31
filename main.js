@@ -79,8 +79,8 @@ client.on('message', async message =>{
             const UserId = target.id
 
             const messages = await messagecounter.getmessageCount(UserId)
-            message.reply(`You have studied for ${messages} minutes this week!`)};
-        
+            message.reply(`You have already written ${messages} messages on this server!`)};
+            
     }catch (error){
         console.error(error);}
 });
@@ -100,7 +100,7 @@ client.on('message', async message =>{
             const UserID = target.id
             
             const logtotal = await logcounter.getLog(UserID)
-            message.reply(`You have already written ${logtotal} messages on this server!`)};
+            message.reply(`You have studied for ${logtotal} minutes this week!`)};
         
     }catch (error){
         console.error(error);}
