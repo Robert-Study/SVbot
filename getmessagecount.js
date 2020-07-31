@@ -4,7 +4,7 @@ const messageCountSchema = require('./schemas/1-messagecountschema')
 module.exports.getmessageCount = async (UserId) => {
     return await mongo().then(async (mongoose) => {
       try {
-        console.log('Running findOne()')
+        console.log('Searching the database for message-count')
   
         const result = await messageCountSchema.findOne({
           UserId,

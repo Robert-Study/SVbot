@@ -14,6 +14,7 @@ const ms = require('ms');
 client.commands = new Discord.Collection();
 
 const mongo = require('./mongo')
+const messagecounter = require('./getmessagecount')
 const messageCount = require('./1-messagecounter')
 messageCount(client)
 
@@ -64,25 +65,28 @@ client.on('message', message =>{
     }
 });
 
-const messagecounter = require('./getmessagecount')
-
+//Message count !message section
 client.on('message', async message =>{
-    if(!message.content.startsWith(prefic) || message.author.bot) return;
+    try{
+        if(!message.content.startsWith(prefic) || message.author.bot) return;
     
-    const args = message.content.slice(prefic.length).split(/ +/);
-    const command = args.shift().toLowerCase();
+        const args = message.content.slice(prefic.length).split(/ +/);
+        const command = args.shift().toLowerCase();
     
-    if(command === 'message'){
-        const target = message.mentions.users.first() || message.author
-        const targetId = target.id
+        if(command === 'message'){
+            const target = message.mentions.users.first() || message.author
+            const targetId = target.id
 
-        const UserId = target.id
+            const UserId = target.id
 
-        const messages = await messagecounter.getmessageCount(UserId)
-        message.reply(`You have already written ${messages} messages on this server!`)
-        }
-    });
+            const messages = await messagecounter.getmessageCount(UserId)
+            message.reply(`You have already written ${messages} messages on this server!`)};
+        
+    }catch (error){
+        console.error(error);}
+});
 
+//Forest !code section
 client.on('message', async message =>{
     if(!message.content.startsWith(prefic) || message.author.bot) return;
  
