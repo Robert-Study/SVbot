@@ -16,6 +16,7 @@ client.commands = new Discord.Collection();
 const mongo = require('./mongo')
 const messagecounter = require('./getmessagecount')
 const messageCount = require('./1-messagecounter')
+const logcounter = require('./2-logcounter')
 messageCount(client)
 
 const connectToMongoDB = async () => {
@@ -58,8 +59,6 @@ client.on('message', message =>{
         client.commands.get('5-focus').execute(message, args);
     } else if(command === 'ticket'){
         client.commands.get('6-ticket').execute(message, args);
-    } else if(command === 'log'){
-        client.commands.get('7-log').execute(message, args);
     } else if(command === 'quote'){
         client.commands.get('18-quote').execute(message, args);
     }
@@ -80,12 +79,32 @@ client.on('message', async message =>{
             const UserId = target.id
 
             const messages = await messagecounter.getmessageCount(UserId)
-            message.reply(`You have already written ${messages} messages on this server!`)};
+            message.reply(`You have studied for ${messages} minutes this week!`)};
         
     }catch (error){
         console.error(error);}
 });
 
+//Log count !log section
+client.on('message', async message =>{
+    try{
+        if(!message.content.startsWith(prefic) || message.author.bot) return;
+    
+        const args = message.content.slice(prefic.length).split(/ +/);
+        const command = args.shift().toLowerCase();
+    
+        if(command === 'log'){
+            const target = message.mentions.users.first() || message.author
+            const targetId = target.id
+
+            const UserId = target.id
+            
+            const logtotal = await logcounter.getLog(UserId)
+            message.reply(`You have already written ${logtotal} messages on this server!`)};
+        
+    }catch (error){
+        console.error(error);}
+});
 //Forest !code section
 client.on('message', async message =>{
     if(!message.content.startsWith(prefic) || message.author.bot) return;
