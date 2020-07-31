@@ -5,7 +5,7 @@ module.exports = (client) => {}
 
 
 module.exports.getLog = async (UserID) => {
-    return await mongo().then(mongoose =>{
+    return await mongo().then(async (mongoose) =>{
         try {
             console.log('running logsearch')
 
