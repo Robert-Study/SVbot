@@ -2,7 +2,7 @@ const mongo = require('./mongo')
 const logcountSchema = require('./schemas/2-logcountschema')
 
 module.exports.getLog = async (UserID) => {
-    const cachedValue = logCache[`${userId}`]
+    const cachedValue = logCache[`${UserId}`]
         if (cachedValue) {
         return cachedValue}
     
