@@ -8,6 +8,6 @@ module.exports = {
 
         const UserId = target.id
 
-        const messages = async(UserId) => { await messagecounter.getmessageCount(UserId)}
+        const messages = async() => { await messagecounter.getmessageCount(UserId)}
         message.send(`${target} has already written ${messages} messages on this server!`)}
     }
