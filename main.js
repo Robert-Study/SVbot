@@ -65,7 +65,6 @@ client.on('message', message =>{
 
 //Message count !message section
 client.on('message', message =>{
-    try{
         if(!message.content.startsWith(prefic) || message.author.bot) return;
     
         const args = message.content.slice(prefic.length).split(/ +/);
@@ -76,9 +75,6 @@ client.on('message', message =>{
         } else if(command === 'code'){
             client.commands.get('20-forestcode').execute(message, args);
         }
-           
-    }catch (error){
-        console.error(error);}
 });
 
 //Log count !log section
