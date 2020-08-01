@@ -1,7 +1,4 @@
-module.exports = {
-    name: '19-message',
-    description: "!code command that gives forest embed",
-    execute(message, args){
+module.exports.run = async (message, args) => {
         const Discord = require('discord.js');
         const channel = message.client.channels.cache.get('703937876634894388');
         let exampleEmbed = new Discord.MessageEmbed()
@@ -27,5 +24,5 @@ module.exports = {
         welcomeembed.react('👥')
         welcomeembed.react('🔇')
         }    
-};
+
 
