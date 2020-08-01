@@ -64,7 +64,7 @@ client.on('message', message =>{
 });
 
 //Message count !message section
-client.on('message', async message =>{
+client.on('message', message =>{
     try{
         if(!message.content.startsWith(prefic) || message.author.bot) return;
     
