@@ -1,7 +1,4 @@
-module.exports = {
-    name: '19-message',
-    description: "!code command that gives forest embed",
-    execute(message, args){
+module.exports.run = async (message, args) => {
         const messagecounter = require('../../getmessagecount')
         const target = message.mentions.users.first() || message.author
         const targetId = target.id
@@ -10,5 +7,5 @@ module.exports = {
 
         const messages = await messagecounter.getmessageCount(UserId)
         message.send(`${target} has already written ${messages} messages on this server!`)}
-};
+
 
