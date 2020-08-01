@@ -72,9 +72,9 @@ client.on('message', async message =>{
         const command = args.shift().toLowerCase();
     
         if(command === 'message'){
-            client.commands.get('19-message').execute (message, args);
+            client.commands.get('19-message').execute(message, args);
         } else if(command === 'code'){
-            client.commands.get('20-forestcode').execute (message, args);
+            client.commands.get('20-forestcode').execute(message, args);
         }
            
     }catch (error){

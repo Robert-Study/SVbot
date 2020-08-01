@@ -1,4 +1,4 @@
-module.exports.run = async (message, args) => {
+module.exports.execute = async (message, args) => {
         const Discord = require('discord.js');
         const channel = message.client.channels.cache.get('703937876634894388');
         let exampleEmbed = new Discord.MessageEmbed()
