@@ -1,6 +1,6 @@
 module.exports = {
         getmessage: async (message, args) => {
-                const messagecounter = require('../../getmessagecount')
+                const messagecounter = require('../getmessagecount')
                 const target = message.mentions.users.first() || message.author
                 const targetId = target.id
 
