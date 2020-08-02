@@ -1,6 +1,6 @@
 const messagecounter = require('../getmessagecount')
 
-module.exports.getmessage = async (UserId) => {
+module.exports.getmessage = async (message) => {
         const target = message.mentions.users.first() || message.author
         const UserId = target.id
 
