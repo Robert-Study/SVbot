@@ -1,7 +1,7 @@
 module.exports = {
     name: '1-cal',
     description: "calendar command",
-    execute = async (message,args) => {
+    execute: async (message,args) => {
         const messagecounter = require('../../getmessagecount')
         const target = message.mentions.users.first() || message.author
         const targetId = target.id
