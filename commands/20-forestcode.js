@@ -1,7 +1,7 @@
 module.exports = {
     name: '1-cal',
     description: "calendar command",
-    execute (message,args) {
+    execute = async (message,args) => {
         const Discord = require('discord.js');
         const channel = message.client.channels.cache.get('703937876634894388');
         let exampleEmbed = new Discord.MessageEmbed()
@@ -18,13 +18,13 @@ module.exports = {
                 { name: '\u200B', value: 'Good luck! :palm_tree: | Join the team 👥 or go in focus 🔇 by reacting.' }
                 )
 
-        let channelembed = async(exampleEmbed) => {await channel.send(exampleEmbed)};
+        let channelembed = await channel.send(exampleEmbed);
         channelembed.react('👥')
         channelembed.react('🔇')
 
         const welcome = message.client.channels.cache.get('732292791287283862');
         
-        let welcomeembed = async(exampleEmbed) => {await welcome.send(exampleEmbed)};
+        let welcomeembed = await welcome.send(exampleEmbed);
         welcomeembed.react('👥')
         welcomeembed.react('🔇')
         }    
