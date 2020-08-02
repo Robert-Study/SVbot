@@ -1,4 +1,4 @@
-const messagecounter = require('../../getmessagecount')
+const messagecounter = require('../getmessagecount')
 const target = message.mentions.users.first() || message.author
 const UserId = target.id
 
