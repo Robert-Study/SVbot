@@ -64,7 +64,7 @@ client.on('message', message =>{
 });
 
 //Message count !message section
-client.on('message', message =>{
+client.on('message', async message =>{
         if(!message.content.startsWith(prefic) || message.author.bot) return;
     
         const args = message.content.slice(prefic.length).split(/ +/);
@@ -72,8 +72,10 @@ client.on('message', message =>{
     
         if(command === 'message'){
             client.commands.get('19-message').getmessage(message, args);
+            
         } else if(command === 'code'){
-            client.commands.get('20-forestcode').getcode(message, args);
+            messages = await client.commands.get('20-forestcode').getcode(message, args);
+            message.reply(`you have already written ${messages} messages on this server!`)
         }
 });
 
