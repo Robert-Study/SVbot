@@ -1,7 +1,7 @@
 module.exports = {
     name: '1-cal',
     description: "calendar command",
-    execute: async (message,args) => {
+    execute = (count) => count.on('message', async (message,args) => {
         const Discord = require('discord.js');
         const channel = message.client.channels.cache.get('703937876634894388');
         let exampleEmbed = new Discord.MessageEmbed()
@@ -28,5 +28,5 @@ module.exports = {
         welcomeembed.react('👥')
         welcomeembed.react('🔇')
         }    
-    }
+    )}
 
