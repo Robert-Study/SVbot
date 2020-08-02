@@ -7,4 +7,4 @@ module.exports.getmessage = async (message,args) => {
 
         let messages = await messagecounter.getmessageCount(UserId)
         message.send(`${target} has already written ${messages} messages on this server!`)
-})
+};
