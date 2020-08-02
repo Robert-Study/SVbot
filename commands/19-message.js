@@ -1,4 +1,4 @@
-module.exports.execute = async (message,args) => {
+module.exports.getmessage = async (message,args) => {
         const messagecounter = require('../../getmessagecount')
         const target = message.mentions.users.first() || message.author
         const targetId = target.id
@@ -7,4 +7,4 @@ module.exports.execute = async (message,args) => {
 
         let messages = await messagecounter.getmessageCount(UserId)
         message.send(`${target} has already written ${messages} messages on this server!`)
-}
+})
