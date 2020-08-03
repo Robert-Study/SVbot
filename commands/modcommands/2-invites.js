@@ -17,7 +17,7 @@ module.exports = {
           inviteCounter[name] = (inviteCounter[name] || 0) + uses
         })
   
-        let replyText = 'Top 3 user invites:'
+        let replyText = 'Top 5 user invites:'
   
         const sortedInvites = Object.keys(inviteCounter).sort(
           (a, b) => inviteCounter[b] - inviteCounter[a]
@@ -25,7 +25,7 @@ module.exports = {
   
         console.log(sortedInvites)
   
-        sortedInvites.length = 3
+        sortedInvites.length = 5
   
         for (const invite of sortedInvites) {
           const count = inviteCounter[invite]
