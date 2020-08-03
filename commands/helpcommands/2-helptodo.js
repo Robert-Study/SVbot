@@ -1,7 +1,8 @@
 module.exports = {
-    name: '9-helptodo',
-    description: "!code command that gives forest embed",
-    execute(message, args){
+    commands: ['infotodo','helptodo'],
+    minArgs: 0,
+    maxArgs: 0,
+    callback: (message, arguments, text) => {
         const Discord = require('discord.js');
         const todoembed = new Discord.MessageEmbed()
             .setColor('#337f4e')

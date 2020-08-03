@@ -1,7 +1,8 @@
 module.exports = {
-    name: '12-helpfocus',
-    description: "!code command that gives forest embed",
-    execute(message, args){
+    commands: ['infofocus', 'helpfocus'],
+    minArgs: 0,
+    maxArgs: 0,
+    callback: (message, arguments, text) => {
         const Discord = require('discord.js');
         const focusembed = new Discord.MessageEmbed()
         .setColor('#337f4e')

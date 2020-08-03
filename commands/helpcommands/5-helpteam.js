@@ -1,7 +1,8 @@
 module.exports = {
-    name: '13-helpteam',
-    description: "!code command that gives forest embed",
-    execute(message, args){
+    commands: ['infoteam', 'helpteam', 'team'],
+    minArgs: 0,
+    maxArgs: 0,
+    callback: (message, arguments, text) => {
         const Discord = require('discord.js');
         const teamembed = new Discord.MessageEmbed()
         .setColor('#337f4e')

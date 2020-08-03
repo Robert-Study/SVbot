@@ -1,9 +1,9 @@
 module.exports = {
-    name: '16-helpcmd',
-    description: "!code command that gives forest embed",
-    execute(message, args){
+    commands: ['infocmd', 'helpcmd', 'cmd'],
+    minArgs: 0,
+    maxArgs: 0,
+    callback: (message, arguments, text) => {
         message.author.send(`
-
         __**Commands you can use in the Study Vibes Server:**__
         0). **!cmd** : Gives this command window
         1). **!tree** : Gives an explanation about the Forest app :evergreen_tree: 

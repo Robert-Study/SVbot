@@ -1,7 +1,9 @@
+
 module.exports = {
-    name: '11-helphydra',
-    description: "!code command that gives forest embed",
-    execute(message, args){
+    commands: ['infohydra','helphydra'],
+    minArgs: 0,
+    maxArgs: 0,
+    callback: (message, arguments, text) => {
         const Discord = require('discord.js');
         const hydraembed = new Discord.MessageEmbed()
         .setColor('#337f4e')

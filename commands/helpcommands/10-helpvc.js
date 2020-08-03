@@ -1,7 +1,8 @@
 module.exports = {
-    name: '10-helpvc',
-    description: "!code command that gives forest embed",
-    execute(message, args){
+    commands: ['infovc', 'helpvc', 'vc'],
+    minArgs: 0,
+    maxArgs: 0,
+    callback: (message, arguments, text) => {
         const Discord = require('discord.js');
         const vcembed = new Discord.MessageEmbed()
             .setColor('#337f4e')

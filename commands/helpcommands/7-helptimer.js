@@ -1,7 +1,8 @@
 module.exports = {
-    name: '15-helptimer',
-    description: "!code command that gives forest embed",
-    execute(message, args){
+    commands: ['infotimer', 'helptimer'],
+    minArgs: 0,
+    maxArgs: 0,
+    callback: (message, arguments, text) => {
         const Discord = require('discord.js');
         const focusembed = new Discord.MessageEmbed()
         .setColor('#337f4e')

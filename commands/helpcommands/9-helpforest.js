@@ -1,7 +1,8 @@
 module.exports = {
-    name: '17-helpforest',
-    description: "!code command that gives forest embed",
-    execute(message, args){
+    commands: ['infofores', 'helpforest','forest'],
+    minArgs: 0,
+    maxArgs: 0,
+    callback: (message, arguments, text) => {
         const Discord = require('discord.js');
         const forestembed = new Discord.MessageEmbed()
         .setColor('#337f4e')
