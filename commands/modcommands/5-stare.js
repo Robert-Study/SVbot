@@ -6,9 +6,9 @@ module.exports = {
 
     callback: (message, arguments, text) => {
         var person = message.guild.member(message.mentions.users.first());
-        message.channel.send(`<@${person.user.tag}>, a moderator is awkwardly staring at you.. 👀 
- 
-            Please behave according to the rules!`)
+            if (!person) return  message.reply("I CANT FIND THE USER " + person);
+        message.channel.send(`${"<@" + person.user.tag + ">"}, a moderator is awkwardly staring at you.. 👀 
+        Please behave according to the rules!`)
     }
 }
 
