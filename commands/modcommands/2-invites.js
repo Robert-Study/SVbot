@@ -1,14 +1,12 @@
 module.exports = {
     commands: 'invites',
     description: 'Displays who has invited the most members',
+    permissions: 'BAN_MEMBERS',
     callback: (message) => {
       const { guild } = message
   
       guild.fetchInvites().then((invites) => {
-        const inviteCounter = {
-          bob: 19,
-          joe: 30,
-        }
+        const inviteCounter = {}
   
         invites.forEach((invite) => {
           const { uses, inviter } = invite
