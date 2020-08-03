@@ -36,7 +36,6 @@ module.exports = {
         }
         
         VerMembers(message.guild)
-        updateMembers(message.guild)
         console.log(`${roleName} has ${counter} user(s)!`)
         }
     }
