@@ -21,6 +21,6 @@ module.exports = {
         person.roles.remove(focusrole.id)
 
         const general = message.client.channels.cache.get('703937876634894388');
-        general.send(`<@${message.author.id}> has unlocked @${person.user.tag}`)
+        general.send(`<@${message.author.id}> has unlocked <@${person.user.tag}>`)
     }
 }
