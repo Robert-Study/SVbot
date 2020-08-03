@@ -9,7 +9,7 @@ module.exports = {
             message.reply('The amount parameter isn`t a number!'); 
 
         if (amount > 100) return 
-            messag.reply('You can`t delete more than 100 messages at once!'); 
+            message.reply('You can`t delete more than 100 messages at once!'); 
         if (amount < 1) return 
             message.reply('You have to delete at least 1 message!'); 
 
