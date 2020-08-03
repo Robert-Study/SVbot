@@ -3,7 +3,7 @@ module.exports = {
     minArgs: 1,
     maxArgs: 1,
     permissions: 'BAN_MEMBERS',
-    callback: (message, arguments, text) => {
+    callback: async (message, arguments, text) => {
         let amount = arguments[1]
         if (isNaN(amount)) return 
             message.reply('The amount parameter isn`t a number!'); 
