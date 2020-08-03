@@ -4,7 +4,7 @@ module.exports = {
     maxArgs: 1,
     permissions: 'BAN_MEMBERS',
     callback: async (message, arguments, text) => {
-        const amount = arguments[0]+1
+        const amount = arguments[0]
         if (isNaN(amount)) return message.reply('The amount parameter isn`t a number!'); 
 
         if (amount > 100) return message.reply('You can`t delete more than 100 messages at once!'); 
