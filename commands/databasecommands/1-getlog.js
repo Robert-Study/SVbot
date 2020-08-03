@@ -10,5 +10,5 @@ module.exports = {
         const UserID = target.id
             
         const logtotal = await logcounter.getLog(UserID)
-        message.reply(`You have studied for ${logtotal} minutes this week!`)}
+        message.reply(`You have studied for ${logtotal} hours this week!`)}
     };

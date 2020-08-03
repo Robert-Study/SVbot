@@ -25,7 +25,7 @@ module.exports = {
       const newLog = await economy.addLog(UserID, timeLog)
   
       message.reply(
-        `You have added ${timeLog} minutes of study time. Your weekly study time is now ${newLog} minutes!`
+        `You have added ${timeLog} hours of study time. Your weekly study time is now ${newLog} hours!`
       )
     },
   }
