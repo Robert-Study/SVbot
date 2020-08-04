@@ -4,7 +4,7 @@ const messageCache = {}
 
 module.exports = (client) => {}
 
-module.exports.addMessage = async (UserID, messageCount) => {
+module.exports.addMessage = async (UserId, messageCount) => {
     return await mongo().then(async (mongoose) => {
       try {
         console.log('Running findOneAndUpdate()')
