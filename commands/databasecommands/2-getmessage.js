@@ -1,5 +1,5 @@
 module.exports = {
-    commands: ['message'],
+    commands: ['message', 'messages'],
     minArgs: 0,
     maxArgs: 1,
     callback: async(message, arguments, text) => {
