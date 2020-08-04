@@ -1,5 +1,5 @@
 module.exports = {
-    commands: ['cl'],
+    commands: ['cl', 'clear'],
     minArgs: 1,
     maxArgs: 1,
     permissions: 'BAN_MEMBERS',
