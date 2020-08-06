@@ -1,5 +1,5 @@
 module.exports = {
-    commands: ['support'],
+    commands: ['ticket'],
     minArgs: 0,
     maxArgs: 0,
     callback: async(message, arguments, text) => {
