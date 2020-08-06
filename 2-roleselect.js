@@ -22,8 +22,6 @@ client.on("messageReactionAdd", async (reaction, user) => {
         await reaction.message.guild.members.cache.get(user.id).roles.remove("707547622591692911")
     }
 });
-}
 
-client.on("MessageReactionAdd", async (reaction, user)=> {
     
-})
+}
