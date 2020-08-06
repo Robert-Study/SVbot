@@ -31,7 +31,7 @@ module.exports = {
 
     message.guild.channels.create(userName + "-" + userDiscriminator, "text").then((createdChan) => {
         createdChan.setParent(categoryId).then((settedParent) => {
-            settedParent.overwritePermissions(message.guild.roles.find('name', "@everyone"), { "READ_MESSAGES": false });
+            settedParent.overwritePermissions(message.guild.roles.cache.find('name', "@everyone"), { "READ_MESSAGES": false });
             settedParent.overwritePermissions(message.author, {
                 "READ_MESSAGES": true, "SEND_MESSAGES": true,
                 "ATTACH_FILES": true, "CONNECT": true,
