@@ -23,7 +23,7 @@ module.exports = {
 
     if (bool == true) return;
 
-    var embedCreateTicket = new discord.RichEmbed()
+    var embedCreateTicket = new discord.MessageEmbed()
         .setTitle("Hi, " + message.author.username)
         .setFooter("I have made you a support channel");
 
@@ -38,7 +38,7 @@ module.exports = {
                 "CREATE_INSTANT_INVITE": false, "ADD_REACTIONS": true
             });
 
-            var embedParent = new discord.RichEmbed()
+            var embedParent = new discord.MessageEmbed()
             .setTitle("Hi, " + message.author.username.toString())
             .setDescription("Please write your question/message here. Mods: To close write !close");
 
