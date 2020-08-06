@@ -10,7 +10,7 @@ module.exports = {
 
         var bool = false;
 
-        message.guild.channels.forEach((channel) => {
+        message.guild.channels.cache.forEach((channel) => {
             if (channel.name == userName.toLowerCase() + "-" + userDiscriminator) {
  
             message.channel.send("You already have a support channel");
