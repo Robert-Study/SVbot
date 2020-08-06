@@ -1,5 +1,5 @@
 module.exports = {
-    commands: ['stare'],
+    commands: ['stare', 'warn'],
     minArgs: 1,
     maxArgs: 1,
     permissions: 'BAN_MEMBERS',

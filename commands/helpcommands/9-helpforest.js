@@ -1,5 +1,5 @@
 module.exports = {
-    commands: ['infofores', 'helpforest','forest'],
+    commands: ['infoforest', 'helpforest','forest'],
     minArgs: 0,
     maxArgs: 0,
     callback: (message, arguments, text) => {

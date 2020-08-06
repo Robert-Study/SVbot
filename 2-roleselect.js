@@ -1,3 +1,5 @@
+const { MessageReaction } = require("discord.js");
+
 module.exports = (client) => {
 
 client.on("messageReactionAdd", async (reaction, user) => {
@@ -21,3 +23,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
     }
 });
 }
+
+client.on("MessageReactionAdd", async (reaction, user)=> {
+    
+})
