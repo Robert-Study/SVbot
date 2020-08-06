@@ -3,6 +3,7 @@ module.exports = {
     minArgs: 0,
     maxArgs: 0,
     callback: async(message, arguments, text) => {
+        const discord = require('discord.js')
         const categoryId = "703937876634894387";
 
         var userName = message.author.username;
