@@ -29,7 +29,7 @@ module.exports = {
 
     message.channel.send(embedCreateTicket);
 
-    message.guild.channel.create(userName + "-" + userDiscriminator, "text").then((createdChan) => {
+    message.guild.channels.create(userName + "-" + userDiscriminator, "text").then((createdChan) => {
         createdChan.setParent(categoryId).then((settedParent) => {
             settedParent.overwritePermissions(message.guild.roles.find('name', "@everyone"), { "READ_MESSAGES": false });
             settedParent.overwritePermissions(message.author, {
