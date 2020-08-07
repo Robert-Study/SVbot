@@ -31,8 +31,8 @@ client.on('ready', async () => {
       const stat = fs.lstatSync(path.join(__dirname, dir, file))
       if (stat.isDirectory()) {
         readCommands(path.join(dir, file))
-      } else if (file !== baseFile) {
-        const option = require(path.join(__dirname, dir, file))
+      } else if (file !== baseFile && file.endsWith('.js')) {
+          const option = require(path.join(__dirname, dir, file))
         commandBase(client, option)
       }
     }
