@@ -24,7 +24,8 @@ module.exports = {
                     message.member.roles.remove(verifiedrole.id);
                     const focus = message.guild.channels.cache.get('730185814822223962');
                     focus.send(`${"<@" + message.author.id + ">"}, you have now been locked in Focus Mode for ${ms(ms(time))}`)
-         
+                    message.send(`Getting you locked up in there, good luck!`)
+
                     setTimeout(function(){
                         message.member.roles.remove(role.id);
                         message.member.roles.remove(focusrole.id);
