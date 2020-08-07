@@ -7,6 +7,7 @@ module.exports = {
         const categoryId = "703937876634894387";
         
         let role = message.guild.roles.cache.find(role => role.name === "@everyone");
+        let role = message.guild.roles.cache.find(role => role.name === "Mini-Moderator");
 
         var userName = message.author.username;
         var userDiscriminator = message.author.discriminator;
@@ -34,12 +35,21 @@ module.exports = {
     message.guild.channels.create(userName + "-" + userDiscriminator, "text").then((createdChan) => {
         createdChan.setParent(categoryId).then((settedParent) => {
             settedParent.updateOverwrite(role, {
+                "VIEW_CHANNEL": false,
                 "READ_MESSAGES": false, "SEND_MESSAGES": false,
                 "ATTACH_FILES": false, "CONNECT": false,
                 "CREATE_INSTANT_INVITE": false, "ADD_REACTIONS": false
             });            
             
+            settedParent.updateOverwrite(modrole, {
+                "VIEW_CHANNEL": true,
+                "READ_MESSAGES": true, "SEND_MESSAGES": true,
+                "ATTACH_FILES": true, "CONNECT": true,
+                "CREATE_INSTANT_INVITE": true, "ADD_REACTIONS": true
+            }); 
+
             settedParent.updateOverwrite(message.author, {
+                "VIEW_CHANNEL": true,
                 "READ_MESSAGES": true, "SEND_MESSAGES": true,
                 "ATTACH_FILES": true, "CONNECT": true,
                 "CREATE_INSTANT_INVITE": false, "ADD_REACTIONS": true
