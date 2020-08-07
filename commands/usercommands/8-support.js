@@ -34,7 +34,12 @@ module.exports = {
 
     message.guild.channels.create(userName + "-" + userDiscriminator, "text").then((createdChan) => {
         createdChan.setParent(categoryId).then((settedParent) => {
-            settedParent.updateOverwrite((role), { "READ_MESSAGES": false });            
+            settedParent.updateOverwrite((role), {
+                "READ_MESSAGES": false, "SEND_MESSAGES": false,
+                "ATTACH_FILES": false, "CONNECT": false,
+                "CREATE_INSTANT_INVITE": false, "ADD_REACTIONS": false
+            });            
+            
             settedParent.updateOverwrite(message.author, {
                 "READ_MESSAGES": true, "SEND_MESSAGES": true,
                 "ATTACH_FILES": true, "CONNECT": true,
