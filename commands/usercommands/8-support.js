@@ -6,8 +6,7 @@ module.exports = {
         const discord = require('discord.js')
         const categoryId = "703937876634894387";
         
-        const roleName = 'everyone'
-        const role = message.guild.roles.cache.find((role) => role.name === roleName)
+        const role = message.guild.roles.cache.find("703937875720273972")
 
         var userName = message.author.username;
         var userDiscriminator = message.author.discriminator;
