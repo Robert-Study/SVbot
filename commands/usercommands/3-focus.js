@@ -4,7 +4,7 @@ module.exports = {
     minArgs: 0,
     maxArgs: 0,
     callback: (message, arguments, text) => {
-        message.reply(`went into deep Focus Mode - don't disturb!`);
+        message.reply(`went into Focus - don't disturb!`);
         const focus = message.client.channels.cache.get('730185814822223962');
         focus.send(`Welcome in **Focus** mode <@${message.author.id}> - to exit please use **!end**.`);
         message.member.roles.add('729706682308886548');

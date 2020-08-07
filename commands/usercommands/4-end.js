@@ -1,6 +1,6 @@
 
 module.exports = {
-    commands: ['end'],
+    commands: ['end', 'stop'],
     minArgs: 0,
     maxArgs: 0,
     callback: (message, arguments, text) => {
