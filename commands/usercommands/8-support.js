@@ -5,6 +5,9 @@ module.exports = {
     callback: async(message, arguments, text) => {
         const discord = require('discord.js')
         const categoryId = "703937876634894387";
+        
+        const roleName = 'everyone'
+        const role = message.guild.roles.cache.find((role) => role.name === roleName)
 
         var userName = message.author.username;
         var userDiscriminator = message.author.discriminator;
@@ -31,7 +34,7 @@ module.exports = {
 
     message.guild.channels.create(userName + "-" + userDiscriminator, "text").then((createdChan) => {
         createdChan.setParent(categoryId).then((settedParent) => {
-            settedParent.updateOverwrite(message.guild.roles.find('name', "@everyone"), { "READ_MESSAGES": true });            
+            settedParent.updateOverwrite((role), { "READ_MESSAGES": false });            
             settedParent.updateOverwrite(message.author, {
                 "READ_MESSAGES": true, "SEND_MESSAGES": true,
                 "ATTACH_FILES": true, "CONNECT": true,
