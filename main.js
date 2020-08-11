@@ -21,6 +21,7 @@ membercounter(client)
 
 client.on('ready', async () => {
   console.log('The client is ready!')
+  client.user.setActivity('Discord', { type: "Reading" }); 
 
   const baseFile = 'command-base.js'
   const commandBase = require(`./commands/${baseFile}`)
