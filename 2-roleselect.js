@@ -26,7 +26,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 client.on("messageReactionAdd", async (reaction, user) => {
     if (reaction.message.partial) await reaction.message.fetch();
     if (reaction.partial) await reaction.fetch
-    const welcomechannel = reaction.message.guild.channel === "707532591514910731"
+    const welcomechannel = reaction.message.guild.channel.get("707532591514910731")
 
     if (user.bot) return;
     if (!welcomechannel) return;
