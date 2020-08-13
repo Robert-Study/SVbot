@@ -21,10 +21,12 @@ membercounter(client)
 
 client.on('ready', async () => {
   console.log('The client is ready!')
-  client.user.setActivity('Discord', { type: "Reading" }); 
+  client.user.setActivity(`How to be a bot`); 
 
   const baseFile = 'command-base.js'
   const commandBase = require(`./commands/${baseFile}`)
+  let logchannel = client.channels.cache.get('730029372697870347')
+  logchannel.send("I have restarted")
 
   const readCommands = (dir) => {
     const files = fs.readdirSync(path.join(__dirname, dir))
