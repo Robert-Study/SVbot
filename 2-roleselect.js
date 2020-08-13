@@ -29,11 +29,11 @@ client.on("messageReactionAdd", async (reaction, user) => {
     const welcomechannel = reaction.message.guild.channels.cache.get("707532591514910731")
 
     if (user.bot) return;
-    if (reaction.message.guild.channel !== welcomechannel) return;
+    if (reaction.message.channel.id === "707532591514910731"){
     if (reaction.emoji.name === '✅'){
         await reaction.message.guild.members.cache.get(user.id).roles.add("707547622591692911")
         await reaction.message.guild.members.cache.get(user.id).roles.remove("739920051208978495")
-    }
+    }}
 });
 
 }
