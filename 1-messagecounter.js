@@ -3,6 +3,7 @@ const messageCountSchema = require('./schemas/1-messagecountschema')
 
 module.exports = (client) => {
   client.on('message', async (message) => {
+    if (message.author.bot) return;
     const { author } = message
     const { id } = author
 
