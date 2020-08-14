@@ -19,7 +19,7 @@ module.exports = {
               let messageCount = 0
       
               if (result) {
-                messageCount = result.messageCount
+                messageCount = await result.messageCount
                 message.reply(`you have already written ${messageCount} messages on this server!`)
               } else {
                 console.log('No messages for this user')}
