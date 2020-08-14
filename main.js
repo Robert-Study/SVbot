@@ -47,7 +47,7 @@ client.on('ready', async () => {
 client.on("ready", function() {
   setInterval(function() {
     console.log('Still awake')
-  }, 10000)
+  }, 300000)
 });
 
 
