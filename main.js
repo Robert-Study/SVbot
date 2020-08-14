@@ -44,4 +44,11 @@ client.on('ready', async () => {
   readCommands('commands')
 })
 
+client.on("ready", function() {
+  setInterval(function() {
+    console.log('Still awake')
+  }, 10000)
+});
+
+
 client.login(process.env.token);
