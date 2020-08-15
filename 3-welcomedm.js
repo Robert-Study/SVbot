@@ -1,5 +1,6 @@
 module.exports = (client) => {
     client.on("guildMemberAdd", member => {
+        const Discord = require('discord.js')
         const welcomeembed = new Discord.MessageEmbed()
                 .setColor('#337f4e')
                 .setTimestamp()
