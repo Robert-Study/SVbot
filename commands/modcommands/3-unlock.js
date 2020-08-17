@@ -2,6 +2,7 @@ module.exports = {
     commands: ['unlock'],
     minArgs: 1,
     maxArgs: 1,
+    permissions: 'BAN_MEMBERS',
 
     callback: (message, arguments, text) => {
         var person  = message.guild.member(message.mentions.users.first());
