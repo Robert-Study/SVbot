@@ -57,7 +57,7 @@ module.exports = {
 
             var embedParent = new discord.MessageEmbed()
             .setTitle("Hi, " + message.author.username.toString())
-            .setDescription(`Please write your question/message here. Mods: To close write !close @${userName})`);
+            .setDescription(`Please write your question/message here. (Mods: To close write **!close @${userName}**)`);
 
         settedParent.send(embedParent);
     }).catch(err => {
