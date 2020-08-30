@@ -1,5 +1,5 @@
 module.exports = {
-    commands: ['infotimer', 'helptimer'],
+    commands: ['infotimer', 'helptimer', 'infotimers'],
     minArgs: 0,
     maxArgs: 0,
     callback: (message, arguments, text) => {
