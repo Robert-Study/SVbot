@@ -8,7 +8,7 @@ module.exports = {
         let date = arguments[0]
         let deadlinechannel = message.guild.channels.cache.get('717829409679343628');
         const Discord = require('discord.js');
-        const dltext = arguments.split(",").join(" ").slice(1)
+        const dltext = arguments.join(" ").slice(1)
 
         
             let dlEmbed = new Discord.MessageEmbed()
