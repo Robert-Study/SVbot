@@ -8,8 +8,8 @@ module.exports = {
         let date = arguments[0]
         let deadlinechannel = message.guild.channels.cache.get('717829409679343628');
         const Discord = require('discord.js');
-        const dtext = arguments.split(/[ ]+/)
-        let dltext = dtext.slice(1);
+        const dltext = arguments.split(",").join(" ").slice(1)
+
         
             let dlEmbed = new Discord.MessageEmbed()
             .setColor('#337f4e')
