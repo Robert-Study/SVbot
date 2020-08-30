@@ -17,8 +17,9 @@ module.exports = {
               })
       
               if (result) {
-                console.log(date)
-                console.log(dltext)
+                  let personal = result
+                for(let i=0, len=personal.length; i<len; i++){
+                    console.log(personal[i].date);}
             
                 message.reply(`you have a deadline on the:
                 \n **${date}** named: **${dltext}**`)
