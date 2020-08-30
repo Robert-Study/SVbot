@@ -11,7 +11,7 @@ module.exports = {
         let deadlinechannel = message.guild.channels.cache.get('717829409679343628');
         const Discord = require('discord.js');
         const dltext = arguments.slice(1).join(" ")
-        const mongo = require('./mongo')
+        const mongo = require('../../mongo')
         const userSchema = require('../../schemas/3-deadlineschema')
         const connectToMongoDB = async () => {
             await mongo().then(async (mongoose) => {
