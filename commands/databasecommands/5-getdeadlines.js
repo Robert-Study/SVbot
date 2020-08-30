@@ -18,7 +18,7 @@ module.exports = {
       
               if (result) {
                 date = await result.date
-                deadline = await result.deadline
+                deadline = await result.dltext
                 message.reply(`you have a deadline on the ${date} named: ${deadline}`)
               } else {
                 message.reply('No deadlines found for this user')}
