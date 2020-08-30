@@ -4,10 +4,12 @@ module.exports = {
     expectedArgs : '<!dl 28/08/2020 Exam on...>',
 
     callback: async(message, arguments, text) => {
+        message.delete()
         let date = arguments[0]
         let deadlinechannel = message.guild.channels.cache.get('717829409679343628');
         const Discord = require('discord.js');
         let dltext = text
+        dltext.shift()
             let dlEmbed = new Discord.MessageEmbed()
             .setColor('#337f4e')
             .setTitle(`${message.author.username} Added deadline:`)
@@ -17,7 +19,6 @@ module.exports = {
                 { name: `${date}`, value: `${dltext}` })
             
             let reactapp = await deadlinechannel.send(dlEmbed);
-                reactapp.react('👍')
                 reactapp.react('🍀')
             }
 }
