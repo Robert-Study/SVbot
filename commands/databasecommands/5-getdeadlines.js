@@ -19,10 +19,11 @@ module.exports = {
               if (result) {
                   let personal = result
                 for(let i=0, len=personal.length; i<len; i++){
-                    console.log(personal[i].date);}
+                    console.log(personal[i].date);
+                    console.log(personal[i].dltext);}
             
                 message.reply(`you have a deadline on the:
-                \n **${date}** named: **${dltext}**`)
+                \n **${personal[i].date}** named: **${personal[i].dltext}**`)
               } else {
                 message.reply('No deadlines found for this user')}
               
