@@ -8,7 +8,7 @@ module.exports = {
         const target = message.mentions.users.first() || message.author
         const UserID = target.id
         const Discord = require('discord.js');
-        const channel = client.channels.cache.get('717829409679343628');
+        const channel = message.channels.cache.get('717829409679343628');
 
         return await mongo().then(async (mongoose) => {
             try {
