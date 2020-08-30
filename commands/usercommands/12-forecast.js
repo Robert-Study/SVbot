@@ -12,7 +12,7 @@ module.exports = {
                 let forec = result[0].forecast
                 let reply = ''
                 for (const forecast of forec) {
-                    reply += `**${forecast.shortday}** it will be *${forecast.high} C∘* and *${forecast.skytextday} with ${forecast.precip}% rain. \n\n`
+                    reply += `**${forecast.shortday}** it will be *${forecast.high} C∘* and **${forecast.skytextday}** with ${forecast.precip}% rain. \n\n`
                 }
                 console.log(`${reply}`)
             let embed = new discord.MessageEmbed()
