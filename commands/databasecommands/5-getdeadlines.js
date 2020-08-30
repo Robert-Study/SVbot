@@ -19,8 +19,8 @@ module.exports = {
               if (result) {
                 console.log(result)
                 result.forEach((deadl) => {
-                    const { date } = dates
-                    const { dltext } = deadline
+                    const { dates } = {date}
+                    const { deadline } = {dltext}
                 })
             
                 message.reply(`you have a deadline on the:
