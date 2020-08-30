@@ -12,7 +12,8 @@ module.exports = {
                 
                 Register your deadlines with the !dl command, followed by the date and the exam/deadline you are working towards 
                 
-                (**Example:** !dl 01/09/2020 Super secret project).` }
+                (**Example:** !dl 01/09/2020 Super secret project).
+                To show all your deadlines use **!showdl** and to remove the first submitted one use **!deletedl**` }
             )
     message.channel.send(vcembed);
         }
