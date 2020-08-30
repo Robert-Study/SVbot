@@ -7,6 +7,9 @@ module.exports = {
         const Discord = require('discord.js');
         const helpembed = new Discord.MessageEmbed()
             .setColor('#337f4e')
+            .setThumbnail('http://borgenproject.org/wp-content/uploads/Twitter.jpg')
+            .setTimestamp()
+            .setFooter(`Requested by: ${message.author.username} `)
             .addFields(
                 { name: 'Todo-bot', value: '!infotodo', inline: true },
                 { name: `Hydra`, value: '!infohydra' , inline: true},
