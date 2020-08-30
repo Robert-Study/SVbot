@@ -6,7 +6,7 @@ module.exports = {
     callback: async(message, arguments, text) => {
         const weather = require('weather-js');
         const discord = require('discord.js');
-        weather.find({search: args.join(" "), degreeType: 'C'}, function(err, result) {
+        weather.find({search: arguments.join(" "), degreeType: 'C'}, function(err, result) {
             try {
              
             let embed = new discord.MessageEmbed()
@@ -19,7 +19,7 @@ module.exports = {
             .addField("Wind Speed", result[0].current.windspeed, true)
             .addField("Observation Time", result[0].current.observationtime, true)
             .addField("Wind Display", result[0].current.winddisplay, true)
-            .setThumbnail(result[0].current.imageUrl);
+            
                message.channel.send(embed)
             } catch(err) {
               return message.channel.send("Unable To Get the data of Given location")
