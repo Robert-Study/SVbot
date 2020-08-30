@@ -4,6 +4,8 @@ module.exports = {
     expectedArgs : '<!weather location>',
 
     callback: async(message, arguments, text) => {
+        const weather = require('weather-js');
+        const discord = require('discord.js');
         weather.find({search: args.join(" "), degreeType: 'C'}, function(err, result) {
             try {
              
