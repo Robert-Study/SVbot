@@ -17,6 +17,7 @@ module.exports = {
               })
       
               if (result) {
+                console.log(result)
                 date = await result.date
                 deadline = await result.dltext
                 message.reply(`you have a deadline on the:
