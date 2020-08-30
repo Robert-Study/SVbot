@@ -17,9 +17,7 @@ module.exports.addLog = async (UserID, date, dltext) => {
           }
         )
   
-        logCache[`${UserID}`] = result.timeLog
-  
-        return result.timeLog
+        return 
       } finally {
         mongoose.connection.close()
       }
@@ -47,7 +45,7 @@ module.exports.getLog = async (UserID) => {
                 date = result.date
                 dltext = result.dltext
                 
-        return (result.date, results.dltext)}
+        return (result.date, result.dltext)}
         
     }finally{
         mongoose.connection.close()
