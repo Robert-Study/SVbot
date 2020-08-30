@@ -6,7 +6,7 @@ module.exports = {
     callback: (message, arguments, text) => {
         const general = message.client.channels.cache.get('703937876634894388');
         if(message.member.roles.cache.has('735089477088837673')){
-            message.channel.send('You are **Locked in Focus** and cannot do that now!')
+            message.channel.send('You are **Locked in Focus** and cannot do that now! If you are stuck please write the command **!ticket** to get you in a Support Channel.')
         
         }else{
         general.send(`<@${message.author.id}> you have left the **Focus Mode** and the **Study Group**!`)
