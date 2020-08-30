@@ -12,7 +12,7 @@ module.exports = {
             try {
               console.log('Searching the database for Deadlines')
         
-              const result = await deadlineSchema.find({
+              const result = await deadlineSchema.findOne({
                 UserID,
               })
       
