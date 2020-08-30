@@ -22,7 +22,7 @@ module.exports = {
                 for (const result of results) {
                     reply += `**${result.date}** named *${result.dltext}*\n\n`
                 }
-                message.reply(reply)
+                message.reply(reply);
 
                 const exampleEmbed = new Discord.MessageEmbed()
                 .setColor('#337f4e')
@@ -31,7 +31,7 @@ module.exports = {
                     { name: 'Deadlines', value: `${reply}` },
                     )
                   
-                channel.send(exampleEmbed)
+                channel.send(exampleEmbed);
 
             } finally {
               mongoose.connection.close()
