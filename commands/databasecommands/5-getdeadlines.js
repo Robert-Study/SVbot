@@ -12,16 +12,19 @@ module.exports = {
             try {
               console.log('Searching the database for Deadlines')
         
-              const result = await deadlineSchema.findOne({
+              const result = await deadlineSchema.find({
                 UserID,
               })
       
               if (result) {
                 console.log(result)
-                date = await result.date
-                deadline = await result.dltext
+                result.forEach((deadl) => {
+                    const { date } = dates
+                    const { dltext } = deadline
+                })
+            
                 message.reply(`you have a deadline on the:
-                \n **${date}** named: **${deadline}**`)
+                \n **${dates}** named: **${deadline}**`)
               } else {
                 message.reply('No deadlines found for this user')}
               
