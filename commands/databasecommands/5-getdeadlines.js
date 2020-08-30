@@ -21,12 +21,12 @@ module.exports = {
                   let personal = result
                 for(let i=0, len=personal.length; i<len; i++){
                     date = (personal[i].date);
-                    dltext = (personal[i].dltext);}
-                    console.log(date)
-                    console.log(dltext)
+                    dltext = (personal[i].dltext);
+                    console.log(personal[i].date)
+                    console.log(personal[i].dltext)}
             
-                message.reply(`you have a deadline on the:
-                \n **${date}** named: **${dltext}**`)
+                message.reply (`you have a deadline on the:
+                += \n **${date}** named: **${dltext}** \n`)
               } else {
                 message.reply('No deadlines found for this user')}
               
