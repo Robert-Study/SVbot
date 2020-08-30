@@ -11,6 +11,7 @@ module.exports = {
                 `How to register you deadline or exam date:
                 
                 Register your deadlines with the !dl command, followed by the date and the exam/deadline you are working towards 
+                
                 (**Example:** !dl 01/09/2020 Super secret project).` }
             )
     message.channel.send(vcembed);
