@@ -17,10 +17,8 @@ module.exports = {
               })
       
               if (result) {
-                console.log(result)
-                result.forEach((UserID) => {
-                    const {date, dltext} = {UserID}
-                })
+                console.log(date)
+                console.log(dltext)
             
                 message.reply(`you have a deadline on the:
                 \n **${date}** named: **${dltext}**`)
