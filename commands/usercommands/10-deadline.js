@@ -8,15 +8,16 @@ module.exports = {
         let date = arguments[0]
         let deadlinechannel = message.guild.channels.cache.get('717829409679343628');
         const Discord = require('discord.js');
-        let dltext = arguments.slice(1);
-        const dtext = dltext.split(/[ ]+/)
+        const dtext = arguments.split(/[ ]+/)
+        let dltext = dtext.slice(1);
+        
             let dlEmbed = new Discord.MessageEmbed()
             .setColor('#337f4e')
             .setTitle(`${message.author.username} Added deadline:`)
             .setTimestamp()
             .setFooter(`Deadline by: ${message.author.username} `)
             .addFields(
-                { name: `${date}`, value: `${dtext}` })
+                { name: `${date}`, value: `${dltext}` })
             
             let reactapp = await deadlinechannel.send(dlEmbed);
                 reactapp.react('🍀')
