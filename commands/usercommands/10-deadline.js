@@ -8,9 +8,8 @@ module.exports = {
         let date = arguments[0]
         let deadlinechannel = message.guild.channels.cache.get('717829409679343628');
         const Discord = require('discord.js');
-        const dltext = arguments.join(" ").slice(1)
+        const dltext = arguments.slice(1).join(" ")
 
-        
             let dlEmbed = new Discord.MessageEmbed()
             .setColor('#337f4e')
             .setTitle(`${message.author.username} Added deadline:`)
