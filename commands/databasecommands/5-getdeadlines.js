@@ -13,23 +13,15 @@ module.exports = {
             try {
               console.log('Searching the database for Deadlines')
         
-              const result = await deadlineSchema.find({
+              const results = await deadlineSchema.find({
                 UserID,
               })
       
-              if (result) {
-                  let personal = result
-                for(let i=0, len=personal.length; i<len; i++){
-                    date = (personal[i].date);
-                    dltext = (personal[i].dltext);
-                    console.log(personal[i].date)
-                    console.log(personal[i].dltext)}
-            
-                message.reply (`you have a deadline on the:
-                += \n **${date}** named: **${dltext}** \n`)
-              } else {
-                message.reply('No deadlines found for this user')}
-              
+                let reply = 'Your deadlines:\n\n'
+                for (const result of results) {
+                    reply += `${result.date} was ran at ${result.dltext}\n\n`
+                }
+                message.reply(reply)
             } finally {
               mongoose.connection.close()
               
