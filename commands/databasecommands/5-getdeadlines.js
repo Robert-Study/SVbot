@@ -18,7 +18,7 @@ module.exports = {
                 UserID,
               })
       
-                let reply = 'Here:'
+                let reply = 'D'
                 for (const result of results) {
                     reply += `**${result.date}** named *${result.dltext}*\n\n`
                 }
