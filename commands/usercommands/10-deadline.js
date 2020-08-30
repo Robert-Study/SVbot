@@ -1,5 +1,3 @@
-const economy = require ('../../8-deadlinecounter')
-
 module.exports = {
     commands: ['dl', 'deadline'],
     minArgs: 1,
@@ -13,11 +11,29 @@ module.exports = {
         let deadlinechannel = message.guild.channels.cache.get('717829409679343628');
         const Discord = require('discord.js');
         const dltext = arguments.slice(1).join(" ")
-        const newdeadline = await economy.addLog(UserID, date, dltext)
-        console.log(`${newdeadline}`)
+        const mongo = require('./mongo')
+        const userSchema = require('../../schemas/3-deadlineschema')
+        const connectToMongoDB = async () => {
+            await mongo().then(async (mongoose) => {
+                try {
+                    console.log('Connected to mongodb!')
+
+                const user = {
+                UserID: `${UserID}`,
+                date: `${date}`,
+                dltext: `${dltext}`,
+                }
+            await new userSchema(user).save()
+            } finally {
+                mongoose.connection.close()
+                    }
+            })
+            }
+
+    connectToMongoDB()
 
 
-            let dlEmbed = new Discord.MessageEmbed()
+        let dlEmbed = new Discord.MessageEmbed()
             .setColor('#337f4e')
             .setTitle(`${message.author.username} Added deadline:`)
             .setTimestamp()

@@ -12,22 +12,8 @@ module.exports.addLog = async (UserID, date, dltext) => {
         const result = await deadlineschema.findOneAndUpdate(
           {
             UserID,
-          },
-          {
-            UserID,
-            $inc: {
-              date,
-            },
-        },
-         {
-          UserID,
-            $inc: {
-              dltext,
-            },
-        },
-          {
-            upsert: true,
-            new: true,
+            date,
+            dltext,
           }
         )
   
