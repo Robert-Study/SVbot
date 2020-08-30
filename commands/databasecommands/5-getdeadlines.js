@@ -8,7 +8,8 @@ module.exports = {
         const target = message.mentions.users.first() || message.author
         const UserID = target.id
         const Discord = require('discord.js');
-    
+        const channel = client.channels.cache.get('717829409679343628');
+
         return await mongo().then(async (mongoose) => {
             try {
               console.log('Searching the database for Deadlines')
@@ -21,15 +22,15 @@ module.exports = {
                 for (const result of results) {
                     reply += `**${result.date}** named *${result.dltext}*\n\n`
                 }
-                message.reply(reply);
+                message.reply(reply)
 
-                const channel = client.channels.cache.get('717829409679343628');
                 const exampleEmbed = new Discord.MessageEmbed()
                 .setColor('#337f4e')
                 .setTitle(`${message.author.username} Here are your deadlines:`)
                 .addFields(
                     { name: 'Deadlines', value: `${reply}` },
                     )
+                  
                 channel.send(exampleEmbed)
 
             } finally {
