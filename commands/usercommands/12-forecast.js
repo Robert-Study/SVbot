@@ -9,7 +9,7 @@ module.exports = {
         weather.find({search: arguments.join(" "), degreeType: 'C'}, function(err, result) {
             try {
                 console.log(`${result[0].location.name}`)
-                let forec = result[0]
+                let forec = result[0].forecast
                 let reply = 'D'
                 for (const forecast of forec) {
                     reply += `**${forecast.day}** named *${forecast.high}*\n\n`
