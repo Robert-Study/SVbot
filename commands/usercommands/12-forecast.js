@@ -20,7 +20,10 @@ module.exports = {
             .setColor("#ff2050")
             .setDescription("Forecasts might not be accurate.")
             .addField("Forecast", `${reply}`, true)
-            
+            .setTimestamp()
+            .setFooter(`Weather captain: ${message.author.username} `)
+            .setThumbnail(result[0].current.imageUrl);
+
             message.channel.send(embed)
             } catch(err) {
               return message.channel.send("Unable To Get the data of Given location")
