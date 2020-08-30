@@ -28,10 +28,6 @@ module.exports = {
                 mongoose.connection.close()
                     }
             })
-            }
-
-    connectToMongoDB()
-
 
         let dlEmbed = new Discord.MessageEmbed()
             .setColor('#337f4e')
@@ -43,5 +39,10 @@ module.exports = {
             
             let reactapp = await deadlinechannel.send(dlEmbed);
                 reactapp.react('🍀')
+            
+            connectToMongoDB()
             }
+        } 
 }
+
+
