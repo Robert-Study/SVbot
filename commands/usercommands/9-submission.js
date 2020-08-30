@@ -1,10 +1,11 @@
 module.exports = {
     commands: ['sub', 'submission'],
-    minArgs: 2,
+    minArgs: 1,
 
     callback: (message, arguments, text) => {
-        let channel = arguments[1]
+        let channel = arguments[0]
         if(channel === 'app'){
+            const Discord = require('discord.js');
             let appchannel = message.guild.channels.cache.get('708032923428716626');
             let apptext = text
             let AppEmbed = new Discord.MessageEmbed()
@@ -15,7 +16,8 @@ module.exports = {
             .addFields(
                 { name: 'App recommendation:', value: `${apptext}` })
         
-            appchannel.send(AppEmbed)
+            appchannel.send(AppEmbed);}
+        else appchannel.send('Not found')
     }  
 }
-}
+
