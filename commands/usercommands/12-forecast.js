@@ -8,10 +8,12 @@ module.exports = {
         const discord = require('discord.js');
         weather.find({search: arguments.join(" "), degreeType: 'C'}, function(err, result) {
             try {
+                console.log(`${result[0].location.name}`)
                 let reply = ''
                 for (const forecast of result[0]) {
                     reply += `**${forecast.day}** named *${forecast.high}*\n\n`
                 }
+                console.log(`${reply}`)
             let embed = new discord.MessageEmbed()
             .setTitle(`Forecast - ${result[0].location.name}`)
             .setColor("#ff2050")
