@@ -4,7 +4,7 @@ module.exports = {
     expectedArgs : '<!dl 28/08/2020 Exam on...>',
 
     callback: async(message, arguments, text) => {
-        message.delete()
+    
         let date = arguments[0]
         let deadlinechannel = message.guild.channels.cache.get('717829409679343628');
         const Discord = require('discord.js');
