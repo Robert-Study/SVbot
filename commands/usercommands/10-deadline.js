@@ -14,6 +14,8 @@ module.exports = {
         const Discord = require('discord.js');
         const dltext = arguments.slice(1).join(" ")
         const newdeadline = await economy.addLog(UserID, date, dltext)
+        console.log(`${newdeadline}`)
+
 
             let dlEmbed = new Discord.MessageEmbed()
             .setColor('#337f4e')
