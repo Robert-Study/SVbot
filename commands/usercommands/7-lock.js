@@ -2,7 +2,7 @@ module.exports = {
     commands: ['lock'],
     minArgs: 1,
     maxArgs: 1,
-    expectedArgs = '<duration>',
+    expectedArgs : '<duration>',
     requiredRoles: ['Verified'],
     
     callback: async (message, arguments, text) => {
