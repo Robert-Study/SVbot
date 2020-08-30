@@ -3,7 +3,7 @@ module.exports = {
     minArgs: 1,
     expectedArgs : '<!sub #app> or <!sub #tip>',
 
-    callback: (message, arguments, text) => {
+    callback: async(message, arguments, text) => {
         let channel = arguments[0]
         if(channel === '#app'){
             message.delete()
