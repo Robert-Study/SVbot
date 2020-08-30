@@ -15,6 +15,7 @@ module.exports = {
           const name = `${username}#${discriminator}`
   
           inviteCounter[name] = (inviteCounter[name] || 0) + uses
+          console.log(invite)
         })
   
         let replyText = 'Top 5 user invites:'
