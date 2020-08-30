@@ -18,13 +18,12 @@ module.exports = {
       
               if (result) {
                 console.log(result)
-                result.forEach((deadl) => {
-                    const { dates } = {date}
-                    const { deadline } = {dltext}
+                result.forEach((UserID) => {
+                    const {date, dltext} = {UserID}
                 })
             
                 message.reply(`you have a deadline on the:
-                \n **${dates}** named: **${deadline}**`)
+                \n **${date}** named: **${dltext}**`)
               } else {
                 message.reply('No deadlines found for this user')}
               
