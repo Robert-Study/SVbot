@@ -23,16 +23,18 @@ module.exports = {
                 }
                 message.reply(reply);
 
-            } finally {
-              mongoose.connection.close()
-              
-              const exampleEmbed = new Discord.MessageEmbed()
+                const channel = client.channels.cache.get('717829409679343628');
+                const exampleEmbed = new Discord.MessageEmbed()
                 .setColor('#337f4e')
                 .setTitle(`${message.author.username} Here are your deadlines:`)
                 .addFields(
                     { name: 'Deadlines', value: `${reply}` },
                     )
-                message.exampleEmbed.send
+                channel.send(exampleEmbed)
+
+            } finally {
+              mongoose.connection.close()
+
             }
         })
     }
