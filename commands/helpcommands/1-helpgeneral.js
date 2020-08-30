@@ -19,6 +19,7 @@ module.exports = {
                 { name: `Support`, value: '!infoticket' , inline: true},
                 { name: `Submissions`, value: '!infosub' , inline: true},
                 { name: `Deadlines`, value: '!infodl', inline: true },
+                { name: `Commands`, value: '!infocmd', inline: true },
                     )
         message.channel.send(helpembed);
         }
