@@ -7,6 +7,7 @@ module.exports = {
         const deadlineSchema = require('../../schemas/3-deadlineschema')
         const target = message.mentions.users.first() || message.author
         const UserID = target.id
+        
 
         return await mongo().then(async (mongoose) => {
             try {
@@ -19,8 +20,8 @@ module.exports = {
               if (result) {
                   let personal = result
                 for(let i=0, len=personal.length; i<len; i++){
-                    let date = (personal[i].date);
-                    let dltext = (personal[i].dltext);}
+                    date = (personal[i].date);
+                    dltext = (personal[i].dltext);}
                     console.log(date)
                     console.log(dltext)
             
