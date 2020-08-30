@@ -10,9 +10,9 @@ module.exports = {
             try {
                 console.log(`${result[0].location.name}`)
                 let forec = result[0].forecast
-                let reply = 'D'
+                let reply = ''
                 for (const forecast of forec) {
-                    reply += `**${forecast.day}** named *${forecast.high}*\n\n`
+                    reply += `**${forecast.day}** it will be *${forecast.high} C∘* and *${forecast.skytextday}\n\n`
                 }
                 console.log(`${reply}`)
             let embed = new discord.MessageEmbed()
