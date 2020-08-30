@@ -17,6 +17,7 @@ module.exports = {
             })
     } finally {
       mongoose.connection.close()
+      message.reply(`I have deleted your oldest submitted Deadline!`)
     }
 })
 }

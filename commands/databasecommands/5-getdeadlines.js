@@ -7,8 +7,8 @@ module.exports = {
         const deadlineSchema = require('../../schemas/3-deadlineschema')
         const target = message.mentions.users.first() || message.author
         const UserID = target.id
-        
-
+        const Discord = require('discord.js');
+    
         return await mongo().then(async (mongoose) => {
             try {
               console.log('Searching the database for Deadlines')
@@ -21,10 +21,18 @@ module.exports = {
                 for (const result of results) {
                     reply += `**${result.date}** named *${result.dltext}*\n\n`
                 }
-                message.reply(reply)
+                message.reply(reply);
+
             } finally {
               mongoose.connection.close()
               
+              const exampleEmbed = new Discord.MessageEmbed()
+                .setColor('#337f4e')
+                .setTitle(`${message.author.username} Here are your deadlines:`)
+                .addFields(
+                    { name: 'Deadlines', value: `${reply}` },
+                    )
+                message.exampleEmbed.send
             }
         })
     }
