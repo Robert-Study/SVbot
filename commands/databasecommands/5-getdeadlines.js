@@ -19,7 +19,7 @@ module.exports = {
       
                 let reply = 'Your deadlines:\n\n'
                 for (const result of results) {
-                    reply += `${result.date} was ran at ${result.dltext}\n\n`
+                    reply += `${result.date} named ${result.dltext}\n\n`
                 }
                 message.reply(reply)
             } finally {
