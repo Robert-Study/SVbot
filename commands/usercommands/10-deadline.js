@@ -35,7 +35,7 @@ module.exports = {
 
         let dlEmbed = new Discord.MessageEmbed()
             .setColor('#337f4e')
-            .setTitle(`${message.author.username} Added deadline:`)
+            .setTitle(`${message.author.username} Added a deadline:`)
             .setTimestamp()
             .setFooter(`Deadline by: ${message.author.username} `)
             .addFields(
