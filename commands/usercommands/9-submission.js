@@ -17,25 +17,32 @@ module.exports = {
             .setFooter(`Recommended by: ${message.author.username} `)
             .addFields(
                 { name: 'App recommendation:', value: `${apptext}` })
+            
+            let reactapp = await appchannel.send(AppEmbed);
+                reactapp.react('👍')
+                reactapp.react('👎')
+            }
         
-            appchannel.send(AppEmbed);}
         
         else if(channel === '#tip'){
             message.delete()
             const Discord = require('discord.js');
             let tipchannel = message.guild.channels.cache.get('708651085765804093');
             let tiptext = text
-            let AppEmbed = new Discord.MessageEmbed()
+            let tipEmbed = new Discord.MessageEmbed()
                 .setColor('#337f4e')
-                .setTitle(`${message.author.username} has a studytip:`)
+                .setTitle(`${message.author.username} has a study tip:`)
                 .setTimestamp()
                 .setFooter(`Recommended by: ${message.author.username} `)
                 .addFields(
                     { name: 'Study tip:', value: `${tiptext}` })
             
-            tipchannel.send(AppEmbed);}
+            let reacttip = await tipchannel.send(tipEmbed);
+                    reacttip.react('👍')
+                    reacttip.react('👎')
+                }
         
-        else message.send('Please use the tags when making submissions!')
+        else message.send('Please use the tags (#app or #tip) when making submissions!')
     }  
 }
 
