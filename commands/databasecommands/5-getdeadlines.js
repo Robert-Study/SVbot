@@ -18,17 +18,17 @@ module.exports = {
                 UserID,
               })
       
-                let reply = '__Your deadlines:__\n\n'
+                let reply = ''
                 for (const result of results) {
                     reply += `**${result.date}** named *${result.dltext}*\n\n`
                 }
-                message.reply(reply);
+                
 
                 const exampleEmbed = new Discord.MessageEmbed()
                 .setColor('#337f4e')
-                .setTitle(`${message.author.username} Here are your deadlines:`)
+                .setTitle(`${message.author.username} here are your deadlines:`)
                 .addFields(
-                    { name: 'Deadlines', value: `${reply}` },
+                    { name: 'Your deadlines:', value: `${reply}` },
                     )
                   
                 channel.send(exampleEmbed);
