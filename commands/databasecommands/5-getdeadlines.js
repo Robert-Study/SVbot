@@ -6,14 +6,14 @@ module.exports = {
         const mongo = require('../../mongo')
         const deadlineSchema = require('../../schemas/3-deadlineschema')
         const target = message.mentions.users.first() || message.author
-        const UserId = target.id
+        const UserID = target.id
 
         return await mongo().then(async (mongoose) => {
             try {
               console.log('Searching the database for Deadlines')
         
               const result = await deadlineSchema.findOne({
-                UserId,
+                UserID,
               })
       
               if (result) {
