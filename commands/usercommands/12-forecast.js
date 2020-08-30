@@ -12,14 +12,14 @@ module.exports = {
                 let forec = result[0].forecast
                 let reply = ''
                 for (const forecast of forec) {
-                    reply += `**${forecast.day}** it will be *${forecast.high} C∘* and *${forecast.skytextday}\n\n`
+                    reply += `**${forecast.shortday}** it will be *${forecast.high} C∘* and *${forecast.skytextday} with ${forecast.precip}% rain. \n\n`
                 }
                 console.log(`${reply}`)
             let embed = new discord.MessageEmbed()
             .setTitle(`Forecast - ${result[0].location.name}`)
             .setColor("#ff2050")
-            .setDescription("Temperature units can may be differ some time")
-            .addField("Temperature", `${reply}`, true)
+            .setDescription("Forecast might not be accurate.")
+            .addField("Forecast", `${reply}`, true)
             
             message.channel.send(embed)
             } catch(err) {
