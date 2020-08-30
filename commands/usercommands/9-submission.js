@@ -9,7 +9,7 @@ module.exports = {
             message.delete()
             const Discord = require('discord.js');
             let appchannel = message.guild.channels.cache.get('708032923428716626');
-            let apptext = text
+            let apptext = arguments.slice(1).join(" ")
             let AppEmbed = new Discord.MessageEmbed()
             .setColor('#337f4e')
             .setTitle(`${message.author.username} recommends this App:`)
@@ -28,7 +28,7 @@ module.exports = {
             message.delete()
             const Discord = require('discord.js');
             let tipchannel = message.guild.channels.cache.get('708651085765804093');
-            let tiptext = text
+            let tiptext = arguments.slice(1).join(" ")
             let tipEmbed = new Discord.MessageEmbed()
                 .setColor('#337f4e')
                 .setTitle(`${message.author.username} has a study tip:`)
