@@ -24,7 +24,7 @@ module.exports = {
           (a, b) => inviteCounter[b] - inviteCounter[a]
         )
   
-        console.log(sortedInvites)
+        console.log(inviteCounter)
   
         sortedInvites.length = 5
   
