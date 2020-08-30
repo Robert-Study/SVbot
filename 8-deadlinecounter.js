@@ -9,7 +9,7 @@ module.exports.addLog = async (UserID, date, dltext) => {
       try {
         console.log('Running findOneAndUpdate()')
   
-        const result = await deadlineschema.insert(
+        const result = await deadlineschema.findOneAndUpdate(
           {
             UserID,
             date,
