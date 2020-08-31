@@ -14,7 +14,7 @@ module.exports = {
         const mongo = require('../../mongo')
         const userSchema = require('../../schemas/3-deadlineschema')
         console.log(dltext)
-        connectToMongoDB()
+        
         const connectToMongoDB = async () => {
             await mongo().then(async (mongoose) => {
                 try {
@@ -44,7 +44,8 @@ module.exports = {
                 reactapp.react('🍀')
             
             
-            }
+            } 
+            connectToMongoDB()
         } 
 }
 
