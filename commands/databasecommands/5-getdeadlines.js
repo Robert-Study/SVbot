@@ -18,7 +18,7 @@ module.exports = {
                 UserID,
               })
       
-                let reply = ''
+                let reply = 'Here you go: \n\n'
                 for (const result of results) {
                     reply += `**${result.date}** deadline: *${result.dltext}*\n\n`
                 }
