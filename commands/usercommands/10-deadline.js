@@ -27,7 +27,7 @@ module.exports = {
             } finally {
                 mongoose.connection.close()
                     }
-            
+            console.log(UserID)
             connectToMongoDB()
         })
         let dlEmbed = new Discord.MessageEmbed()
