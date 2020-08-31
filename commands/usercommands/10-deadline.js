@@ -14,6 +14,7 @@ module.exports = {
         const mongo = require('../../mongo')
         const userSchema = require('../../schemas/3-deadlineschema')
         console.log(dltext)
+        connectToMongoDB()
         const connectToMongoDB = async () => {
             await mongo().then(async (mongoose) => {
                 try {
@@ -29,7 +30,7 @@ module.exports = {
                 mongoose.connection.close()
                     }
             console.log(UserID)
-            connectToMongoDB()
+
         })
         let dlEmbed = new Discord.MessageEmbed()
             .setColor('#337f4e')
