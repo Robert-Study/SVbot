@@ -4,7 +4,7 @@ module.exports = {
     commands: ['add', 'log'],
     minArgs: 1,
     maxArgs: 1,
-    expectedArgs: "<Give study time in minutes>",
+    expectedArgs: "<Give study time in hours>",
     description: 'Gives a user coins.',
     callback: async (message, arguments) => {
       const mention = message.author
@@ -16,7 +16,7 @@ module.exports = {
   
       const timeLog = arguments[0]
       if (isNaN(timeLog)) {
-        message.reply('Please only provide the number of minutes')
+        message.reply('Please only provide the number of hours')
         return
       }
 
