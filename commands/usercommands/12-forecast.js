@@ -17,7 +17,7 @@ module.exports = {
                 console.log(`${reply}`)
             let embed = new discord.MessageEmbed()
             .setTitle(`Forecast - ${result[0].location.name}`)
-            .setColor("#ff2050")
+            
             .setDescription("Forecasts might not be accurate.")
             .addField("Forecast", `${reply}`, true)
             .setTimestamp()
