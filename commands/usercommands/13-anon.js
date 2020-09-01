@@ -5,6 +5,6 @@ module.exports = {
 
     callback: async(message, arguments, text) => {
         message.delete()
-        message.channel.send(arguments);
+        message.channel.send(text);
     }
 }
