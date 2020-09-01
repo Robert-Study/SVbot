@@ -1,5 +1,5 @@
 module.exports = {
-    commands: ['week', 'hours', 'treetime', 'time'],
+    commands: ['week', 'hours', 'treetime', 'time', 'tree'],
     minArgs: 0,
     maxArgs: 1,
     callback: async(message, arguments, text) => {
