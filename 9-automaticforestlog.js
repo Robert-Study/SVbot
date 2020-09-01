@@ -12,7 +12,7 @@ module.exports = (client) => {
     
         if (user.bot) return;
         if (reaction.emoji.name === '1️⃣'){
-            const mention = reaction.message.author
+            const mention = user
             const timeLog = 1
             
          const UserID = mention.id
