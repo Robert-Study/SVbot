@@ -18,7 +18,7 @@ module.exports = {
                 { name: `Use code: ${arguments[0]} or click this link: https://www.forestapp.cc/join-room?token=${arguments[0]}.`, value: '\u200B' },
                 { name: ':stopwatch: Duration:', value:`${arguments[1]}` , inline: true},
                 { name: ':closed_lock_with_key: Starting in:', value: `${arguments[2]}`, inline: true},
-                { name: '\u200B', value: 'Good luck! :palm_tree: | Join the team 👥 or go in focus 🔇 by reacting.' }
+                { name: '\u200B', value: 'Good luck! :palm_tree: | Join the team 👥 or go in focus 🔇 by reacting.| Log time by reacting to the amount of hours!' }
                 )
 
         let channelembed = await channel.send(exampleEmbed);
@@ -27,7 +27,7 @@ module.exports = {
         channelembed.react('1️⃣')
         channelembed.react('2️⃣')
         channelembed.react('3️⃣')
-        
+
         const welcome = message.client.channels.cache.get('732292791287283862');
         
         let welcomeembed = await welcome.send(exampleEmbed);
