@@ -1,5 +1,5 @@
 module.exports = {
-    commands: ['week'],
+    commands: ['week', 'hours', 'treetime', 'time'],
     minArgs: 0,
     maxArgs: 1,
     callback: async(message, arguments, text) => {
@@ -10,5 +10,5 @@ module.exports = {
         const UserID = target.id
             
         const logtotal = await logcounter.getLog(UserID)
-        message.reply(`You have studied for ${logtotal} hours this week!`)}
+        message.reply(`You have been planting trees for ${logtotal} hours with us!`)}
     };

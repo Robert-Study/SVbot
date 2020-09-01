@@ -27,11 +27,17 @@ client.on ("message", async (message) => {
             let channelembed = await channel.send(exampleEmbed);
             channelembed.react('👥')
             channelembed.react('🔇')
+            channelembed.react('1️⃣')
+            channelembed.react('2️⃣')
+            channelembed.react('3️⃣')
             
             const welcome = message.client.channels.cache.get('732292791287283862');
             let welcomeembed = await welcome.send(exampleEmbed);
             welcomeembed.react('👥')
             welcomeembed.react('🔇')
+            welcomeembed.react('1️⃣')
+            welcomeembed.react('2️⃣')
+            welcomeembed.react('3️⃣')
             }
         })
 }
