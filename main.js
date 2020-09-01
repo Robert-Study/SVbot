@@ -11,13 +11,14 @@ const roleselect = require ('./2-roleselect.js')
 const welcomedm = require ('./3-welcomedm')
 const forestlink = require ('./5-forestlink')
 const membercounter = require('./6-membercounter')
+const autoforest = require('./9-automaticforestlog')
 
 messagecounter(client)
 roleselect(client)
 welcomedm(client)
 forestlink(client)
 membercounter(client)
-
+autoforest(client)
 
 client.on('ready', async () => {
   console.log('The client is ready!')
