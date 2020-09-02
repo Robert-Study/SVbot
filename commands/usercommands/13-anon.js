@@ -5,7 +5,7 @@ module.exports = {
 
     callback: async(message, arguments, text) => {
         message.delete()
-        const general = message.client.channels.cache.get('750264645662539816');
+        const general = message.client.channels.cache.get('746831486451187753');
         general.send(text);
     }
 }
