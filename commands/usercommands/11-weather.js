@@ -8,7 +8,9 @@ module.exports = {
         const discord = require('discord.js');
         weather.find({search: arguments.join(" "), degreeType: 'C'}, function(err, result) {
             try {
-             
+              let reply = `⛅️ Condition: **${result[0].current.skytext}** \n🌡 Temperature: **${result[0].current.temperature} C** \n 💨 Windspeed: **${result[0].current.winddisplay}** \n\n `
+
+
             let embed = new discord.MessageEmbed()
             .setTitle(`Weather - ${result[0].location.name}`)
             
