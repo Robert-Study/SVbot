@@ -5,7 +5,7 @@ module.exports = {
     callback: (message, arguments, text) => {
         const { randomQuestion } = require('../../randomQuestion.json');
         const Discord = require('discord.js');
-        message.channel.send('**Question:**',`${randomQuestion[Math.floor(Math.random() * randomQuestion.length )]}`
+        message.channel.send(`**Question:** ${randomQuestion[Math.floor(Math.random() * randomQuestion.length )]}`
         )
     }
 }
