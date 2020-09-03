@@ -53,6 +53,16 @@ client.on("messageReactionAdd", async (reaction, user) => {
             await reaction.message.guild.members.cache.get(user.id).roles.add("717675473152245800")
         }else if (reaction.emoji.name === '👨‍🏫'){
             await reaction.message.guild.members.cache.get(user.id).roles.add("732327573899575338")
+        }else if (reaction.emoji.name === '🏫'){
+            await reaction.message.guild.members.cache.get(user.id).roles.add("750853349984829460")
+        }else if (reaction.emoji.name === '👨‍💻'){
+            await reaction.message.guild.members.cache.get(user.id).roles.add("750853181193322627")
+        }else if (reaction.emoji.name === '🏛'){
+            await reaction.message.guild.members.cache.get(user.id).roles.add("750853243558690890")
+        }else if (reaction.emoji.name === '👨‍🎓'){
+            await reaction.message.guild.members.cache.get(user.id).roles.add("750853030303498263")
+        }else if (reaction.emoji.name === '💼'){
+            await reaction.message.guild.members.cache.get(user.id).roles.add("750853283576414290")
     }}
 });
 
@@ -72,6 +82,16 @@ client.on("messageReactionRemove", async (reaction, user) => {
             await reaction.message.guild.members.cache.get(user.id).roles.remove("717675473152245800")
         }else if (reaction.emoji.name === '👨‍🏫'){
             await reaction.message.guild.members.cache.get(user.id).roles.remove("732327573899575338")
+        }else if (reaction.emoji.name === '🏫'){
+            await reaction.message.guild.members.cache.get(user.id).roles.remove("750853349984829460")
+        }else if (reaction.emoji.name === '👨‍💻'){
+            await reaction.message.guild.members.cache.get(user.id).roles.remove("750853181193322627")
+        }else if (reaction.emoji.name === '🏛'){
+            await reaction.message.guild.members.cache.get(user.id).roles.remove("750853243558690890")
+        }else if (reaction.emoji.name === '👨‍🎓'){
+            await reaction.message.guild.members.cache.get(user.id).roles.remove("750853030303498263")
+        }else if (reaction.emoji.name === '💼'){
+            await reaction.message.guild.members.cache.get(user.id).roles.remove("750853283576414290")
     }}
 });
 
