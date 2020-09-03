@@ -1,7 +1,7 @@
 const economy = require ('../../4-logcounter')
 
 module.exports = {
-    commands: ['add', 'log'],
+    commands: ['disabled', 'disable'],
     minArgs: 1,
     maxArgs: 1,
     expectedArgs: "<Give study time in hours>",
