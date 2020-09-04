@@ -12,7 +12,10 @@ module.exports = {
             try {
               await annonCountSchema
                 .findOneAndUpdate(
-                  {
+                    {
+                        UserId: 'annon',
+                      },
+                      {
                     $inc: {
                       messageCount: 1,
                     },
@@ -27,18 +30,28 @@ module.exports = {
             }
         }
         )
-    await mongo().then(async (mongoose) => {
-        try {
-            console.log('Searching the database for message-count')
+        return await mongo().then(async (mongoose) => {
+            try {
+              console.log('Searching the database for message-count')
         
               const result = await messageCountSchema.findOne({
-                messageCount})
-                return result
+                UserId: 'annon'
+              })
+        
+              let messageCount = 0
+      
+              if (result) {
+                messageCount = await result.messageCount
+              } else {
+                console.log('Unexpected error')}
+              
+              return messageCount
             } finally {
-              mongoose.connection.close()}
-            })
+              mongoose.connection.close()
     
     const general = message.client.channels.cache.get('746831486451187753');
-    general.send(`**Anonymous ${result}** : ${text}`);
+    general.send(`**Anonymous ${messageCount}** : ${text}`);
     }
+})
+}
 }
