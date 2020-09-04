@@ -7,9 +7,6 @@ module.exports = (client) => {
         if (message.author.bot) return;
         if (message.channel.id === "751498035699122196"){
             const number = content.toLowerCase() 
-            if (isNaN(number)) {
-                message.reply('you did not provide a number. Start counting at 1.')}
-            else
                 await mongo().then(async (mongoose) => {
                     try {
                     console.log('Searching the database for message-count')
