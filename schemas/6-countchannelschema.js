@@ -12,4 +12,4 @@ const countchannelSchema = mongoose.Schema({
   },
 })
 
-module.exports = mongoose.model('anon-counts', countchannelSchema)
+module.exports = mongoose.model('countchannel', countchannelSchema)
