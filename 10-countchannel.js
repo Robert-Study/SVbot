@@ -1,7 +1,7 @@
 const Countchannelschema = require("./schemas/6-countchannelschema");
 
 module.exports = (client) => {
-    client.on('message', (message) => {
+    client.on('message', async (message) => {
         const { member, content, guild } = message
         if (message.author.bot) return;
         if (message.channel.id === "751498035699122196"){
