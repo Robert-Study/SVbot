@@ -42,6 +42,8 @@ module.exports = {
       
               if (result) {
                 messageCount = await result.messageCount
+                const general = message.client.channels.cache.get('746831486451187753');
+                general.send(`**Anonymous ${messageCount}** : ${text}`);
               } else {
                 console.log('Unexpected error')}
               
@@ -49,8 +51,7 @@ module.exports = {
             } finally {
               mongoose.connection.close()
     
-    const general = message.client.channels.cache.get('746831486451187753');
-    general.send(`**Anonymous ${messageCount}** : ${text}`);
+    
     }
 })
 }
