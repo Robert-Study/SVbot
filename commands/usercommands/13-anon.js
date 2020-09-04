@@ -43,7 +43,7 @@ module.exports = {
               if (result) {
                 messageCount = await result.messageCount
                 const general = message.client.channels.cache.get('746831486451187753');
-                general.send(`**Anonymous #${messageCount}** : \n\n${text}`);
+                general.send(`**Anonymous submission #${messageCount}** : \n${text}`);
               } else {
                 console.log('Unexpected error')}
               
