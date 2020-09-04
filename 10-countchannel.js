@@ -1,4 +1,4 @@
-const mongo = require('../../mongo')
+const mongo = require('./mongo')
 const Countchannelschema = require("./schemas/6-countchannelschema");
 
 module.exports = (client) => {
