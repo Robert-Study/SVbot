@@ -5,7 +5,7 @@ const mongoPath = (process.env.mongo)
 module.exports = async () => {
   await mongoose.connect(mongoPath, {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
+    useUnifiedTopology: false,
     useFindAndModify: false,
   })
 
