@@ -24,6 +24,15 @@ module.exports = (client) => {
                     messageCount = await result.messageCount
                     if (number != (result.messageCount +1)){
                         message.reply('that is the wrong number, Start counting at 1.')
+                        await Countchannelschema
+                        .findOneAndUpdate(
+                            {
+                                UserId: 'annon',
+                              },
+                            {
+                              messageCount: 0,
+                            })
+
                     } else {
                         console.log('Unexpected error')}
 
