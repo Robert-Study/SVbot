@@ -34,7 +34,7 @@ module.exports = {
             try {
               console.log('Searching the database for message-count')
         
-              const result = await messageCountSchema.findOne({
+              const result = await annonCountSchema.findOne({
                 UserId: 'annon'
               })
         
