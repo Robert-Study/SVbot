@@ -74,10 +74,19 @@ client.on("messageReactionAdd", async (reaction, user) => {
             await reaction.message.guild.members.cache.get(user.id).roles.add("751086099580977287")
         }else if (reaction.emoji.name === '♂️'){
             await reaction.message.guild.members.cache.get(user.id).roles.add("751415673611223170")
+            await reaction.message.guild.members.cache.get(user.id).roles.add("751090050573533215")
+            await reaction.message.guild.members.cache.get(user.id).roles.add("751089899603493014")
+            await reaction.message.guild.members.cache.get(user.id).roles.add("751089212463382538")
         }else if (reaction.emoji.name === '♀️'){
             await reaction.message.guild.members.cache.get(user.id).roles.add("751415779504685146")
+            await reaction.message.guild.members.cache.get(user.id).roles.add("751090050573533215")
+            await reaction.message.guild.members.cache.get(user.id).roles.add("751089899603493014")
+            await reaction.message.guild.members.cache.get(user.id).roles.add("751089212463382538")
         }else if (reaction.emoji.name === '😄'){
             await reaction.message.guild.members.cache.get(user.id).roles.add("751415880730148975")
+            await reaction.message.guild.members.cache.get(user.id).roles.add("751090050573533215")
+            await reaction.message.guild.members.cache.get(user.id).roles.add("751089899603493014")
+            await reaction.message.guild.members.cache.get(user.id).roles.add("751089212463382538")
     }}
 });
 
