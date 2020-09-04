@@ -23,7 +23,8 @@ module.exports = (client) => {
                   if (result) {
                     messageCount = await result.messageCount
                     if (number != (result.messageCount +1)){
-                        message.reply('that is the wrong number, Start counting at 1.')
+                        message.reply('that is the wrong number, I will start with 1, you can start counting at 2.')
+                        message.channel.send('1')
                         await Countchannelschema
                         .findOneAndDelete(
                             {
