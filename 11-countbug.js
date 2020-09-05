@@ -5,7 +5,7 @@ module.exports = (client) => {
         let count = 0
         let timeout
 
-        if (channel.id === '730029372697870347') {
+        if (message.channel.id === '730029372697870347') {
             console.log('channel found')
             if (member.user.bot) return
             if (number === (count +1)) {
