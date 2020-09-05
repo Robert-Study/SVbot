@@ -12,8 +12,7 @@ const welcomedm = require ('./3-welcomedm')
 const forestlink = require ('./5-forestlink')
 const membercounter = require('./6-membercounter')
 const autoforest = require('./9-automaticforestlog')
-const countchannel = require('./10-countchannel')
-const countbug = require('./11-countbug')
+
 
 messagecounter(client)
 roleselect(client)
@@ -21,8 +20,6 @@ welcomedm(client)
 forestlink(client)
 membercounter(client)
 autoforest(client)
-countchannel(client)
-countbug(client)
 
 client.on('ready', async () => {
   console.log('The client is ready!')
