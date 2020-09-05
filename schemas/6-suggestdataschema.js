@@ -17,4 +17,4 @@ const suggestCountSchema = mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('suggest-counts', suggestCountSchema)
+module.exports = mongoose.model('suggest-data', suggestCountSchema)

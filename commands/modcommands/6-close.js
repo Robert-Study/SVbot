@@ -12,7 +12,7 @@ module.exports = {
             message.channel.delete();
             const logchannel = message.guild.channels.cache.get('730029372697870347');
             logchannel.send(`The support channel of ${"<@" + person.user.id + ">"} has been closed by ${"<@" + message.author.id + ">"}`)
-            general.send(`${"<@" + person.user.id + ">"}, your support channel has been closed by on of our mods, to open a new issue use !ticket again.`)
+            general.send(`${"<@" + person.user.id + ">"}, your support channel has been closed by one of our mods, to open a new issue use !ticket again.`)
     } else {
         message.channel.send("This command only works in a support channel");
     }
