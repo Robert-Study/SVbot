@@ -56,18 +56,13 @@ module.exports = {
                     reactsuggest.react('⬆️')
                     reactsuggest.react('⬇️')
                 
-                await mongo().then(async (mongoose) => {
-                        try {
-                            console.log('creating new suggestion file')
-                            const suggestion = {
-                                UserId: 'annon',
-                                suggestcount: messageCount,
-                                suggestion: text
-                            }
-                          await new suggestdataSchema(suggestion).save
-              } finally {
-                mongoose.connection.close()
-              } })
+                let suggestion = {
+                    UserId: 'annon',
+                    suggestcount: messageCount,
+                    suggestion: text
+                }
+              await new suggestdataSchema(suggestion).save
+              console.log('Suggestion saved')
             }else {
                 console.log('Unexpected error')}
               
