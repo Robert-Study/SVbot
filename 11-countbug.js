@@ -7,6 +7,7 @@ module.exports = (client) => {
 
         if (message.channel.id === '730029372697870347') {
             console.log('channel found')
+            console.log(number)
             if (member.user.bot) return
             if (number === (count +1)) {
                 console.log('adding 1')
