@@ -5,7 +5,7 @@ client.on('message', ({channel, content, member}) => {
 
     if (channel.id === '730029372697870347') {
       if (member.user.bot) return
-      if (Number(content) === count + 1) {
+      if ((content) === count + 1) {
         count++
         if (timeout) client.clearTimeout(timeout)
         timeout = client.setTimeout(
