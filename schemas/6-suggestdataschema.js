@@ -6,8 +6,13 @@ const suggestCountSchema = mongoose.Schema({
         required: true,
     },
       
-    messageCount: {
+    suggestcount: {
         type: Number,
+        required: true,
+    },
+
+    suggestion: {
+        type: String,
         required: true,
     }
 })
