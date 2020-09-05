@@ -3,6 +3,7 @@ module.exports = (client) => {
         const { member, content, guild } = message
         if (message.author.bot) return;
         if (message.channel.id === "730029372697870347"){
+            console.log("channel detected")
             const number = content.toLowerCase() 
             const fs = require('fs');
             const counter = require('./counter.json')
