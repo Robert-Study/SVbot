@@ -28,9 +28,19 @@ module.exports = (client) => {
                                 UserId: 'annon',
                               }) 
 
-                    } else if (number === (result.messageCount +1)){
-                        console.log('correct number')
-                        await Countchannelschema
+                    } else {
+                        console.log('Unexpected error')}
+
+                return messageCount}
+                    }finally {
+                    mongoose.connection.close()
+                }
+                    })
+                
+
+                await mongo().then(async (mongoose) => {
+                    try {
+                      await Countchannelschema
                         .findOneAndUpdate(
                             {
                                 UserId: 'annon',
@@ -45,31 +55,11 @@ module.exports = (client) => {
                           }
                         )
                         .exec()
-                    let newresult = await Countchannelschema.findOne({
-                        UserId: 'annon',
-                    })
-                    if (newresult.messageCount != number){
-                        await Countchannelschema
-                        .findOneAndUpdate(
-                            {
-                                UserId: 'annon',
-                              },
-                              {
-                            
-                              messageCount: number,
-                            },
-                          
-                          
-                        )
-                        .exec()
-                    }
+                    } finally {
+                      mongoose.connection.close()
                     }
                 }
-                }finally {
-                    mongoose.connection.close()
-                }
-                })
-            }
+                )
+          }
     })
 }
-            
