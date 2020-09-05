@@ -8,7 +8,7 @@ module.exports = (client) => {
             const fs = require('fs');
             const counter = require('./counter.json')
 
-            let rawdata = fs.readFileSync(counter);
+            let rawdata = fs.readFileSync('./counter.json');
             let data = JSON.parse(rawdata);
             if ((data.result.messagecount +1) != number ){
                 message.reply('that is the wrong number, I will start with 1, you can start counting at 2.')
