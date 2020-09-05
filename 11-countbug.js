@@ -6,8 +6,10 @@ module.exports = (client) => {
         let timeout
 
         if (channel.id === '730029372697870347') {
+            console.log('channel found')
             if (member.user.bot) return
             if (number === (count +1)) {
+                console.log('adding 1')
                 count++
             if (timeout) client.clearTimeout(timeout)
                 timeout = client.setTimeout(
