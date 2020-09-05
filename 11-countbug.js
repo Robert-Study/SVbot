@@ -21,6 +21,7 @@ module.exports = (client) => {
                 fs.writeFile('student-3.json', newdata, (err) => {
                     if (err) throw err;
                 console.log('Data written to file');
+                console.log(`${newdata}`)
                 });
             console.log('This is after the write call');
             }
