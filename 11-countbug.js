@@ -1,3 +1,4 @@
+module.exports = (client) => {
 client.on('message', ({channel, content, member}) => {
     let count = 0
     let timeout
@@ -19,4 +20,4 @@ client.on('message', ({channel, content, member}) => {
       }
     }
   })
-  
+}
