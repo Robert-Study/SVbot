@@ -47,7 +47,7 @@ module.exports = {
                 const suggestchannel = message.client.channels.cache.get('730029372697870347');
                 let suggestembed = new Discord.MessageEmbed()
                 .setColor('#337f4e')
-                .setTitle(`Anonymous suggestion **#${messageCount}**`)
+                .setTitle(`❔Anonymous suggestion **#${messageCount}**`)
                 .setTimestamp()
                 .addFields(
                     { name: `${text}`, value: `\u200B` })
@@ -55,7 +55,20 @@ module.exports = {
                 let reactsuggest = await suggestchannel.send(suggestembed);
                     reactsuggest.react('⬆️')
                     reactsuggest.react('⬇️')
-              } else {
+                
+                await mongo().then(async (mongoose) => {
+                        try {
+                            console.log('creating new suggestion file')
+                            const suggestion = {
+                                UserId: 'annon',
+                                suggestcount: messageCount,
+                                suggestion: text
+                            }
+                          await new suggestdataSchema(suggestion).save
+              } finally {
+                mongoose.connection.close()
+              } })
+            }else {
                 console.log('Unexpected error')}
               
               return messageCount
@@ -64,20 +77,9 @@ module.exports = {
             }
         })
 
-        await mongo().then(async (mongoose) => {
-            try {
-                console.log('creating new suggestion file')
-                const suggestion = {
-                    UserId: 'annon',
-                    suggestcount: messageCount,
-                    suggestion: text
-                }
-              await new suggestdataSchema(suggestion).save
+       
             
-            } finally {
-              mongoose.connection.close()
-            }
+            } 
         }
-        )
-    }
-}
+        
+    
