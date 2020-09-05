@@ -11,6 +11,7 @@ module.exports = (client) => {
             if (number === (count +1)) {
                 console.log('adding 1')
                 count++
+                console.log(count)
             if (timeout) client.clearTimeout(timeout)
                 timeout = client.setTimeout(
                 () => channel.send(++count).catch(console.error),
@@ -18,8 +19,9 @@ module.exports = (client) => {
         )
 
       } else if (member.id !== client.user.id) {
-        channel.send(`${member} messed up! Start counting from 1!`).catch(console.error)
+        message.channel.send(`${member} messed up! Start counting from 1!`).catch(console.error)
         count = 0
+        console.log(count)
         if (timeout) client.clearTimeout(timeout)
       }
     }
