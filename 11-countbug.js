@@ -1,16 +1,18 @@
 module.exports = (client) => {
-client.on('message', ({channel, content, member}) => {
-    let count = 0
-    let timeout
+    client.on('message', async (message) => {
+        const { member, content, guild } = message
+        let number = content.toLowerCase() 
+        let count = 0
+        let timeout
 
-    if (channel.id === '730029372697870347') {
-      if (member.user.bot) return
-      if ((content) === count + 1) {
-        count++
-        if (timeout) client.clearTimeout(timeout)
-        timeout = client.setTimeout(
-          () => channel.send(++count).catch(console.error),
-          3000000
+        if (channel.id === '730029372697870347') {
+            if (member.user.bot) return
+            if (number === (count +1)) {
+                count++
+            if (timeout) client.clearTimeout(timeout)
+                timeout = client.setTimeout(
+                () => channel.send(++count).catch(console.error),
+                3000000
         )
 
       } else if (member.id !== client.user.id) {
