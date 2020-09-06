@@ -33,55 +33,47 @@ module.exports = {
         })
         
         await mongo().then(async (mongoose) => {
-            try {
-              console.log('Searching the database for message-count')
-        
-              const result = await suggestCountSchema.findOne({
-                UserId: 'annon'
-              })
-        
-              let messageCount = 0
+          try {
+            console.log('Searching the database for message-count')
       
-              if (result) {
-                messageCount = await result.messageCount
-                let newuserid = ["annon"]
-                const UserId = newuserid
-                const suggestcount = messageCount
-                const suggestion = [`${text}`]
-
-                console.log(`${UserId} and ${suggestcount} and ${suggestion}`)
-                console.log(`this is suggestion.save: ${suggestion}`)
-                const suggestchannel = message.client.channels.cache.get('730029372697870347');
-                let suggestembed = new Discord.MessageEmbed()
-                .setColor('#337f4e')
-                .setTitle(`❔Anonymous suggestion **#${messageCount}**`)
-                .setTimestamp()
-                .addFields(
-                    { name: `${text}`, value: `\u200B` })
-                
-                let reactsuggest = await suggestchannel.send(suggestembed);
-                    reactsuggest.react('⬆️')
-                    reactsuggest.react('⬇️')
-                
-                
-                    let suggestion = {
-                      UserId: 'annon',
-                      suggestcount: messageCount,
-                      suggestion: text
-                  }
-                JSON.stringify(suggestion)
-                await new suggestdataSchema(suggestion).save
-          
-                console.log('Suggestion saved')
-              }else {
-                  console.log('Unexpected error')}
-                
-                return messageCount
-              } finally {
-                mongoose.connection.close()
+            const result = await suggestCountSchema.findOne({
+              UserId: 'annon'
+            })
+      
+            let messageCount = 0
+    
+            if (result) {
+              messageCount = await result.messageCount
+              const suggestchannel = message.client.channels.cache.get('730029372697870347');
+              let suggestembed = new Discord.MessageEmbed()
+              .setColor('#337f4e')
+              .setTitle(`❔Anonymous suggestion **#${messageCount}**`)
+              .setTimestamp()
+              .addFields(
+                  { name: `${text}`, value: `\u200B` })
+              
+              let reactsuggest = await suggestchannel.send(suggestembed);
+                  reactsuggest.react('⬆️')
+                  reactsuggest.react('⬇️')
+              
+              let suggestion = {
+                  UserId: 'annon',
+                  suggestcount: messageCount,
+                  suggestion: text
               }
-          })        
-      } 
-  }
+
+            JSON.stringify(suggestion)
+            await new suggestdataSchema(suggestion).save
+            console.log(`Suggestion saved: ${suggestion}`)
+          }else {
+              console.log('Unexpected error')}
+            
+            return messageCount
+          } finally {
+            mongoose.connection.close()
+          }
+      })        
+  } 
+}
         
     
