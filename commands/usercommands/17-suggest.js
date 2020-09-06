@@ -44,11 +44,14 @@ module.exports = {
       
               if (result) {
                 messageCount = await result.messageCount
-                var suggestion = {
-                  UserId: 'annon',
-                  suggestcount: 1,
+                var suggestion = [{
+                  UserId: 'annon'
+                },{
+                  suggestcount: 1
+                },{
                   suggestion: `this is a test`
                 }
+                ]
                 console.log(`this is suggestion.save: ${suggestion}`)
                 const suggestchannel = message.client.channels.cache.get('730029372697870347');
                 let suggestembed = new Discord.MessageEmbed()
