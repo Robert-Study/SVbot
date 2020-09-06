@@ -44,6 +44,12 @@ module.exports = {
       
               if (result) {
                 messageCount = await result.messageCount
+                let suggestion = {
+                  UserId: 'annon',
+                  suggestcount: `${messageCount}`,
+                  suggestion: `${text}`
+                }
+                console.log(`this is suggestion.save: ${suggestion}`)
                 const suggestchannel = message.client.channels.cache.get('730029372697870347');
                 let suggestembed = new Discord.MessageEmbed()
                 .setColor('#337f4e')
@@ -56,12 +62,7 @@ module.exports = {
                     reactsuggest.react('⬆️')
                     reactsuggest.react('⬇️')
                 
-                let suggestion = {
-                    UserId: 'annon',
-                    suggestcount: `${messageCount}`,
-                    suggestion: `${text}`
-                  }
-                  console.log(`this is suggestion.save: ${suggestion}`)
+                
                 await mongo().then(async (mongoose) => {
                   try {
                     await new suggestdataSchema(suggestion).save
