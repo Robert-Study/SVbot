@@ -62,8 +62,8 @@ module.exports = {
                   suggestion: text
               }
 
-            let newsuggest = JSON.stringify(upsuggestion)
-            await new suggestdataSchema(newsuggest).save
+            
+            await new suggestdataSchema(upsuggestion).save
             console.log(`Suggestion saved: ${newsuggest}`)
           }else {
               console.log('Unexpected error')}
@@ -76,4 +76,5 @@ module.exports = {
   } 
 }
         
+//(node:4) UnhandledPromiseRejectionWarning: ObjectParameterError: Parameter "obj" to Document() must be an object, got {"UserId":"annon","suggestcount":34,"suggestion":"FX marks the spot"}
     
