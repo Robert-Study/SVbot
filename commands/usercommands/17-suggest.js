@@ -44,11 +44,9 @@ module.exports = {
       
               if (result) {
                 messageCount = await result.messageCount
-                var suggestion = {
-                  UserId: "annon",
-                  suggestcount: 1,
-                  suggestion: "this is a test"
-                };
+                const UserId = "annon"
+                const suggestcount = messageCount
+                const suggestion = text
                 
                 console.log(`this is suggestion.save: ${suggestion}`)
                 const suggestchannel = message.client.channels.cache.get('730029372697870347');
@@ -66,7 +64,7 @@ module.exports = {
                 
                 await mongo().then(async (mongoose) => {
                   try {
-                    await new suggestdataSchema(suggestion).save
+                    await new suggestdataSchema(UserId, suggestcount, suggestion).save
                     console.log(`Suggestion saved ${suggestion}`)}
               finally {
               mongoose.connection.close()
