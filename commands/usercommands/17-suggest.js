@@ -46,7 +46,7 @@ module.exports = {
                 messageCount = await result.messageCount
                 var suggestion = {
                   UserId: 'annon',
-                  suggestcount: `${messageCount}`,
+                  suggestcount: 1,
                   suggestion: `${text}`
                 }
                 console.log(`this is suggestion.save: ${suggestion}`)
