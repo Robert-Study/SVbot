@@ -48,6 +48,12 @@ module.exports = {
                 const UserId = newuserid
                 const suggestcount = messageCount
                 const suggestion = text
+
+                let newsuggestion = {
+                  UserId: UserId,
+                  suggestcount: suggestcount,
+                  suggestion: suggestion, 
+                }
                 console.log(`${UserId} and ${suggestcount} and ${suggestion}`)
                 console.log(`this is suggestion.save: ${suggestion}`)
                 const suggestchannel = message.client.channels.cache.get('730029372697870347');
@@ -65,7 +71,9 @@ module.exports = {
                 
                 await mongo().then(async (mongoose) => {
                   try {
-                    await new suggestdataSchema(UserId, suggestcount, suggestion).save
+                    await new suggestdataSchema({UserId, 
+                    suggestcount, 
+                  suggestion}).save
                     console.log(`Suggestion saved ${suggestion}`)}
               finally {
               mongoose.connection.close()
