@@ -63,7 +63,10 @@ module.exports = {
               }
 
             
-            await new suggestdataSchema(upsuggestion).save
+            await new suggestdataSchema(upsuggestion).save(function(err, doc) {
+              if (err) return console.error(err);
+              console.log("Document inserted succussfully!");
+            });
             console.log(`Suggestion saved: ${upsuggestion}`)
           }else {
               console.log('Unexpected error')}
@@ -77,4 +80,4 @@ module.exports = {
 }
         
 //(node:4) UnhandledPromiseRejectionWarning: ObjectParameterError: Parameter "obj" to Document() must be an object, got {"UserId":"annon","suggestcount":34,"suggestion":"FX marks the spot"}
-    
+  //2020-09-06T21:32:50.228418+00:00 app[Worker.1]: Suggestion saved: [object Object]
