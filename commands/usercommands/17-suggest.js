@@ -44,7 +44,7 @@ module.exports = {
       
               if (result) {
                 messageCount = await result.messageCount
-                let suggestion = {
+                var suggestion = {
                   UserId: 'annon',
                   suggestcount: `${messageCount}`,
                   suggestion: `${text}`
