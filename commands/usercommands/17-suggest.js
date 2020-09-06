@@ -56,13 +56,13 @@ module.exports = {
                   reactsuggest.react('⬆️')
                   reactsuggest.react('⬇️')
               
-              let suggestion = {
+              let upsuggestion = {
                   UserId: 'annon',
                   suggestcount: messageCount,
                   suggestion: text
               }
 
-            let newsuggest = JSON.stringify(suggestion)
+            let newsuggest = JSON.stringify(upsuggestion)
             await new suggestdataSchema(newsuggest).save
             console.log(`Suggestion saved: ${newsuggest}`)
           }else {
