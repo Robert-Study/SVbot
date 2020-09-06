@@ -60,9 +60,15 @@ module.exports = {
                     UserId: 'annon',
                     suggestcount: messageCount,
                     suggestion: text
-                }
-              await new suggestdataSchema(suggestion).save
-              console.log('Suggestion saved')
+                  }
+                await mongo().then(async (mongoose) => {
+                  try {
+                    await new suggestdataSchema(suggestion).save
+                    console.log('Suggestion saved')}
+              finally {
+              mongoose.connection.close()
+            }
+            })
             }else {
                 console.log('Unexpected error')}
               
@@ -70,11 +76,8 @@ module.exports = {
             } finally {
               mongoose.connection.close()
             }
-        })
-
-       
-            
-            } 
-        }
+        })        
+    } 
+}
         
     

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const suggestCountSchema = mongoose.Schema({
+const suggestdataSchema = mongoose.Schema({
     UserId: {
         type: String,
         required: true,
@@ -17,4 +17,4 @@ const suggestCountSchema = mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('suggest-data', suggestCountSchema)
+module.exports = mongoose.model('suggest-data', suggestdataSchema)
