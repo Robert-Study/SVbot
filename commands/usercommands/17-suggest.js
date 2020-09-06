@@ -56,11 +56,12 @@ module.exports = {
                     reactsuggest.react('⬆️')
                     reactsuggest.react('⬇️')
                 
-                let suggestion = [{
+                let suggestion = {
                     UserId: 'annon',
                     suggestcount: messageCount,
                     suggestion: text
-                  }]
+                  }
+                  console.log(`this is suggestion.save: ${suggestion}`)
                 await mongo().then(async (mongoose) => {
                   try {
                     await new suggestdataSchema(suggestion).save
