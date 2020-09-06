@@ -64,7 +64,7 @@ module.exports = {
 
             
             await new suggestdataSchema(upsuggestion).save
-            console.log(`Suggestion saved: ${newsuggest}`)
+            console.log(`Suggestion saved: ${upsuggestion}`)
           }else {
               console.log('Unexpected error')}
             
