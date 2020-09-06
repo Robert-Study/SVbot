@@ -64,7 +64,7 @@ module.exports = {
                 await mongo().then(async (mongoose) => {
                   try {
                     await new suggestdataSchema(suggestion).save
-                    console.log('Suggestion saved')}
+                    console.log(`Suggestion saved ${suggestion}`)}
               finally {
               mongoose.connection.close()
             }
