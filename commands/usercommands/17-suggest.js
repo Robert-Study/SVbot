@@ -47,7 +47,7 @@ module.exports = {
                 let newuserid = ["annon"]
                 const UserId = newuserid
                 const suggestcount = messageCount
-                const suggestion = text
+                const suggestion = [`${text}`]
 
                 console.log(`${UserId} and ${suggestcount} and ${suggestion}`)
                 console.log(`this is suggestion.save: ${suggestion}`)
@@ -66,7 +66,7 @@ module.exports = {
                 
                 await mongo().then(async (mongoose) => {
                   try {
-                    await new suggestdataSchema(newsuggest => {
+                    await new suggestdataSchema({
                       UserId, 
                       suggestcount, 
                       suggestion}).save
