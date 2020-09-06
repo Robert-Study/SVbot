@@ -64,28 +64,24 @@ module.exports = {
                     reactsuggest.react('⬇️')
                 
                 
-                await mongo().then(async (mongoose) => {
-                  try {
-                    await new suggestdataSchema({
-                      UserId, 
-                      suggestcount, 
-                      suggestion}).save
-
-                    console.log(`${suggestion}, ${UserId}, ${suggestcount}`)
-                    console.log(`Suggestion saved ${suggestion}`)}
-              finally {
-              mongoose.connection.close()
-            }
-            })
-            }else {
-                console.log('Unexpected error')}
-              
-              return messageCount
-            } finally {
-              mongoose.connection.close()
-            }
-        })        
-    } 
-}
+                    let suggestion = {
+                      UserId: 'annon',
+                      suggestcount: messageCount,
+                      suggestion: text
+                  }
+                JSON.stringify(suggestion)
+                await new suggestdataSchema(suggestion).save
+          
+                console.log('Suggestion saved')
+              }else {
+                  console.log('Unexpected error')}
+                
+                return messageCount
+              } finally {
+                mongoose.connection.close()
+              }
+          })        
+      } 
+  }
         
     
