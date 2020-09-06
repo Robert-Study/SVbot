@@ -58,8 +58,8 @@ module.exports = {
                 
                 let suggestion = {
                     UserId: 'annon',
-                    suggestcount: messageCount,
-                    suggestion: text
+                    suggestcount: `${messageCount}`,
+                    suggestion: `${text}`
                   }
                   console.log(`this is suggestion.save: ${suggestion}`)
                 await mongo().then(async (mongoose) => {
