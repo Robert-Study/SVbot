@@ -47,7 +47,7 @@ module.exports = {
                 var suggestion = {
                   UserId: 'annon',
                   suggestcount: 1,
-                  suggestion: `${text}`
+                  suggestion: `this is a test`
                 }
                 console.log(`this is suggestion.save: ${suggestion}`)
                 const suggestchannel = message.client.channels.cache.get('730029372697870347');
