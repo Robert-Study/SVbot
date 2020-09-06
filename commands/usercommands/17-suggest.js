@@ -62,9 +62,9 @@ module.exports = {
                   suggestion: text
               }
 
-            JSON.stringify(suggestion)
-            await new suggestdataSchema(suggestion).save
-            console.log(`Suggestion saved: ${suggestion}`)
+            let newsuggest = JSON.stringify(suggestion)
+            await new suggestdataSchema(newsuggest).save
+            console.log(`Suggestion saved: ${newsuggest}`)
           }else {
               console.log('Unexpected error')}
             
