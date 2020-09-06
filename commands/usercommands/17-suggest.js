@@ -72,7 +72,6 @@ module.exports = {
                       suggestion}).save
 
                     console.log(`${suggestion}, ${UserId}, ${suggestcount}`)
-                    console.log(`${newsuggest}`)
                     console.log(`Suggestion saved ${suggestion}`)}
               finally {
               mongoose.connection.close()
