@@ -64,7 +64,7 @@ module.exports = {
 
             
             await new suggestdataSchema(upsuggestion).save(function(err, doc) {
-              if (err) return console.error(err);
+              if (err) return console.log(err);
               console.log("Document inserted succussfully!");
             });
             console.log(`Suggestion saved: ${upsuggestion}`)
