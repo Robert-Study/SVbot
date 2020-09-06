@@ -44,7 +44,8 @@ module.exports = {
       
               if (result) {
                 messageCount = await result.messageCount
-                const UserId = "annon"
+                let newuserid = ["annon"]
+                const UserId = newuserid
                 const suggestcount = messageCount
                 const suggestion = text
                 
