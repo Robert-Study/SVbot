@@ -27,14 +27,17 @@ module.exports = {
                   }
                 )
                 .exec()
-            } finally {
-              mongoose.connection.close()
-            }
-        })
-        
-        await mongo().then(async (mongoose) => {
-          try {
-            console.log('Searching the database for message-count')
+                
+
+
+
+
+
+
+
+
+
+                console.log('Searching the database for message-count')
       
             const result = await suggestCountSchema.findOne({
               UserId: 'annon'
@@ -72,12 +75,13 @@ module.exports = {
               console.log('Unexpected error')}
             
             return messageCount
-          } finally {
-            mongoose.connection.close()
-          }
-      })        
-  } 
-}
+
+          
+
+            } finally {
+              mongoose.connection.close()
+            }
+        })
+    }
+} 
         
-//(node:4) UnhandledPromiseRejectionWarning: ObjectParameterError: Parameter "obj" to Document() must be an object, got {"UserId":"annon","suggestcount":34,"suggestion":"FX marks the spot"}
-  //2020-09-06T21:32:50.228418+00:00 app[Worker.1]: Suggestion saved: [object Object]
