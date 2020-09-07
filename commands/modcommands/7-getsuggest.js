@@ -20,7 +20,7 @@ module.exports = {
               })
               console.log(results)
 
-              results.forEach((suggestion) => {
+              results.forEach((UserId) => {
                   const {suggestcount} = countnumber
                   const {suggestion} = upsuggestion
               } 
