@@ -19,8 +19,8 @@ module.exports = {
                 UserId,
               })
               console.log(results)
-//
-            let sortmyresults = results.sort((a, b) => results.suggestcount[a] - results.suggestcount[b])
+            let newsort = results.suggestcount
+            let sortmyresults = results.sort((a, b) => newsort[a] - newsort[b])
             console.log(sortmyresults)
 
             results.forEach((result)=> {
