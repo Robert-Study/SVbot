@@ -26,7 +26,8 @@ module.exports = {
 
                 const sortedsuggestions = results.sort(
                 (a, b) => sortsuggestcount[b] - sortsuggestcount[a])
-            
+                return sortedsuggestions
+                })
 
                 console.log(sortedsuggestions)
                 sortedsuggestions.length = 5
@@ -36,7 +37,7 @@ module.exports = {
                     reply += `**${newresult.suggestcount}** deadline: *${newresult.suggestion}*\n\n`
                 }
             message.channel.send(reply)
-            })
+            
 } finally {
     mongoose.connection.close()}
 
