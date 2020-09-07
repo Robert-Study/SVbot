@@ -21,7 +21,7 @@ module.exports = {
               console.log(results)
 
             let newsort = results.suggestcount
-            let sortmyresults = results.sort((a, b) => a.newsort - b.newsort)
+            let sortmyresults = results.sort((a, b) => b.newsort - a.newsort)
             console.log(sortmyresults)
             
             sortmyresults.length = 5
