@@ -9,7 +9,7 @@ module.exports = {
     expectedArgs : '<!suggest text>',
 
     callback: async(message, arguments, text) => {
-        
+        message.delete(50)
         await mongo().then(async (mongoose) => {
             try {
               await suggestCountSchema
