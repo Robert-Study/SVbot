@@ -1,7 +1,7 @@
 module.exports = {
     commands: ['showsuggestions', 'showsuggest', 'suggestionlist', 'suggestions'],
-    minArgs: 1,
-    maxArgs: 1,
+    minArgs: 0,
+    maxArgs: 0,
     permissions: 'BAN_MEMBERS',
 
     callback: async(message, arguments, text) => {
