@@ -26,12 +26,13 @@ module.exports = {
 
                 const sortedsuggestions = results.sort(
                 (a, b) => sortsuggestcount[b] - sortsuggestcount[a])
-                return sortedsuggestions
-                })
+                
+                
 
                 console.log(sortedsuggestions)
                 sortedsuggestions.length = 5
-
+                })
+                
               let reply = 'Here you go: \n\n'
                 for (const newresult of sortedsuggestions) {
                     reply += `**${newresult.suggestcount}** deadline: *${newresult.suggestion}*\n\n`
