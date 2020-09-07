@@ -4,7 +4,7 @@ const suggestCountSchema = require('../../schemas/5-suggestcountschema')
 const suggestdataSchema = require('../../schemas/6-suggestdataschema')
 
 module.exports = {
-    commands: ['suggest', 'suggestion', 'testsuggest'],
+    commands: ['suggest', 'suggestion', 'testsuggest', 'poop'],
     minArgs: 1,
     expectedArgs : '<!suggest text>',
 
