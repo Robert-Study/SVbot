@@ -21,8 +21,8 @@ module.exports = {
               console.log(results)
 
               results.forEach((UserId) => {
-                  const {suggestcount} = countnumber
-                  const {suggestion} = upsuggestion
+                  const {countnumber} = suggestcount
+                  const {upsuggestion} = suggestion
               } 
               )
               const sortedsuggestions = Object.keys(results).sort(
