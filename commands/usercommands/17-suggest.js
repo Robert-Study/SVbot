@@ -59,10 +59,11 @@ module.exports = {
                   reactsuggest.react('⬆️')
                   reactsuggest.react('⬇️')
               
+              let newsuggestion = JSON.stringify(text)
               let upsuggestion = {
                   UserId: 'annon',
                   suggestcount: messageCount,
-                  suggestion: text
+                  suggestion: `${newsuggestion}`
               }
 
             
@@ -84,4 +85,3 @@ module.exports = {
         })
     }
 } 
-        
