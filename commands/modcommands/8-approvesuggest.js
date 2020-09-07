@@ -20,13 +20,14 @@ module.exports = {
                 suggestcount,
               })
         console.log(results)
+        let approvedsuggestion = results.suggestion
 
         let suggestembed = new Discord.MessageEmbed()
         .setColor('#337f4e')
         .setTitle(`Approved suggestion #${arguments[0]}`)
         .setTimestamp()
         .addFields(
-            { name: `Suggestion:`, value: `${results.suggestion}` },
+            { name: `Suggestion:`, value: `${approvedsuggestion}` },
             {name: "Reason from the mod that approved it:", value: `${text}`})
         
         suggestchannel.send(suggestembed);
