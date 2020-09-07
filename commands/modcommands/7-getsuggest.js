@@ -23,22 +23,11 @@ module.exports = {
             let newsort = results.suggestcount
             let sortmyresults = results.sort((a, b) => a.newsort - b.newsort)
             console.log(sortmyresults)
-
-            results.forEach((result)=> {
-                let sortsuggestcount = result.suggestcount
-                console.log(sortsuggestcount)
-
-                const sortedsuggestions = results.sort(
-                (a, b) => sortsuggestcount[a] - sortsuggestcount[b])
-                
-                
-
-                console.log(sortedsuggestions)
-                sortedsuggestions.length = 5
-                })
+            
+            sortmyresults.length = 5
 
               let reply = 'Here you go: \n\n'
-                for (const newresult of sortedsuggestions) {
+                for (const newresult of sortmyresults) {
                     reply += `**${newresult.suggestcount}** suggestion: *${newresult.suggestion}*\n\n`
                 }
             message.channel.send(reply)
