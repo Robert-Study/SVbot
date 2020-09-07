@@ -19,14 +19,9 @@ module.exports = {
                 UserId,
               })
               console.log(results)
-
-              results.forEach((UserId) => {
-                  const {countnumber} = results.suggestcount
-                  const {upsuggestion} = results.suggestion
-              } 
-              )
-              const sortedsuggestions = Object.keys(results).sort(
-                (a, b) => countnumber[b] - results.countnumber[a])
+//
+              const sortedsuggestions = results.sort(
+                (a, b) => suggestcount[b] - sugggestcount[a])
 
                 console.log(sortedsuggestions)
                 sortedsuggestions.length = 5
