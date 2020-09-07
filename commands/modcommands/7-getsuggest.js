@@ -32,8 +32,8 @@ module.exports = {
                 sortedsuggestions.length = 5
 
               let reply = 'Here you go: \n\n'
-                for (const result of sortedsuggestions) {
-                    reply += `**${result.suggestcount}** deadline: *${result.suggestion}*\n\n`
+                for (const newresult of sortedsuggestions) {
+                    reply += `**${newresult.suggestcount}** deadline: *${newresult.suggestion}*\n\n`
                 }
             message.channel.send(reply)
             })
