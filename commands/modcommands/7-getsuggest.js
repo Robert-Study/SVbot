@@ -25,17 +25,17 @@ module.exports = {
                 console.log(sortsuggestcount)
 
                 const sortedsuggestions = results.sort(
-                (a, b) => sortsuggestcount[b] - sortsuggestcount[a])
+                (a, b) => sortsuggestcount[a] - sortsuggestcount[b])
                 
                 
 
                 console.log(sortedsuggestions)
                 sortedsuggestions.length = 5
                 })
-                
+
               let reply = 'Here you go: \n\n'
                 for (const newresult of sortedsuggestions) {
-                    reply += `**${newresult.suggestcount}** deadline: *${newresult.suggestion}*\n\n`
+                    reply += `**${newresult.suggestcount}** suggestion: *${newresult.suggestion}*\n\n`
                 }
             message.channel.send(reply)
             
