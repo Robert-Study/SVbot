@@ -9,7 +9,7 @@ module.exports = {
     expectedArgs : '<!suggest text>',
 
     callback: async(message, arguments, text) => {
-        message.delete(50)
+        
         await mongo().then(async (mongoose) => {
             try {
               await suggestCountSchema
@@ -65,12 +65,13 @@ module.exports = {
               console.log("Document inserted succussfully!");
             });
             console.log(`Suggestion saved: ${upsuggestion}`)
+            message.delete()
           }else {
               console.log('Unexpected error')}
             
             return messageCount
 
-          
+            
 
             } finally {
               mongoose.connection.close()
