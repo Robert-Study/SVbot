@@ -20,8 +20,10 @@ module.exports = {
               })
               console.log(results)
 //
-            results.forEach((UserID)=> {
-                let sortsuggestcount = suggestcount
+            results.forEach((result)=> {
+                let sortsuggestcount = result.suggestcount})
+                console.log(sortsuggestcount)
+
                 const sortedsuggestions = results.sort(
                 (a, b) => sortsuggestcount[b] - sortsuggestcount[a])
             
@@ -33,7 +35,7 @@ module.exports = {
                 for (const result of sortedsuggestions) {
                     reply += `**${result.suggestcount}** deadline: *${result.suggestion}*\n\n`
                 }
-            })
+            
     
 } finally {
     mongoose.connection.close()}
