@@ -20,6 +20,9 @@ module.exports = {
               })
               console.log(results)
 //
+            let sortmyresults = results.sort((a, b) => succestcount[a] - suggestcount[b])
+            console.log(sortmyresults)
+
             results.forEach((result)=> {
                 let sortsuggestcount = result.suggestcount
                 console.log(sortsuggestcount)
