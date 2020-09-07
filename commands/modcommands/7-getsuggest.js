@@ -21,7 +21,7 @@ module.exports = {
               console.log(results)
 //
               const sortedsuggestions = results.sort(
-                (a, b) => suggestcount[b] - sugggestcount[a])
+                (a, b) => results.suggestcount[b] - results.sugggestcount[a])
 
                 console.log(sortedsuggestions)
                 sortedsuggestions.length = 5
