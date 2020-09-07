@@ -35,7 +35,7 @@ module.exports = {
                 for (const result of sortedsuggestions) {
                     reply += `**${result.suggestcount}** deadline: *${result.suggestion}*\n\n`
                 }
-            
+            message.channel.send(reply)
             })
 } finally {
     mongoose.connection.close()}
