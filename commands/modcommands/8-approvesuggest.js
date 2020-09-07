@@ -20,7 +20,7 @@ module.exports = {
                 suggestcount,
               })
         console.log(results)
-        if (result) {let approvedsuggestion = await results.suggestion
+        if (results) {let approvedsuggestion = await results.suggestion
 
         let suggestembed = new Discord.MessageEmbed()
         .setColor('#337f4e')
