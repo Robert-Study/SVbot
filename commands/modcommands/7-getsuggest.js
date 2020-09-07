@@ -4,7 +4,7 @@ module.exports = {
     maxArgs: 1,
     permissions: 'BAN_MEMBERS',
 
-    callback: (message, arguments, text) => {
+    callback: async(message, arguments, text) => {
         const mongo = require('../../mongo')
         const suggestdataSchema = require('../../schemas/6-suggestdataschema')
         UserId = "annon"
