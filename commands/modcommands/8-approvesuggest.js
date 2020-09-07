@@ -20,6 +20,8 @@ module.exports = {
                 suggestcount,
               })
         console.log(results)
+
+        let approvedsuggestion = {}
         if (results) {let approvedsuggestion = await results.suggestion
 
         let suggestembed = new Discord.MessageEmbed()
