@@ -1,6 +1,6 @@
 module.exports = {
     commands: ['testapprove'],
-    minArgs: 2,
+    minArgs: 1,
     permissions: 'BAN_MEMBERS',
 
     callback: async(message, arguments, text) => {
@@ -20,7 +20,7 @@ module.exports = {
                 suggestcount,
               })
         console.log(results)
-        let approvedsuggestion = await results.UserId
+        if (result) {let approvedsuggestion = await results.suggestion
 
         let suggestembed = new Discord.MessageEmbed()
         .setColor('#337f4e')
@@ -30,7 +30,8 @@ module.exports = {
             { name: `Suggestion:`, value: `${approvedsuggestion}` },
             {name: "Reason from the mod that approved it:", value: `${text}`})
         
-        suggestchannel.send(suggestembed);
+        suggestchannel.send(suggestembed);}
+        else {message.reply(`I could not find that suggestion, please check your message`)}
 
             
     } finally {
