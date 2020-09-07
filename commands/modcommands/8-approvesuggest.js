@@ -22,8 +22,8 @@ module.exports = {
         console.log(results)
 
         let approvedsuggestion = {}
-        if (results) {let approvedsuggestion = await results.suggestion
-
+        if (results) {let apsuggestion = await results.suggestion
+        let approvedsuggestion = JSON.stringify(apsuggestion)
         let suggestembed = new Discord.MessageEmbed()
         .setColor('#337f4e')
         .setTitle(`Approved suggestion #${arguments[0]}`)
