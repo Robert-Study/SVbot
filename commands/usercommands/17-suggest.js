@@ -9,7 +9,7 @@ module.exports = {
     expectedArgs : '<!suggest text>',
 
     callback: async(message, arguments, text) => {
-        message.delete()
+        
         await mongo().then(async (mongoose) => {
             try {
               await suggestCountSchema
@@ -28,26 +28,19 @@ module.exports = {
                 )
                 .exec()
                 
-
-
-
-
-
-
-
-
-
                 console.log('Searching the database for message-count')
       
-            const result = await suggestCountSchema.findOne({
-              UserId: 'annon'
-            })
+                const result = await suggestCountSchema.findOne({
+                  UserId: 'annon'
+                  })
       
-            let messageCount = 0
+                let messageCount = 0
     
             if (result) {
               messageCount = await result.messageCount
               const suggestchannel = message.client.channels.cache.get('730029372697870347');
+              
+              
               let suggestembed = new Discord.MessageEmbed()
               .setColor('#337f4e')
               .setTitle(`❔Anonymous suggestion **#${messageCount}**`)
@@ -59,7 +52,7 @@ module.exports = {
                   reactsuggest.react('⬆️')
                   reactsuggest.react('⬇️')
               
-              let newsuggestion = JSON.stringify(text)
+              let newsuggestion = text
               let upsuggestion = {
                   UserId: 'annon',
                   suggestcount: messageCount,

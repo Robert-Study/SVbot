@@ -28,8 +28,8 @@ module.exports = {
                message.channel.send(embed)
             } catch(err) {
               return message.channel.send("Unable To Get the data of Given location")
-            }
-            });   
+      }
+    });   
                 
-              }
-            }
+  }
+}
