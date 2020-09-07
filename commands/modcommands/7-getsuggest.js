@@ -1,3 +1,5 @@
+const { count } = require('../../schemas/6-suggestdataschema');
+
 module.exports = {
     commands: ['showsuggestions', 'showsuggest', 'suggestionlist', 'suggestions'],
     minArgs: 0,
@@ -16,9 +18,15 @@ module.exports = {
               const results = await suggestdataSchema.find({
                 UserId,
               })
+              console.log(results)
 
+              results.forEach((suggestion) => {
+                  const {suggestcount} = countnumber
+                  const {suggestion} = upsuggestion
+              } 
+              )
               const sortedsuggestions = Object.keys(results).sort(
-                (a, b) => results.suggestcount[b] - results.suggestcount[a])
+                (a, b) => countnumber[b] - results.countnumber[a])
 
                 console.log(sortedsuggestions)
                 sortedsuggestions.length = 5
