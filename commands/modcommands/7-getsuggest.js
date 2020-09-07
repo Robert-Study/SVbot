@@ -26,7 +26,7 @@ module.exports = {
             
             sortmyresults.length = 5
 
-              let reply = '**The 5 most recent suggestions: \n\n'
+              let reply = '**The 5 most recent suggestions:** \n\n'
                 for (const newresult of sortmyresults) {
                     reply += `**${newresult.suggestcount}** suggestion: *${newresult.suggestion}*\n`
                 }
