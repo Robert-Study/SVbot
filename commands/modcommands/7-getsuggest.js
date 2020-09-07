@@ -21,7 +21,7 @@ module.exports = {
               console.log(results)
 //
             results.forEach((UserID)=> {
-                let sortsuggestcount = results.suggestcount
+                let sortsuggestcount = suggestcount
                 const sortedsuggestions = results.sort(
                 (a, b) => sortsuggestcount[b] - sortsuggestcount[a])
             
