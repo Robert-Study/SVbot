@@ -38,7 +38,7 @@ module.exports = {
 
         if (result) {
           messageCount = await result.messageCount
-          const suggestchannel = message.client.channels.cache.get('730029372697870347');
+          const suggestchannel = message.client.channels.cache.get('729372656456958022');
 
 
           let suggestembed = new Discord.MessageEmbed()
@@ -71,7 +71,7 @@ module.exports = {
         }
       })
   }
-  
+
 }
 
 
