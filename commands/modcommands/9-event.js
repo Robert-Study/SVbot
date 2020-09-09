@@ -13,7 +13,7 @@ module.exports = {
             🔵 = October 1st (01-10-2020). \n
             🟠 = October 9'th (09-10-2020). \n
 
-            Please **react with the color** of your date of choice. Feel free to choose multiple events, a single one or none at all.\n\n
+            Please **react with the color** of your date of choice. Feel free to choose multiple dates, a single one or none at all.\n\n
             Also because of the super high number of votes on 'Movie Night' in the poll in the #events channel we will go ahead and schedule this too.` }
             )
     message.channel.send(hydraembed); 
