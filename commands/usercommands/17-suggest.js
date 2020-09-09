@@ -60,12 +60,13 @@ module.exports = {
               }
 
             console.log(upsuggestion)
+            await mongo().then(async (mongoose) => {
             await new suggestdataSchema(upsuggestion).save(function(err, doc) {
               if (err) return console.log(err);
               console.log("Document inserted succussfully!");
             });
             console.log(`Suggestion saved: ${upsuggestion}`)
-            message.delete()
+            message.delete()})
           }else {
               console.log('Unexpected error')}
             
