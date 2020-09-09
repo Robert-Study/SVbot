@@ -59,7 +59,6 @@ module.exports = {
             suggestcount: messageCount,
             suggestion: `${newsuggestion}`
           }
-          new suggestdataSchema(upsuggestion).save()
 
           
         } else {
@@ -75,9 +74,15 @@ module.exports = {
       }
     }).then(
 
-/*
+
       async (mongoose) => {
         try {
+
+          let upsuggestion = {
+            UserId: 'annon',
+            suggestcount: 20,
+            suggestion: `hello`
+          }
           await new suggestdataSchema(upsuggestion).save(function (err, doc) {
             if (err) return console.log(err);
             console.log("Document inserted succussfully!");
@@ -88,7 +93,7 @@ module.exports = {
         } finally {
           mongoose.connection.close()
         }
-      }*/
+      }
     )
   }
 } 
