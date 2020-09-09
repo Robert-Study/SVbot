@@ -59,7 +59,7 @@ module.exports = {
                   suggestion: `${newsuggestion}`
               }
 
-            
+            console.log(upsuggestion)
             await new suggestdataSchema(upsuggestion).save(function(err, doc) {
               if (err) return console.log(err);
               console.log("Document inserted succussfully!");
