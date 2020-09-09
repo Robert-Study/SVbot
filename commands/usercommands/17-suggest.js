@@ -74,8 +74,7 @@ module.exports = {
       }
     }).then(
 
-
-      async (mongoose) => {
+      await mongo().then(async (mongoose) => {
         try {
 
           let upsuggestion = {
@@ -94,6 +93,6 @@ module.exports = {
           mongoose.connection.close()
         }
       }
-    )
+    ))
   }
 } 
