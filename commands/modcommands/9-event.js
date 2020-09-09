@@ -9,7 +9,7 @@ module.exports = {
         const hydraembed = new Discord.MessageEmbed()
         .setColor('#1a9cd8')
         .addFields(
-            { name: 'Poll server conversation', value: `After the succes of yesterdays server-Voice Call, Heleen wants to make this a monthly recurring event. Therefore a poll to see who is available and which date suits everyone best. The call will probably start at 19:00 GMT+2 but this can be changed when the chosen date arises. The dates we can choose from for October: \n\n
+            { name: 'Poll server conversation', value: `After the succes of yesterdays server-Voice Call, Heleen wants to make this a monthly recurring event. Therefore a poll to see who is available and which date suits everyone best. The call will probably start at 19:00 GMT+2 but this can be changed when the chosen date arises. **The dates we can choose for October:** \n\n
             🔵 = October 1st (01-10-2020). \n
             🟠 = October 9'th (09-10-2020). \n
 
