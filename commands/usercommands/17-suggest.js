@@ -66,7 +66,7 @@ module.exports = {
           console.log('Unexpected error')
         }
 
-        return upsuggestion
+        return 
 
 
 
