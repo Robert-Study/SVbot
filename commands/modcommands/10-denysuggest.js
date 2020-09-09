@@ -1,5 +1,5 @@
 module.exports = {
-    commands: ['approve'],
+    commands: ['deny', 'denied', 'denysuggestion'],
     minArgs: 1,
     permissions: 'BAN_MEMBERS',
 
@@ -27,12 +27,12 @@ module.exports = {
         let approvedsuggestion = JSON.stringify(apsuggestion)
         let suggestembed = new Discord.MessageEmbed()
 
-        .setColor('#337f4e')
-        .setTitle(`Approved suggestion #${arguments[0]}`)
+        .setColor('#f4162c')
+        .setTitle(`Denied suggestion #${arguments[0]}`)
         .setTimestamp()
         .addFields(
             { name: `Suggestion:`, value: `${approvedsuggestion}` },
-            {name: "Reason from the mod that approved it:", value: `${text}`})
+            {name: "Reason from the mod that denied it:", value: `${text}`})
         
         suggestchannel.send(suggestembed);}
         else {message.reply(`I could not find that suggestion, please check your message`)}

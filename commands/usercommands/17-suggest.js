@@ -1,3 +1,5 @@
+//
+
 const mongo = require('../../mongo')
 const Discord = require('discord.js');
 const suggestCountSchema = require('../../schemas/5-suggestcountschema')
