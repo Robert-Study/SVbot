@@ -11,7 +11,6 @@ module.exports = {
   callback: async (message, arguments, text) => {
 
     await mongo().then(async (mongoose) => {
-      try {
         await suggestCountSchema
           .findOneAndUpdate(
             {
@@ -60,39 +59,20 @@ module.exports = {
             suggestion: `${newsuggestion}`
           }
 
-          
-        } else {
-          console.log('Unexpected error')
-        }
-
-        return 
-
-
-
-      } finally {
-        mongoose.connection.close()
-      }
-    }).then(
-
-      await mongo().then(async (mongoose) => {
-        try {
-
-          let upsuggestion = {
-            UserId: 'annon',
-            suggestcount: 20,
-            suggestion: `hello`
-          }
           await new suggestdataSchema(upsuggestion).save(function (err, doc) {
             if (err) return console.log(err);
             console.log("Document inserted succussfully!");
+            mongoose.connection.close()
           });
           message.delete()
 
-
-        } finally {
-          mongoose.connection.close()
+        } else {
+          console.log('Unexpected error')
         }
-      }
-    ))
+      })
   }
-} 
+}
+
+
+         
+
