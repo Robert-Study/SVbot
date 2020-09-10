@@ -13,7 +13,7 @@ module.exports = {
                 const split = line.split('=')
                 const emoji = split[0].trim()
 
-                let suggestembed = new Discord.MessageEmbed()
+                let exampleEmbed = new Discord.MessageEmbed()
                 .setColor('#337f4e')
                 .setTimestamp()
                 .addFields(
