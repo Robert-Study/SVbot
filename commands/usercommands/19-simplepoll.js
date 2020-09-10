@@ -10,6 +10,7 @@ module.exports = {
         let channelembed = await message.channel.send(exampleEmbed);
         channelembed.react('👍')
         channelembed.react('👎')
+        message.delete()
 
     }
 
