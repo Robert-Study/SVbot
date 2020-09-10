@@ -12,7 +12,8 @@ module.exports = {
             .setColor('#1a9cd8')
             .setTimestamp()
             .addFields(
-                { name: `Movie night genre poll:`, value: `${text}` })
+                { name: `Poll:`, value: `${text}` })
+            .setFooter(`Poll by: ${message.author.username} `)
 
         let channelembed = await message.channel.send(exampleEmbed);
         message.delete()
