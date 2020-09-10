@@ -141,14 +141,5 @@ client.on("messageReactionAdd", async (reaction, user) => {
         await reaction.message.guild.members.cache.get(user.id).roles.add("753607274291003405")
     }}
 });
-client.on("messageReactionAdd", async (reaction, user) => {
-    if (reaction.message.partial) await reaction.message.fetch();
-    if (reaction.partial) await reaction.fetch
 
-    if (user.bot) return;
-    if (reaction.message.channel.id === "752832745104867418"){
-    if (reaction.emoji.name === '🔔'){
-        await reaction.message.guild.members.cache.get(user.id).roles.remove("753607274291003405")
-    }}
-});
 }
