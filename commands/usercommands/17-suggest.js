@@ -45,10 +45,10 @@ module.exports = {
 
           let suggestembed = new Discord.MessageEmbed()
             .setColor('#337f4e')
-            .setTitle(`❔Anonymous suggestion **#${messageCount}**`)
+            .setTitle(`❓Anonymous **#${messageCount}**`)
             .setTimestamp()
             .addFields(
-              { name: `${text}`, value: `\u200B` })
+              { name: `Suggestion:`, value: `${text}` })
 
           let reactsuggest = await suggestchannel.send(suggestembed);
           reactsuggest.react('⬆️')
