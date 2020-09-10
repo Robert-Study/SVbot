@@ -9,15 +9,14 @@ module.exports = {
         const eachLine = content.split('\n')
 
         let exampleEmbed = new Discord.MessageEmbed()
-            .setColor('#337f4e')
+            .setColor('#1a9cd8')
             .setTimestamp()
             .addFields(
-                { name: `Poll:`, value: `${text}` })
-            .setFooter(`Poll by: ${message.author.username} `)
+                { name: `Movie night genre poll:`, value: `${text}` })
 
         let channelembed = await message.channel.send(exampleEmbed);
         message.delete()
-        
+
         for (const line of eachLine) {
             if (line.includes('=')) {
                 const split = line.split('=')
