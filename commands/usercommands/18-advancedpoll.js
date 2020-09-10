@@ -8,20 +8,26 @@ module.exports = {
         const { content } = message
         const eachLine = content.split('\n')
 
+        let exampleEmbed = new Discord.MessageEmbed()
+            .setColor('#337f4e')
+            .setTimestamp()
+            .addFields(
+                { name: `Poll:`, value: `${text}` })
+            .setFooter(`Poll by: ${message.author.username} `)
+
+        let channelembed = await message.channel.send(exampleEmbed);
+        message.delete()
+
         for (const line of eachLine) {
             if (line.includes('=')) {
                 const split = line.split('=')
                 const emoji = split[0].trim()
 
-                let exampleEmbed = new Discord.MessageEmbed()
-                .setColor('#337f4e')
-                .setTimestamp()
-                .addFields(
-                    { name: `Poll:`, value: `${text}` })
-                let channelembed = await message.channel.send(exampleEmbed);
-                channelembed.react(emoji)
-            }
-        }
 
+                channelembed.react(emoji)
+
+            }
+
+        }
     }
 }
