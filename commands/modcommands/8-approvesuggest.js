@@ -8,6 +8,7 @@ module.exports = {
         const Discord = require('discord.js');
         const suggestdataSchema = require('../../schemas/6-suggestdataschema')
         const suggestchannel = message.client.channels.cache.get('730029372697870347');
+        
         UserId = "annon"
         let suggestcount = arguments[0]
 

@@ -1,5 +1,5 @@
 module.exports = {
-    commands: ['poll', 'advancedpoll', 'mcpoll'],
+    commands: ['mc', 'advancedpoll', 'mcpoll'],
     minArgs: 1,
     expectedArgs: '<!poll text options split with = sign>',
 
