@@ -17,12 +17,11 @@ module.exports = {
         
               const results = await suggestdataSchema.find({
                 UserId,
-                suggestcount,
-              })
+                suggestcount,})
+              
         console.log(results)
-
-        let approvedsuggestion = {}
-        if (results) {let apsuggestion = await results.suggestion
+        
+        if (results) {let apsuggestion = results.suggestion
             
         let approvedsuggestion = JSON.stringify(apsuggestion)
         let suggestembed = new Discord.MessageEmbed()
@@ -36,7 +35,7 @@ module.exports = {
         
         suggestchannel.send(suggestembed);}
         else {message.reply(`I could not find that suggestion, please check your message`)}
-
+        
             
     } finally {
         mongoose.connection.close()
