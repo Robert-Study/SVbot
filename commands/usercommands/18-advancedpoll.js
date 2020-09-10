@@ -16,7 +16,6 @@ module.exports = {
             .setFooter(`Poll by: ${message.author.username} `)
 
         let channelembed = await message.channel.send(exampleEmbed);
-        message.delete()
 
         for (const line of eachLine) {
             if (line.includes('=')) {
