@@ -9,12 +9,8 @@ module.exports = {
         const hydraembed = new Discord.MessageEmbed()
         .setColor('#1a9cd8')
         .addFields(
-            { name: 'Poll server conversation', value: `After the succes of yesterdays server-Voice Call, Heleen wants to make this a monthly recurring event. Therefore a poll to see who is available and which date suits everyone best. The call will probably start at 19:00 GMT+2 but this can be changed when the chosen date arises. **The dates we can choose for October:** \n\n
-            🔵 = October 1st (01-10-2020). \n
-            🟠 = October 9'th (09-10-2020). \n
-
-            Please **react with the color** of your date of choice. Feel free to choose multiple dates, a single one or none at all.\n\n
-            Also because of the super high number of votes on 'Movie Night' in the poll in the #events channel we will go ahead and schedule this too.` }
+            { name: 'Event Notifications', value: `It has been brought to our attention that using colours to vote might not be the best way as people suffering from colorblindness might have difficulties voting. We appologize for this and will use other emojis for polls in the feature! \n
+            If you want to stay informed of the events and polls in this channel, please click the 🔔 reaction below!`}
             )
     message.channel.send(hydraembed); 
     }
