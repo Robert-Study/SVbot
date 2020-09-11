@@ -36,7 +36,7 @@ module.exports = {
                     });
                 }
 
-                else if (todo.todocount < argument[1]) { return; }
+                else if (todo.todocount < todocount) { return; }
             })
 
             await todoCountSchema
