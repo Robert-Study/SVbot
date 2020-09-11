@@ -28,7 +28,7 @@ module.exports = {
             newtodo.forEach(async(todo) => {
                 if (todo.todocount > todocount) {
                     await tododataSchema.findOneAndModify({
-                        _id
+                        UserId: UserId
                     }, {
                         $inc: {
                             todocount: -1,
