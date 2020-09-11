@@ -25,7 +25,7 @@ module.exports = {
                 UserId,
             })
 
-            consolge.log(newtodo)
+            console.log(newtodo)
 
             newtodo.forEach(async(todo) => {
                 if (todo.todocount < arguments[0]) {
