@@ -50,24 +50,25 @@ module.exports = {
                 await new tododataSchema(uptodo).save(function (err, doc) {
                     if (err) return console.log(err);
                     console.log("Document-todo inserted succussfully!");
-
-
-                    const results = await tododataSchema.find({
-                        UserId,
-                    })
-                    console.log(results)
-
-                    let sortmyresults = results.reverse()
-                    console.log(sortmyresults)
-                    let reply = '**The 5 most recent suggestions:** \n\n'
-                    for (const newresult of sortmyresults) {
-                        reply += `**${newresult.todocount}** suggestion: *${newresult.todo}*\n`
-                    }
-                    message.channel.send(reply)
-
-
-                    mongoose.connection.close()
                 })
+
+
+                const results = await tododataSchema.find({
+                    UserId,
+                })
+                console.log(results)
+
+                let sortmyresults = results.reverse()
+                console.log(sortmyresults)
+                let reply = '**The 5 most recent suggestions:** \n\n'
+                for (const newresult of sortmyresults) {
+                    reply += `**${newresult.todocount}** suggestion: *${newresult.todo}*\n`
+                }
+                message.channel.send(reply)
+
+
+                mongoose.connection.close()
+
             }
         })
     }
