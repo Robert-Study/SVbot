@@ -4,7 +4,7 @@ module.exports = {
     maxArgs: 1,
     permissions: 'BAN_MEMBERS',
 
-    callback: (message, arguments, text) => {
+    callback: async(message, arguments, text) => {
         message.delete()
         var person = message.guild.member(message.mentions.users.first());
         if (!person) return message.reply("I CANT FIND THE USER " + person);
