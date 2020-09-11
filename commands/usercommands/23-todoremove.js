@@ -29,7 +29,7 @@ module.exports = {
 
             newtodo.forEach(async(item) => {
                 if (item.todocount > arguments[0]) {
-                    await tododataSchema.findAndModify({
+                    await tododataSchema.update({
                         UserId: UserId
                     }, {
                         $inc: {
