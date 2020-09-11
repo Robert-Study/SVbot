@@ -61,10 +61,7 @@ module.exports = {
 
                     let sortmyresults = results
                     console.log(sortmyresults)
-                    let reply = '**Your To-do List:** \n\n'
-                    for (const newresult of sortmyresults) {
-                        reply += `**${newresult.todocount})** *${newresult.todo}*\n`
-                    }
+                    let reply = `Added your item ${todo} to your list`
                     message.channel.send(reply)
 
 
