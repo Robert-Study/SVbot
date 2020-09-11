@@ -29,7 +29,7 @@ module.exports = {
             }
             else { message.reply('You do not have any todos yet, to add tasks use !addtodo') }
 
-
+            
             mongoose.connection.close()
 
         }

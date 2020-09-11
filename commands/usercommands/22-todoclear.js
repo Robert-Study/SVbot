@@ -1,6 +1,7 @@
 const mongo = require('../../mongo')
 const Discord = require('discord.js');
 const tododataSchema = require('../../schemas/8-tododataschema')
+const todoCountSchema = require('../../schemas/7-todocountschema')
 
 
 module.exports = {
@@ -18,8 +19,9 @@ module.exports = {
             })
             message.reply('Deleted all your tasks. To add new tasks use !todoadd')
 
-
-
+            await todoCountSchema.deleteMany({
+                UserId,
+            })
             mongoose.connection.close()
 
         }
