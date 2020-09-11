@@ -27,19 +27,19 @@ module.exports = {
 
             console.log(newtodo)
 
+            newtodo.forEach(async(item) => {
+                if (item.todocount > arguments[0]) {
+                    await tododataSchema.findAndModify({
+                        UserId: UserId
+                    }, {
+                        $inc: {
+                            todocount: -1,
+                        },
+                    });
+                }
 
-            if (newtodo.todocount > arguments[0]) {
-                await tododataSchema.updateMany({
-                    UserId: UserId
-                }, {
-                    $inc: {
-                        todocount: -1,
-                    },
-                });
-            }
-
-            else if (newtodo.todocount < arguments[0]) { return; }
-
+                else if (item.todocount < arguments[0]) { return; }
+            })
 
             await todoCountSchema
                 .findOneAndUpdate(
