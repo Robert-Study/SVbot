@@ -60,9 +60,9 @@ module.exports = {
 
                 let sortmyresults = results.reverse()
                 console.log(sortmyresults)
-                let reply = '**The 5 most recent suggestions:** \n\n'
+                let reply = '**Your To-do List:** \n\n'
                 for (const newresult of sortmyresults) {
-                    reply += `**${newresult.todocount}** suggestion: *${newresult.todo}*\n`
+                    reply += `**${newresult.todocount})** *${newresult.todo}*\n`
                 }
                 message.channel.send(reply)
 
