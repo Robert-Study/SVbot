@@ -21,9 +21,9 @@ module.exports = {
                 todocount
             })
             message.reply(`Deleted task #${todocount}. To add new tasks use !todoadd`)
-            let newtodo = await tododataSchema.find(
+            let newtodo = await tododataSchema.find({
                 UserId,
-            )
+            })
 
             newtodo.forEach(async(todo) => {
                 if (messagecounts > todocount) {
