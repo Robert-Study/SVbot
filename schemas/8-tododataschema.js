@@ -17,4 +17,5 @@ const tododataschema = mongoose.Schema({
     }
 })
 
+
 module.exports = mongoose.model('suggest-data', tododataschema)
