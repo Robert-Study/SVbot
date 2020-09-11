@@ -25,8 +25,10 @@ module.exports = {
                 UserId,
             })
 
+            consolge.log(newtodo)
+
             newtodo.forEach(async(todo) => {
-                if (todo.todocount < todocount) {
+                if (todo.todocount < arguments[0]) {
                     await tododataSchema.findOneAndUpdate({
                         UserId: UserId
                     }, {
@@ -36,7 +38,7 @@ module.exports = {
                     });
                 }
 
-                else if (todo.todocount > todocount) { return; }
+                else if (todo.todocount > arguments[0]) { return; }
             })
 
             await todoCountSchema
