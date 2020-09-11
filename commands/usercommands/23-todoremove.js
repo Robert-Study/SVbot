@@ -28,7 +28,7 @@ module.exports = {
             console.log(newtodo)
 
 
-            if (todo.todocount > arguments[0]) {
+            if (newtodo.todocount > arguments[0]) {
                 await tododataSchema.findOneAndUpdate({
                     UserId: UserId
                 }, {
@@ -38,7 +38,7 @@ module.exports = {
                 });
             }
 
-            else if (todo.todocount < arguments[0]) { return; }
+            else if (newtodo.todocount < arguments[0]) { return; }
 
 
             await todoCountSchema
