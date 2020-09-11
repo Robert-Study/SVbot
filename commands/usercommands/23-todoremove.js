@@ -29,7 +29,7 @@ module.exports = {
 
 
             if (newtodo.todocount > arguments[0]) {
-                await tododataSchema.findOneAndUpdate({
+                await tododataSchema.updateMany({
                     UserId: UserId
                 }, {
                     $inc: {
