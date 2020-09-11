@@ -42,9 +42,9 @@ module.exports = {
                 })
 
                 if (result.warnings >= 3) {
-                    logchannel.send(`**${"<@" + person.user.id + ">"} has been warned by ${"<@" + message.author.id + ">"}**, this is already their ${result.warnings} warning! Please take action against this User.`)
+                    logchannel.send(`**${"<@" + person.user.id + ">"} has been warned by ${"<@" + message.author.id + ">"}**, **this is already their #${result.warnings} warning! Please take action against this user.**`)
 
-                } else { logchannel.send(`**${"<@" + person.user.id + ">"} has been warned by ${"<@" + message.author.id + ">"}**, this is their ${result.warnings} warning.`) }
+                } else { logchannel.send(`**${"<@" + person.user.id + ">"} has been warned by ${"<@" + message.author.id + ">"}**, this is their #${result.warnings} warning.`) }
 
             } finally { mongoose.connection.close() }
 
