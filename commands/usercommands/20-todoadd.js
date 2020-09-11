@@ -58,7 +58,7 @@ module.exports = {
                 })
                 console.log(results)
 
-                let sortmyresults = results.reverse()
+                let sortmyresults = results
                 console.log(sortmyresults)
                 let reply = '**Your To-do List:** \n\n'
                 for (const newresult of sortmyresults) {
