@@ -13,8 +13,7 @@ module.exports = {
         const mention = message.author
         const UserId = mention.id
         let todocount = arguments[0]
-        let upserttasks = 
-        
+
 
         await mongo().then(async (mongoose) => {
             await tododataSchema.deleteOne({
@@ -22,10 +21,23 @@ module.exports = {
                 todocount
             })
             message.reply(`Deleted task #${todocount}. To add new tasks use !todoadd`)
-            await tododataSchema.findAndModify(
-                
+            let newtodo = await tododataSchema.find(
+                UserId,
             )
 
+            newtodo.forEach((todo) => {
+                if (messagecounts > todocount) {
+                    await tododataSchema.findOneAndModify({
+                        _id
+                    }, {
+                        $inc: {
+                            todocount: -1,
+                        },
+                    });
+                }
+
+                else if (messagecounts < argument[1]) { return; }
+            })
 
             await todoCountSchema
                 .findOneAndUpdate(
@@ -42,8 +54,8 @@ module.exports = {
                     }
                 )
                 .exec()
+            mongoose.connection.close()
+        })
 
-        }
-        )
     }
 }
