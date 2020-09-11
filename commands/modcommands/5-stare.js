@@ -24,7 +24,7 @@ module.exports = {
                 const results = await warningcountSchema
                     .findOneAndUpdate(
                         {
-                            UserId: UserId,
+                            UserID: UserID,
                         },
                         {
                             $inc: {
