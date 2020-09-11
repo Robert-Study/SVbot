@@ -32,7 +32,7 @@ module.exports = {
 
             console.log('Searching the database for todo-count')
 
-            const result = await suggestCountSchema.findOne({
+            const result = await todoCountSchema.findOne({
                 UserId: UserId
             })
 
