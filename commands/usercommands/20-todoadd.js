@@ -57,11 +57,11 @@ module.exports = {
                     const results = await tododataSchema.find({
                         UserId,
                     })
-                    console.log(results)
+                    
 
                     let sortmyresults = results
-                    console.log(sortmyresults)
-                    let reply = `Added your item ${todo} to your list`
+                    
+                    let reply = `Added your item to your list`
                     message.channel.send(reply)
 
 
