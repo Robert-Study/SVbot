@@ -26,7 +26,7 @@ module.exports = {
             })
 
             newtodo.forEach(async(todo) => {
-                if (messagecounts > todocount) {
+                if (todo.todocount > todocount) {
                     await tododataSchema.findOneAndModify({
                         _id
                     }, {
@@ -36,7 +36,7 @@ module.exports = {
                     });
                 }
 
-                else if (messagecounts < argument[1]) { return; }
+                else if (todo.todocount < argument[1]) { return; }
             })
 
             await todoCountSchema
