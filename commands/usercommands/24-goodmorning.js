@@ -11,7 +11,7 @@ module.exports = {
         const userSchema = require('../../schemas/3-deadlineschema')
         const todocountSchema = require('../../schemas/7-todocountschema')
         const userdataSchema = require('../../schemas/9-userinfoschema')
-        const userdataSchema = require('../../schemas/10-totalstudytimeschema')
+        const usertimeSchema = require('../../schemas/10-totalstudytimeschema')
         const userdocumentSchema = require('../../schemas/2-logcountschema')
         const { randomQuotes } = require('../../randomQuotes.json');
         let getquote = randomQuotes[Math.floor(Math.random() * randomQuotes.length)]
@@ -19,7 +19,7 @@ module.exports = {
         const UserID = mention.id
         const UserId = mention.id
 
-        
+
 
         await mongo().then(async (mongoose) => {
             try {
@@ -32,7 +32,7 @@ module.exports = {
 
                     console.log('Searching the database for Deadlines')
                     console.log(personaltime)
-                    const results = await userdataSchema.find({
+                    const results = await usertimeSchema.find({
                         UserID: 'anon'
                     })
                     for (const time of results) {
