@@ -19,8 +19,11 @@ module.exports = {
             })
             message.reply('Deleted all your tasks. To add new tasks use !todoadd')
 
-            await todoCountSchema.deleteMany({
+            await todoCountSchema.findOneAndUpdate({
                 UserId,
+            },{
+                UserId,
+                messageCount: 0
             })
             mongoose.connection.close()
 
