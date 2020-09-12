@@ -30,7 +30,8 @@ module.exports = {
                         barcode: 101,
                     })
                     console.log(users)
-                    let average = (totaltime / users)
+                    let averagenotround = (totaltime / users)
+                    let average = Math.round(averagenotround *10)/10
                     console.log(average)
                     if (personaltime > average) {
                         message.reply(`You have been planting trees for ${personaltime} hours with us this week, the total hours of the server is ${totaltime} by ${users} users! That makes an average of ${average} hours per user. You are above average! Good job!`)
