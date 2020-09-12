@@ -46,7 +46,7 @@ module.exports = {
                         let average = Math.round(averagenotround * 10) / 10
                         console.log(average)
 
-                        let treereply = (`🌴 You studied **${personaltime}H**, average is **${average}H** ⬆️`)
+                        let treereply = (`🌴 **Study Time:**\n You studied **${personaltime} hours** this week\n The server-average is **${average} hours**`)
                         if (treereply) {
                             const results = await userdataSchema.find({
                                 UserId,
