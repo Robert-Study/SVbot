@@ -88,6 +88,7 @@ module.exports = {
                                                         .setThumbnail(result[0].current.imageUrl)
                                                     message.channel.send(exampleEmbed)
                                                     mongoose.connection.close()
+                                                    message.delete()
                                                 }
                                                 else {
                                                     const todoembed = new Discord.MessageEmbed()
@@ -101,6 +102,7 @@ module.exports = {
                                                         )
                                                     message.channel.send(todoembed)
                                                     mongoose.connection.close()
+                                                    message.delete()
                                                 }
                                             }
                                             else {
