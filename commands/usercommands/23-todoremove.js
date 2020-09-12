@@ -12,13 +12,13 @@ module.exports = {
     callback: async (message, arguments, text) => {
         const mention = message.author
         const UserId = mention.id
-        let todocount = arguments[0]
+        let removecount = arguments[0]
 
 
         await mongo().then(async (mongoose) => {
             await tododataSchema.deleteOne({
                 UserId,
-                todocount
+                todocount: removecount,
             })
             message.reply(`Deleted task #${todocount}. To add new tasks use !todoadd`)
             let newtodo = await tododataSchema.find({
@@ -27,8 +27,8 @@ module.exports = {
 
             console.log(newtodo)
 
-            for (const item of newtodo) {
-                if (item.todocount > arguments[0]) {
+            newtodo.forEach(item => {
+                if (item.todocount > removecount) {
                     await tododataSchema.findandmodify({
                         query: { _id },
                         update: {
@@ -40,8 +40,8 @@ module.exports = {
                 }
 
 
-                else if (item.todocount < arguments[0]) { return; }
-            }
+                else if (item.todocount < removecount) { return; }
+            })
 
 
 
