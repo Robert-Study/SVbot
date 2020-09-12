@@ -11,6 +11,10 @@ module.exports = {
         let providedplace = arguments[0]
         let providedquote = arguments[1]
         let providedforecast = arguments[2] 
+
+        console.log(providedforecast)
+        console.log(providedquote)
+        
         if ((providedquote != `yes`) || (providedquote != `no`)) {
             message.reply('please provide a yes or no answer for Quotes')
         }
