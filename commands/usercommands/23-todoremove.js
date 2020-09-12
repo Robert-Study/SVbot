@@ -27,19 +27,23 @@ module.exports = {
 
             console.log(newtodo)
 
-            newtodo.forEach(async(item) => {
+            for (const item of newtodo) {
                 if (item.todocount > arguments[0]) {
-                    await tododataSchema.update({
-                        UserId: UserId
-                    }, {
-                        $inc: {
-                            todocount: -1,
-                        },
-                    });
+                    await tododataSchema.findandmodify({
+                        query: { _id },
+                        update: {
+                            $inc: { todocount: -1 }
+
+                        }
+
+                    })
                 }
 
+
                 else if (item.todocount < arguments[0]) { return; }
-            })
+            }
+
+
 
             await todoCountSchema
                 .findOneAndUpdate(
@@ -57,6 +61,7 @@ module.exports = {
                 )
                 .exec()
             mongoose.connection.close()
+
         })
 
     }
