@@ -339,7 +339,7 @@ module.exports = {
                             }
                         }
                         )
-                    } else {
+                    } else if (quote === 'no' && forecast === 'no'){
                         weather.find({ search: location.join(" "), degreeType: 'C' }, function (err, result) {
                             try {
                                 let current = `⛅️ Condition: **${result[0].current.skytext}** \n🌡 Temperature: **${result[0].current.temperature} C** \n 💨 Windspeed: **${result[0].current.winddisplay}** \n\n `
