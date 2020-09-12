@@ -16,6 +16,7 @@ module.exports.addLog = async (UserID, timeLog) => {
         },
         {
           UserID,
+          barcode: 101,
           $inc: {
             timeLog,
           },

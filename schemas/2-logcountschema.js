@@ -10,6 +10,11 @@ const logcountSchema = mongoose.Schema({
     type: Number,
     required: true,
   },
+
+  barcode: {
+    type: Number,
+    required: true,
+  }
 })
 
-module.exports = mongoose.model('logcounts', logcountSchema)
+module.exports = mongoose.model('Personal-logcounts', logcountSchema)
