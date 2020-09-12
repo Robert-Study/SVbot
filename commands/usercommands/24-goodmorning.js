@@ -123,6 +123,7 @@ module.exports = {
                                                                         { name: 'Weather for today:', value: `${current}` },
                                                                         { name: '\u200B', value: `${forecastreply}` },
                                                                         { name: '\u200B', value: `${todoreply}` },
+                                                                        { name: '\u200B', value: `${treereply}` },
                                                                         { name: '\u200B', value: `${quotereply}` }
 
                                                                     )
@@ -149,6 +150,7 @@ module.exports = {
                                                                         { name: 'Weather for today:', value: `${current}` },
                                                                         { name: '\u200B', value: `${forecastreply}` },
                                                                         { name: '\u200B', value: `${deadlinereply}` },
+                                                                        { name: '\u200B', value: `${treereply}` },
                                                                         { name: '\u200B', value: `${quotereply}` }
                                                                     )
                                                                     .setThumbnail(result[0].current.imageUrl)
@@ -163,6 +165,7 @@ module.exports = {
                                                                     .addFields(
                                                                         { name: 'Weather for today:', value: `${current}` },
                                                                         { name: '\u200B', value: `${forecastreply}` },
+                                                                        { name: '\u200B', value: `${treereply}` },
                                                                         { name: '\u200B', value: `${quotereply}` }
                                                                     )
                                                                     .setThumbnail(result[0].current.imageUrl)
@@ -224,6 +227,7 @@ module.exports = {
                                                                         { name: 'Weather for today:', value: `${current}` },
                                                                         { name: '\u200B', value: `${deadlinereply}` },
                                                                         { name: '\u200B', value: `${todoreply}` },
+                                                                        { name: '\u200B', value: `${treereply}` },
                                                                         { name: '\u200B', value: `${quotereply}` }
 
                                                                     )
@@ -239,6 +243,7 @@ module.exports = {
                                                                     .addFields(
                                                                         { name: 'Weather for today:', value: `${current}` },
                                                                         { name: '\u200B', value: `${todoreply}` },
+                                                                        { name: '\u200B', value: `${treereply}` },
                                                                         { name: '\u200B', value: `${quotereply}` }
 
                                                                     )
@@ -264,6 +269,7 @@ module.exports = {
                                                                     .addFields(
                                                                         { name: 'Weather for today:', value: `${current}` },
                                                                         { name: '\u200B', value: `${deadlinereply}` },
+                                                                        { name: '\u200B', value: `${treereply}` },
                                                                         { name: '\u200B', value: `${quotereply}` }
                                                                     )
                                                                     .setThumbnail(result[0].current.imageUrl)
@@ -277,6 +283,7 @@ module.exports = {
                                                                     .setTitle(`**Goodmorning!** ${message.author.username}`)
                                                                     .addFields(
                                                                         { name: 'Weather for today:', value: `${current}` },
+                                                                        { name: '\u200B', value: `${treereply}` },
                                                                         { name: '\u200B', value: `${quotereply}` }
                                                                     )
                                                                     .setThumbnail(result[0].current.imageUrl)
@@ -340,6 +347,7 @@ module.exports = {
                                                                         { name: '\u200B', value: `${forecastreply}` },
                                                                         { name: '\u200B', value: `${deadlinereply}` },
                                                                         { name: '\u200B', value: `${todoreply}` },
+                                                                        { name: '\u200B', value: `${treereply}` },
 
 
                                                                     )
@@ -356,6 +364,7 @@ module.exports = {
                                                                         { name: 'Weather for today:', value: `${current}` },
                                                                         { name: '\u200B', value: `${forecastreply}` },
                                                                         { name: '\u200B', value: `${todoreply}` },
+                                                                        { name: '\u200B', value: `${treereply}` },
 
 
                                                                     )
@@ -382,6 +391,7 @@ module.exports = {
                                                                         { name: 'Weather for today:', value: `${current}` },
                                                                         { name: '\u200B', value: `${forecastreply}` },
                                                                         { name: '\u200B', value: `${deadlinereply}` },
+                                                                        { name: '\u200B', value: `${treereply}` },
 
                                                                     )
                                                                     .setThumbnail(result[0].current.imageUrl)
@@ -396,6 +406,7 @@ module.exports = {
                                                                     .addFields(
                                                                         { name: 'Weather for today:', value: `${current}` },
                                                                         { name: '\u200B', value: `${forecastreply}` },
+                                                                        { name: '\u200B', value: `${treereply}` },
 
                                                                     )
                                                                     .setThumbnail(result[0].current.imageUrl)
@@ -460,6 +471,7 @@ module.exports = {
 
                                                                         { name: '\u200B', value: `${deadlinereply}` },
                                                                         { name: '\u200B', value: `${todoreply}` },
+                                                                        { name: '\u200B', value: `${treereply}` },
 
 
                                                                     )
@@ -476,6 +488,7 @@ module.exports = {
                                                                         { name: 'Weather for today:', value: `${current}` },
 
                                                                         { name: '\u200B', value: `${todoreply}` },
+                                                                        { name: '\u200B', value: `${treereply}` },
 
 
                                                                     )
@@ -502,6 +515,7 @@ module.exports = {
                                                                         { name: 'Weather for today:', value: `${current}` },
 
                                                                         { name: '\u200B', value: `${deadlinereply}` },
+                                                                        { name: '\u200B', value: `${treereply}` },
 
                                                                     )
                                                                     .setThumbnail(result[0].current.imageUrl)
@@ -515,6 +529,7 @@ module.exports = {
                                                                     .setTitle(`**Goodmorning!** ${message.author.username}`)
                                                                     .addFields(
                                                                         { name: 'Weather for today:', value: `${current}` },
+                                                                        { name: '\u200B', value: `${treereply}` },
 
                                                                     )
                                                                     .setThumbnail(result[0].current.imageUrl)
