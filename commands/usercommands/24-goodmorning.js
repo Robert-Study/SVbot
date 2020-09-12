@@ -48,7 +48,8 @@ module.exports = {
                                         let todocount = await todocountSchema.find({
                                             UserId,
                                         })
-                                        if (todocount > 0) {
+                                        console.log(todocount)
+                                        if ((todocount.messageCount) > 0) {
                                             let todoresults = await tododataSchema.find({
                                                 UserId,
                                             })
