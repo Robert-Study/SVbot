@@ -73,15 +73,19 @@ module.exports = {
                                                     }
                                                     const exampleEmbed = new Discord.MessageEmbed()
                                                         .setColor('#337f4e')
-                                                        .setTitle(`**Goodmorning!** ${message.author.username}`)
+                                                        .setTitle(`**Goodmorning** ${message.author.username}!`)
                                                         .addFields(
                                                             { name: 'Weather for today:', value: `${current}` },
+                                                            { name: '\u200B', value: '-----' },
                                                             { name: 'The forecast for your location:', value: `${forecastreply}` },
+                                                            { name: '\u200B', value: '-----' },
                                                             { name: 'Your deadlines:', value: `${deadlinereply}` },
-
+                                                            { name: '\u200B', value: '-----' },
                                                             { name: 'Your remaining tasks:', value: `${todoreply}` },
+                                                            { name: '\u200B', value: '-----' },
                                                             { name: 'Random quote:', value: `${quotereply}` }
                                                         )
+                                                        .setThumbnail(result[0].current.imageUrl)
                                                     message.channel.send(exampleEmbed)
                                                     mongoose.connection.close()
                                                 }
