@@ -8,7 +8,7 @@ module.exports = {
         const userdataSchema = require('../../schemas/9-userinfoschema')
         const mention = message.author
         const UserId = mention.id
-        if ((arguments[1] != 'yes') || (arguments[1] != 'no')) {
+        if (((arguments[1]) != `yes`) || ((arguments[1]) != `no`)) {
             message.reply('please provide a yes or no answer for Quotes')
         }
         else if ((arguments[2] != 'yes') || (arguments[2] != 'no')) {
