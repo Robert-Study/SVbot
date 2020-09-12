@@ -8,6 +8,7 @@ module.exports = {
 
     callback: async(message, arguments, text) => {
         const mongo = require('../../mongo')
+        const Discord = require('discord.js');
         const suggestdataSchema = require('../../schemas/6-suggestdataschema')
         UserId = "annon"
 
