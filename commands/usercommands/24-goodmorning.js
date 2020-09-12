@@ -35,7 +35,7 @@ module.exports = {
                         if (quote === 'yes' && forecast === 'yes') {
                             let quotereply = getquote
                             console.log(getquote)
-                            weather.find({ search: location.join(" "), degreeType: 'C' }, function (err, result) {
+                            weather.find({ search: location, degreeType: 'C' }, function (err, result) {
                                 try {
                                     let current = `⛅️ Condition: **${result[0].current.skytext}** \n🌡 Temperature: **${result[0].current.temperature} C** \n 💨 Windspeed: **${result[0].current.winddisplay}** \n\n `
                                     console.log(current)
