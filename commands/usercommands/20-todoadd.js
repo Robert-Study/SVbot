@@ -5,7 +5,7 @@ const tododataSchema = require('../../schemas/8-tododataschema')
 
 
 module.exports = {
-    commands: ['todoadd', 'addtodo'],
+    commands: ['betatodoadd', 'betaaddtodo'],
     minArgs: 1,
     expectedArgs: '<!todoadd text>',
 

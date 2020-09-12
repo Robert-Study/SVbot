@@ -1,5 +1,7 @@
+const Todocountschema = require('../../schemas/7-todocountschema')
+
 module.exports = {
-    commands: ['setupmorning', 'testsettup'],
+    commands: ['setmorning', 'testsettup'],
     minArgs: 0,
     expectedArgs: '<!weather location>',
 
@@ -36,9 +38,24 @@ module.exports = {
                                 new: true,
                             }
                         )
+                        const updatetodo = await Todocountschema.findOneAndUpdate(
+                            {
+                                UserId,
+                            },
+                            {
+                                messageCount: 0
+                            },
+
+                            {
+                                upsert: true,
+                                new: true,
+                            }
+                        )
+
+                        
                     } finally {
                         mongoose.connection.close()
-                        message.reply(', your morning setup has been arranged.')
+                        message.reply(' your morning setup has been arranged.')
                     }
                 })
 
