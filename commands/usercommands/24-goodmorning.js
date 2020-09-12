@@ -57,9 +57,9 @@ module.exports = {
                                                     UserId,
                                                 })
                                                 let sortmyresults = todoresults
-                                                let todoreply = '**Your To-do List:**'
+                                                let todoreply = ''
                                                 for (const newresult of sortmyresults) {
-                                                    todoreply += `**${newresult.todocount})** *${newresult.todo}\n*`
+                                                    todoreply += `**${newresult.todocount})** *${newresult.todo}*\n`
                                                 }
 
                                                 let deadlines = await userSchema.find({
@@ -67,7 +67,7 @@ module.exports = {
                                                 })
 
                                                 if (deadlines) {
-                                                    let deadlinereply = 'Here you go: \n'
+                                                    let deadlinereply = ''
                                                     for (const deadline of deadlines) {
                                                         deadlinereply += `**${deadline.date}** deadline: *${deadline.dltext}*\n`
                                                     }
