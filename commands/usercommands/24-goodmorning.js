@@ -30,8 +30,8 @@ module.exports = {
                     for (const result of results) {
                         const location = (result.place)
                         const quote = (result.setQuote)
-                        const forecast = (result.forecast)
-                        console.log(`${quote}, ${location}, ${forecast}`)
+                        const forecast = (result.setForecast)
+                        console.log(`${location}, ${quote}, ${forecast}`)
                         if (quote === 'yes' && forecast === 'yes') {
                             let quotereply = getquote
                             weather.find({ search: location.join(" "), degreeType: 'C' }, function (err, result) {
