@@ -21,13 +21,15 @@ module.exports = {
                     UserID: 'anon'
                 })
                 for (const time of results) {
-                    let totaltime = time.timeLog
+                    const totaltime = time.timeLog
                     console.log(totaltime)
                     const users = await userdocumentSchema.countDocuments({
                         barcode: 101,
                     })
                     console.log(users)
-                    message.reply(`You have been planting trees for ${logtotal} hours with us this week, the total hours of the server is ${totaltime} by ${users} users!`)
+                    let average = (totaltime / users)
+                    console.log(average)
+                    message.reply(`You have been planting trees for ${logtotal} hours with us this week, the total hours of the server is ${totaltime} by ${users} users! That makes an average of ${average}`)
                 }
             } finally { mongoose.connection.close() }
         })
