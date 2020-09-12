@@ -38,29 +38,38 @@ module.exports = {
                                 new: true,
                             }
                         )
-                        const updatetodo = await Todocountschema.findOneAndUpdate(
-                            {
-                                UserId,
-                            },
-                            {
-                                messageCount: 0
-                            },
 
-                            {
-                                upsert: true,
-                                new: true,
-                            }
+                        const personaltodo = await Todocountschema.findOne(
+                            { UserId, }
                         )
+                        for (personal of personaltodo) {
+                            if (personal.messageCount > 0) { console.log(`Already setup todo`) }
 
-                        
+                            else {
+                                const updatetodo = await Todocountschema.findOneAndUpdate(
+                                    {
+                                        UserId,
+                                    },
+                                    {
+                                        messageCount: 0
+                                    },
+
+                                    {
+                                        upsert: true,
+                                        new: true,
+                                    }
+                                )
+
+                            }
+                        }
                     } finally {
                         mongoose.connection.close()
                         message.reply(' your morning setup has been arranged.')
                     }
                 })
 
-            }else message.reply('Please give a yes or no answer to setquotes input')
-        }else message.reply('Please give a yes or no answer to setforecast input')
+            } else message.reply('Please give a yes or no answer to setquotes input')
+        } else message.reply('Please give a yes or no answer to setforecast input')
     }
 }
 
