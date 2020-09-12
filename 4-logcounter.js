@@ -30,7 +30,7 @@ module.exports.addLog = async (UserID, timeLog) => {
 
       const total = await totalstudytimeSchema.findOneAndUpdate(
         {
-          UserID = 'anon'
+          UserID : 'anon'
         },
         {
           UserID,
