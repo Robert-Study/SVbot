@@ -26,9 +26,10 @@ module.exports = {
                     UserId,
                 })
                 if (results) {
-                    let location = results.place
-                    let quote = results.setQuote
-                    let forecast = results.forecast
+                    console.log(results)
+                    let location = (results.place)
+                    let quote = (results.setQuote)
+                    let forecast = (results.forecast)
                     console.log(`${quote}, ${location}, ${forecast}`)
                     if (quote === 'yes' && forecast === 'yes') {
                         let quotereply = getquote
