@@ -27,419 +27,421 @@ module.exports = {
                 })
                 if (results) {
                     console.log(results)
-                    const location = (results.place)
-                    const quote = (results.setQuote)
-                    const forecast = (results.forecast)
-                    console.log(`${quote}, ${location}, ${forecast}`)
-                    if (quote === 'yes' && forecast === 'yes') {
-                        let quotereply = getquote
-                        weather.find({ search: location.join(" "), degreeType: 'C' }, function (err, result) {
-                            try {
-                                let current = `⛅️ Condition: **${result[0].current.skytext}** \n🌡 Temperature: **${result[0].current.temperature} C** \n 💨 Windspeed: **${result[0].current.winddisplay}** \n\n `
-                                let forec = result[0].forecast
-                                let forecastreply = 'Forecast:'
-                                for (const forecast of forec) {
-                                    forecastreply += `**${forecast.shortday}** it will be between *${forecast.low} - ${forecast.high} C∘* and **${forecast.skytextday}** with ${forecast.precip}% rain. \n\n`
+                    for (const result of results) {
+                        const location = (result.place)
+                        const quote = (result.setQuote)
+                        const forecast = (result.forecast)
+                        console.log(`${quote}, ${location}, ${forecast}`)
+                        if (quote === 'yes' && forecast === 'yes') {
+                            let quotereply = getquote
+                            weather.find({ search: location.join(" "), degreeType: 'C' }, function (err, result) {
+                                try {
+                                    let current = `⛅️ Condition: **${result[0].current.skytext}** \n🌡 Temperature: **${result[0].current.temperature} C** \n 💨 Windspeed: **${result[0].current.winddisplay}** \n\n `
+                                    let forec = result[0].forecast
+                                    let forecastreply = 'Forecast:'
+                                    for (const forecast of forec) {
+                                        forecastreply += `**${forecast.shortday}** it will be between *${forecast.low} - ${forecast.high} C∘* and **${forecast.skytextday}** with ${forecast.precip}% rain. \n\n`
+                                    }
+                                    mongo().then(async (mongoose) => {
+                                        let todocount = await todocountSchema.find({
+                                            UserId,
+                                        })
+                                        if (todocount > 0) {
+                                            let todoresults = await tododataSchema.find({
+                                                UserId,
+                                            })
+                                            let sortmyresults = todoresults
+                                            let todoreply = '**Your To-do List:** \n\n'
+                                            for (const newresult of sortmyresults) {
+                                                todoreply += `**${newresult.todocount})** *${newresult.todo}*\n`
+                                            }
+
+                                            let deadlines = await userSchema.find({
+                                                UserID,
+                                            })
+
+                                            if (deadlines) {
+                                                let deadlinereply = 'Here you go: \n\n'
+                                                for (const deadline of deadlines) {
+                                                    deadlinereply += `**${deadline.date}** deadline: *${deadline.dltext}*\n\n`
+                                                }
+                                                const exampleEmbed = new Discord.MessageEmbed()
+                                                    .setColor('#337f4e')
+                                                    .setTitle(`**Goodmorning!** ${message.author.username}`)
+                                                    .addFields(
+                                                        { name: 'Weather for today:', value: `${current}` },
+                                                        { name: 'The forecast for your location:', value: `${forecastreply}` },
+                                                        { name: 'Your deadlines:', value: `${deadlinereply}` },
+
+                                                        { name: 'Your remaining tasks:', value: `${todoreply}` },
+                                                        { name: 'Random quote:', value: `${quotereply}` }
+                                                    )
+                                                message.channel.send(exampleEmbed)
+                                                mongoose.connection.close()
+                                            }
+                                            else {
+                                                const todoembed = new Discord.MessageEmbed()
+                                                    .setColor('#337f4e')
+                                                    .setTitle(`**Goodmorning!** ${message.author.username}`)
+                                                    .addFields(
+                                                        { name: 'Weather for today:', value: `${current}` },
+                                                        { name: 'The forecast for your location:', value: `${forecastreply}` },
+                                                        { name: 'Your remaining tasks:', value: `${todoreply}` },
+                                                        { name: 'Random quote:', value: `${quotereply}` }
+                                                    )
+                                                message.channel.send(todoembed)
+                                                mongoose.connection.close()
+                                            }
+                                        }
+                                        else {
+                                            let deadlines = await userSchema.find({
+                                                UserID,
+                                            })
+
+                                            if (deadlines) {
+                                                let deadlinereply = 'Here you go: \n\n'
+                                                for (const deadline of deadlines) {
+                                                    deadlinereply += `**${deadline.date}** deadline: *${deadline.dltext}*\n\n`
+                                                }
+                                                const deadlineEmbed = new Discord.MessageEmbed()
+                                                    .setColor('#337f4e')
+                                                    .setTitle(`**Goodmorning!** ${message.author.username}`)
+                                                    .addFields(
+                                                        { name: 'Weather for today:', value: `${current}` },
+                                                        { name: 'The forecast for your location:', value: `${forecastreply}` },
+                                                        { name: 'Your deadlines:', value: `${deadlinereply}` },
+                                                        { name: 'Random quote:', value: `${quotereply}` }
+                                                    )
+                                                message.channel.send(deadlineEmbed)
+                                                mongoose.connection.close()
+                                            }
+                                            else {
+                                                let noinputEmbed = new Discord.MessageEmbed()
+                                                    .setColor('#337f4e')
+                                                    .setTitle(`**Goodmorning!** ${message.author.username}`)
+                                                    .addFields(
+                                                        { name: 'Weather for today:', value: `${current}` },
+                                                        { name: 'The forecast for your location:', value: `${forecastreply}` },
+                                                        { name: 'Random quote:', value: `${quotereply}` }
+                                                    )
+                                                message.channel.send(noinputEmbed)
+                                                mongoose.connection.close()
+                                            }
+
+                                        }
+                                    })
+                                } catch (err) {
+                                    return message.channel.send("Unable To Get the data of Given location")
                                 }
-                                mongo().then(async (mongoose) => {
-                                    let todocount = await todocountSchema.find({
-                                        UserId,
-                                    })
-                                    if (todocount > 0) {
-                                        let todoresults = await tododataSchema.find({
+                            }
+                            )
+                        } else if (quote === 'yes' && forecast === 'no') {
+                            let quotereply = getquote
+                            weather.find({ search: location.join(" "), degreeType: 'C' }, function (err, result) {
+                                try {
+                                    let current = `⛅️ Condition: **${result[0].current.skytext}** \n🌡 Temperature: **${result[0].current.temperature} C** \n 💨 Windspeed: **${result[0].current.winddisplay}** \n\n `
+                                    let forec = result[0].forecast
+                                    let forecastreply = 'Forecast:'
+                                    for (const forecast of forec) {
+                                        forecastreply += `**${forecast.shortday}** it will be between *${forecast.low} - ${forecast.high} C∘* and **${forecast.skytextday}** with ${forecast.precip}% rain. \n\n`
+                                    } mongo().then(async (mongoose) => {
+                                        let todocount = await todocountSchema.find({
                                             UserId,
                                         })
-                                        let sortmyresults = todoresults
-                                        let todoreply = '**Your To-do List:** \n\n'
-                                        for (const newresult of sortmyresults) {
-                                            todoreply += `**${newresult.todocount})** *${newresult.todo}*\n`
-                                        }
-
-                                        let deadlines = await userSchema.find({
-                                            UserID,
-                                        })
-
-                                        if (deadlines) {
-                                            let deadlinereply = 'Here you go: \n\n'
-                                            for (const deadline of deadlines) {
-                                                deadlinereply += `**${deadline.date}** deadline: *${deadline.dltext}*\n\n`
+                                        if (todocount > 0) {
+                                            let todoresults = await tododataSchema.find({
+                                                UserId,
+                                            })
+                                            let sortmyresults = todoresults
+                                            let todoreply = '**Your To-do List:** \n\n'
+                                            for (const newresult of sortmyresults) {
+                                                todoreply += `**${newresult.todocount})** *${newresult.todo}*\n`
                                             }
-                                            const exampleEmbed = new Discord.MessageEmbed()
-                                                .setColor('#337f4e')
-                                                .setTitle(`**Goodmorning!** ${message.author.username}`)
-                                                .addFields(
-                                                    { name: 'Weather for today:', value: `${current}` },
-                                                    { name: 'The forecast for your location:', value: `${forecastreply}` },
-                                                    { name: 'Your deadlines:', value: `${deadlinereply}` },
 
-                                                    { name: 'Your remaining tasks:', value: `${todoreply}` },
-                                                    { name: 'Random quote:', value: `${quotereply}` }
-                                                )
-                                            message.channel.send(exampleEmbed)
-                                            mongoose.connection.close()
+                                            let deadlines = await userSchema.find({
+                                                UserID,
+                                            })
+
+                                            if (deadlines) {
+                                                let deadlinereply = 'Here you go: \n\n'
+                                                for (const deadline of deadlines) {
+                                                    deadlinereply += `**${deadline.date}** deadline: *${deadline.dltext}*\n\n`
+                                                }
+                                                const exampleEmbed = new Discord.MessageEmbed()
+                                                    .setColor('#337f4e')
+                                                    .setTitle(`**Goodmorning!** ${message.author.username}`)
+                                                    .addFields(
+                                                        { name: 'Weather for today:', value: `${current}` },
+
+                                                        { name: 'Your deadlines:', value: `${deadlinereply}` },
+
+                                                        { name: 'Your remaining tasks:', value: `${todoreply}` },
+                                                        { name: 'Random quote:', value: `${quotereply}` }
+                                                    )
+                                                message.channel.send(exampleEmbed)
+                                                mongoose.connection.close()
+                                            }
+                                            else {
+                                                const todoembed = new Discord.MessageEmbed()
+                                                    .setColor('#337f4e')
+                                                    .setTitle(`**Goodmorning!** ${message.author.username}`)
+                                                    .addFields(
+                                                        { name: 'Weather for today:', value: `${current}` },
+
+                                                        { name: 'Your remaining tasks:', value: `${todoreply}` },
+                                                        { name: 'Random quote:', value: `${quotereply}` }
+                                                    )
+                                                message.channel.send(todoembed)
+                                                mongoose.connection.close()
+                                            }
                                         }
                                         else {
-                                            const todoembed = new Discord.MessageEmbed()
-                                                .setColor('#337f4e')
-                                                .setTitle(`**Goodmorning!** ${message.author.username}`)
-                                                .addFields(
-                                                    { name: 'Weather for today:', value: `${current}` },
-                                                    { name: 'The forecast for your location:', value: `${forecastreply}` },
-                                                    { name: 'Your remaining tasks:', value: `${todoreply}` },
-                                                    { name: 'Random quote:', value: `${quotereply}` }
-                                                )
-                                            message.channel.send(todoembed)
-                                            mongoose.connection.close()
-                                        }
-                                    }
-                                    else {
-                                        let deadlines = await userSchema.find({
-                                            UserID,
-                                        })
+                                            let deadlines = await userSchema.find({
+                                                UserID,
+                                            })
 
-                                        if (deadlines) {
-                                            let deadlinereply = 'Here you go: \n\n'
-                                            for (const deadline of deadlines) {
-                                                deadlinereply += `**${deadline.date}** deadline: *${deadline.dltext}*\n\n`
+                                            if (deadlines) {
+                                                let deadlinereply = 'Here you go: \n\n'
+                                                for (const deadline of deadlines) {
+                                                    deadlinereply += `**${deadline.date}** deadline: *${deadline.dltext}*\n\n`
+                                                }
+                                                const deadlineEmbed = new Discord.MessageEmbed()
+                                                    .setColor('#337f4e')
+                                                    .setTitle(`**Goodmorning!** ${message.author.username}`)
+                                                    .addFields(
+                                                        { name: 'Weather for today:', value: `${current}` },
+
+                                                        { name: 'Your deadlines:', value: `${deadlinereply}` },
+                                                        { name: 'Random quote:', value: `${quotereply}` }
+                                                    )
+                                                message.channel.send(deadlineEmbed)
+                                                mongoose.connection.close()
                                             }
-                                            const deadlineEmbed = new Discord.MessageEmbed()
-                                                .setColor('#337f4e')
-                                                .setTitle(`**Goodmorning!** ${message.author.username}`)
-                                                .addFields(
-                                                    { name: 'Weather for today:', value: `${current}` },
-                                                    { name: 'The forecast for your location:', value: `${forecastreply}` },
-                                                    { name: 'Your deadlines:', value: `${deadlinereply}` },
-                                                    { name: 'Random quote:', value: `${quotereply}` }
-                                                )
-                                            message.channel.send(deadlineEmbed)
-                                            mongoose.connection.close()
-                                        }
-                                        else {
-                                            let noinputEmbed = new Discord.MessageEmbed()
-                                                .setColor('#337f4e')
-                                                .setTitle(`**Goodmorning!** ${message.author.username}`)
-                                                .addFields(
-                                                    { name: 'Weather for today:', value: `${current}` },
-                                                    { name: 'The forecast for your location:', value: `${forecastreply}` },
-                                                    { name: 'Random quote:', value: `${quotereply}` }
-                                                )
-                                            message.channel.send(noinputEmbed)
-                                            mongoose.connection.close()
+                                            else {
+                                                const noinputEmbed = new Discord.MessageEmbed()
+                                                    .setColor('#337f4e')
+                                                    .setTitle(`**Goodmorning!** ${message.author.username}`)
+                                                    .addFields(
+                                                        { name: 'Weather for today:', value: `${current}` },
+
+                                                        { name: 'Random quote:', value: `${quotereply}` }
+                                                    )
+                                                message.channel.send(noinputEmbed)
+                                                mongoose.connection.close()
+                                            }
+
+
+
                                         }
 
-                                    }
-                                })
-                            } catch (err) {
-                                return message.channel.send("Unable To Get the data of Given location")
-                            }
-                        }
-                        )
-                    } else if (quote === 'yes' && forecast === 'no') {
-                        let quotereply = getquote
-                        weather.find({ search: location.join(" "), degreeType: 'C' }, function (err, result) {
-                            try {
-                                let current = `⛅️ Condition: **${result[0].current.skytext}** \n🌡 Temperature: **${result[0].current.temperature} C** \n 💨 Windspeed: **${result[0].current.winddisplay}** \n\n `
-                                let forec = result[0].forecast
-                                let forecastreply = 'Forecast:'
-                                for (const forecast of forec) {
-                                    forecastreply += `**${forecast.shortday}** it will be between *${forecast.low} - ${forecast.high} C∘* and **${forecast.skytextday}** with ${forecast.precip}% rain. \n\n`
-                                } mongo().then(async (mongoose) => {
-                                    let todocount = await todocountSchema.find({
-                                        UserId,
                                     })
-                                    if (todocount > 0) {
-                                        let todoresults = await tododataSchema.find({
+
+                                }
+                                catch (err) {
+                                    return message.channel.send("Unable To Get the data of Given location")
+                                }
+                            }
+                            )
+
+                        } else if (quote === 'no' && forecast === 'yes') {
+                            weather.find({ search: location.join(" "), degreeType: 'C' }, function (err, result) {
+                                try {
+                                    let current = `⛅️ Condition: **${result[0].current.skytext}** \n🌡 Temperature: **${result[0].current.temperature} C** \n 💨 Windspeed: **${result[0].current.winddisplay}** \n\n `
+                                    let forec = result[0].forecast
+                                    let forecastreply = 'Forecast:'
+                                    for (const forecast of forec) {
+                                        forecastreply += `**${forecast.shortday}** it will be between *${forecast.low} - ${forecast.high} C∘* and **${forecast.skytextday}** with ${forecast.precip}% rain. \n\n`
+                                    } mongo().then(async (mongoose) => {
+                                        let todocount = await todocountSchema.find({
                                             UserId,
                                         })
-                                        let sortmyresults = todoresults
-                                        let todoreply = '**Your To-do List:** \n\n'
-                                        for (const newresult of sortmyresults) {
-                                            todoreply += `**${newresult.todocount})** *${newresult.todo}*\n`
-                                        }
-
-                                        let deadlines = await userSchema.find({
-                                            UserID,
-                                        })
-
-                                        if (deadlines) {
-                                            let deadlinereply = 'Here you go: \n\n'
-                                            for (const deadline of deadlines) {
-                                                deadlinereply += `**${deadline.date}** deadline: *${deadline.dltext}*\n\n`
+                                        if (todocount > 0) {
+                                            let todoresults = await tododataSchema.find({
+                                                UserId,
+                                            })
+                                            let sortmyresults = todoresults
+                                            let todoreply = '**Your To-do List:** \n\n'
+                                            for (const newresult of sortmyresults) {
+                                                todoreply += `**${newresult.todocount})** *${newresult.todo}*\n`
                                             }
-                                            const exampleEmbed = new Discord.MessageEmbed()
-                                                .setColor('#337f4e')
-                                                .setTitle(`**Goodmorning!** ${message.author.username}`)
-                                                .addFields(
-                                                    { name: 'Weather for today:', value: `${current}` },
 
-                                                    { name: 'Your deadlines:', value: `${deadlinereply}` },
+                                            let deadlines = await userSchema.find({
+                                                UserID,
+                                            })
 
-                                                    { name: 'Your remaining tasks:', value: `${todoreply}` },
-                                                    { name: 'Random quote:', value: `${quotereply}` }
-                                                )
-                                            message.channel.send(exampleEmbed)
-                                            mongoose.connection.close()
+                                            if (deadlines) {
+                                                let deadlinereply = 'Here you go: \n\n'
+                                                for (const deadline of deadlines) {
+                                                    deadlinereply += `**${deadline.date}** deadline: *${deadline.dltext}*\n\n`
+                                                }
+                                                const exampleEmbed = new Discord.MessageEmbed()
+                                                    .setColor('#337f4e')
+                                                    .setTitle(`**Goodmorning!** ${message.author.username}`)
+                                                    .addFields(
+                                                        { name: 'Weather for today:', value: `${current}` },
+                                                        { name: 'The forecast for your location:', value: `${forecastreply}` },
+                                                        { name: 'Your deadlines:', value: `${deadlinereply}` },
+
+                                                        { name: 'Your remaining tasks:', value: `${todoreply}` },
+                                                    )
+                                                message.channel.send(exampleEmbed)
+                                                mongoose.connection.close()
+                                            }
+                                            else {
+                                                const todoembed = new Discord.MessageEmbed()
+                                                    .setColor('#337f4e')
+                                                    .setTitle(`**Goodmorning!** ${message.author.username}`)
+                                                    .addFields(
+                                                        { name: 'Weather for today:', value: `${current}` },
+                                                        { name: 'The forecast for your location:', value: `${forecastreply}` },
+                                                        { name: 'Your remaining tasks:', value: `${todoreply}` },
+                                                    )
+                                                message.channel.send(todoembed)
+                                                mongoose.connection.close()
+                                            }
                                         }
                                         else {
-                                            const todoembed = new Discord.MessageEmbed()
-                                                .setColor('#337f4e')
-                                                .setTitle(`**Goodmorning!** ${message.author.username}`)
-                                                .addFields(
-                                                    { name: 'Weather for today:', value: `${current}` },
+                                            let deadlines = await userSchema.find({
+                                                UserID,
+                                            })
 
-                                                    { name: 'Your remaining tasks:', value: `${todoreply}` },
-                                                    { name: 'Random quote:', value: `${quotereply}` }
-                                                )
-                                            message.channel.send(todoembed)
-                                            mongoose.connection.close()
-                                        }
-                                    }
-                                    else {
-                                        let deadlines = await userSchema.find({
-                                            UserID,
-                                        })
-
-                                        if (deadlines) {
-                                            let deadlinereply = 'Here you go: \n\n'
-                                            for (const deadline of deadlines) {
-                                                deadlinereply += `**${deadline.date}** deadline: *${deadline.dltext}*\n\n`
+                                            if (deadlines) {
+                                                let deadlinereply = 'Here you go: \n\n'
+                                                for (const deadline of deadlines) {
+                                                    deadlinereply += `**${deadline.date}** deadline: *${deadline.dltext}*\n\n`
+                                                }
+                                                const deadlineEmbed = new Discord.MessageEmbed()
+                                                    .setColor('#337f4e')
+                                                    .setTitle(`**Goodmorning!** ${message.author.username}`)
+                                                    .addFields(
+                                                        { name: 'Weather for today:', value: `${current}` },
+                                                        { name: 'The forecast for your location:', value: `${forecastreply}` },
+                                                        { name: 'Your deadlines:', value: `${deadlinereply}` },
+                                                    )
+                                                message.channel.send(deadlineEmbed)
+                                                mongoose.connection.close()
                                             }
-                                            const deadlineEmbed = new Discord.MessageEmbed()
-                                                .setColor('#337f4e')
-                                                .setTitle(`**Goodmorning!** ${message.author.username}`)
-                                                .addFields(
-                                                    { name: 'Weather for today:', value: `${current}` },
-
-                                                    { name: 'Your deadlines:', value: `${deadlinereply}` },
-                                                    { name: 'Random quote:', value: `${quotereply}` }
-                                                )
-                                            message.channel.send(deadlineEmbed)
-                                            mongoose.connection.close()
-                                        }
-                                        else {
-                                            const noinputEmbed = new Discord.MessageEmbed()
-                                                .setColor('#337f4e')
-                                                .setTitle(`**Goodmorning!** ${message.author.username}`)
-                                                .addFields(
-                                                    { name: 'Weather for today:', value: `${current}` },
-
-                                                    { name: 'Random quote:', value: `${quotereply}` }
-                                                )
-                                            message.channel.send(noinputEmbed)
-                                            mongoose.connection.close()
+                                            else {
+                                                const noinputEmbed = new Discord.MessageEmbed()
+                                                    .setColor('#337f4e')
+                                                    .setTitle(`**Goodmorning!** ${message.author.username}`)
+                                                    .addFields(
+                                                        { name: 'Weather for today:', value: `${current}` },
+                                                        { name: 'The forecast for your location:', value: `${forecastreply}` },
+                                                    )
+                                                message.channel.send(noinputEmbed)
+                                                mongoose.connection.close()
+                                            }
                                         }
 
 
-
-                                    }
-
-                                })
-
-                            }
-                            catch (err) {
-                                return message.channel.send("Unable To Get the data of Given location")
-                            }
-                        }
-                        )
-
-                    } else if (quote === 'no' && forecast === 'yes') {
-                        weather.find({ search: location.join(" "), degreeType: 'C' }, function (err, result) {
-                            try {
-                                let current = `⛅️ Condition: **${result[0].current.skytext}** \n🌡 Temperature: **${result[0].current.temperature} C** \n 💨 Windspeed: **${result[0].current.winddisplay}** \n\n `
-                                let forec = result[0].forecast
-                                let forecastreply = 'Forecast:'
-                                for (const forecast of forec) {
-                                    forecastreply += `**${forecast.shortday}** it will be between *${forecast.low} - ${forecast.high} C∘* and **${forecast.skytextday}** with ${forecast.precip}% rain. \n\n`
-                                } mongo().then(async (mongoose) => {
-                                    let todocount = await todocountSchema.find({
-                                        UserId,
                                     })
-                                    if (todocount > 0) {
-                                        let todoresults = await tododataSchema.find({
+                                }
+                                catch (err) {
+                                    return message.channel.send("Unable To Get the data of Given location")
+                                }
+                            }
+                            )
+                        } else if (quote === 'no' && forecast === 'no') {
+                            weather.find({ search: location.join(" "), degreeType: 'C' }, function (err, result) {
+                                try {
+                                    let current = `⛅️ Condition: **${result[0].current.skytext}** \n🌡 Temperature: **${result[0].current.temperature} C** \n 💨 Windspeed: **${result[0].current.winddisplay}** \n\n `
+                                    let forec = result[0].forecast
+                                    let forecastreply = 'Forecast:'
+                                    for (const forecast of forec) {
+                                        forecastreply += `**${forecast.shortday}** it will be between *${forecast.low} - ${forecast.high} C∘* and **${forecast.skytextday}** with ${forecast.precip}% rain. \n\n`
+                                    } mongo().then(async (mongoose) => {
+                                        let todocount = await todocountSchema.find({
                                             UserId,
                                         })
-                                        let sortmyresults = todoresults
-                                        let todoreply = '**Your To-do List:** \n\n'
-                                        for (const newresult of sortmyresults) {
-                                            todoreply += `**${newresult.todocount})** *${newresult.todo}*\n`
-                                        }
-
-                                        let deadlines = await userSchema.find({
-                                            UserID,
-                                        })
-
-                                        if (deadlines) {
-                                            let deadlinereply = 'Here you go: \n\n'
-                                            for (const deadline of deadlines) {
-                                                deadlinereply += `**${deadline.date}** deadline: *${deadline.dltext}*\n\n`
+                                        if (todocount > 0) {
+                                            let todoresults = await tododataSchema.find({
+                                                UserId,
+                                            })
+                                            let sortmyresults = todoresults
+                                            let todoreply = '**Your To-do List:** \n\n'
+                                            for (const newresult of sortmyresults) {
+                                                todoreply += `**${newresult.todocount})** *${newresult.todo}*\n`
                                             }
-                                            const exampleEmbed = new Discord.MessageEmbed()
-                                                .setColor('#337f4e')
-                                                .setTitle(`**Goodmorning!** ${message.author.username}`)
-                                                .addFields(
-                                                    { name: 'Weather for today:', value: `${current}` },
-                                                    { name: 'The forecast for your location:', value: `${forecastreply}` },
-                                                    { name: 'Your deadlines:', value: `${deadlinereply}` },
 
-                                                    { name: 'Your remaining tasks:', value: `${todoreply}` },
-                                                )
-                                            message.channel.send(exampleEmbed)
-                                            mongoose.connection.close()
+                                            let deadlines = await userSchema.find({
+                                                UserID,
+                                            })
+
+                                            if (deadlines) {
+                                                let deadlinereply = 'Here you go: \n\n'
+                                                for (const deadline of deadlines) {
+                                                    deadlinereply += `**${deadline.date}** deadline: *${deadline.dltext}*\n\n`
+                                                }
+                                                const exampleEmbed = new Discord.MessageEmbed()
+                                                    .setColor('#337f4e')
+                                                    .setTitle(`**Goodmorning!** ${message.author.username}`)
+                                                    .addFields(
+                                                        { name: 'Weather for today:', value: `${current}` },
+
+                                                        { name: 'Your deadlines:', value: `${deadlinereply}` },
+
+                                                        { name: 'Your remaining tasks:', value: `${todoreply}` },
+                                                    )
+                                                message.channel.send(exampleEmbed)
+                                                mongoose.connection.close()
+                                            }
+                                            else {
+                                                const todoembed = new Discord.MessageEmbed()
+                                                    .setColor('#337f4e')
+                                                    .setTitle(`**Goodmorning!** ${message.author.username}`)
+                                                    .addFields(
+                                                        { name: 'Weather for today:', value: `${current}` },
+
+                                                        { name: 'Your remaining tasks:', value: `${todoreply}` },
+                                                    )
+                                                message.channel.send(todoembed)
+                                                mongoose.connection.close()
+                                            }
                                         }
                                         else {
-                                            const todoembed = new Discord.MessageEmbed()
-                                                .setColor('#337f4e')
-                                                .setTitle(`**Goodmorning!** ${message.author.username}`)
-                                                .addFields(
-                                                    { name: 'Weather for today:', value: `${current}` },
-                                                    { name: 'The forecast for your location:', value: `${forecastreply}` },
-                                                    { name: 'Your remaining tasks:', value: `${todoreply}` },
-                                                )
-                                            message.channel.send(todoembed)
-                                            mongoose.connection.close()
-                                        }
-                                    }
-                                    else {
-                                        let deadlines = await userSchema.find({
-                                            UserID,
-                                        })
+                                            let deadlines = await userSchema.find({
+                                                UserID,
+                                            })
 
-                                        if (deadlines) {
-                                            let deadlinereply = 'Here you go: \n\n'
-                                            for (const deadline of deadlines) {
-                                                deadlinereply += `**${deadline.date}** deadline: *${deadline.dltext}*\n\n`
+                                            if (deadlines) {
+                                                let deadlinereply = 'Here you go: \n\n'
+                                                for (const deadline of deadlines) {
+                                                    deadlinereply += `**${deadline.date}** deadline: *${deadline.dltext}*\n\n`
+                                                }
+                                                const deadlineEmbed = new Discord.MessageEmbed()
+                                                    .setColor('#337f4e')
+                                                    .setTitle(`**Goodmorning!** ${message.author.username}`)
+                                                    .addFields(
+                                                        { name: 'Weather for today:', value: `${current}` },
+
+                                                        { name: 'Your deadlines:', value: `${deadlinereply}` },
+                                                    )
+                                                message.channel.send(deadlineEmbed)
+                                                mongoose.connection.close()
                                             }
-                                            const deadlineEmbed = new Discord.MessageEmbed()
-                                                .setColor('#337f4e')
-                                                .setTitle(`**Goodmorning!** ${message.author.username}`)
-                                                .addFields(
-                                                    { name: 'Weather for today:', value: `${current}` },
-                                                    { name: 'The forecast for your location:', value: `${forecastreply}` },
-                                                    { name: 'Your deadlines:', value: `${deadlinereply}` },
-                                                )
-                                            message.channel.send(deadlineEmbed)
-                                            mongoose.connection.close()
-                                        }
-                                        else {
-                                            const noinputEmbed = new Discord.MessageEmbed()
-                                                .setColor('#337f4e')
-                                                .setTitle(`**Goodmorning!** ${message.author.username}`)
-                                                .addFields(
-                                                    { name: 'Weather for today:', value: `${current}` },
-                                                    { name: 'The forecast for your location:', value: `${forecastreply}` },
-                                                )
-                                            message.channel.send(noinputEmbed)
-                                            mongoose.connection.close()
-                                        }
-                                    }
+                                            else {
+                                                const noinputEmbed = new Discord.MessageEmbed()
+                                                    .setColor('#337f4e')
+                                                    .setTitle(`**Goodmorning!** ${message.author.username}`)
+                                                    .addFields(
+                                                        { name: 'Weather for today:', value: `${current}` },
 
-
-                                })
-                            }
-                            catch (err) {
-                                return message.channel.send("Unable To Get the data of Given location")
-                            }
-                        }
-                        )
-                    } else if (quote === 'no' && forecast === 'no'){
-                        weather.find({ search: location.join(" "), degreeType: 'C' }, function (err, result) {
-                            try {
-                                let current = `⛅️ Condition: **${result[0].current.skytext}** \n🌡 Temperature: **${result[0].current.temperature} C** \n 💨 Windspeed: **${result[0].current.winddisplay}** \n\n `
-                                let forec = result[0].forecast
-                                let forecastreply = 'Forecast:'
-                                for (const forecast of forec) {
-                                    forecastreply += `**${forecast.shortday}** it will be between *${forecast.low} - ${forecast.high} C∘* and **${forecast.skytextday}** with ${forecast.precip}% rain. \n\n`
-                                } mongo().then(async (mongoose) => {
-                                    let todocount = await todocountSchema.find({
-                                        UserId,
+                                                    )
+                                                message.channel.send(noinputEmbed)
+                                                mongoose.connection.close()
+                                            }
+                                        }
                                     })
-                                    if (todocount > 0) {
-                                        let todoresults = await tododataSchema.find({
-                                            UserId,
-                                        })
-                                        let sortmyresults = todoresults
-                                        let todoreply = '**Your To-do List:** \n\n'
-                                        for (const newresult of sortmyresults) {
-                                            todoreply += `**${newresult.todocount})** *${newresult.todo}*\n`
-                                        }
 
-                                        let deadlines = await userSchema.find({
-                                            UserID,
-                                        })
-
-                                        if (deadlines) {
-                                            let deadlinereply = 'Here you go: \n\n'
-                                            for (const deadline of deadlines) {
-                                                deadlinereply += `**${deadline.date}** deadline: *${deadline.dltext}*\n\n`
-                                            }
-                                            const exampleEmbed = new Discord.MessageEmbed()
-                                                .setColor('#337f4e')
-                                                .setTitle(`**Goodmorning!** ${message.author.username}`)
-                                                .addFields(
-                                                    { name: 'Weather for today:', value: `${current}` },
-
-                                                    { name: 'Your deadlines:', value: `${deadlinereply}` },
-
-                                                    { name: 'Your remaining tasks:', value: `${todoreply}` },
-                                                )
-                                            message.channel.send(exampleEmbed)
-                                            mongoose.connection.close()
-                                        }
-                                        else {
-                                            const todoembed = new Discord.MessageEmbed()
-                                                .setColor('#337f4e')
-                                                .setTitle(`**Goodmorning!** ${message.author.username}`)
-                                                .addFields(
-                                                    { name: 'Weather for today:', value: `${current}` },
-
-                                                    { name: 'Your remaining tasks:', value: `${todoreply}` },
-                                                )
-                                            message.channel.send(todoembed)
-                                            mongoose.connection.close()
-                                        }
-                                    }
-                                    else {
-                                        let deadlines = await userSchema.find({
-                                            UserID,
-                                        })
-
-                                        if (deadlines) {
-                                            let deadlinereply = 'Here you go: \n\n'
-                                            for (const deadline of deadlines) {
-                                                deadlinereply += `**${deadline.date}** deadline: *${deadline.dltext}*\n\n`
-                                            }
-                                            const deadlineEmbed = new Discord.MessageEmbed()
-                                                .setColor('#337f4e')
-                                                .setTitle(`**Goodmorning!** ${message.author.username}`)
-                                                .addFields(
-                                                    { name: 'Weather for today:', value: `${current}` },
-
-                                                    { name: 'Your deadlines:', value: `${deadlinereply}` },
-                                                )
-                                            message.channel.send(deadlineEmbed)
-                                            mongoose.connection.close()
-                                        }
-                                        else {
-                                            const noinputEmbed = new Discord.MessageEmbed()
-                                                .setColor('#337f4e')
-                                                .setTitle(`**Goodmorning!** ${message.author.username}`)
-                                                .addFields(
-                                                    { name: 'Weather for today:', value: `${current}` },
-
-                                                )
-                                            message.channel.send(noinputEmbed)
-                                            mongoose.connection.close()
-                                        }
-                                    }
-                                })
-
-                            } catch (err) {
-                                return message.channel.send("Unable To Get the data of Given location")
+                                } catch (err) {
+                                    return message.channel.send("Unable To Get the data of Given location")
+                                }
                             }
+                            )
                         }
-                        )
                     }
-                } else { message.reply('Use the setup please!') }
+                    } else { message.reply('Use the setup please!') }
             } finally { message.reply('have a good day!') }
         })
     }
