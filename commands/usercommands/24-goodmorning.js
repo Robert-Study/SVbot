@@ -33,14 +33,14 @@ module.exports = {
                         const forecast = (result.setForecast)
                         console.log(`${location}, ${quote}, ${forecast}`)
                         if (quote === 'yes' && forecast === 'yes') {
-                            let quotereply = getquote
+                            let quotereply = `**A random quote:** \n ${getquote}`
                             console.log(getquote)
                             weather.find({ search: location, degreeType: 'C' }, function (err, result) {
                                 try {
                                     let current = `⛅️ Condition: **${result[0].current.skytext}** \n🌡 Temperature: **${result[0].current.temperature} C** \n 💨 Windspeed: **${result[0].current.winddisplay}** \n\n `
                                     console.log(current)
                                     let forec = result[0].forecast
-                                    let forecastreply = ''
+                                    let forecastreply = '**The forecast for your location:**\n'
                                     for (const forecast of forec) {
                                         forecastreply += `**${forecast.shortday}** it will be between *${forecast.low} - ${forecast.high} C∘* and **${forecast.skytextday}** with ${forecast.precip}% rain. \n`
                                     }
@@ -57,7 +57,7 @@ module.exports = {
                                                     UserId,
                                                 })
                                                 let sortmyresults = todoresults
-                                                let todoreply = ''
+                                                let todoreply = '**Your remaining tasks:**\n'
                                                 for (const newresult of sortmyresults) {
                                                     todoreply += `**${newresult.todocount})** *${newresult.todo}*\n`
                                                 }
@@ -67,7 +67,7 @@ module.exports = {
                                                 })
 
                                                 if (deadlines) {
-                                                    let deadlinereply = ''
+                                                    let deadlinereply = '**Your deadlines:**\n'
                                                     for (const deadline of deadlines) {
                                                         deadlinereply += `**${deadline.date}** deadline: *${deadline.dltext}*\n`
                                                     }
@@ -76,14 +76,14 @@ module.exports = {
                                                         .setTitle(`**Goodmorning** ${message.author.username}!`)
                                                         .addFields(
                                                             { name: 'Weather for today:', value: `${current}` },
-                                                            { name: '\u200B', value: '-----' },
-                                                            { name: 'The forecast for your location:', value: `${forecastreply}` },
-                                                            { name: '\u200B', value: '-----' },
-                                                            { name: 'Your deadlines:', value: `${deadlinereply}` },
-                                                            { name: '\u200B', value: '-----' },
-                                                            { name: 'Your remaining tasks:', value: `${todoreply}` },
-                                                            { name: '\u200B', value: '-----' },
-                                                            { name: 'Random quote:', value: `${quotereply}` }
+                                                            { name: '\u200B', value: `${forecastreply}` },
+                                                        
+                                                            { name: '\u200B', value: `${deadlinereply}` },
+                                                            
+                                                            { name: '\u200B', value: `${todoreply}`  },
+                                                            
+                                                            { name: '\u200B', value: `${quotereply}` }
+                                                            
                                                         )
                                                         .setThumbnail(result[0].current.imageUrl)
                                                     message.channel.send(exampleEmbed)
