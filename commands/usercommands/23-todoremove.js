@@ -27,21 +27,21 @@ module.exports = {
 
             console.log(newtodo)
 
-            newtodo.forEach(item => {
-                if (item.todocount > removecount) {
-                    await tododataSchema.findandmodify({
-                        query: { _id },
-                        update: {
-                            $inc: { todocount: -1 }
+            newtodo.forEach(item)
+            if (item.todocount > removecount) {
+                await tododataSchema.findandmodify({
+                    query: { _id },
+                    update: {
+                        $inc: { todocount: -1 }
 
-                        }
+                    }
 
-                    })
-                }
+                })
+            }
 
 
-                else if (item.todocount < removecount) { return; }
-            })
+            else if (item.todocount < removecount) { return; }
+
 
 
 
