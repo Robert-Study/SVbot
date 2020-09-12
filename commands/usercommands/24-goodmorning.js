@@ -33,7 +33,7 @@ module.exports = {
                         const forecast = (result.setForecast)
                         console.log(`${location}, ${quote}, ${forecast}`)
                         if (quote === 'yes' && forecast === 'yes') {
-                            let quotereply = `**A random quote:** \n ${getquote}`
+                            let quotereply = `**🔮A random quote:** \n ${getquote}`
                             console.log(getquote)
                             weather.find({ search: location, degreeType: 'C' }, function (err, result) {
                                 try {
@@ -57,7 +57,7 @@ module.exports = {
                                                     UserId,
                                                 })
                                                 let sortmyresults = todoresults
-                                                let todoreply = '**Your remaining tasks:**\n'
+                                                let todoreply = '**✅ Your remaining tasks:**\n'
                                                 for (const newresult of sortmyresults) {
                                                     todoreply += `**${newresult.todocount})** ${newresult.todo}\n`
                                                 }
@@ -67,9 +67,9 @@ module.exports = {
                                                 })
 
                                                 if (deadlines) {
-                                                    let deadlinereply = '**Your deadlines:**\n'
+                                                    let deadlinereply = '**⏰ Your deadlines:**\n'
                                                     for (const deadline of deadlines) {
-                                                        deadlinereply += `**${deadline.date}** --- **${deadline.dltext}**\n`
+                                                        deadlinereply += `**${deadline.date}** deadline: **${deadline.dltext}**\n`
                                                     }
                                                     const exampleEmbed = new Discord.MessageEmbed()
                                                         .setColor('#337f4e')
