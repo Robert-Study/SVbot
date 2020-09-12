@@ -5,7 +5,7 @@ module.exports = {
 
     callback: async (message, arguments, text) => {
         const weather = require('weather-js');
-        const discord = require('discord.js');
+        const Discord = require('discord.js');
         const mongo = require('../../mongo')
         const tododataSchema = require('../../schemas/8-tododataschema')
         const userSchema = require('../../schemas/3-deadlineschema')
