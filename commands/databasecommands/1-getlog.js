@@ -11,32 +11,32 @@ module.exports = {
         const userdocumentSchema = require('../../schemas/2-logcountschema')
         const UserID = target.id
 
-        const logtotal = await logcounter.getLog(UserID)
-
         await mongo().then(async (mongoose) => {
-
-            console.log('Searching the database for Deadlines')
-
-            const results = await userdataSchema.find({
-                UserID: 'anon'
+            const logperson = await userdocumentSchema.find({
+                UserID
             })
-            for (const time of results) {
-                const totaltime = time.timeLog
-                console.log(totaltime)
-                const users = await userdocumentSchema.countDocuments({
-                    barcode: 101,
+            for (person of logperson) {
+                const personaltime = person.timeLog
+
+                console.log('Searching the database for Deadlines')
+                console.log(personaltime)
+                const results = await userdataSchema.find({
+                    UserID: 'anon'
                 })
-                console.log(users)
-                let average = (totaltime / users)
-                console.log(average)
-                message.reply(`You have been planting trees for ${logtotal} hours with us this week, the total hours of the server is ${totaltime} by ${users} users! That makes an average of ${average}`)
-                mongoose.connection.close()
+                for (const time of results) {
+                    const totaltime = time.timeLog
+                    console.log(totaltime)
+                    const users = await userdocumentSchema.countDocuments({
+                        barcode: 101,
+                    })
+                    console.log(users)
+                    let average = (totaltime / users)
+                    console.log(average)
+                    message.reply(`You have been planting trees for ${personaltime} hours with us this week, the total hours of the server is ${totaltime} by ${users} users! That makes an average of ${average}`)
+                    mongoose.connection.close()
+                }
+
             }
-
         })
-
-
-
-        message.reply()
     }
-};
+}
