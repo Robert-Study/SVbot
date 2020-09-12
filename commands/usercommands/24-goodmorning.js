@@ -59,7 +59,7 @@ module.exports = {
                                                 let sortmyresults = todoresults
                                                 let todoreply = '**Your remaining tasks:**\n'
                                                 for (const newresult of sortmyresults) {
-                                                    todoreply += `**${newresult.todocount})** *${newresult.todo}*\n`
+                                                    todoreply += `**${newresult.todocount})** ${newresult.todo}\n`
                                                 }
 
                                                 let deadlines = await userSchema.find({
@@ -69,7 +69,7 @@ module.exports = {
                                                 if (deadlines) {
                                                     let deadlinereply = '**Your deadlines:**\n'
                                                     for (const deadline of deadlines) {
-                                                        deadlinereply += `**${deadline.date}** deadline: *${deadline.dltext}*\n`
+                                                        deadlinereply += `**${deadline.date}** --- **${deadline.dltext}**\n`
                                                     }
                                                     const exampleEmbed = new Discord.MessageEmbed()
                                                         .setColor('#337f4e')
