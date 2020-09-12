@@ -15,8 +15,8 @@ module.exports = {
       }
   
       const timeLog = arguments[0]
-      if (isNaN(timeLog)) {
-        message.reply('Please only provide the number of hours')
+      if (isNaN(timeLog || timeLog > 3)) {
+        message.reply('Please only provide the number of hours with a max. of 3')
         return
       }
 
