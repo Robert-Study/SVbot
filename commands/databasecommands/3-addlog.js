@@ -1,7 +1,7 @@
 const economy = require ('../../4-logcounter')
 
 module.exports = {
-    commands: ['disabled', 'disable'],
+    commands: ['add', 'log'],
     minArgs: 1,
     maxArgs: 1,
     expectedArgs: "<Give study time in hours>",
@@ -15,8 +15,18 @@ module.exports = {
       }
   
       const timeLog = arguments[0]
-      if (isNaN(timeLog || timeLog > 3)) {
+      if (isNaN(timeLog)) {
         message.reply('Please only provide the number of hours with a max. of 3')
+        return
+      }
+
+      if (timeLog > 3){
+        message.reply('Added time cannot be more than 3 hours')
+        return
+      }
+
+      if (timeLog < 0){
+        message.reply('Added time cannot be a negative number')
         return
       }
 
@@ -25,7 +35,7 @@ module.exports = {
       const newLog = await economy.addLog(UserID, timeLog)
   
       message.reply(
-        `You have added ${timeLog} hours of study time. Your weekly study time is now ${newLog} hours!`
+        `You have added ${timeLog} hours of study time.`
       )
     },
   }
