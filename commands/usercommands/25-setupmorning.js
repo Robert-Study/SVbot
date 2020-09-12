@@ -14,8 +14,8 @@ module.exports = {
 
         console.log(providedforecast)
         console.log(providedquote)
-        
-        if ((providedquote != `yes`) || (providedquote != `no`)) {
+
+        if (providedquote != 'yes' || providedquote != 'no') {
             message.reply('please provide a yes or no answer for Quotes')
         }
         else if ((providedforecast != 'yes') || (providedforecast != 'no')) {
