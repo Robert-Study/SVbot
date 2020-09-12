@@ -42,8 +42,8 @@ module.exports = {
                     }
                 })
 
-            }else message.reply('You have not provided correct input for providedforecast')
-        }else message.reply('You have not provided correct input for providedquote')
+            }else message.reply('Please give a yes or no answer to setquotes input')
+        }else message.reply('Please give a yes or no answer to setforecast input')
     }
 }
 
