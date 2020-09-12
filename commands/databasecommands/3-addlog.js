@@ -4,6 +4,7 @@ module.exports = {
     commands: ['add', 'log'],
     minArgs: 1,
     maxArgs: 1,
+    
     expectedArgs: "<Give study time in hours>",
     description: 'Gives a user coins.',
     callback: async (message, arguments) => {
