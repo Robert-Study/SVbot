@@ -40,9 +40,9 @@ module.exports = {
                                     let current = `⛅️ Condition: **${result[0].current.skytext}** \n🌡 Temperature: **${result[0].current.temperature} C** \n 💨 Windspeed: **${result[0].current.winddisplay}** \n\n `
                                     console.log(current)
                                     let forec = result[0].forecast
-                                    let forecastreply = 'Forecast:'
+                                    let forecastreply = ''
                                     for (const forecast of forec) {
-                                        forecastreply += `**${forecast.shortday}** it will be between *${forecast.low} - ${forecast.high} C∘* and **${forecast.skytextday}** with ${forecast.precip}% rain. \n\n`
+                                        forecastreply += `**${forecast.shortday}** it will be between *${forecast.low} - ${forecast.high} C∘* and **${forecast.skytextday}** with ${forecast.precip}% rain. \n`
                                     }
                                     mongo().then(async (mongoose) => {
                                         let todocount = await todocountSchema.find({
@@ -57,9 +57,9 @@ module.exports = {
                                                     UserId,
                                                 })
                                                 let sortmyresults = todoresults
-                                                let todoreply = '**Your To-do List:** \n\n'
+                                                let todoreply = '**Your To-do List:**'
                                                 for (const newresult of sortmyresults) {
-                                                    todoreply += `**${newresult.todocount})** *${newresult.todo}*\n`
+                                                    todoreply += `**${newresult.todocount})** *${newresult.todo}\n*`
                                                 }
 
                                                 let deadlines = await userSchema.find({
@@ -67,9 +67,9 @@ module.exports = {
                                                 })
 
                                                 if (deadlines) {
-                                                    let deadlinereply = 'Here you go: \n\n'
+                                                    let deadlinereply = 'Here you go: \n'
                                                     for (const deadline of deadlines) {
-                                                        deadlinereply += `**${deadline.date}** deadline: *${deadline.dltext}*\n\n`
+                                                        deadlinereply += `**${deadline.date}** deadline: *${deadline.dltext}*\n`
                                                     }
                                                     const exampleEmbed = new Discord.MessageEmbed()
                                                         .setColor('#337f4e')
