@@ -8,10 +8,13 @@ module.exports = {
         const userdataSchema = require('../../schemas/9-userinfoschema')
         const mention = message.author
         const UserId = mention.id
-        if (((arguments[1]) != `yes`) || ((arguments[1]) != `no`)) {
+        let providedplace = arguments[0]
+        let providedquote = arguments[1]
+        let providedforecast = arguments[2] 
+        if ((providedquote != `yes`) || (providedquote != `no`)) {
             message.reply('please provide a yes or no answer for Quotes')
         }
-        else if ((arguments[2] != 'yes') || (arguments[2] != 'no')) {
+        else if ((providedforecast != 'yes') || (providedforecast != 'no')) {
             message.reply('please provide a yes or no answer for forecast-info')
         }
         else {
@@ -24,9 +27,9 @@ module.exports = {
                             UserId,
                         },
                         {
-                            place: arguments[0],
-                            setQuote: arguments[1],
-                            setForecast: arguments[2]
+                            place: providedplace,
+                            setQuote: providedquote,
+                            setForecast: providedforecast
                         },
 
                         {
