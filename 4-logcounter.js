@@ -33,7 +33,7 @@ module.exports.addLog = async (UserID, timeLog) => {
           UserID : 'anon'
         },
         {
-          UserID,
+          UserID: 'anon',
           $inc: {
             timeLog,
           },
