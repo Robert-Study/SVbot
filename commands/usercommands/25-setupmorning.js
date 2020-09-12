@@ -7,22 +7,40 @@ module.exports = {
         const mongo = require('../../mongo')
         const userdataSchema = require('../../schemas/9-userinfoschema')
         const mention = message.author
-        const UserID = mention.id
-        const user = {
-            UserId: UserID,
-            place: arguments[0],
-            setQuote: arguments[1],
-            setForecast: arguments[2],
+        const UserId = mention.id
+        if ((arguments[1] != 'yes') || (arguments[1] != 'no')) {
+            message.reply('please provide a yes or no answer for Quotes')
         }
-        await mongo().then(async (mongoose) => {
-            try {
+        else if ((arguments[2] != 'yes') || (arguments[2] != 'no')) {
+            message.reply('please provide a yes or no answer for forecast-info')
+        }
+        else {
+            await mongo().then(async (mongoose) => {
+                try {
+                    console.log('Running findOneAndUpdate()')
 
-                await new userdataSchema(user).save()
-            } finally {
-                mongoose.connection.close()
-                console.log(user)
-            }
-        })
+                    const result = await userdataSchema.findOneAndUpdate(
+                        {
+                            UserId,
+                        },
+                        {
+                            place: arguments[0],
+                            setQuote: arguments[1],
+                            setForecast: arguments[2]
+                        },
+
+                        {
+                            upsert: true,
+                            new: true,
+                        }
+                    )
+                } finally {
+                    mongoose.connection.close()
+                    message.reply(', your morning setup has been arranged.')
+                }
+            })
+
+        }
     }
 }
 
