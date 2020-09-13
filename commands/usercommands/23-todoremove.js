@@ -25,39 +25,41 @@ module.exports = {
                 UserId,
             })
 
-            console.log(newtodo)
-            var i = newtodo.todocount
-            console.log(i)
-            for (i = removecount; i > removecount; i++) {
-                await tododataSchema.findOneAndUpdate({
+            newtodo.forEach(item => {
+                let i = item.todocount;
+                for (i = removecount; i > removecount; i++) {
+                    await tododataSchema.findOneAndUpdate({
 
-                    UserId: UserId,
-                }, {
+                        todocount: i,
+                    }, {
 
-                    $inc: { todocount: -1 }
+                        $inc: { todocount: -1 }
 
-                
-                })
-    }
-            
+
+                    })
+                }
+            })
+
+
+
             await todoCountSchema
-                        .findOneAndUpdate(
-        {
-            UserId: UserId,
-        },
-        {
-            $inc: {
-                messageCount: -1,
-            },
-        },
-        {
-            upsert: true,
-        }
-    )
-        .exec()
+                .findOneAndUpdate(
+                    {
+                        UserId: UserId,
+                    },
+                    {
+                        $inc: {
+                            messageCount: -1,
+                        },
+                    },
+                    {
+                        upsert: true,
+                    }
+                )
+                .exec()
             mongoose.connection.close()
 
-})
+        })
 
     }
 }
