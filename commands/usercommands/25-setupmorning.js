@@ -37,7 +37,7 @@ module.exports = {
                         new: true,
                     }
                 )
-                const result = await logcountSchema.findOneAndUpdate(
+                const locount = await logcountSchema.findOneAndUpdate(
                     {
                         UserID,
                     },
