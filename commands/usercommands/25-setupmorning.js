@@ -37,59 +37,49 @@ module.exports = {
                         new: true,
                     }
                 )
-                const treetime = await Treecountschema.findOne(
-                    { UserID }
-                )
+                const result = await logcountSchema.findOneAndUpdate(
+                    {
+                        UserID,
+                    },
+                    {
+                        UserID,
+                        barcode: 101,
 
-                if (treetime.timeLog > 0) { console.log("Already logged time") }
+                        timeLog,
 
-                else {
-                    const updatetime = await Treecountschema.findOneAndUpdate(
-                        { UserID },
-                        {
-                            UserID,
-                            timeLog: 0,
-                            barcode: 101
-                        },
-                        {
-                            upsert: true,
-                            new: true,
-                        }
-
-                    )
-                }
-
-                const personaltodo = await Todocountschema.findOne(
-                    { UserId, }
-                )
-                for (personal of personaltodo) {
-                    if (personal.messageCount > 0) { console.log(`Already setup todo`) }
-
-                    else {
-                        const updatetodo = await Todocountschema.findOneAndUpdate(
-                            {
-                                UserId,
-                            },
-                            {
-                                messageCount: 0
-                            },
-
-                            {
-                                upsert: true,
-                                new: true,
-                            }
-                        )
-
+                    },
+                    {
+                        upsert: true,
+                        new: true,
                     }
+                )
+
+
+                const updatetodo = await Todocountschema.findOneAndUpdate(
+                    {
+                        UserId,
+                    },
+                    {
+                        UserId,
+                        messageCount
+                    },
+
+                    {
+                        upsert: true,
+                        new: true,
+                    }
+                )
 
 
 
-                    message.reply(' your morning setup has been arranged.')
-                }
 
 
-            } else message.reply('Please give a yes or no answer to setquotes input')
-        } else message.reply('Please give a yes or no answer to setforecast input')
-    }
+                message.reply(' your morning setup has been arranged.')
+            
+
+
+        } else message.reply('Please give a yes or no answer to setquotes input')
+    } else message.reply('Please give a yes or no answer to setforecast input')
+}
 }
 

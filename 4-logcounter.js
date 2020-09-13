@@ -33,6 +33,7 @@ module.exports.addLog = async (UserID, timeLog) => {
     },
     {
       UserID: 'anon',
+      barcode: 101,
       $inc: {
         timeLog,
       },
