@@ -25,7 +25,7 @@ module.exports = {
                 UserId,
             })
 
-            newtodo.forEach(item => {
+            newtodo.forEach(async item => {
                 let i = item.todocount;
                 for (i = removecount; i > removecount; i++) {
                     await tododataSchema.findOneAndUpdate({
