@@ -20,7 +20,7 @@ module.exports = {
                 UserId,
                 todocount: removecount,
             })
-            message.reply(`Deleted task #${todocount}. To add new tasks use !todoadd`)
+            message.reply(`Deleted task #${removecount}. To add new tasks use !todoadd`)
             let newtodo = await tododataSchema.find({
                 UserId,
             })
@@ -29,7 +29,7 @@ module.exports = {
             var i = newtodo.todocount
             for (i = removecount; i > removecount; i++) {
                 await tododataSchema.findandmodify({
-                    
+
                     update: {
                         $inc: { todocount: -1 }
 
