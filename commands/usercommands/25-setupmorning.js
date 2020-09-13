@@ -1,4 +1,5 @@
 const Todocountschema = require('../../schemas/7-todocountschema')
+const Treecountschema = require('../../schemas/2-logcountschema')
 
 module.exports = {
     commands: ['setmorning', 'testsettup'],
@@ -9,6 +10,7 @@ module.exports = {
         const userdataSchema = require('../../schemas/9-userinfoschema')
         const mention = message.author
         const UserId = mention.id
+        const UserID = mention.id
         let providedplace = arguments[0]
         let providedquote = arguments[1]
         let providedforecast = arguments[2]
@@ -59,8 +61,23 @@ module.exports = {
 
                     }
                 }
-                message.reply(' your morning setup has been arranged.')
 
+                const treetime = await Treecountschema.findOne(
+                    { UserID }
+                )
+
+                for (time of treetime) {
+                    if (time.timeLog > 0) { console.log("Already logged time") }
+
+                    else {
+                        const updatetime = await Treecountschema.findOneAndUpdate(
+                            { UserID },
+                            { timeLog: 0 },
+                            { barcode: 101 }
+                        )
+                    }
+                    message.reply(' your morning setup has been arranged.')
+                }
 
 
             } else message.reply('Please give a yes or no answer to setquotes input')
