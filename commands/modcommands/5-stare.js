@@ -4,7 +4,7 @@ module.exports = {
     maxArgs: 1,
     permissions: 'BAN_MEMBERS',
 
-    callback: async(message, arguments, text) => {
+    callback: async (message, arguments, text) => {
         message.delete()
         var person = message.guild.member(message.mentions.users.first());
         if (!person) return message.reply("I CANT FIND THE USER " + person);
@@ -12,45 +12,42 @@ module.exports = {
         **Please behave according to the rules!**`)
         const logchannel = message.guild.channels.cache.get('730029372697870347');
 
-
-        const mongo = require('../../mongo')
         const warningcountSchema = require('../../schemas/1-warningcount')
         UserID = person
 
-        return await mongo().then(async (mongoose) => {
-            try {
-                console.log('Searching the database for warnings')
 
-                const results = await warningcountSchema
-                    .findOneAndUpdate(
-                        {
-                            UserID: UserID,
-                        },
-                        {
-                            $inc: {
-                                warnings: 1,
-                            },
-                        },
-                        {
-                            upsert: true,
-                        }
-                    )
-                    .exec()
+        console.log('Searching the database for warnings')
 
-                const result = await warningcountSchema.findOne({
-                    UserID
-                })
+        const results = await warningcountSchema
+            .findOneAndUpdate(
+                {
+                    UserID: UserID,
+                },
+                {
+                    $inc: {
+                        warnings: 1,
+                    },
+                },
+                {
+                    upsert: true,
+                }
+            )
+            .exec()
 
-                if (result.warnings >= 3) {
-                    logchannel.send(`**${"<@" + person.user.id + ">"} has been warned by ${"<@" + message.author.id + ">"}**, **this is already their #${result.warnings} warning! Please take action against this user.**`)
-
-                } else { logchannel.send(`**${"<@" + person.user.id + ">"} has been warned by ${"<@" + message.author.id + ">"}**, this is their #${result.warnings} warning.`) }
-
-            } finally { mongoose.connection.close() }
-
-
-
+        const result = await warningcountSchema.findOne({
+            UserID
         })
+
+        if (result.warnings >= 3) {
+            logchannel.send(`**${"<@" + person.user.id + ">"} has been warned by ${"<@" + message.author.id + ">"}**, **this is already their #${result.warnings} warning! Please take action against this user.**`)
+
+        } else { logchannel.send(`**${"<@" + person.user.id + ">"} has been warned by ${"<@" + message.author.id + ">"}**, this is their #${result.warnings} warning.`) }
+
+
+
+
+
+
     }
 }
 

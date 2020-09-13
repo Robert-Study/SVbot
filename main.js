@@ -8,6 +8,7 @@ const client = new Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
 
 const ms = require ('ms')
 
+const mongo = require('./mongo')
 const roleselect = require ('./2-roleselect.js')
 const welcomedm = require ('./3-welcomedm')
 const forestlink = require ('./5-forestlink')
@@ -23,6 +24,9 @@ autoforest(client)
 
 client.on('ready', async () => {
   console.log('The client is ready!')
+  
+  await mongo()
+
   client.user.setActivity(`How to be a bot`); 
 
   const baseFile = 'command-base.js'

@@ -1,6 +1,5 @@
 const economy = require ('./4-logcounter')
 const { MessageReaction } = require("discord.js");
-const mongo = require('./mongo')
 const logcountSchema = require('./schemas/2-logcountschema')
 const logCache = {}
 

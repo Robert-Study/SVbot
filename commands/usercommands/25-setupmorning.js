@@ -6,7 +6,6 @@ module.exports = {
     expectedArgs: '<!weather location>',
 
     callback: async (message, arguments, text) => {
-        const mongo = require('../../mongo')
         const userdataSchema = require('../../schemas/9-userinfoschema')
         const mention = message.author
         const UserId = mention.id
@@ -19,18 +18,37 @@ module.exports = {
 
         if (providedquote == 'yes' || providedquote == 'no') {
             if ((providedforecast == 'yes') || (providedforecast == 'no')) {
-                await mongo().then(async (mongoose) => {
-                    try {
-                        console.log('Running findOneAndUpdate()')
+                console.log('Running findOneAndUpdate()')
 
-                        const result = await userdataSchema.findOneAndUpdate(
+                const result = await userdataSchema.findOneAndUpdate(
+                    {
+                        UserId,
+                    },
+                    {
+                        place: providedplace,
+                        setQuote: providedquote,
+                        setForecast: providedforecast
+                    },
+
+                    {
+                        upsert: true,
+                        new: true,
+                    }
+                )
+
+                const personaltodo = await Todocountschema.findOne(
+                    { UserId, }
+                )
+                for (personal of personaltodo) {
+                    if (personal.messageCount > 0) { console.log(`Already setup todo`) }
+
+                    else {
+                        const updatetodo = await Todocountschema.findOneAndUpdate(
                             {
                                 UserId,
                             },
                             {
-                                place: providedplace,
-                                setQuote: providedquote,
-                                setForecast: providedforecast
+                                messageCount: 0
                             },
 
                             {
@@ -39,34 +57,11 @@ module.exports = {
                             }
                         )
 
-                        const personaltodo = await Todocountschema.findOne(
-                            { UserId, }
-                        )
-                        for (personal of personaltodo) {
-                            if (personal.messageCount > 0) { console.log(`Already setup todo`) }
-
-                            else {
-                                const updatetodo = await Todocountschema.findOneAndUpdate(
-                                    {
-                                        UserId,
-                                    },
-                                    {
-                                        messageCount: 0
-                                    },
-
-                                    {
-                                        upsert: true,
-                                        new: true,
-                                    }
-                                )
-
-                            }
-                        }
-                    } finally {
-                        mongoose.connection.close()
-                        message.reply(' your morning setup has been arranged.')
                     }
-                })
+                }
+                message.reply(' your morning setup has been arranged.')
+
+
 
             } else message.reply('Please give a yes or no answer to setquotes input')
         } else message.reply('Please give a yes or no answer to setforecast input')
