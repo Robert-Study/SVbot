@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const tododataSchema = require('../../schemas/8-tododataschema')
 
 module.exports = {
-    commands: ['tatodo', 'todolist'],
+    commands: ['todo', 'todolist'],
     minArgs: 0,
     expectedArgs: '<!todo>',
 
