@@ -181,7 +181,7 @@ module.exports = {
                                 } else if (quote === 'yes' && forecast === 'no') {
                                     let quotereply = `**🔮A random quote:** \n ${getquote}`
                                     console.log(getquote)
-                                    weather.find({ search: location, degreeType: 'C' }, function (err, result) {
+                                    weather.find({ search: location, degreeType: 'C' }, async function (err, result) {
                                         try {
                                             let current = `⛅️ Condition: **${result[0].current.skytext}** \n🌡 Temperature: **${result[0].current.temperature} C** \n 💨 Windspeed: **${result[0].current.winddisplay}** \n\n `
                                             console.log(current)
@@ -295,7 +295,7 @@ module.exports = {
                                 } else if (quote === 'no' && forecast === 'yes') {
                                     let quotereply = `**🔮A random quote:** \n ${getquote}`
                                     console.log(getquote)
-                                    weather.find({ search: location, degreeType: 'C' }, function (err, result) {
+                                    weather.find({ search: location, degreeType: 'C' }, async function (err, result) {
                                         try {
                                             let current = `⛅️ Condition: **${result[0].current.skytext}** \n🌡 Temperature: **${result[0].current.temperature} C** \n 💨 Windspeed: **${result[0].current.winddisplay}** \n\n `
                                             console.log(current)
@@ -414,7 +414,7 @@ module.exports = {
                                 } else if (quote === 'no' && forecast === 'no') {
                                     let quotereply = `**🔮A random quote:** \n ${getquote}`
                                     console.log(getquote)
-                                    weather.find({ search: location, degreeType: 'C' }, function (err, result) {
+                                    weather.find({ search: location, degreeType: 'C' }, async function (err, result) {
                                         try {
                                             let current = `⛅️ Condition: **${result[0].current.skytext}** \n🌡 Temperature: **${result[0].current.temperature} C** \n 💨 Windspeed: **${result[0].current.winddisplay}** \n\n `
                                             console.log(current)
