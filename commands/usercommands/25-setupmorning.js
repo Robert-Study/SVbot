@@ -41,48 +41,48 @@ module.exports = {
                     { UserID }
                 )
 
-                for (time of treetime) {
-                    if (time.timeLog > 0) { console.log("Already logged time") }
+                let timelog = treetime.timeLog
+                if (timeLog > 0) { console.log("Already logged time") }
+
+                else {
+                    const updatetime = await Treecountschema.findOneAndUpdate(
+                        { UserID },
+                        {
+                            UserID,
+                            timeLog: 0,
+                            barcode: 101
+                        },
+                        {
+                            upsert: true,
+                            new: true,
+                        }
+
+                    )
+                }
+
+                const personaltodo = await Todocountschema.findOne(
+                    { UserId, }
+                )
+                for (personal of personaltodo) {
+                    if (personal.messageCount > 0) { console.log(`Already setup todo`) }
 
                     else {
-                        const updatetime = await Treecountschema.findOneAndUpdate(
-                            { UserID },
+                        const updatetodo = await Todocountschema.findOneAndUpdate(
                             {
-                                UserID,
-                                timeLog: 0,
-                                barcode: 101
+                                UserId,
                             },
+                            {
+                                messageCount: 0
+                            },
+
                             {
                                 upsert: true,
                                 new: true,
                             }
-
                         )
+
                     }
 
-                    const personaltodo = await Todocountschema.findOne(
-                        { UserId, }
-                    )
-                    for (personal of personaltodo) {
-                        if (personal.messageCount > 0) { console.log(`Already setup todo`) }
-
-                        else {
-                            const updatetodo = await Todocountschema.findOneAndUpdate(
-                                {
-                                    UserId,
-                                },
-                                {
-                                    messageCount: 0
-                                },
-
-                                {
-                                    upsert: true,
-                                    new: true,
-                                }
-                            )
-
-                        }
-                    }
 
 
                     message.reply(' your morning setup has been arranged.')
