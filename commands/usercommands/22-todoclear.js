@@ -4,7 +4,7 @@ const todoCountSchema = require('../../schemas/7-todocountschema')
 
 
 module.exports = {
-    commands: ['betatodoclear', 'betacleartodo'],
+    commands: ['todoclear', 'cleartodo'],
     minArgs: 0,
     expectedArgs: '<!todoclear>',
 
