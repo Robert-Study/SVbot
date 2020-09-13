@@ -30,6 +30,7 @@ module.exports = {
                     let i = item.todocount;
                     console.log(i)
                     if (i > removecount) {
+                        mongo().then(async (mongoose) => {
                         await tododataSchema.findOneAndUpdate({
                             UserId,
                             todocount: i,
@@ -39,9 +40,10 @@ module.exports = {
 
 
                         })
-                    }
+                    })
+                }
                 })
-
+               
 
                 await todoCountSchema
                     .findOneAndUpdate(
