@@ -29,6 +29,7 @@ module.exports = {
             var i = newtodo.todocount
             for (i = removecount; i > removecount; i++) {
                 await tododataSchema.findandmodify({
+                    
                     update: {
                         $inc: { todocount: -1 }
 
