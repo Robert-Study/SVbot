@@ -72,8 +72,16 @@ module.exports = {
                     else {
                         const updatetime = await Treecountschema.findOneAndUpdate(
                             { UserID },
-                            { timeLog: 0 },
-                            { barcode: 101 }
+                            {
+                                UserID,
+                                timeLog: 0,
+                                barcode: 101
+                            },
+                            {
+                                upsert: true,
+                                new: true,
+                            }
+
                         )
                     }
                     message.reply(' your morning setup has been arranged.')
