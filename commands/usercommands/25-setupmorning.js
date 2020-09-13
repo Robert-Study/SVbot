@@ -37,7 +37,7 @@ module.exports = {
                         new: true,
                     }
                 )
-                const locount = await logcountSchema.findOneAndUpdate(
+                const locount = await Treecountschema.findOneAndUpdate(
                     {
                         UserID,
                     },
