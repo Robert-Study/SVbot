@@ -41,8 +41,7 @@ module.exports = {
                     { UserID }
                 )
 
-                let timelog = treetime.timeLog
-                if (timelog > 0) { console.log("Already logged time") }
+                if (treetime.timeLog > 0) { console.log("Already logged time") }
 
                 else {
                     const updatetime = await Treecountschema.findOneAndUpdate(
