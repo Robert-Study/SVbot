@@ -11,7 +11,7 @@ module.exports = {
 
         message.channel.send("What is your age?").then(() => {
             message.channel.awaitMessages(filter, { max: 1, time: 30000, errors: ['time'] })
-                .then('message', message => {
+                .then( collected => {
                     const {channel, content, member} = message
                     const date = content
                     message.channel.send(`${collected.first().author} got the correct answer!${date}`);
