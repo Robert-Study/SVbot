@@ -14,6 +14,8 @@ module.exports = {
         let providedplace = arguments[0]
         let providedquote = arguments[1]
         let providedforecast = arguments[2]
+        let timeLog = 0
+        let messageCount = 0 
 
         console.log(providedforecast)
         console.log(providedquote)
@@ -44,9 +46,9 @@ module.exports = {
                     {
                         UserID,
                         barcode: 101,
-
-                        timeLog,
-
+                        $inc: {
+                            timeLog,
+                          },
                     },
                     {
                         upsert: true,
@@ -61,7 +63,9 @@ module.exports = {
                     },
                     {
                         UserId,
-                        messageCount
+                        $inc: {
+                            messageCount,
+                          },
                     },
 
                     {
