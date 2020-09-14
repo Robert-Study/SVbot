@@ -21,9 +21,9 @@ module.exports = {
                     if (date) {
                         message.channel.send("Please write your description.")
                         collector.once('collect', message => {
-                            let date = message.content
-                            message.channel.send(`${date}`)
-                            console.log(date)
+                            let description = message.content
+                            message.channel.send(`${description}`)
+                            console.log(description)
 
                         })
                     }
