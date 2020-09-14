@@ -5,11 +5,18 @@ module.exports = {
 
 
     callback: (message, arguments, text) => {
-        const filter = m => m.content.includes('discord');
-        const collector = message.channel.createMessageCollector(filter, { time: 15000 });
+        
+        
+        const filter = response => {response.content.toLowerCase()};
 
-        collector.on('collect', m => {
-            console.log(`Collected ${m.content}`);
+        message.channel.send("What is the date?").then(() => {
+            message.channel.awaitMessages(filter, { max: 1, time: 30000, errors: ['time'] })
+                .then(collected => {
+                    message.channel.send(`${collected.first().author} got the correct answer!`);
+                })
+                .catch(collected => {
+                    message.channel.send('Looks like nobody got the answer this time.');
+                });
         });
     }
 }
