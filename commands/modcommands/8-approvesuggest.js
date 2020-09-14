@@ -8,6 +8,7 @@ module.exports = {
         const Discord = require('discord.js');
         const suggestdataSchema = require('../../schemas/6-suggestdataschema')
         const suggestchannel = message.client.channels.cache.get('730029372697870347');
+        const dltext = arguments.slice(1).join(" ")
 
         UserId = "annon"
         let suggestcount = arguments[0]
@@ -34,7 +35,7 @@ module.exports = {
                     .setTimestamp()
                     .addFields(
                         { name: `Suggestion:`, value: `${approvedsuggestion}` },
-                        { name: "Reason from the mod that approved it:", value: `${text}` })
+                        { name: "Reason from the mod that approved it:", value: `${dltext}` })
 
                 suggestchannel.send(suggestembed);
             }
