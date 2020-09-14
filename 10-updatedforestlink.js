@@ -20,8 +20,8 @@ module.exports = (client) => {
                 .setFooter(`Planter: ${message.author.username} `)
                 .addFields(
                     { name: '\u200B', value: 'Forest code:' },
-                    { name: `Use ${args[0]}`, value: '\u200B' },
-                    { name: '\u200B', value: 'Forest link:', inline: true },
+                    { name: `Use code: ${args[0]}`, value: 'Forest link:' },
+                    
                     { name: `https://forestapp.cc/join-room?token=${args[0]}`, value: '\u200B' },
                     { name: ':stopwatch: Duration:', value: `${args[4]}`, inline: true },
                     { name: '🌴 Tree type:', value: `${args[5]} ${args[6]}`, inline: true },
