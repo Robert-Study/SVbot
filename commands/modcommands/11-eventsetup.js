@@ -5,36 +5,22 @@ module.exports = {
 
 
     callback: (message, arguments, text) => {
-        const Discord = require('discord.js');
-        const prompt = require('prompt')
-        var schema = {
-            properties: {
-                name: {
-                    pattern: /^[a-zA-Z\s\-]+$/,
-                    message: 'Name must be only letters, spaces, or dashes',
-                    required: true
-                },
-                password: {
-                    hidden: true
-                }
-            }
-        };
+        const readline = require("readline");
+        const rl = readline.createInterface({
+            input: process.stdin,
+            output: process.stdout
+        });
 
-        //
-        // Start the prompt
-        //
-        prompt.start();
+        rl.question("What is your name ? ", function (name) {
+            rl.question("Where do you live ? ", function (country) {
+                console.log(`${name}, is a citizen of ${country}`);
+                rl.close();
+            });
+        });
 
-        //
-        // Get two properties from the user: email, password
-        //
-        prompt.get(schema, function (err, result) {
-            //
-            // Log the results.
-            //
-            console.log('Command-line input received:');
-            console.log('  name: ' + result.name);
-            console.log('  password: ' + result.password);
+        rl.on("close", function () {
+            console.log("\nBYE BYE !!!");
+            process.exit(0);
         });
     }
 }
