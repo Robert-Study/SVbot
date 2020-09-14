@@ -11,10 +11,10 @@ module.exports = {
 
         message.channel.send("What is your age?").then(() => {
             message.channel.awaitMessages(filter, { max: 1, time: 30000, errors: ['time'] })
-                .then(collected => {
-                    const {channel, content, member} = collected
+                .then('message', message => {
+                    const {channel, content, member} = message
                     const date = content
-                    message.channel.send(`${collected.first().author} got the correct answer!`);
+                    message.channel.send(`${collected.first().author} got the correct answer!${date}`);
                     console.log(date)
                 })
                 .catch(collected => {
