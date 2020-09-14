@@ -26,7 +26,6 @@ module.exports = {
 
                 console.log(approvedsuggestion)
 
-
                 let suggestembed = new Discord.MessageEmbed()
 
                     .setColor('#cc1029')
