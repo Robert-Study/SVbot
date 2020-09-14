@@ -5,6 +5,7 @@ module.exports = {
 
 
     callback: (message, arguments, text) => {
+        const Discord = require('discord.js')
         const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
         message.channel.send("Please write your age.")
         collector.on('collect', message => {
