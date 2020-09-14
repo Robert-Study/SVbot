@@ -7,7 +7,7 @@ const { Client } = require('discord.js');
 const client = new Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
 
 const ms = require ('ms')
-
+const prompt = require('prompt')
 const mongo = require('./mongo')
 const roleselect = require ('./2-roleselect.js')
 const welcomedm = require ('./3-welcomedm')
@@ -33,7 +33,7 @@ client.on('ready', async () => {
 
   const baseFile = 'command-base.js'
   const commandBase = require(`./commands/${baseFile}`)
-  let logchannel = client.channels.cache.get('730029372697870347')
+  let logchannel = client.channels.cache.get('754042973850828821')
   logchannel.send("I have restarted")
 
   const readCommands = (dir) => {

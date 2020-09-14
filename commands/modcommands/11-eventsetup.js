@@ -7,24 +7,34 @@ module.exports = {
     callback: (message, arguments, text) => {
         const Discord = require('discord.js')
         const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
-        message.channel.send("Please write your age.")
+        message.channel.send("Please write your events title.")
         collector.once('collect', message => {
-            let age = message.content
-            message.channel.send(`${age}`)
-            console.log(age)
-            if (age) {
-                message.channel.send("Please write your date.")
+            let header = message.content
+            message.channel.send(`${header}`)
+            console.log(header)
+            if (header) {
+                message.channel.send("Please write the date of the event.")
                 collector.once('collect', message => {
                     let date = message.content
                     message.channel.send(`${date}`)
                     console.log(date)
                     if (date) {
-                        message.channel.send("Please write your description.")
+                        message.channel.send("Please write the time of the event.")
                         collector.once('collect', message => {
-                            let description = message.content
-                            message.channel.send(`${description}`)
-                            console.log(description)
+                            let time = message.content
+                            message.channel.send(`${time}`)
+                            console.log(time)
+                            if (time) {
+                                message.channel.send("Please write a description of the event (1200characters max!)")
+                                collector.once('collect', message => {
+                                    let description = message.content
+                                    message.channel.send(`${description}`)
+                                    console.log(description)
+                                    reply.message(`Your event is set, with ${header}, ${date} and ${time}`
 
+                                    )
+                                })
+                            }
                         })
                     }
                 })
@@ -32,7 +42,6 @@ module.exports = {
         })
     }
 }
-
 
 
 
