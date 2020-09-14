@@ -5,22 +5,20 @@ module.exports = {
 
 
     callback: (message, arguments, text) => {
-        const readline = require("readline");
-        const rl = readline.createInterface({
-            input: process.stdin,
-            output: process.stdout
-        });
+        message.channel.send('What is the date of your event?').then(() => {
+            message.channel.awaitMessages(filter, { max: 1, time: 30000, errors: ['time'] })
+                .then(collected => { let date = message.content }
+                )
+            if (date) {
+                message.channel.send('What is the time of your event?').then(() => {
+                    message.channel.awaitMessages(filter, { max: 1, time: 30000, errors: ['time'] })
+                        .then(collected => { let time = message.content 
+                            console.log(`${date} and ${time}`)}
 
-        rl.question("What is your name ? ", function (name) {
-            rl.question("Where do you live ? ", function (country) {
-                console.log(`${name}, is a citizen of ${country}`);
-                rl.close();
-            });
-        });
+                        )
 
-        rl.on("close", function () {
-            console.log("\nBYE BYE !!!");
-            process.exit(0);
-        });
+                })
+            }
+        })
     }
 }
