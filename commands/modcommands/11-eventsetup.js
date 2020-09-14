@@ -92,7 +92,7 @@ module.exports = {
                         })
                     }
                 })
-            } else message.send('Please use the tags (#app or #tip) when making submissions!')
+            } else message.reply('Please use the tags (#app or #tip) when making submissions!')
         })
     }
 }
