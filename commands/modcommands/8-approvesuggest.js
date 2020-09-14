@@ -19,25 +19,29 @@ module.exports = {
             UserId,
             suggestcount,
         })
-
-        console.log(results)
-
         if (results) {
-            let suggestembed = new Discord.MessageEmbed()
-
-                .setColor('#337f4e')
-                .setTitle(`Approved suggestion #${arguments[0]}`)
-                .setTimestamp()
-                .addFields(
-                    { name: `Suggestion:`, value: `${results.suggestion}` },
-                    { name: "Reason from the mod that approved it:", value: `${text}` })
-
-            suggestchannel.send(suggestembed);
-        }
-        else { message.reply(`I could not find that suggestion, please check your message`) }
+            for (items of results) {
+                let approvedsuggestion = items.suggestion
 
 
+                console.log(approvedsuggestion)
+
+
+                let suggestembed = new Discord.MessageEmbed()
+
+                    .setColor('#337f4e')
+                    .setTitle(`Approved suggestion #${arguments[0]}`)
+                    .setTimestamp()
+                    .addFields(
+                        { name: `Suggestion:`, value: `${approvedsuggestion}` },
+                        { name: "Reason from the mod that approved it:", value: `${text}` })
+
+                suggestchannel.send(suggestembed);
+            }
+        } else { message.reply(`I could not find that suggestion, please check your message`) }
 
     }
+
 }
+
 
