@@ -29,7 +29,7 @@ module.exports = {
 
                 let suggestembed = new Discord.MessageEmbed()
 
-                    .setColor('#337f4e')
+                    .setColor('#cc1029')
                     .setTitle(`**Denied** suggestion #${arguments[0]}`)
                     .setTimestamp()
                     .addFields(
