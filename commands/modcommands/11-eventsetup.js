@@ -65,7 +65,7 @@ module.exports = {
             }
 
             else if (whatsub === 'event') {
-   
+
                 const mention = message.author
                 const UserId = mention.id
                 message.channel.send("Please write your **events** title.")
@@ -97,6 +97,9 @@ module.exports = {
                                             let provideddescription = message.content
                                             if (provideddescription === 'stop') { message.reply("Submission ended!") }
                                             else {
+                                                await message.channel.messages.fetch({ limit: 4 }).then(messages => {
+                                                    message.channel.bulkDelete(messages)
+                                                })
                                                 const Discord = require('discord.js');
                                                 let eventchannel = message.guild.channels.cache.get('754042973850828821');
                                                 let eventEmbed = new Discord.MessageEmbed()
@@ -113,6 +116,7 @@ module.exports = {
                                                 let reactevent = await eventchannel.send(eventEmbed);
                                                 reactevent.react('✅')
                                                 console.log(description)
+                                                
                                                 message.reply(`Your event ${providedheader} is set on the ${provideddate} at ${providedtime}`)
                                                 const result = await eventschema.findOneAndUpdate(
                                                     {
