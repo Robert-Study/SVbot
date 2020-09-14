@@ -7,7 +7,7 @@ module.exports = {
 
         const Discord = require('discord.js');
         const suggestdataSchema = require('../../schemas/6-suggestdataschema')
-        const suggestchannel = message.client.channels.cache.get('730029372697870347');
+        const suggestchannel = message.client.channels.cache.get('729372656456958022');
         const dltext = arguments.slice(1).join(" ")
 
         UserId = "annon"
@@ -30,8 +30,8 @@ module.exports = {
 
                 let suggestembed = new Discord.MessageEmbed()
 
-                    .setColor('#337f4e')
-                    .setTitle(`Approved suggestion #${arguments[0]}`)
+                    .setColor('#cc1029')
+                    .setTitle(`**Approved** suggestion #${arguments[0]}`)
                     .setTimestamp()
                     .addFields(
                         { name: `Suggestion:`, value: `${approvedsuggestion}` },
