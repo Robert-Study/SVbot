@@ -5,21 +5,18 @@ module.exports = {
 
 
     callback: (message, arguments, text) => {
-        
-        
-        const filter = m => m.content.includes('!') && m.author.id === message.author.id
-
-        message.channel.send("What is your age?").then(() => {
-            message.channel.awaitMessages(filter, { max: 1, time: 30000, errors: ['time'] })
-                .then( collected => {
-                    const {channel, content, member} = collected
-                    const date = content
-                    message.channel.send(`${collected.first().author} got the correct answer!${date}`);
-                    console.log(date)
-                })
-                .catch(collected => {
-                    message.channel.send('Looks like nobody got the answer this time.');
-                });
-        });
+        const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
+        message.channel.send("Please write your age.")
+        collector.on('collect', message => {
+            let age = message.content
+            message.channel.send(`${age}`)
+            console.log(age)
+        })
     }
 }
+
+        
+        
+
+            
+                
