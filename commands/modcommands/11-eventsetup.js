@@ -7,9 +7,9 @@ module.exports = {
     callback: (message, arguments, text) => {
         
         
-        const filter = response => {response.content.toLowerCase()};
+        const filter = m => m.content.includes('discord') && m.author.id === message.author.id
 
-        message.channel.send("What is the date?").then(() => {
+        message.channel.send("What is your age?").then(() => {
             message.channel.awaitMessages(filter, { max: 1, time: 30000, errors: ['time'] })
                 .then(collected => {
                     message.channel.send(`${collected.first().author} got the correct answer!`);
