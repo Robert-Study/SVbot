@@ -2,19 +2,44 @@ module.exports = {
     commands: ['event'],
     minArgs: 0,
     maxArgs: 0,
-   
+
 
     callback: (message, arguments, text) => {
         const Discord = require('discord.js');
-        const hydraembed = new Discord.MessageEmbed()
-        .setColor('#1a9cd8')
-        .setTitle(`Event planned - Saturday 19/Sep 2020`)
-        .addFields(
-            { name: '**SD** will give a presentation on the topic "Permaculture." To prepare for his presentation at university. Interested people can join. The presentation will be in a private channel named "Permaculture"' ,value: '\u200B'},
-            { name: 'Date and time:', value: '19 September 2020, Saturday**\nDuration: 20-30 minutes + Q/A\nTime: 10:30 PM IST (Indian Standard Time) - 7PM GMT+2 (Europe, Brussel)\n\n'},
-            { name: 'Description:', value: 'Permaculture is an ethical and sustainable way of doing farming. As explained by one of the founders of this idea Bill Mollison, " The philosophy behind permaculture is one of working with, rather than against nature, of protracted and thoughtful observation rather than protracted and thoughtless action; of looking at systems in all their functions, rather than asking only one yield of them; and of allowing systems to demonstrate their own evolution."\n\nGiven how industrial agriculture has led to so many ecological and climate concerns, it becomes essential to look for better farming methods. Permaculture has the potential to address all the problems caused by industrial agriculture.\n**Disclaimer:** I dont have prior experience in giving a presentation, so it may feel boring to some of you. But you may learn some new concepts that are very crucial for addressing social and climate change concerns related to agriculture.'}
-        )
-            
-    message.channel.send(hydraembed); 
+        const eventschema = require('../../schemas/11-eventsetupschema')
+
+        const mention = message.author
+        const UserId = mention.id
+        const Barcode = 901
+
+        result = await eventschema.findOne({
+            UserId,
+            Barcode
+        })
+
+        if (result) {
+            if (barcode <= 0) { message.reply('no events found for you.') }
+            else {
+                for (items of results) {
+                    let provideddate = items.date
+                    let providedtime = items.time
+                    let providedheader = items.header
+                    let provideddescription = items.description
+
+                    let eventEmbed = new Discord.MessageEmbed()
+                        .setColor('#337f4e')
+                        .setTitle(`${providedheader}`)
+                        .setTimestamp()
+                        .setFooter(`Event host: ${message.author.username} `)
+                        .addFields(
+                            { name: "New event", value: `**${message.author.username}** has planned an event, the event is open to attend for any verified member. A specific channel with the event title will be set up on the event date and time. Please, when attending, make sure you are on the specified time in the channel and **respect your host.** A reminder is set on the date 2 hours prior to the event, to receive a reminder click the ✅ reaction.` },
+                            { name: "Date:", value: `${provideddate}`, inline: true },
+                            { name: "Time:", value: `${providedtime}`, inline: true },
+                            { name: "Event description:", value: `${provideddescription}` },
+                        )
+                    message.channel.send(eventEmbed)
+                }
+            }
+        } else { message.reply('no events found for you.') }
     }
 }
