@@ -69,25 +69,25 @@ module.exports = {
                     message.channel.bulkDelete(messages)})                
                 const mention = message.author
                 const UserId = mention.id
-                message.channel.send("Please write your **events** title.")
+                message.channel.reply("**Please write your events title.**")
                 collector.once('collect', async message => {
                     let providedheader = message.content
                     if (providedheader === 'stop') { message.reply("Submission ended!") }
                     else {
                         await message.channel.messages.fetch({ limit: 2 }).then(messages => {
                             message.channel.bulkDelete(messages)}) 
-                        message.channel.send(`The set title: ${providedheader}`)
+                        message.channel.send(`The set title: **${providedheader}**`)
                         console.log(providedheader)
-                        message.channel.send("Please write the date of the event.")
+                        message.channel.reply("**Please write the date of the event.**")
                         collector.once('collect', async message => {
                             let provideddate = message.content
                             if (provideddate === 'stop') { message.reply("Submission ended!") }
                             else {
                                 await message.channel.messages.fetch({ limit: 2 }).then(messages => {
                                     message.channel.bulkDelete(messages)}) 
-                                message.channel.send(`The set date: ${provideddate}`)
+                                message.channel.send(`The set date: **${provideddate}**`)
                                 console.log(provideddate)
-                                message.channel.send("Please write the time of the event.")
+                                message.reply("**Please write the time of the event.**")
                                 collector.once('collect', async message => {
                                     let providedtime = message.content
                                     if (providedtime === 'stop') { message.reply("Submission ended!") }
@@ -96,7 +96,7 @@ module.exports = {
                                             message.channel.bulkDelete(messages)}) 
                                         message.channel.send(`The set time: ${providedtime}`)
                                         console.log(providedtime)
-                                        message.channel.send("Please write a description of the event (1200characters max!)")
+                                        message.channel.reply("**Please write a description of the event (1200characters max!)**")
                                         collector.once('collect', async message => {
                                             let provideddescription = message.content
                                             if (provideddescription === 'stop') { message.reply("Submission ended!") }
@@ -119,7 +119,7 @@ module.exports = {
                                                     )
                                                 let reactevent = await eventchannel.send(eventEmbed);
                                                 reactevent.react('✅')
-                                                console.log(description)
+                                                console.log(provideddescription)
                                                 
                                                 message.reply(`Your event ${providedheader} is set on the ${provideddate} at ${providedtime}`)
                                                 const result = await eventschema.findOneAndUpdate(
