@@ -17,14 +17,16 @@ module.exports = {
 
         })
 
+        console.log(result)
 
         for (items of result) {
             let provideddate = items.date
             let providedtime = items.time
             let providedheader = items.header
             let provideddescription = items.description
-            console.log(provideddescription)
             
+            console.log(provideddescription)
+
             let eventEmbed = new Discord.MessageEmbed()
                 .setColor('#337f4e')
                 .setTitle(`${providedheader}`)
