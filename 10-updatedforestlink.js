@@ -3,7 +3,7 @@ module.exports = (client) => {
 
     client.on("message", async (message) => {
         const Discord = require('discord.js')
-        prefix = "Time to put down your phone and get back to work! Enter my room code: "
+        prefix = "Time to put down your phone and get back to work! Enter my room "
         if (!message.content.startsWith(prefix) || message.author.bot) return;
         else {
             console.log('tree message fired')
