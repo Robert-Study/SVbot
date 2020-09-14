@@ -35,7 +35,7 @@ module.exports = {
 
             else if (whatsub = 'tip') {
                 message.channel.send("Write a description of you app-suggestion")
-                collector.once('collect', message => {
+                collector.once('collect', async message => {
 
                     let tiptext = message.content
                     message.delete()
