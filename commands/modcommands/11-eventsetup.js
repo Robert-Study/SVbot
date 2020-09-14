@@ -14,12 +14,21 @@ module.exports = {
             console.log(age)
             if (age) {
                 message.channel.send("Please write your date.")
-                collector.once('collect', message => { 
-                let date = message.content
-                message.channel.send(`${date}`)
-                console.log(date)
-            })
-        }
+                collector.once('collect', message => {
+                    let date = message.content
+                    message.channel.send(`${date}`)
+                    console.log(date)
+                    if (date) {
+                        message.channel.send("Please write your description.")
+                        collector.once('collect', message => {
+                            let date = message.content
+                            message.channel.send(`${date}`)
+                            console.log(date)
+
+                        })
+                    }
+                })
+            }
         })
     }
 }
