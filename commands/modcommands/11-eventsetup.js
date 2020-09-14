@@ -101,7 +101,7 @@ module.exports = {
                                             let provideddescription = message.content
                                             if (provideddescription === 'stop') { message.reply("Submission ended!") }
                                             else {
-                                                await message.channel.messages.fetch({ limit: 2 }).then(messages => {
+                                                await message.channel.messages.fetch({ limit: 5 }).then(messages => {
                                                     message.channel.bulkDelete(messages)
                                                 })
                                                 const Discord = require('discord.js');
