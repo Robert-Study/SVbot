@@ -11,6 +11,8 @@ module.exports = {
         message.channel.send("Write where your submission should go, write 'app', 'tip' or 'event'")
         collector.once('collect', message => {
             let whatsub = message.content
+            console.log(whatsub)
+            
             if (whatsub = 'app') {
                 message.channel.send("Write a description of you app-suggestion")
                 collector.once('collect', async message => {
