@@ -13,6 +13,7 @@
     "moment": "^2.27.0",
     "mongoose": "^5.9.26",
     "ms": "^2.1.2",
+    "prompt": "^1.0.0",
     "schedulejs": "^0.6.3",
     "weather-js": "^2.0.0"
   }
