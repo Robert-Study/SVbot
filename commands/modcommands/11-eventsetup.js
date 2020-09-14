@@ -57,7 +57,7 @@ module.exports = {
             }
 
             else if (whatsub = 'event') {
-                let eventchannel = message.guild.channels.cache.get('708651085765804093');
+                let eventchannel = message.guild.channels.cache.get('754042973850828821');
                 message.channel.send("Please write your events title.")
                 collector.once('collect', message => {
                     let header = message.content
