@@ -4,7 +4,7 @@ module.exports = {
     maxArgs: 0,
 
 
-    callback: (message, arguments, text) => {
+    callback: async(message, arguments, text) => {
         const Discord = require('discord.js')
 
         const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 * 10000 });
@@ -13,7 +13,7 @@ module.exports = {
             let whatsub = message.content
             if (whatsub = 'app') {
                 message.channel.send("Write a description of you app-suggestion")
-                collector.once('collect', message => {
+                collector.once('collect', async message => {
 
                     let apptext = message.content
                     message.delete()
