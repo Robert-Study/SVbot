@@ -25,7 +25,7 @@ module.exports = {
         let providedheader = result.header
         let provideddescription = result.description
         let providedbarcode = result.barcode
-        if (providedbarcode >= 0) {
+        if (providedbarcode > 0) {
             console.log(provideddescription)
 
             let eventEmbed = new Discord.MessageEmbed()
