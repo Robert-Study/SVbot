@@ -69,7 +69,7 @@ module.exports = {
                     message.channel.bulkDelete(messages)})                
                 const mention = message.author
                 const UserId = mention.id
-                message.channel.reply("**Please write your events title.**")
+                message.reply("**Please write your events title.**")
                 collector.once('collect', async message => {
                     let providedheader = message.content
                     if (providedheader === 'stop') { message.reply("Submission ended!") }
@@ -78,7 +78,7 @@ module.exports = {
                             message.channel.bulkDelete(messages)}) 
                         message.channel.send(`The set title: **${providedheader}**`)
                         console.log(providedheader)
-                        message.channel.reply("**Please write the date of the event.**")
+                        message.reply("**Please write the date of the event.**")
                         collector.once('collect', async message => {
                             let provideddate = message.content
                             if (provideddate === 'stop') { message.reply("Submission ended!") }
@@ -96,7 +96,7 @@ module.exports = {
                                             message.channel.bulkDelete(messages)}) 
                                         message.channel.send(`The set time: ${providedtime}`)
                                         console.log(providedtime)
-                                        message.channel.reply("**Please write a description of the event (1200characters max!)**")
+                                        message.reply("**Please write a description of the event (1200characters max!)**")
                                         collector.once('collect', async message => {
                                             let provideddescription = message.content
                                             if (provideddescription === 'stop') { message.reply("Submission ended!") }
