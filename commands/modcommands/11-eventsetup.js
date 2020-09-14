@@ -12,9 +12,9 @@ module.exports = {
         collector.once('collect', message => {
             let whatsub = message.content
             console.log(whatsub)
-            
-            if (whatsub = 'app') {
-                message.channel.send("Write a description of you app-suggestion")
+
+            if (whatsub === 'app') {
+                message.channel.send("Write a description of your app-suggestion")
                 collector.once('collect', async message => {
 
                     let apptext = message.content
@@ -35,8 +35,8 @@ module.exports = {
                 })
             }
 
-            else if (whatsub = 'tip') {
-                message.channel.send("Write a description of you app-suggestion")
+            else if (whatsub === 'tip') {
+                message.channel.send("Write a description of your tip-suggestion")
                 collector.once('collect', async message => {
 
                     let tiptext = message.content
@@ -58,7 +58,7 @@ module.exports = {
                 })
             }
 
-            else if (whatsub = 'event') {
+            else if (whatsub === 'event') {
                 let eventchannel = message.guild.channels.cache.get('754042973850828821');
                 message.channel.send("Please write your events title.")
                 collector.once('collect', message => {
