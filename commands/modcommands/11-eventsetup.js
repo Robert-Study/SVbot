@@ -65,7 +65,7 @@ module.exports = {
             }
 
             else if (whatsub === 'event') {
-                let eventchannel = message.guild.channels.cache.get('754042973850828821');
+   
                 const mention = message.author
                 const UserId = mention.id
                 message.channel.send("Please write your **events** title.")
@@ -98,7 +98,7 @@ module.exports = {
                                             if (provideddescription === 'stop') { message.reply("Submission ended!") }
                                             else {
                                                 const Discord = require('discord.js');
-                                                let eventchannel = message.guild.channels.cache.get('708651085765804093');
+                                                let eventchannel = message.guild.channels.cache.get('754042973850828821');
                                                 let eventEmbed = new Discord.MessageEmbed()
                                                     .setColor('#337f4e')
                                                     .setTitle(`${providedheader}`)
