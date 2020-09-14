@@ -1,5 +1,5 @@
 module.exports = {
-    commands: ['setevent'],
+    commands: ['setevent','sub', 'submission'],
     minArgs: 0,
     maxArgs: 0,
 
@@ -7,6 +7,7 @@ module.exports = {
     callback: async (message, arguments, text) => {
         const Discord = require('discord.js')
         const eventschema = require('../../schemas/11-eventsetupschema')
+        
 
         const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 60 * 10000 });
         message.channel.send("Write where your submission should go, write **'app', 'tip' or 'event'** - Complete your submission in 10min, to stop reply to the bot with 'stop'")
@@ -105,7 +106,7 @@ module.exports = {
                                                     message.channel.bulkDelete(messages)
                                                 })
                                                 const Discord = require('discord.js');
-                                                let eventchannel = message.guild.channels.cache.get('754042973850828821');
+                                                let eventchannel = message.guild.channels.cache.get('755187097207308328');
                                                 let eventEmbed = new Discord.MessageEmbed()
                                                     .setColor('#337f4e')
                                                     .setTitle(`${providedheader}`)
