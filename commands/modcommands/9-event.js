@@ -17,7 +17,7 @@ module.exports = {
 
         })
 
-        console.log(result)
+        console.log(`here are the ${result}`)
 
         for (items of result) {
             let provideddate = items.date
