@@ -6,7 +6,7 @@ module.exports = {
 
     callback: (message, arguments, text) => {
         const Discord = require('discord.js')
-        const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
+        const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000*10000 });
         message.channel.send("Please write your events title.")
         collector.once('collect', message => {
             let header = message.content
@@ -30,7 +30,7 @@ module.exports = {
                                     let description = message.content
                                     message.channel.send(`${description}`)
                                     console.log(description)
-                                    reply.message(`Your event is set, with ${header}, ${date} and ${time}`
+                                    message.reply(`Your event is set, with ${header}, ${date} and ${time}`
 
                                     )
                                 })
