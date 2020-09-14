@@ -10,7 +10,7 @@ module.exports = {
 
         const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 60 * 10000 });
         message.channel.send("Write where your submission should go, write **'app', 'tip' or 'event'** - Complete your submission in 10min, to stop reply to the bot with 'stop'")
-        collector.once('collect', message => {
+        collector.once('collect', async message => {
             let whatsub = message.content
             console.log(whatsub)
 
@@ -65,39 +65,43 @@ module.exports = {
             }
 
             else if (whatsub === 'event') {
-
+                await message.channel.messages.fetch({ limit: 3 }).then(messages => {
+                    message.channel.bulkDelete(messages)})                
                 const mention = message.author
                 const UserId = mention.id
                 message.channel.send("Please write your **events** title.")
-                collector.once('collect', message => {
+                collector.once('collect', async message => {
                     let providedheader = message.content
                     if (providedheader === 'stop') { message.reply("Submission ended!") }
                     else {
-                        message.delete()
+                        await message.channel.messages.fetch({ limit: 2 }).then(messages => {
+                            message.channel.bulkDelete(messages)}) 
                         message.channel.send(`The set title: ${providedheader}`)
                         console.log(providedheader)
                         message.channel.send("Please write the date of the event.")
-                        collector.once('collect', message => {
+                        collector.once('collect', async message => {
                             let provideddate = message.content
                             if (provideddate === 'stop') { message.reply("Submission ended!") }
                             else {
+                                await message.channel.messages.fetch({ limit: 2 }).then(messages => {
+                                    message.channel.bulkDelete(messages)}) 
                                 message.channel.send(`The set date: ${provideddate}`)
                                 console.log(provideddate)
-                                message.delete()
                                 message.channel.send("Please write the time of the event.")
-                                collector.once('collect', message => {
+                                collector.once('collect', async message => {
                                     let providedtime = message.content
                                     if (providedtime === 'stop') { message.reply("Submission ended!") }
                                     else {
+                                        await message.channel.messages.fetch({ limit: 2 }).then(messages => {
+                                            message.channel.bulkDelete(messages)}) 
                                         message.channel.send(`The set time: ${providedtime}`)
                                         console.log(providedtime)
-                                        message.delete()
                                         message.channel.send("Please write a description of the event (1200characters max!)")
                                         collector.once('collect', async message => {
                                             let provideddescription = message.content
                                             if (provideddescription === 'stop') { message.reply("Submission ended!") }
                                             else {
-                                                await message.channel.messages.fetch({ limit: 4 }).then(messages => {
+                                                await message.channel.messages.fetch({ limit: 2 }).then(messages => {
                                                     message.channel.bulkDelete(messages)
                                                 })
                                                 const Discord = require('discord.js');
