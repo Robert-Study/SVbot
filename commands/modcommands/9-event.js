@@ -18,9 +18,11 @@ module.exports = {
         })
 
         if (result) {
-            if (barcode <= 0) { message.reply('no events found for you.') }
+            for (items of result){
+            if (items.barcode <= 0) { 
+                message.reply('no events found for you.') 
+                console.log('items not found')}
             else {
-                for (items of results) {
                     let provideddate = items.date
                     let providedtime = items.time
                     let providedheader = items.header
