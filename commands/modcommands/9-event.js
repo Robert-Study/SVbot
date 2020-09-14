@@ -4,7 +4,7 @@ module.exports = {
     maxArgs: 0,
 
 
-    callback: (message, arguments, text) => {
+    callback: async(message, arguments, text) => {
         const Discord = require('discord.js');
         const eventschema = require('../../schemas/11-eventsetupschema')
 
