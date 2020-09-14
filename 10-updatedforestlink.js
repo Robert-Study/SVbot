@@ -11,7 +11,7 @@ module.exports = (client) => {
             const command = args.shift().toLowerCase();
 
 
-            const channel = client.channels.cache.get('754042973850828821');
+            const channel = client.channels.cache.get('703937876634894388');
             const exampleEmbed = new Discord.MessageEmbed()
                 .setColor('#337f4e')
                 .setTitle(`${message.author.username} wants to plant a tree!`)
@@ -19,8 +19,8 @@ module.exports = (client) => {
                 .setTimestamp()
                 .setFooter(`Planter: ${message.author.username} `)
                 .addFields(
-                    { name: '\u200B', value: 'Forest code:' },
-                    { name: `Use code: ${args[0]}`, value: 'Forest link:' },
+                    { name: '\u200B', value: '\u200B' },
+                    { name: `Use code: ${args[0]}`, value: '\u200B' },
                     
                     { name: `https://forestapp.cc/join-room?token=${args[0]}`, value: '\u200B' },
                     { name: ':stopwatch: Duration:', value: `${args[4]}`, inline: true },
@@ -35,7 +35,7 @@ module.exports = (client) => {
             channelembed.react('2️⃣')
             channelembed.react('3️⃣')
 
-            const welcome = message.client.channels.cache.get('730029372697870347');
+            const welcome = message.client.channels.cache.get('732292791287283862');
             let welcomeembed = await welcome.send(exampleEmbed);
             welcomeembed.react('👥')
             welcomeembed.react('🔇')
