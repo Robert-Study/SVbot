@@ -1,5 +1,5 @@
 module.exports = {
-    commands: ['betagoodmorning', 'betamorning'],
+    commands: ['goodmorning', 'morning', 'dashboard'],
     minArgs: 0,
     expectedArgs: '<!weather location>',
 

@@ -2,7 +2,7 @@ const Todocountschema = require('../../schemas/7-todocountschema')
 const Treecountschema = require('../../schemas/2-logcountschema')
 
 module.exports = {
-    commands: ['setmorning', 'testsettup'],
+    commands: ['setmorning', 'testsettup', 'set'],
     minArgs: 0,
     expectedArgs: '<!weather location>',
 
