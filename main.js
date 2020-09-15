@@ -9,6 +9,7 @@ const client = new Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
 const ms = require ('ms')
 const prompt = require('prompt')
 const mongo = require('./mongo')
+const messagecount = require ('./1-messagecount')
 const roleselect = require ('./2-roleselect.js')
 const welcomedm = require ('./3-welcomedm')
 const forestlink = require ('./5-forestlink')
@@ -16,7 +17,7 @@ const membercounter = require('./6-membercounter')
 const autoforest = require('./9-automaticforestlog')
 const updatedforest = require('./10-updatedforestlink')
 
-
+messagecount(client)
 roleselect(client)
 welcomedm(client)
 forestlink(client)

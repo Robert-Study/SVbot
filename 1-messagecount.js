@@ -16,6 +16,7 @@ module.exports = (client) => {
                 },
                 {
                     upsert: true,
+                    new: true,
                 }
             )
             .exec()
