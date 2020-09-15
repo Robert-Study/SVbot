@@ -7,7 +7,7 @@ module.exports = {
         const categoryId = "703937876634894387";
         
         let role = message.guild.roles.cache.find(role => role.name === "@everyone");
-        let modrole = message.guild.roles.cache.find(role => role.name === "Mini-Moderator");
+        let modrole = message.guild.roles.cache.find(role => role.name === "StudyVibes Team");
 
         var userName = message.author.username;
         var userDiscriminator = message.author.discriminator;
