@@ -7,6 +7,9 @@ module.exports = {
     expectedArgs: '<!weather location>',
 
     callback: async (message, arguments, text) => {
+        const Discord = require('discord.js')
+        const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 60 * 10000 });
+       
         message.reply('Starting the setup...')
         await message.channel.messages.fetch({ limit: 2 }).then(messages => {
             message.channel.bulkDelete(messages)
