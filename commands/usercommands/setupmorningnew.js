@@ -32,7 +32,7 @@ module.exports = {
                         message.channel.bulkDelete(messages)
                     })
                     if (providedforecast === 'stop') { message.reply("Submission ended!") }
-                    else if (providedforecast != yes || providedforecast != no) { message.reply("You did not answer with yes or no - setup ended.") }
+                    else if (providedforecast != 'yes' || providedforecast != 'no') { message.reply("You did not answer with yes or no - setup ended.") }
                     else {
                         message.reply(`Answer to forecast: **${providedforecast}**`)
                         message.reply('Do you want a random daily quote? (answer with yes or no)')
@@ -42,7 +42,7 @@ module.exports = {
                                 message.channel.bulkDelete(messages)
                             })
                             if (providedquote === 'stop') { message.reply("Submission ended!") }
-                            else if (providedquote != yes || providedquote != no) { message.reply("You did not answer with yes or no - setup ended.") }
+                            else if (providedquote != 'yes' || providedquote != 'no') { message.reply("You did not answer with yes or no - setup ended.") }
                             else {
                                 await message.channel.messages.fetch({ limit: 4 }).then(messages => {
                                     message.channel.bulkDelete(messages)
