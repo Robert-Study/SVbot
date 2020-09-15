@@ -11,16 +11,16 @@ module.exports = {
         const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 60 * 10000 });
 
         message.reply('Starting the setup...')
-        await message.channel.messages.fetch({ limit: 2 }).then(messages => {
-            message.channel.bulkDelete(messages)
-        })
+        message.delete()
+
         const mention = message.author
         const UserId = mention.id
         message.reply("**Please write your location in one word**")
         collector.once('collect', async message => {
             let providedcity = message.content
             if (providedcity === 'stop') { message.reply("Submission ended!") }
-            else {
+            else {await message.channel.messages.fetch({ limit: 2 }).then(messages => {
+                message.channel.bulkDelete(messages)}) 
 
                 message.reply(`your location: **${providedcity}**`)
                 message.reply('Do you want the forecast for this location? (answer with yes or no)')
@@ -29,6 +29,8 @@ module.exports = {
 
                     if (providedforecast === 'stop') { message.reply("Submission ended!") }
                     else if (providedforecast === 'yes' || providedforecast === 'no') {
+                        await message.channel.messages.fetch({ limit: 2 }).then(messages => {
+                            message.channel.bulkDelete(messages)}) 
                         message.reply(`Answer to forecast: **${providedforecast}**`)
                         message.reply('Do you want a random daily quote? (answer with yes or no)')
                         collector.once('collect', async message => {
@@ -36,6 +38,8 @@ module.exports = {
 
                             if (providedquote === 'stop') { message.reply("Submission ended!") }
                             else if (providedquote === 'yes' || providedquote === 'no') {
+                                await message.channel.messages.fetch({ limit: 4 }).then(messages => {
+                                    message.channel.bulkDelete(messages)}) 
 
 
                                 message.reply(`Setup completed, use !morning or !dashboard to view your personalized dashboard`)
@@ -58,7 +62,7 @@ module.exports = {
                                         UserId,
                                     },
                                     {
-                                        place: providedplace,
+                                        place: providedcity,
                                         setQuote: providedquote,
                                         setForecast: providedforecast
                                     },
@@ -111,9 +115,9 @@ module.exports = {
 
 
 
-                            }else{message.reply('No yes or no answer - setup ended')}
+                            } else { message.reply('No yes or no answer - setup ended') }
                         })
-                    }else{message.reply('No yes or no answer - setup ended')}
+                    } else { message.reply('No yes or no answer - setup ended') }
                 })
             }
         })
