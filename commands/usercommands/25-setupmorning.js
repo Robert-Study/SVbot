@@ -7,6 +7,9 @@ module.exports = {
     expectedArgs: '<!weather location>',
 
     callback: async (message, arguments, text) => {
+        
+
+
         const userdataSchema = require('../../schemas/9-userinfoschema')
         const mention = message.author
         const UserId = mention.id
