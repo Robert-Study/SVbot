@@ -17,7 +17,7 @@ module.exports = {
         const UserId = mention.id
         message.reply("**Please write your location in one word**")
         collector.once('collect', async message => {
-            let providedcity = message.content
+            let providedcity = message.content.toLowerCase()
             if (providedcity === 'stop') { message.reply("Submission ended!") }
             else {await message.channel.messages.fetch({ limit: 2 }).then(messages => {
                 message.channel.bulkDelete(messages)}) 
@@ -25,7 +25,7 @@ module.exports = {
                 message.reply(`your location: **${providedcity}**`)
                 message.reply('Do you want the forecast for this location? (answer with yes or no)')
                 collector.once('collect', async message => {
-                    let providedforecast = message.content
+                    let providedforecast = message.content.toLowerCase()
 
                     if (providedforecast === 'stop') { message.reply("Submission ended!") }
                     else if (providedforecast === 'yes' || providedforecast === 'no') {
@@ -34,7 +34,7 @@ module.exports = {
                         message.reply(`Answer to forecast: **${providedforecast}**`)
                         message.reply('Do you want a random daily quote? (answer with yes or no)')
                         collector.once('collect', async message => {
-                            let providedquote = message.content
+                            let providedquote = message.content.toLowerCase()
 
                             if (providedquote === 'stop') { message.reply("Submission ended!") }
                             else if (providedquote === 'yes' || providedquote === 'no') {

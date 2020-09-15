@@ -34,10 +34,10 @@ module.exports = {
                 let average = Math.round(averagenotround * 10) / 10
                 console.log(average)
                 if (personaltime > average) {
-                    message.reply(`You have been planting trees for ${personaltime} hours with us this week, the total hours of the server is ${totaltime} by ${users} users! That makes an average of ${average} hours per user. **You are above average! Good job!**`)
+                    message.reply(`You have been planting trees for ${personaltime} hours with us this week, the total hours of the server is ${totaltime} by ${users} users! That makes an average of ${average} hours per user. **Good job!**`)
 
                 } else if (personaltime < average) {
-                    message.reply(`You have been planting trees for ${personaltime} hours with us this week, the total hours of the server is ${totaltime} by ${users} users! That makes an average of ${average} hours per user. **You are under average but you can still do it!**`)
+                    message.reply(`You have been planting trees for ${personaltime} hours with us this week, the total hours of the server is ${totaltime} by ${users} users! That makes an average of ${average} hours per user.`)
 
                 } else if (personaltime = average) {
                     message.reply(`You have been planting trees for ${personaltime} hours with us this week, the total hours of the server is ${totaltime} by ${users} users! That makes an average of ${average} hours per user. **You are exactly on average, wow!**`)
