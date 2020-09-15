@@ -28,16 +28,14 @@ module.exports = {
                     let providedforecast = message.content
 
                     if (providedforecast === 'stop') { message.reply("Submission ended!") }
-                    else if (providedforecast != 'yes' || providedforecast != 'no') { message.reply("You did not answer with yes or no - setup ended.") }
-                    else {
+                    else if (providedforecast === 'yes' || providedforecast === 'no') {
                         message.reply(`Answer to forecast: **${providedforecast}**`)
                         message.reply('Do you want a random daily quote? (answer with yes or no)')
                         collector.once('collect', async message => {
                             let providedquote = message.content
 
                             if (providedquote === 'stop') { message.reply("Submission ended!") }
-                            else if (providedquote != 'yes' || providedquote != 'no') { message.reply("You did not answer with yes or no - setup ended.") }
-                            else {
+                            else if (providedquote === 'yes' || providedquote === 'no') {
 
 
                                 message.reply(`Setup completed, use !morning or !dashboard to view your personalized dashboard`)
@@ -113,9 +111,9 @@ module.exports = {
 
 
 
-                            }
+                            }else{message.reply('No yes or no answer - setup ended')}
                         })
-                    }
+                    }else{message.reply('No yes or no answer - setup ended')}
                 })
             }
         })
