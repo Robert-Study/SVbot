@@ -2,7 +2,7 @@ const Todocountschema = require('../../schemas/7-todocountschema')
 const Treecountschema = require('../../schemas/2-logcountschema')
 
 module.exports = {
-    commands: ['beta'],
+    commands: ['morningsetup', 'setup', 'settings', 'set'],
     minArgs: 0,
     expectedArgs: '<!weather location>',
 
@@ -38,7 +38,7 @@ module.exports = {
 
                             if (providedquote === 'stop') { message.reply("Submission ended!") }
                             else if (providedquote === 'yes' || providedquote === 'no') {
-                                await message.channel.messages.fetch({ limit: 4 }).then(messages => {
+                                await message.channel.messages.fetch({ limit: 5 }).then(messages => {
                                     message.channel.bulkDelete(messages)}) 
 
 
