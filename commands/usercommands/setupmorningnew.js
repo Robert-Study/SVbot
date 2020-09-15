@@ -9,7 +9,7 @@ module.exports = {
     callback: async (message, arguments, text) => {
         const Discord = require('discord.js')
         const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 60 * 10000 });
-       
+
         message.reply('Starting the setup...')
         await message.channel.messages.fetch({ limit: 2 }).then(messages => {
             message.channel.bulkDelete(messages)
@@ -21,16 +21,12 @@ module.exports = {
             let providedcity = message.content
             if (providedcity === 'stop') { message.reply("Submission ended!") }
             else {
-                await message.channel.messages.fetch({ limit: 2 }).then(messages => {
-                    message.channel.bulkDelete(messages)
-                })
+
                 message.reply(`your location: **${providedcity}**`)
                 message.reply('Do you want the forecast for this location? (answer with yes or no)')
                 collector.once('collect', async message => {
                     let providedforecast = message.content
-                    await message.channel.messages.fetch({ limit: 2 }).then(messages => {
-                        message.channel.bulkDelete(messages)
-                    })
+
                     if (providedforecast === 'stop') { message.reply("Submission ended!") }
                     else if (providedforecast != 'yes' || providedforecast != 'no') { message.reply("You did not answer with yes or no - setup ended.") }
                     else {
@@ -38,15 +34,12 @@ module.exports = {
                         message.reply('Do you want a random daily quote? (answer with yes or no)')
                         collector.once('collect', async message => {
                             let providedquote = message.content
-                            await message.channel.messages.fetch({ limit: 2 }).then(messages => {
-                                message.channel.bulkDelete(messages)
-                            })
+
                             if (providedquote === 'stop') { message.reply("Submission ended!") }
                             else if (providedquote != 'yes' || providedquote != 'no') { message.reply("You did not answer with yes or no - setup ended.") }
                             else {
-                                await message.channel.messages.fetch({ limit: 4 }).then(messages => {
-                                    message.channel.bulkDelete(messages)
-                                })
+
+
                                 message.reply(`Setup completed, use !morning or !dashboard to view your personalized dashboard`)
 
                                 const userdataSchema = require('../../schemas/9-userinfoschema')
@@ -121,8 +114,8 @@ module.exports = {
 
 
                             }
-                        }) 
-                    }        
+                        })
+                    }
                 })
             }
         })
