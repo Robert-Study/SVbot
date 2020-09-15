@@ -19,7 +19,7 @@ module.exports = {
         message.reply("**Please write your location in one word**")
         collector.once('collect', async message => {
             let providedcity = message.content
-            if (providedheader === 'stop') { message.reply("Submission ended!") }
+            if (providedcity === 'stop') { message.reply("Submission ended!") }
             else {
                 await message.channel.messages.fetch({ limit: 2 }).then(messages => {
                     message.channel.bulkDelete(messages)
