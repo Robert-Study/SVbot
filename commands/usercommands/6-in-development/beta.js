@@ -1,7 +1,7 @@
 const Deadlineschema = require("@schemas/3-deadlineschema")
 
 module.exports = {
-    commands: ['showdl'],
+    commands: ['betashowdl'],
     minArgs: 1,
     maxArgs: 1,
 
