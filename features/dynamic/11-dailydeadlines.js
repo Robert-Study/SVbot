@@ -2,11 +2,11 @@ module.exports = (client) => {
     client.on('ready', async () => {
         var schedule = require('node-schedule');
 
-        var j = schedule.scheduleJob('56 * * * *', async function () {
+        var j = schedule.scheduleJob('59 * * * *', async function () {
             const Deadlineschema = require("@schemas/3-deadlineschema")
             var moment = require('moment');
             const Discord = require('discord.js');
-            const testchannel = client.guild.channels.cache.get('754042973850828821')
+            const testchannel = client.channels.cache.get('754042973850828821')
 
             let current = moment().format("DD/MM/YYYY")
             console.log(current)
