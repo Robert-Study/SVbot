@@ -2,7 +2,7 @@ const Deadlineschema = require("@schemas/3-deadlineschema")
 var moment = require('moment');
 
 module.exports = {
-    commands: ['betashowdl'],
+    commands: ['today', 'dltoday','todaydl'],
     minArgs: 0,
     maxArgs: 0,
 
@@ -19,7 +19,7 @@ module.exports = {
         let reply = '**Deadlines today:** \n\n'
 
         for (items of dlresults) {
-            let User = message.guild.users.cache.get(items.UserID)
+            let User = message.guild.members.cache.fetch(items.UserID)
             let deadline = items.dltext
             console.log(deadline)
 
