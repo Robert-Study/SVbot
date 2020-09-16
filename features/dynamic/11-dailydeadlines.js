@@ -54,8 +54,11 @@ module.exports = (client) => {
             console.log(yesterdayresults)
 
             if(yesterdayresults){
-                for(results of yesterdayresults)
+                for(results of yesterdayresults){
                 let oldUserID = results.UerID
+
+                guild.members.cache.get(oldUserID).roles.remove("755924266779672596")
+                }
             }
 
 
