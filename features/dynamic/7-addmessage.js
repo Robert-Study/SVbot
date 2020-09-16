@@ -1,5 +1,5 @@
 
-const messageSchema = require('@schemas/1-messagecountschema')
+const messageSchema = require('@schemas/12-messagecountschema')
 const messageCache = {}
 
 module.exports = (client) => { }
