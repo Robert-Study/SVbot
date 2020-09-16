@@ -2,7 +2,7 @@ module.exports = (client) => {
     client.on('ready', async () => {
         var schedule = require('node-schedule');
 
-        var j = schedule.scheduleJob('6 * * * *', async function () {
+        var j = schedule.scheduleJob('8 * * * *', async function () {
             const Deadlineschema = require("@schemas/3-deadlineschema")
             var moment = require('moment');
             const Discord = require('discord.js');
@@ -55,12 +55,11 @@ module.exports = (client) => {
 
             if(yesterdayresults){
                 for(results of yesterdayresults){
-                let oldUserID = results.UerID
+                let oldUserID = results.UserID
 
                 guild.members.cache.get(oldUserID).roles.remove("755924266779672596")
                 }
             }
-
 
             console.log('The answer to life, the universe, and everything!');
 
