@@ -2,7 +2,7 @@ module.exports = (client) => {
     client.on('ready', async () => {
         var schedule = require('node-schedule');
 
-        var j = schedule.scheduleJob('57 * * * *', async function () {
+        var j = schedule.scheduleJob('0 * * * *', async function () {
             const Deadlineschema = require("@schemas/3-deadlineschema")
             var moment = require('moment');
             const Discord = require('discord.js');
@@ -44,10 +44,15 @@ module.exports = (client) => {
                     let reacttoday = await testchannel.send(todayEmbed);
                     reacttoday.react('🍀')
 
-                    guild.members.cache.get(UserID).roles.add("755924266779672596")
-
+                    guild.members.cache.get(items.UserID).roles.add("755924266779672596")
                 }
             }
+
+            let yesterdayresults = await Deadlineschema.find({
+                date: yesterday
+            })
+            console.log(yesterdayresults)
+
 
 
             console.log('The answer to life, the universe, and everything!');
