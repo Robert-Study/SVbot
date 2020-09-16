@@ -7,10 +7,11 @@ module.exports = {
 
 
     callback: async (message, arguments, text) => {
-        let date = arguments[0]
+        let update = arguments[0]
         let dlresults = await Deadlineschema.find({
-            date: date
+            date: update
         })
+        console.log(dlresults)
 
         for (items of dlresults) {
             let User = items.UserID
@@ -19,12 +20,8 @@ module.exports = {
 
             let reply = 'Deadlines today: \n\n'
             reply += `**${User}** deadline: *${deadline}*\n\n`
-        
-        message.channel.send('')
+
+            message.channel.send(reply)
+        }
     }
-
-
-
-
-}
 }
