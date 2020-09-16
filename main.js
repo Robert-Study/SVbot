@@ -10,7 +10,7 @@ const client = new Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
 
 const ms = require ('ms')
 const prompt = require('prompt')
-const mongo = require('./mongo')
+const mongo = require('@features/util/mongo')
 
 const loadCommands = require('@root/commands/load-commands')
 const loadFeatures = require('@root/features/load-features')
