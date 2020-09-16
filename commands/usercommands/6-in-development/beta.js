@@ -8,7 +8,7 @@ module.exports = {
 
 
     callback: async (message, arguments, text) => {
-        let current = moment().format("DD/MM/YYY")
+        let current = moment().format("DD/MM/YYYY")
         console.log(current)
 
         let dlresults = await Deadlineschema.find({
