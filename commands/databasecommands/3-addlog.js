@@ -1,4 +1,4 @@
-const economy = require ('../../4-logcounter')
+const economy = require ('@features/dynamic/4-logcounter')
 
 module.exports = {
     commands: ['add', 'log'],
