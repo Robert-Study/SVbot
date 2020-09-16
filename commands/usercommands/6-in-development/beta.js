@@ -1,5 +1,7 @@
 const Deadlineschema = require("@schemas/3-deadlineschema")
 var moment = require('moment');
+const Discord = require('discord.js');
+
 
 module.exports = {
     commands: ['today', 'dltoday', 'todaydl'],
