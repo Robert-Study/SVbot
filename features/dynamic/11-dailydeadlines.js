@@ -2,7 +2,7 @@ module.exports = (client) => {
     client.on('ready', async () => {
         var schedule = require('node-schedule');
 
-        var j = schedule.scheduleJob('33 * * * *', async function () {
+        var j = schedule.scheduleJob('36 * * * *', async function () {
             const Deadlineschema = require("@schemas/3-deadlineschema")
             var moment = require('moment');
             const Discord = require('discord.js');
@@ -18,10 +18,10 @@ module.exports = (client) => {
 
 
             if (dlresults) {
-                let reply = ''
+                let reply = 'Today:'
                 try {
                     for (items of dlresults) {
-                        let User = await client.guild.members.fetch(items.UserID)
+                        //let User = await client.guild.members.fetch(items.UserID)
                         let deadline = items.dltext
                         console.log(deadline)
 
