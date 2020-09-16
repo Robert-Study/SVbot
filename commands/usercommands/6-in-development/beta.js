@@ -2,8 +2,8 @@ const Deadlineschema = require("@schemas/3-deadlineschema")
 
 module.exports = {
     commands: ['showdl'],
-    minArgs: 0,
-    maxArgs: 0,
+    minArgs: 1,
+    maxArgs: 1,
 
 
     callback: async (message, arguments, text) => {
