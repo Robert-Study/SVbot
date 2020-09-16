@@ -37,8 +37,8 @@ module.exports = (client) => {
                     }
                 } finally {
                     const todayEmbed = new Discord.MessageEmbed()
-                        .setColor('#337f4e')
-                        .setTitle(`Todays deadlines:`)
+                        .setColor('#28a1c9')
+                        .setTitle(`Deadlines today:`)
                         .addFields(
                             { name: 'Deadlines:', value: `${reply}` },
                         )

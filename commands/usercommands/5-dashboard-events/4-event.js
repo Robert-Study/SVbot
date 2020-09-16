@@ -25,7 +25,7 @@ module.exports = {
             console.log(provideddescription)
 
             let eventEmbed = new Discord.MessageEmbed()
-                .setColor('#337f4e')
+                .setColor('#28a1c9')
                 .setTitle(`${providedheader}`)
                 .setTimestamp()
                 .setFooter(`Event host: ${message.author.username} `)
