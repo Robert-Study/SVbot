@@ -2,7 +2,7 @@ const Deadlineschema = require("@schemas/3-deadlineschema")
 var moment = require('moment');
 
 module.exports = {
-    commands: ['today', 'dltoday','todaydl'],
+    commands: ['today', 'dltoday', 'todaydl'],
     minArgs: 0,
     maxArgs: 0,
 
@@ -16,7 +16,7 @@ module.exports = {
         })
         console.log(dlresults)
 
-        let reply = '**Deadlines today:** \n\n'
+        let reply = ''
 
         for (items of dlresults) {
             let User = message.guild.members.cache.fetch(items.UserID)
@@ -25,7 +25,15 @@ module.exports = {
 
             reply += `**${User}** deadline: *${deadline}*\n\n`
 
-            message.channel.send(reply)
+            const todayEmbed = new Discord.MessageEmbed()
+                .setColor('#337f4e')
+                .setTitle(`Todays deadlines:`)
+                .addFields(
+                    { name: 'Deadlines:', value: `${reply}` },
+                )
+
+            message.channel.send(todayEmbed);
+
         }
     }
 }
