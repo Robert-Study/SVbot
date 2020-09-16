@@ -8,7 +8,6 @@ module.exports = {
     minArgs: 0,
     maxArgs: 0,
 
-
     callback: async (message, arguments, text) => {
         let current = moment().format("DD/MM/YYYY")
         console.log(current)
@@ -35,7 +34,8 @@ module.exports = {
                     { name: 'Deadlines:', value: `${reply}` },
                 )
 
-            message.channel.send(todayEmbed);
+            let reacttoday = await message.channel.send(todayEmbed);
+            reacttoday.react('🍀')
         }
     }
 
