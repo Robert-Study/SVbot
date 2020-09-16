@@ -1,4 +1,3 @@
-const { count } = require('../../schemas/6-suggestdataschema');
 
 module.exports = {
   commands: ['showsuggestions', 'showsuggest', 'suggestionlist', 'suggestions'],
@@ -7,11 +6,8 @@ module.exports = {
   permissions: 'BAN_MEMBERS',
 
   callback: async (message, arguments, text) => {
-
-    const Discord = require('discord.js');
-    const suggestdataSchema = require('../../schemas/6-suggestdataschema')
+    const suggestdataSchema = require('@schemas/6-suggestdataschema')
     UserId = "annon"
-
 
     console.log('Searching the database for Suggestions')
 
@@ -31,9 +27,5 @@ module.exports = {
       reply += `**${newresult.suggestcount}** suggestion: *${newresult.suggestion}*\n`
     }
     message.channel.send(reply)
-
-
-
-
   }
 }

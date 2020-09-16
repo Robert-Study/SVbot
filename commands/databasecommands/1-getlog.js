@@ -7,8 +7,8 @@ module.exports = {
         const targetId = target.id
         const logcounter = require('../../4-logcounter')
 
-        const userdataSchema = require('../../schemas/10-totalstudytimeschema')
-        const userdocumentSchema = require('../../schemas/2-logcountschema')
+        const userdataSchema = require('@schemas/10-totalstudytimeschema')
+        const userdocumentSchema = require('@schemas/2-logcountschema')
         const UserID = target.id
 
 

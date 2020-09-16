@@ -16,8 +16,6 @@ module.exports = {
 
     message.reply(`I have deleted your oldest submitted Deadline!`)
   }
-
-
 }
 
 
