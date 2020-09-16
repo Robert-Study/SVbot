@@ -19,21 +19,22 @@ module.exports = {
         let reply = ''
 
         for (items of dlresults) {
-            let User = message.guild.members.cache.fetch(items.UserID)
+            let User = message.guild.members.fetch(items.UserID)
             let deadline = items.dltext
             console.log(deadline)
 
             reply += `**${User}** deadline: *${deadline}*\n\n`
-
-            const todayEmbed = new Discord.MessageEmbed()
-                .setColor('#337f4e')
-                .setTitle(`Todays deadlines:`)
-                .addFields(
-                    { name: 'Deadlines:', value: `${reply}` },
-                )
-
-            message.channel.send(todayEmbed);
-
         }
+
+        const todayEmbed = new Discord.MessageEmbed()
+            .setColor('#337f4e')
+            .setTitle(`Todays deadlines:`)
+            .addFields(
+                { name: 'Deadlines:', value: `${reply}` },
+            )
+
+        message.channel.send(todayEmbed);
+
     }
+
 }
