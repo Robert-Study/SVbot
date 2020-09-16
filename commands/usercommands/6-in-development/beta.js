@@ -21,7 +21,7 @@ module.exports = {
         let reply = ''
         try {
             for (items of dlresults) {
-                let User = message.guild.members.fetch(items.UserID)
+                let User = await message.guild.members.fetch(items.UserID)
                 let deadline = items.dltext
                 console.log(deadline)
 
