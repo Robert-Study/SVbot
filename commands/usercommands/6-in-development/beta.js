@@ -19,7 +19,7 @@ module.exports = {
         let reply = '**Deadlines today:** \n\n'
 
         for (items of dlresults) {
-            let User = client.users.cache.get(items.UserID)
+            let User = message.guild.users.cache.get(items.UserID)
             let deadline = items.dltext
             console.log(deadline)
 
