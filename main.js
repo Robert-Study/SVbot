@@ -12,8 +12,8 @@ const ms = require ('ms')
 const prompt = require('prompt')
 const mongo = require('@features/util/mongo')
 
-const loadCommands = require('@root/commands/load-commands')
-const loadFeatures = require('@root/features/load-features')
+const loadCommands = require('@root/commands/load-commands.js')
+const loadFeatures = require('@root/features/load-features.js')
 
 loadCommands(client)
 loadFeatures(client)
