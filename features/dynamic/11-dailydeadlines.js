@@ -2,7 +2,7 @@ module.exports = (client) => {
     client.on('ready', async () => {
         var schedule = require('node-schedule');
 
-        var j = schedule.scheduleJob('29 * * * *', async function () {
+        var j = schedule.scheduleJob('33 * * * *', async function () {
             const Deadlineschema = require("@schemas/3-deadlineschema")
             var moment = require('moment');
             const Discord = require('discord.js');
@@ -25,7 +25,7 @@ module.exports = (client) => {
                         let deadline = items.dltext
                         console.log(deadline)
 
-                        reply += `**${User}** deadline: *${deadline}*\n\n`
+                        reply += `deadline: *${deadline}*\n\n`
                     }
                 } finally {
                     const todayEmbed = new Discord.MessageEmbed()
