@@ -1,4 +1,4 @@
-const todoCountSchema = require('@chemas/7-todocountschema')
+const todoCountSchema = require('@schemas/7-todocountschema')
 const tododataSchema = require('@schemas/8-tododataschema')
 
 module.exports = {
