@@ -1,4 +1,4 @@
-module.exports = (client) => {
+module.exports = async(client) => {
     var schedule = require('node-schedule');
 
     var j = schedule.scheduleJob('42 * * * *', function () {
@@ -15,7 +15,7 @@ module.exports = (client) => {
         })
         console.log(dlresults)
 
-        
+
         if (dlresults) {
             let reply = ''
             try {
