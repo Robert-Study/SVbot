@@ -16,7 +16,7 @@ module.exports = {
         for (items of dlresults) {
             let User = items.UserID
             let deadline = items.dltext
-            console.log(dltext)
+            console.log(deadline)
 
             let reply = 'Deadlines today: \n\n'
             reply += `**${User}** deadline: *${deadline}*\n\n`
