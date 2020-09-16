@@ -21,6 +21,8 @@ loadFeatures(client)
 client.on('ready', async () => {
   
   console.log('The client is ready!')
+  let logchannel = client.channels.cache.get('730029372697870347')
+  logchannel.send("I have restarted")
   
   await mongo()
 
