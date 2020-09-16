@@ -2,7 +2,7 @@ module.exports = (client) => {
     client.on('ready', async () => {
         var schedule = require('node-schedule');
 
-        var j = schedule.scheduleJob('0 * * * *', async function () {
+        var j = schedule.scheduleJob('3 * * * *', async function () {
             const Deadlineschema = require("@schemas/3-deadlineschema")
             var moment = require('moment');
             const Discord = require('discord.js');
@@ -28,8 +28,10 @@ module.exports = (client) => {
                 try {
                     for (items of dlresults) {
                         let User = await client.users.fetch(items.UserID)
+                        let UserId = items.UserID
                         let deadline = items.dltext
                         console.log(deadline)
+                        guild.members.cache.get(UserId).roles.add("755924266779672596")
 
                         reply += `${User} deadline: *${deadline}*\n\n`
                     }
@@ -42,9 +44,7 @@ module.exports = (client) => {
                         )
 
                     let reacttoday = await testchannel.send(todayEmbed);
-                    reacttoday.react('🍀')
-
-                    guild.members.cache.get(items.UserID).roles.add("755924266779672596")
+                    reacttoday.react('🍀')                  
                 }
             }
 
@@ -53,6 +53,10 @@ module.exports = (client) => {
             })
             console.log(yesterdayresults)
 
+            if(yesterdayresults){
+                for(results of yesterdayresults)
+                let oldUserID = results.UerID
+            }
 
 
             console.log('The answer to life, the universe, and everything!');
