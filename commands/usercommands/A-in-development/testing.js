@@ -149,7 +149,7 @@ module.exports = {
                                                         console.log(provideddescription)
 
                                                         message.reply(`Your event ${providedheader} is set on the ${provideddate} at ${providedtime}`)
-                                                        message.author.send(`Hi!\nSupergreat that you are hosting an event! I have automatically saved your event in my database. This means that you can do !event in any channel and send the event-embed to any channel you want.\n\nI have also made your event the @eventred so you can use this tag to inform the interested users of the start of the event and any additional info you want them to know.\n\nThe @eventred tag is reserved for your event until one day after your given date!\n\n Hope you will have a great event and we wish you all the best!!\n\nThe Study Vibes Team`)
+                                                        message.author.send(`Hi!\nSupergreat that you are hosting an event! I have automatically saved your event in my database. This means that you can do **!event** in any channel and send the event-embed to any channel you want.\n\nI have also made your event the **@eventred** so you can use this tag to inform the interested users of the start of the event and any additional info you want them to know.\n\nThe **@eventred** tag is reserved for your event until one day after your given date!\n\n Hope you will have a great event and we wish you all the best!!\n\n**The Study Vibes Team**`)
                                                         const result = await eventschema.findOneAndUpdate(
                                                             {
                                                                 UserId,
@@ -256,7 +256,7 @@ module.exports = {
                                                         console.log(provideddescription)
 
                                                         message.reply(`Your event ${providedheader} is set on the ${provideddate} at ${providedtime}`)
-                                                        message.author.send(`Hi!\nSupergreat that you are hosting an event! I have automatically saved your event in my database. This means that you can do !event in any channel and send the event-embed to any channel you want.\n\nI have also made your event the @eventorange so you can use this tag to inform the interested users of the start of the event and any additional info you want them to know.\n\nThe @eventorange tag is reserved for your event until one day after your given date!\n\n Hope you will have a great event and we wish you all the best!!\n\nThe Study Vibes Team`)
+                                                        message.author.send(`Hi!\nSupergreat that you are hosting an event! I have automatically saved your event in my database. This means that you can do **!event** in any channel and send the event-embed to any channel you want.\n\nI have also made your event the **@eventorange** so you can use this tag to inform the interested users of the start of the event and any additional info you want them to know.\n\nThe **@eventorange** tag is reserved for your event until one day after your given date!\n\n Hope you will have a great event and we wish you all the best!!\n\n**The Study Vibes Team**`)
                                                         const result = await eventschema.findOneAndUpdate(
                                                             {
                                                                 UserId,
@@ -359,7 +359,7 @@ module.exports = {
                                                         console.log(provideddescription)
 
                                                         message.reply(`Your event ${providedheader} is set on the ${provideddate} at ${providedtime}`)
-                                                        message.author.send(`Hi!\nSupergreat that you are hosting an event! I have automatically saved your event in my database. This means that you can do !event in any channel and send the event-embed to any channel you want.\n\nI have also made your event the @eventblue so you can use this tag to inform the interested users of the start of the event and any additional info you want them to know.\n\nThe @eventblue tag is reserved for your event until one day after your given date!\n\n Hope you will have a great event and we wish you all the best!!\n\nThe Study Vibes Team`)
+                                                        message.author.send(`Hi!\nSupergreat that you are hosting an event! I have automatically saved your event in my database. This means that you can do **!event** in any channel and send the event-embed to any channel you want.\n\nI have also made your event the **@eventblue** so you can use this tag to inform the interested users of the start of the event and any additional info you want them to know.\n\nThe **@eventblue** tag is reserved for your event until one day after your given date!\n\n Hope you will have a great event and we wish you all the best!!\n\n**The Study Vibes Team**`)
 
                                                         const result = await eventschema.findOneAndUpdate(
                                                             {
