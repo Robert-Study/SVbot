@@ -2,7 +2,7 @@ module.exports = (client) => {
     client.on('ready', async () => {
         var schedule = require('node-schedule');
 
-        var j = schedule.scheduleJob('22 * * * *', async function () {
+        var j = schedule.scheduleJob('25 * * * *', async function () {
             const birthdayschema = require("@schemas/13-birthdayschema")
             var moment = require('moment');
             const Discord = require('discord.js');
@@ -10,9 +10,6 @@ module.exports = (client) => {
 
             let current = moment().format("DD/MM")
             let yesterday = moment().subtract(1, 'days').format("DD/MM")
-
-            const guild = client.guilds.cache.get(serverID);
-            if (!guild) return console.log("Couldn't get the guild.");
 
             console.log(current)
             console.log(yesterday)
