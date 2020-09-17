@@ -2,7 +2,7 @@ module.exports = (client) => {
     client.on('ready', async () => {
         var schedule = require('node-schedule');
 
-        var j = schedule.scheduleJob('36 * * * *', async function () {
+        var j = schedule.scheduleJob('42 * * * *', async function () {
             const birthdayschema = require("@schemas/13-birthdayschema")
             var moment = require('moment');
             const Discord = require('discord.js');
@@ -38,15 +38,15 @@ module.exports = (client) => {
                             else { console.log("There's no channel with that ID.") }
                         } else { console.log("There's no guild with that ID."); }
                         guild.members.cache.get(UserId).roles.add("755924266779672596")
-
-                        reply += `**${User}**`
+                        console.log(User)
+                        reply += `${User}`
                     }
                 } finally {
                     const todayEmbed = new Discord.MessageEmbed()
                         .setColor('#28a1c9')
                         .setTitle(`Birthdays today!`)
                         .addFields(
-                            { name: `${reply}`, value: `*We all wish you a very nice day!🎉*` },
+                            { name: `${reply}`, value: `*We all wish you a very nice day!🎉* ${reply}` },
                         )
 
                     let reacttoday = await announcementchannel.send(todayEmbed);
