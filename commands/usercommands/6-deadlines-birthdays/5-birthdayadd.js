@@ -4,14 +4,16 @@ module.exports = {
     expectedArgs: '<!bdadd 28/08/2020>',
 
     callback: async (message, arguments, text) => {
+        const { member, channel, content, guild } = message
 
         const bdSchema = require('@schemas/13-birthdayschema')
-
+        const cache = {}
         message.delete()
+
         let date = arguments[0]
         const mention = message.author
         const UserID = mention.id
-        var server = message.client.guilds.cache.get(serverID);
+        let server = cache[guild.id];
 
         console.log(`saving birthday: ${date}`)
 
