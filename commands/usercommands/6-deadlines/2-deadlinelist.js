@@ -3,6 +3,7 @@ module.exports = {
   minArgs: 0,
   maxArgs: 0,
   callback: async (message, arguments, text) => {
+    return
 
     const deadlineSchema = require('@schemas/3-deadlineschema')
     const target = message.mentions.users.first() || message.author

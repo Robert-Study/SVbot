@@ -4,6 +4,7 @@ module.exports = {
     expectedArgs: '<!dladd 28/08/2020 Exam on...>',
 
     callback: async (message, arguments, text) => {
+        return
         let deadlinechannel = message.guild.channels.cache.get('717829409679343628');
         const userSchema = require('@schemas/3-deadlineschema')
 
