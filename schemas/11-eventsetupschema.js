@@ -6,6 +6,11 @@ const eventSchema = mongoose.Schema({
         required: true,
     },
 
+    guildID: {
+        type: String,
+        required: true,
+    },
+
     date: {
         type: String,
         required: true,
@@ -29,7 +34,12 @@ const eventSchema = mongoose.Schema({
     barcode: {
         type: Number,
         required: true,
+    },
+
+    colorcount: {
+        type: Number,
+        required: true,
     }
 })
 
-module.exports = mongoose.model('events', eventSchema)
+module.exports = mongoose.model('11-events', eventSchema)
