@@ -1,6 +1,6 @@
 module.exports = (client) => {
     client.on('ready', async () => {
-        return
+        
         var schedule = require('node-schedule');
 
         var j = schedule.scheduleJob('0 5 * * *', async function () {
@@ -24,7 +24,7 @@ module.exports = (client) => {
             console.log(dlresults)
 
 
-            if (dlresults) {
+            if (dlresults && dlresults.length > 0) {
                 let reply = ':'
                 try {
                     for (items of dlresults) {
@@ -47,7 +47,7 @@ module.exports = (client) => {
                     let reacttoday = await announcementchannel.send(todayEmbed);
                     reacttoday.react('🍀')                  
                 }
-            }
+            }else{announcementchannel.send('No deadlines for today!')}
 
             let yesterdayresults = await Deadlineschema.find({
                 date: yesterday

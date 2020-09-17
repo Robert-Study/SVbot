@@ -1,4 +1,4 @@
-/*module.exports = (client) => {
+module.exports = (client) => {
     client.on('ready', async () => {
         var schedule = require('node-schedule');
 
@@ -23,7 +23,7 @@
             console.log(bdresults)
 
 
-            if (bdresults) {
+            if (bdresults && bdresults.length > 0) {
                 let reply = '🎈Happy birthday🎈 to'
                 try {
                     for (items of bdresults) {
@@ -66,4 +66,4 @@
 
         });
     })
-}*/
+}
