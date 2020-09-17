@@ -11,10 +11,11 @@ module.exports = {
 
         console.log('Connected to mongodb!')
 
-        let todelete = await deadlineSchema.get({
+        let todelete = await deadlineSchema.find({
             UserID,
             date: deleteddate
         })
+        
         if (todelete) {
             await deadlineSchema.deleteOne({
                 UserID,
