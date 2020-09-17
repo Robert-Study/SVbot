@@ -3,7 +3,7 @@ module.exports = {
     minArgs: 0,
     maxArgs: 1,
     callback: async (message, arguments, text) => {
-        const messageCountSchema = require('../../schemas/12-messagecount')
+        const messageCountSchema = require('@schemas/12-messagecount')
         const target = message.mentions.users.first() || message.author
         const UserId = target.id
 

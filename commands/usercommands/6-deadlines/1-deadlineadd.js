@@ -1,7 +1,7 @@
 module.exports = {
-    commands: ['dl', 'deadline'],
+    commands: ['adddl', 'adddeadline', 'dladd', 'deadlineadd'],
     minArgs: 1,
-    expectedArgs: '<!dl 28/08/2020 Exam on...>',
+    expectedArgs: '<!dladd 28/08/2020 Exam on...>',
 
     callback: async (message, arguments, text) => {
         let deadlinechannel = message.guild.channels.cache.get('717829409679343628');

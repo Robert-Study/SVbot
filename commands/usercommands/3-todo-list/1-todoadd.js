@@ -58,7 +58,6 @@ module.exports = {
             message.channel.send(reply)
         }
     }
-
 }
 
 

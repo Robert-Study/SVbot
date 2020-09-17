@@ -1,10 +1,10 @@
 module.exports = {
-  commands: ['showdl', 'showdeadlines'],
+  commands: ['showdl', 'showdeadlines', 'dl', 'deadline', 'deadlines'],
   minArgs: 0,
-  maxArgs: 1,
+  maxArgs: 0,
   callback: async (message, arguments, text) => {
 
-    const deadlineSchema = require('../../schemas/3-deadlineschema')
+    const deadlineSchema = require('@schemas/3-deadlineschema')
     const target = message.mentions.users.first() || message.author
     const UserID = target.id
     const Discord = require('discord.js');
@@ -31,10 +31,5 @@ module.exports = {
       )
 
     channel.send(exampleEmbed);
-
-
-
   }
-
-
 }

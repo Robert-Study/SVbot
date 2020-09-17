@@ -7,14 +7,12 @@ module.exports = {
         const vcembed = new Discord.MessageEmbed()
             .setColor('#337f4e')
             .addFields(
-                { name: 'Deadline and exams submission', value: 
-                `How to register you deadline or exam date:
-                
-                Register your deadlines with the !dl command, followed by the date and the exam/deadline you are working towards 
-                
-                (**Example:** !dl 01/09/2020 Super secret project).
-                To show all your deadlines use **!showdl** and to remove the first submitted one use **!deletedl**` }
-            )
+                { name: 'Set up your Deadlines', value: ` 
+                1). **!dl** (this will show your deadline list)
+                2). **!dladd** "what you want to add to list"
+                3). **!dlremove 'date'** removes the dated deadline from list
+                4). **!dlclear** this will remove your whole list` }
+                )
     message.channel.send(vcembed);
         }
 }

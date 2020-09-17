@@ -1,7 +1,9 @@
 module.exports = {
-    commands: ['betadelete'],
+    commands: ['deletedl', 'deletedeadline', 'removedl', 'removedeadline', 'deadlineremove', 'dlremove'],
     minArgs: 1,
     maxArgs: 1,
+    expectedArgs: '<!deletedl DD/MM/YYYY>',
+
     callback: async (message, arguments, text) => {
 
         const deadlineSchema = require('@schemas/3-deadlineschema')
@@ -15,7 +17,7 @@ module.exports = {
             UserID,
             date: deleteddate
         })
-        
+
         if (todelete) {
             await deadlineSchema.deleteOne({
                 UserID,
