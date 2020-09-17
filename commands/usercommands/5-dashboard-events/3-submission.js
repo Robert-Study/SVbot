@@ -1,5 +1,5 @@
 module.exports = {
-    commands: ['beta'],
+    commands: ['setevent','sub', 'submission'],
     minArgs: 0,
     maxArgs: 0,
 
@@ -132,7 +132,7 @@ module.exports = {
                                                             message.channel.bulkDelete(messages)
                                                         })
                                                         const Discord = require('discord.js');
-                                                        let eventchannel = message.guild.channels.cache.get('754042973850828821');
+                                                        let eventchannel = message.guild.channels.cache.get('755187097207308328');
                                                         let eventEmbed = new Discord.MessageEmbed()
                                                             .setColor('#28a1c9')
                                                             .setTitle(`${providedheader}`)
@@ -239,7 +239,7 @@ module.exports = {
                                                             message.channel.bulkDelete(messages)
                                                         })
                                                         const Discord = require('discord.js');
-                                                        let eventchannel = message.guild.channels.cache.get('754042973850828821');
+                                                        let eventchannel = message.guild.channels.cache.get('755187097207308328');
                                                         let eventEmbed = new Discord.MessageEmbed()
                                                             .setColor('#28a1c9')
                                                             .setTitle(`${providedheader}`)
@@ -342,7 +342,7 @@ module.exports = {
                                                             message.channel.bulkDelete(messages)
                                                         })
                                                         const Discord = require('discord.js');
-                                                        let eventchannel = message.guild.channels.cache.get('754042973850828821');
+                                                        let eventchannel = message.guild.channels.cache.get('755187097207308328');
                                                         let eventEmbed = new Discord.MessageEmbed()
                                                             .setColor('#28a1c9')
                                                             .setTitle(`${providedheader}`)
