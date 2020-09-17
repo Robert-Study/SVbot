@@ -13,7 +13,7 @@ module.exports = {
         let date = arguments[0]
         const mention = message.author
         const UserID = mention.id
-        let server = cache[guild.id];
+        let server = guild.id
 
         console.log(`saving birthday: ${date}`)
 
