@@ -1,5 +1,6 @@
 module.exports = (client) => {
     client.on('ready', async () => {
+        return
         var schedule = require('node-schedule');
 
         var j = schedule.scheduleJob('0 5 * * *', async function () {
