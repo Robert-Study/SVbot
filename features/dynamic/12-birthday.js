@@ -2,7 +2,7 @@ module.exports = (client) => {
     client.on('ready', async () => {
         var schedule = require('node-schedule');
 
-        var j = schedule.scheduleJob('12 * * * *', async function () {
+        var j = schedule.scheduleJob('22 * * * *', async function () {
             const birthdayschema = require("@schemas/13-birthdayschema")
             var moment = require('moment');
             const Discord = require('discord.js');
@@ -22,14 +22,24 @@ module.exports = (client) => {
             })
             console.log(bdresults)
 
-
             if (bdresults && bdresults.length > 0) {
                 let reply = '🎈Happy birthday🎈 to'
                 try {
                     for (items of bdresults) {
                         let User = await client.users.fetch(items.UserID)
                         let UserId = items.UserID
+                        let server = items.guild
 
+                        let guild = client.guilds.get(server)
+
+
+                        if (guild) {
+                            channel = guild.channels.get('754042973850828821');
+                            if (channel) {
+                                channel.send("Here you can put the message and stuffs.")
+                            }
+                            else { console.log("There's no channel with that ID.") }
+                        } else { console.log("There's no guild with that ID."); }
                         guild.members.cache.get(UserId).roles.add("755924266779672596")
 
                         reply += `**${User}**`
