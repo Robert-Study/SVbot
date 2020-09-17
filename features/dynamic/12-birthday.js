@@ -2,7 +2,7 @@ module.exports = (client) => {
     client.on('ready', async () => {
         var schedule = require('node-schedule');
 
-        var j = schedule.scheduleJob('58 * * * *', async function () {
+        var j = schedule.scheduleJob('0 * * * *', async function () {
             const birthdayschema = require("@schemas/13-birthdayschema")
             var moment = require('moment');
             const Discord = require('discord.js');
@@ -31,7 +31,7 @@ module.exports = (client) => {
 
                     guild.members.cache.get(UserId).roles.add("755924266779672596")
                     console.log(User)
-                    reply = '🎈Happy birthday🎈\n'`${current}: ${User}\n`
+                    let reply = '🎈Happy birthday🎈\n'`${current}: ${User}\n`
 
 
 
