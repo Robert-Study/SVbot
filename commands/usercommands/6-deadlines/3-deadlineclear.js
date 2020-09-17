@@ -6,7 +6,7 @@ module.exports = {
     expectedArgs: '<!dlclear>',
 
     callback: async (message, arguments, text) => {
-        return
+        
         const mention = message.author
         const UserId = mention.id
 

@@ -19,7 +19,7 @@ module.exports = {
         })
         console.log(dlresults)
 
-        if (dlresults) {
+        if (dlresults && dlresults.length > 0) {
             let reply = ''
             try {
                 for (items of dlresults) {
@@ -40,6 +40,6 @@ module.exports = {
                 let reacttoday = await deadlinechannel.send(todayEmbed);
                 reacttoday.react('🍀')
             }
-        }
+        }else{message.reply('no deadlines for today')}
     }
 }
