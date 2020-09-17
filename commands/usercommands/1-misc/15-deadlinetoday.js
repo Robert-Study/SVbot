@@ -9,6 +9,8 @@ module.exports = {
     maxArgs: 0,
 
     callback: async (message, arguments, text) => {
+        message.reply('please use this command in the deadlinechannel next time')
+        const deadlinechannel = message.client.channels.cache.get('717829409679343628');
         let current = moment().format("DD/MM/YYYY")
         console.log(current)
 
@@ -17,26 +19,27 @@ module.exports = {
         })
         console.log(dlresults)
 
-        let reply = ''
-        try {
-            for (items of dlresults) {
-                let User = await message.guild.members.fetch(items.UserID)
-                let deadline = items.dltext
-                console.log(deadline)
+        if (dlresults) {
+            let reply = ''
+            try {
+                for (items of dlresults) {
+                    let User = await message.guild.members.fetch(items.UserID)
+                    let deadline = items.dltext
+                    console.log(deadline)
 
-                reply += `**${User}** deadline: *${deadline}*\n\n`
+                    reply += `**${User}** deadline: *${deadline}*\n\n`
+                }
+            } finally {
+                const todayEmbed = new Discord.MessageEmbed()
+                    .setColor('#337f4e')
+                    .setTitle(`Todays deadlines:`)
+                    .addFields(
+                        { name: 'Deadlines:', value: `${reply}` },
+                    )
+
+                let reacttoday = await deadlinechannel.send(todayEmbed);
+                reacttoday.react('🍀')
             }
-        } finally {
-            const todayEmbed = new Discord.MessageEmbed()
-                .setColor('#337f4e')
-                .setTitle(`Todays deadlines:`)
-                .addFields(
-                    { name: 'Deadlines:', value: `${reply}` },
-                )
-
-            let reacttoday = await message.channel.send(todayEmbed);
-            reacttoday.react('🍀')
         }
     }
-
 }
