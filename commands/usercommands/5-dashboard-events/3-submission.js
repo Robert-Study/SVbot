@@ -139,7 +139,7 @@ module.exports = {
                                                             .setTimestamp()
                                                             .setFooter(`Event host: ${message.author.username} `)
                                                             .addFields(
-                                                                { name: "New event", value: `**${message.author.username}** has planned an event, the event is open to attend for any verified member. A specific channel with the event title will be set up on the event date and time. Please, when attending, make sure you are on the specified time in the channel and **respect your host.** A reminder is set on the date 2 hours prior to the event, to receive a all updates from your host **react with the RED-color** set for this event!`},
+                                                                { name: "New event", value: `**${message.author.username}** has planned an event, the event is open to attend for any verified member. A specific channel with the event title will be set up on the event date and time. Please, when attending, make sure you are on the specified time in the channel and **respect your host.** A reminder is set on the date 2 hours prior to the event, to receive a all updates from your host **react with the 🟥-color** set for this event!`},
                                                                 { name: "Date:", value: `${provideddate}`, inline: true },
                                                                 { name: "Time:", value: `${providedtime}`, inline: true },
                                                                 { name: "Event description:", value: `${provideddescription}` },
@@ -246,7 +246,7 @@ module.exports = {
                                                             .setTimestamp()
                                                             .setFooter(`Event host: ${message.author.username} `)
                                                             .addFields(
-                                                                { name: "New event", value: `**${message.author.username}** has planned an event, the event is open to attend for any verified member. A specific channel with the event title will be set up on the event date and time. Please, when attending, make sure you are on the specified time in the channel and **respect your host.** A reminder is set on the date 2 hours prior to the event, to receive a all updates from your host **react with the ORANGE-color** set for this event!`},
+                                                                { name: "New event", value: `**${message.author.username}** has planned an event, the event is open to attend for any verified member. A specific channel with the event title will be set up on the event date and time. Please, when attending, make sure you are on the specified time in the channel and **respect your host.** A reminder is set on the date 2 hours prior to the event, to receive a all updates from your host **react with the 🟧-color** set for this event!`},
                                                                 { name: "Date:", value: `${provideddate}`, inline: true },
                                                                 { name: "Time:", value: `${providedtime}`, inline: true },
                                                                 { name: "Event description:", value: `${provideddescription}` },
@@ -349,7 +349,7 @@ module.exports = {
                                                             .setTimestamp()
                                                             .setFooter(`Event host: ${message.author.username} `)
                                                             .addFields(
-                                                                { name: "New event", value: `**${message.author.username}** has planned an event, the event is open to attend for any verified member. A specific channel with the event title will be set up on the event date and time. Please, when attending, make sure you are on the specified time in the channel and **respect your host.** A reminder is set on the date 2 hours prior to the event, to receive a all updates from your host **react with the BLUE-color** set for this event!` },
+                                                                { name: "New event", value: `**${message.author.username}** has planned an event, the event is open to attend for any verified member. A specific channel with the event title will be set up on the event date and time. Please, when attending, make sure you are on the specified time in the channel and **respect your host.** A reminder is set on the date 2 hours prior to the event, to receive a all updates from your host **react with the 🟦-color** set for this event!` },
                                                                 { name: "Date:", value: `${provideddate}`, inline: true },
                                                                 { name: "Time:", value: `${providedtime}`, inline: true },
                                                                 { name: "Event description:", value: `${provideddescription}` },
