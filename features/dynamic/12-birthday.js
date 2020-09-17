@@ -2,7 +2,7 @@ module.exports = (client) => {
     client.on('ready', async () => {
         var schedule = require('node-schedule');
 
-        var j = schedule.scheduleJob('28 * * * *', async function () {
+        var j = schedule.scheduleJob('31 * * * *', async function () {
             const birthdayschema = require("@schemas/13-birthdayschema")
             var moment = require('moment');
             const Discord = require('discord.js');
@@ -46,7 +46,7 @@ module.exports = (client) => {
                         .setColor('#28a1c9')
                         .setTitle(`Birthdays today!`)
                         .addFields(
-                            { name: '${reply}', value: `*We all wish you a very nice day!🎉*` },
+                            { name: `${reply}`, value: `*We all wish you a very nice day!🎉*` },
                         )
 
                     let reacttoday = await announcementchannel.send(todayEmbed);
