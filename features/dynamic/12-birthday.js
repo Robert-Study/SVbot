@@ -2,7 +2,7 @@ module.exports = (client) => {
     client.on('ready', async () => {
         var schedule = require('node-schedule');
 
-        var j = schedule.scheduleJob('14 * * * *', async function () {
+        var j = schedule.scheduleJob('26 * * * *', async function () {
             const birthdayschema = require("@schemas/13-birthdayschema")
             var moment = require('moment');
             const Discord = require('discord.js');
@@ -21,21 +21,21 @@ module.exports = (client) => {
 
             if (bdresults && bdresults.length > 0) {
                 let reply = '🎈Happy birthday🎈\n'
-                try {
-                    bdresults.forEach(async items => {
-                        let User = await client.users.fetch(items.UserID)
-                        let UserId = items.UserID
-                        let server = items.guild
 
-                        let guild = client.guilds.cache.get(server)
-                    
-                        
-                        guild.members.cache.get(UserId).roles.add("755924266779672596")
-                        console.log(User)
-                        reply += `${current}: ${User}\n`
-                    })
-                    
-                } finally {
+                bdresults.forEach(async items => {
+                    let User = await client.users.fetch(items.UserID)
+                    let UserId = items.UserID
+                    let server = items.guild
+
+                    let guild = client.guilds.cache.get(server)
+
+
+                    guild.members.cache.get(UserId).roles.add("755924266779672596")
+                    console.log(User)
+                    reply += `${current}: ${User}\n`
+
+
+
                     const todayEmbed = new Discord.MessageEmbed()
                         .setColor('#28a1c9')
                         .setTitle(`Birthdays today!`)
@@ -47,7 +47,8 @@ module.exports = (client) => {
                     reacttoday.react('🎉')
                     reacttoday.react('🎈')
                     reacttoday.react('🥳')
-                }
+                })
+
             }
 
             let yesterdayresults = await birthdayschema.find({
