@@ -2,11 +2,11 @@ module.exports = (client) => {
     client.on('ready', async () => {
         var schedule = require('node-schedule');
 
-        var j = schedule.scheduleJob('2 * * * *', async function () {
+        var j = schedule.scheduleJob('1 2 * * *', async function () {
             const birthdayschema = require("@schemas/13-birthdayschema")
             var moment = require('moment');
             const Discord = require('discord.js');
-            const announcementchannel = client.channels.cache.get('754042973850828821')
+            const announcementchannel = client.channels.cache.get('732559541895561226')
 
             let current = moment().format("DD/MM")
             let yesterday = moment().subtract(1, 'days').format("DD/MM")
@@ -29,7 +29,7 @@ module.exports = (client) => {
 
                     let guild = client.guilds.cache.get(server)
 
-                    guild.members.cache.get(UserId).roles.add("755924266779672596")
+                    guild.members.cache.get(UserId).roles.add("712563894350250034")
                     console.log(User)
                     let reply = `🎈Happy birthday🎈\n ${current}: ${User}\n`
 
@@ -37,7 +37,7 @@ module.exports = (client) => {
 
                     const todayEmbed = new Discord.MessageEmbed()
                         .setColor('#28a1c9')
-                        .setTitle(`Birthdays today!`)
+                        .setTitle(`Birthday today!`)
                         .addFields(
                             { name: `\u200B`, value: `**${reply}**\n*We all wish you a very nice day!🎉* ` },
                         )
@@ -58,7 +58,7 @@ module.exports = (client) => {
                 for (results of yesterdayresults) {
                     let oldUserID = results.UserID
 
-                    guild.members.cache.get(oldUserID).roles.remove("755924266779672596")
+                    guild.members.cache.get(oldUserID).roles.remove("712563894350250034")
                 }
             }
 
