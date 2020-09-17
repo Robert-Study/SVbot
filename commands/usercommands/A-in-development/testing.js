@@ -1,230 +1,393 @@
 module.exports = {
     commands: ['beta'],
-    minArgs: 3,
-    maxArgs: 3,
+    minArgs: 0,
+    maxArgs: 0,
 
 
     callback: async (message, arguments, text) => {
-        const treecountschema = require('../../schemas/4-anoncountschema')
+        const treecountschema = require('@schemas/4-anoncountschema')
         let result = await treecountschema.findOne({
             UserId: 'tree'
         })
+        const Discord = require('discord.js')
+        const eventschema = require('@schemas/11-eventsetupschema')
 
+        const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 60 * 10000 });
+        message.channel.send("Write where your submission should go, write **'app', 'tip' or 'event'** - Complete your submission in 10min, to stop reply to the bot with 'stop'")
+        collector.once('collect', async message => {
+            let whatsub = message.content
+            console.log(whatsub)
 
-        let count = result.messageCount
+            if (whatsub === 'app') {
+                message.channel.send("Write your **app**-suggestion (max 1200 characters)")
+                collector.once('collect', async message => {
 
-        if (count === 4) {
-            let newcount = 1
-            if (newcount = 1) {
-                let emoji = '🔴'
-                const resultnew = await treecountschema.findOneAndUpdate(
-                    {
-                        UserId: 'tree'
-                    },
-                    {
-                        messageCount: newcount,
-                    },
+                    let apptext = message.content
+                    message.delete()
+                    if (apptext === 'stop') { message.reply("Submission ended!") }
+                    else {
+                        message.reply("Thanks, your App-Tip has been added in the #app-channel!")
+                        let appchannel = message.guild.channels.cache.get('708032923428716626');
+                        let AppEmbed = new Discord.MessageEmbed()
+                            .setColor('#337f4e')
+                            .setTitle(`${message.author.username} recommends this App:`)
+                            .setTimestamp()
+                            .setFooter(`Recommended by: ${message.author.username} `)
+                            .addFields(
+                                { name: 'App recommendation:', value: `${apptext}` })
 
-                    {
-                        upsert: true,
-                        new: true,
+                        let reactapp = await appchannel.send(AppEmbed);
+                        reactapp.react('👍')
+                        reactapp.react('👎')
                     }
-                )
-                const Discord = require('discord.js');
-                const channel = message.client.channels.cache.get('730029372697870347');
-                let exampleEmbed = new Discord.MessageEmbed()
-                    .setColor('#337f4e')
-                    .setTitle(`${message.author.username} wants to plant a tree! :evergreen_tree:`)
-                    .setThumbnail('https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F1.bp.blogspot.com%2F-E77muf7rE5k%2FUD5FaQznK8I%2FAAAAAAAAIh4%2FGJXlKvLB7WM%2Fs1600%2FTree%2BIn%2BField%2BWallpapers%2B3.jpg&f=1&nofb=1')
-                    .setTimestamp()
-                    .setFooter(`Planter: ${message.author.username} `)
-                    .addFields(
-                        { name: '\u200B', value: 'Forest info:' },
-                        { name: `Use code: ${arguments[0]} or click this link: https://www.forestapp.cc/join-room?token=${arguments[0]}.`, value: '\u200B' },
-                        { name: ':stopwatch: Duration:', value: `${arguments[1]}`, inline: true },
-                        { name: ':closed_lock_with_key: Starting in:', value: `${arguments[2]}`, inline: true },
-                        { name: '\u200B', value: 'Good luck! :palm_tree: | Join the team 👥 or go in focus 🔇 by reacting.| Log time by reacting to the amount of hours!' }
-                    )
-
-                let channelembed = await channel.send(exampleEmbed);
-                channelembed.react(emoji)
-                channelembed.react('🔇')
-                channelembed.react('1️⃣')
-                channelembed.react('2️⃣')
-                channelembed.react('3️⃣')
-
-                const welcome = message.client.channels.cache.get('754042973850828821');
-
-                let welcomeembed = await welcome.send(exampleEmbed);
-                welcomeembed.react(emoji)
-                welcomeembed.react('🔇')
-                welcomeembed.react('1️⃣')
-                welcomeembed.react('2️⃣')
-                welcomeembed.react('3️⃣')
+                })
             }
-        }
 
+            else if (whatsub === 'tip') {
+                message.channel.send("Write your **tip**-suggestion (max 1200 characters)")
+                collector.once('collect', async message => {
+                    message.delete()
+                    let tiptext = message.content
+                    if (tiptext === 'stop') { message.reply("Submission ended!") }
+                    else {
+                        message.reply("Thanks, your Study Tip has been added in the #studytip channel!")
+                        const Discord = require('discord.js');
+                        let tipchannel = message.guild.channels.cache.get('708651085765804093');
+                        let tipEmbed = new Discord.MessageEmbed()
+                            .setColor('#337f4e')
+                            .setTitle(`${message.author.username} has a study tip:`)
+                            .setTimestamp()
+                            .setFooter(`Recommended by: ${message.author.username} `)
+                            .addFields(
+                                { name: 'Study tip:', value: `${tiptext}` })
 
-
-
-        else {
-            let newcount = count + 1
-            if (newcount === 2) {
-                let emoji = '🟠'
-
-
-                const resultnew = await treecountschema.findOneAndUpdate(
-                    {
-                        UserId: 'tree'
-                    },
-                    {
-                        messageCount: newcount,
-                    },
-
-                    {
-                        upsert: true,
-                        new: true,
+                        let reacttip = await tipchannel.send(tipEmbed);
+                        reacttip.react('👍')
+                        reacttip.react('👎')
                     }
-                )
-                const Discord = require('discord.js');
-                const channel = message.client.channels.cache.get('730029372697870347');
-                let exampleEmbed = new Discord.MessageEmbed()
-                    .setColor('#337f4e')
-                    .setTitle(`${message.author.username} wants to plant a tree! :evergreen_tree:`)
-                    .setThumbnail('https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F1.bp.blogspot.com%2F-E77muf7rE5k%2FUD5FaQznK8I%2FAAAAAAAAIh4%2FGJXlKvLB7WM%2Fs1600%2FTree%2BIn%2BField%2BWallpapers%2B3.jpg&f=1&nofb=1')
-                    .setTimestamp()
-                    .setFooter(`Planter: ${message.author.username} `)
-                    .addFields(
-                        { name: '\u200B', value: 'Forest info:' },
-                        { name: `Use code: ${arguments[0]} or click this link: https://www.forestapp.cc/join-room?token=${arguments[0]}.`, value: '\u200B' },
-                        { name: ':stopwatch: Duration:', value: `${arguments[1]}`, inline: true },
-                        { name: ':closed_lock_with_key: Starting in:', value: `${arguments[2]}`, inline: true },
-                        { name: '\u200B', value: 'Good luck! :palm_tree: | Join the team 👥 or go in focus 🔇 by reacting.| Log time by reacting to the amount of hours!' }
-                    )
-
-                let channelembed = await channel.send(exampleEmbed);
-                channelembed.react(emoji)
-                channelembed.react('🔇')
-                channelembed.react('1️⃣')
-                channelembed.react('2️⃣')
-                channelembed.react('3️⃣')
-
-                const welcome = message.client.channels.cache.get('754042973850828821');
-
-                let welcomeembed = await welcome.send(exampleEmbed);
-                welcomeembed.react(emoji)
-                welcomeembed.react('🔇')
-                welcomeembed.react('1️⃣')
-                welcomeembed.react('2️⃣')
-                welcomeembed.react('3️⃣')
+                })
             }
-            if (newcount === 3) {
-                let emoji = '🟣'
+            
+            else if (whatsub === 'event') {
+                let count = result.messageCount
+                switch (count) {
+                    case 1: {
+                        let emoji = '🟥'
+                        let newcount = 2
+                        const resultnew = await treecountschema.findOneAndUpdate(
+                            {
+                                UserId: 'tree'
+                            },
+                            {
+                                messageCount: newcount,
+                            },
 
+                            {
+                                upsert: true,
+                                new: true,
+                            }
+                        )
+                        await message.channel.messages.fetch({ limit: 3 }).then(messages => {
+                            message.channel.bulkDelete(messages)
+                        })
 
-                const resultnew = await treecountschema.findOneAndUpdate(
-                    {
-                        UserId: 'tree'
-                    },
-                    {
-                        messageCount: newcount,
-                    },
+                        const mention = message.author
+                        const UserId = mention.id
+                        message.reply("**Please write your events title.**")
+                        collector.once('collect', async message => {
+                            let providedheader = message.content
+                            if (providedheader === 'stop') { message.reply("Submission ended!") }
+                            else {
+                                await message.channel.messages.fetch({ limit: 2 }).then(messages => {
+                                    message.channel.bulkDelete(messages)
+                                })
+                                message.channel.send(`The set title: **${providedheader}**`)
+                                console.log(providedheader)
+                                message.reply("**Please write the date of the event in DD/MM/YYYY format.**")
+                                collector.once('collect', async message => {
+                                    let provideddate = message.content
+                                    if (provideddate === 'stop') { message.reply("Submission ended!") }
+                                    else {
+                                        await message.channel.messages.fetch({ limit: 2 }).then(messages => {
+                                            message.channel.bulkDelete(messages)
+                                        })
+                                        message.channel.send(`The set date: **${provideddate}**`)
+                                        console.log(provideddate)
+                                        message.reply("**Please write the time of the event.**")
+                                        collector.once('collect', async message => {
+                                            let providedtime = message.content
+                                            if (providedtime === 'stop') { message.reply("Submission ended!") }
+                                            else {
+                                                await message.channel.messages.fetch({ limit: 2 }).then(messages => {
+                                                    message.channel.bulkDelete(messages)
+                                                })
+                                                message.channel.send(`The set time: ${providedtime}`)
+                                                console.log(providedtime)
+                                                message.reply("**Please write a description of the event (1200characters max!)**")
+                                                collector.once('collect', async message => {
+                                                    let provideddescription = message.content
+                                                    if (provideddescription === 'stop') { message.reply("Submission ended!") }
+                                                    else {
+                                                        await message.channel.messages.fetch({ limit: 5 }).then(messages => {
+                                                            message.channel.bulkDelete(messages)
+                                                        })
+                                                        const Discord = require('discord.js');
+                                                        let eventchannel = message.guild.channels.cache.get('754042973850828821');
+                                                        let eventEmbed = new Discord.MessageEmbed()
+                                                            .setColor('#28a1c9')
+                                                            .setTitle(`${providedheader}`)
+                                                            .setTimestamp()
+                                                            .setFooter(`Event host: ${message.author.username} `)
+                                                            .addFields(
+                                                                { name: "New event", value: `**${message.author.username}** has planned an event, the event is open to attend for any verified member. A specific channel with the event title will be set up on the event date and time. Please, when attending, make sure you are on the specified time in the channel and **respect your host.** A reminder is set on the date 2 hours prior to the event, to receive a reminder click the ✅ reaction.` },
+                                                                { name: "Date:", value: `${provideddate}`, inline: true },
+                                                                { name: "Time:", value: `${providedtime}`, inline: true },
+                                                                { name: "Event description:", value: `${provideddescription}` },
+                                                            )
+                                                        let reactevent = await eventchannel.send(eventEmbed);
+                                                        reactevent.react(emoji)
+                                                        console.log(provideddescription)
 
-                    {
-                        upsert: true,
-                        new: true,
-                    }
-                )
-                const Discord = require('discord.js');
-                const channel = message.client.channels.cache.get('730029372697870347');
-                let exampleEmbed = new Discord.MessageEmbed()
-                    .setColor('#337f4e')
-                    .setTitle(`${message.author.username} wants to plant a tree! :evergreen_tree:`)
-                    .setThumbnail('https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F1.bp.blogspot.com%2F-E77muf7rE5k%2FUD5FaQznK8I%2FAAAAAAAAIh4%2FGJXlKvLB7WM%2Fs1600%2FTree%2BIn%2BField%2BWallpapers%2B3.jpg&f=1&nofb=1')
-                    .setTimestamp()
-                    .setFooter(`Planter: ${message.author.username} `)
-                    .addFields(
-                        { name: '\u200B', value: 'Forest info:' },
-                        { name: `Use code: ${arguments[0]} or click this link: https://www.forestapp.cc/join-room?token=${arguments[0]}.`, value: '\u200B' },
-                        { name: ':stopwatch: Duration:', value: `${arguments[1]}`, inline: true },
-                        { name: ':closed_lock_with_key: Starting in:', value: `${arguments[2]}`, inline: true },
-                        { name: '\u200B', value: 'Good luck! :palm_tree: | Join the team 👥 or go in focus 🔇 by reacting.| Log time by reacting to the amount of hours!' }
-                    )
+                                                        message.reply(`Your event ${providedheader} is set on the ${provideddate} at ${providedtime}`)
+                                                        const result = await eventschema.findOneAndUpdate(
+                                                            {
+                                                                UserId,
+                                                            },
+                                                            {
+                                                                date: provideddate,
+                                                                time: providedtime,
+                                                                header: providedheader,
+                                                                description: provideddescription,
+                                                                guildID: '703937875720273972',
+                                                                colorcount: count,
+                                                                barcode: 901
+                                                            },
 
-                let channelembed = await channel.send(exampleEmbed);
-                channelembed.react(emoji)
-                channelembed.react('🔇')
-                channelembed.react('1️⃣')
-                channelembed.react('2️⃣')
-                channelembed.react('3️⃣')
+                                                            {
+                                                                upsert: true,
+                                                                new: true,
+                                                            }
+                                                        )
+                                                    }
+                                                })
+                                            }
+                                        })
+                                    }
+                                })
+                            }
+                        })
+                    } break;
+                    case 2: {
+                        let emoji = '🟧'
+                        let newcount = 3
+                        const resultnew = await treecountschema.findOneAndUpdate(
+                            {
+                                UserId: 'tree'
+                            },
+                            {
+                                messageCount: newcount,
+                            },
 
-                const welcome = message.client.channels.cache.get('754042973850828821');
+                            {
+                                upsert: true,
+                                new: true,
+                            }
+                        )
+                        await message.channel.messages.fetch({ limit: 3 }).then(messages => {
+                            message.channel.bulkDelete(messages)
+                        })
 
-                let welcomeembed = await welcome.send(exampleEmbed);
-                welcomeembed.react(emoji)
-                welcomeembed.react('🔇')
-                welcomeembed.react('1️⃣')
-                welcomeembed.react('2️⃣')
-                welcomeembed.react('3️⃣')
+                        const mention = message.author
+                        const UserId = mention.id
+                        message.reply("**Please write your events title.**")
+                        collector.once('collect', async message => {
+                            let providedheader = message.content
+                            if (providedheader === 'stop') { message.reply("Submission ended!") }
+                            else {
+                                await message.channel.messages.fetch({ limit: 2 }).then(messages => {
+                                    message.channel.bulkDelete(messages)
+                                })
+                                message.channel.send(`The set title: **${providedheader}**`)
+                                console.log(providedheader)
+                                message.reply("**Please write the date of the event in DD/MM/YYYY format.**")
+                                collector.once('collect', async message => {
+                                    let provideddate = message.content
+                                    if (provideddate === 'stop') { message.reply("Submission ended!") }
+                                    else {
+                                        await message.channel.messages.fetch({ limit: 2 }).then(messages => {
+                                            message.channel.bulkDelete(messages)
+                                        })
+                                        message.channel.send(`The set date: **${provideddate}**`)
+                                        console.log(provideddate)
+                                        message.reply("**Please write the time of the event.**")
+                                        collector.once('collect', async message => {
+                                            let providedtime = message.content
+                                            if (providedtime === 'stop') { message.reply("Submission ended!") }
+                                            else {
+                                                await message.channel.messages.fetch({ limit: 2 }).then(messages => {
+                                                    message.channel.bulkDelete(messages)
+                                                })
+                                                message.channel.send(`The set time: ${providedtime}`)
+                                                console.log(providedtime)
+                                                message.reply("**Please write a description of the event (1200characters max!)**")
+                                                collector.once('collect', async message => {
+                                                    let provideddescription = message.content
+                                                    if (provideddescription === 'stop') { message.reply("Submission ended!") }
+                                                    else {
+                                                        await message.channel.messages.fetch({ limit: 5 }).then(messages => {
+                                                            message.channel.bulkDelete(messages)
+                                                        })
+                                                        const Discord = require('discord.js');
+                                                        let eventchannel = message.guild.channels.cache.get('754042973850828821');
+                                                        let eventEmbed = new Discord.MessageEmbed()
+                                                            .setColor('#28a1c9')
+                                                            .setTitle(`${providedheader}`)
+                                                            .setTimestamp()
+                                                            .setFooter(`Event host: ${message.author.username} `)
+                                                            .addFields(
+                                                                { name: "New event", value: `**${message.author.username}** has planned an event, the event is open to attend for any verified member. A specific channel with the event title will be set up on the event date and time. Please, when attending, make sure you are on the specified time in the channel and **respect your host.** A reminder is set on the date 2 hours prior to the event, to receive a reminder click the ✅ reaction.` },
+                                                                { name: "Date:", value: `${provideddate}`, inline: true },
+                                                                { name: "Time:", value: `${providedtime}`, inline: true },
+                                                                { name: "Event description:", value: `${provideddescription}` },
+                                                            )
+                                                        let reactevent = await eventchannel.send(eventEmbed);
+                                                        reactevent.react(emoji)
+                                                        console.log(provideddescription)
+
+                                                        message.reply(`Your event ${providedheader} is set on the ${provideddate} at ${providedtime}`)
+                                                        const result = await eventschema.findOneAndUpdate(
+                                                            {
+                                                                UserId,
+                                                            },
+                                                            {
+                                                                date: provideddate,
+                                                                time: providedtime,
+                                                                header: providedheader,
+                                                                description: provideddescription,
+                                                                guildID: '703937875720273972',
+                                                                colorcount: count,
+                                                                barcode: 901
+                                                            },
+
+                                                            {
+                                                                upsert: true,
+                                                                new: true,
+                                                            }
+                                                        )
+                                                    }
+                                                })
+                                            }
+                                        })
+                                    }
+                                })
+                            }
+                        })
+                    } break;
+                    case 3: {
+                        let emoji = '🟦'
+                        let newcount = 1
+                        const resultnew = await treecountschema.findOneAndUpdate(
+                            {
+                                UserId: 'tree'
+                            },
+                            {
+                                messageCount: newcount,
+                            },
+
+                            {
+                                upsert: true,
+                                new: true,
+                            }
+                        )
+                        const mention = message.author
+                        const UserId = mention.id
+                        message.reply("**Please write your events title.**")
+                        collector.once('collect', async message => {
+                            let providedheader = message.content
+                            if (providedheader === 'stop') { message.reply("Submission ended!") }
+                            else {
+                                await message.channel.messages.fetch({ limit: 2 }).then(messages => {
+                                    message.channel.bulkDelete(messages)
+                                })
+                                message.channel.send(`The set title: **${providedheader}**`)
+                                console.log(providedheader)
+                                message.reply("**Please write the date of the event in DD/MM/YYYY format.**")
+                                collector.once('collect', async message => {
+                                    let provideddate = message.content
+                                    if (provideddate === 'stop') { message.reply("Submission ended!") }
+                                    else {
+                                        await message.channel.messages.fetch({ limit: 2 }).then(messages => {
+                                            message.channel.bulkDelete(messages)
+                                        })
+                                        message.channel.send(`The set date: **${provideddate}**`)
+                                        console.log(provideddate)
+                                        message.reply("**Please write the time of the event.**")
+                                        collector.once('collect', async message => {
+                                            let providedtime = message.content
+                                            if (providedtime === 'stop') { message.reply("Submission ended!") }
+                                            else {
+                                                await message.channel.messages.fetch({ limit: 2 }).then(messages => {
+                                                    message.channel.bulkDelete(messages)
+                                                })
+                                                message.channel.send(`The set time: ${providedtime}`)
+                                                console.log(providedtime)
+                                                message.reply("**Please write a description of the event (1200characters max!)**")
+                                                collector.once('collect', async message => {
+                                                    let provideddescription = message.content
+                                                    if (provideddescription === 'stop') { message.reply("Submission ended!") }
+                                                    else {
+                                                        await message.channel.messages.fetch({ limit: 5 }).then(messages => {
+                                                            message.channel.bulkDelete(messages)
+                                                        })
+                                                        const Discord = require('discord.js');
+                                                        let eventchannel = message.guild.channels.cache.get('754042973850828821');
+                                                        let eventEmbed = new Discord.MessageEmbed()
+                                                            .setColor('#28a1c9')
+                                                            .setTitle(`${providedheader}`)
+                                                            .setTimestamp()
+                                                            .setFooter(`Event host: ${message.author.username} `)
+                                                            .addFields(
+                                                                { name: "New event", value: `**${message.author.username}** has planned an event, the event is open to attend for any verified member. A specific channel with the event title will be set up on the event date and time. Please, when attending, make sure you are on the specified time in the channel and **respect your host.** A reminder is set on the date 2 hours prior to the event, to receive a reminder click the ✅ reaction.` },
+                                                                { name: "Date:", value: `${provideddate}`, inline: true },
+                                                                { name: "Time:", value: `${providedtime}`, inline: true },
+                                                                { name: "Event description:", value: `${provideddescription}` },
+                                                            )
+                                                        let reactevent = await eventchannel.send(eventEmbed);
+                                                        reactevent.react(emoji)
+                                                        console.log(provideddescription)
+
+                                                        message.reply(`Your event ${providedheader} is set on the ${provideddate} at ${providedtime}`)
+                                                        const result = await eventschema.findOneAndUpdate(
+                                                            {
+                                                                UserId,
+                                                            },
+                                                            {
+                                                                date: provideddate,
+                                                                time: providedtime,
+                                                                header: providedheader,
+                                                                description: provideddescription,
+                                                                guildID: '703937875720273972',
+                                                                colorcount: count,
+                                                                barcode: 901
+                                                            },
+
+                                                            {
+                                                                upsert: true,
+                                                                new: true,
+                                                            }
+                                                        )
+                                                    }
+                                                })
+                                            }
+                                        })
+                                    }
+                                })
+                            }
+                        })
+                    } break;
+                }
             }
-            if (newcount === 4) {
-                let emoji = '🔵'
 
-                const resultnew = await treecountschema.findOneAndUpdate(
-                    {
-                        UserId: 'tree'
-                    },
-                    {
-                        messageCount: newcount,
-                    },
-
-                    {
-                        upsert: true,
-                        new: true,
-                    }
-                )
-                const Discord = require('discord.js');
-                const channel = message.client.channels.cache.get('730029372697870347');
-                let exampleEmbed = new Discord.MessageEmbed()
-                    .setColor('#337f4e')
-                    .setTitle(`${message.author.username} wants to plant a tree! :evergreen_tree:`)
-                    .setThumbnail('https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F1.bp.blogspot.com%2F-E77muf7rE5k%2FUD5FaQznK8I%2FAAAAAAAAIh4%2FGJXlKvLB7WM%2Fs1600%2FTree%2BIn%2BField%2BWallpapers%2B3.jpg&f=1&nofb=1')
-                    .setTimestamp()
-                    .setFooter(`Planter: ${message.author.username} `)
-                    .addFields(
-                        { name: '\u200B', value: 'Forest info:' },
-                        { name: `Use code: ${arguments[0]} or click this link: https://www.forestapp.cc/join-room?token=${arguments[0]}.`, value: '\u200B' },
-                        { name: ':stopwatch: Duration:', value: `${arguments[1]}`, inline: true },
-                        { name: ':closed_lock_with_key: Starting in:', value: `${arguments[2]}`, inline: true },
-                        { name: '\u200B', value: 'Good luck! :palm_tree: | Join the team 👥 or go in focus 🔇 by reacting.| Log time by reacting to the amount of hours!' }
-                    )
-
-                let channelembed = await channel.send(exampleEmbed);
-                channelembed.react(emoji)
-                channelembed.react('🔇')
-                channelembed.react('1️⃣')
-                channelembed.react('2️⃣')
-                channelembed.react('3️⃣')
-
-                const welcome = message.client.channels.cache.get('754042973850828821');
-
-                let welcomeembed = await welcome.send(exampleEmbed);
-                welcomeembed.react(emoji)
-                welcomeembed.react('🔇')
-                welcomeembed.react('1️⃣')
-                welcomeembed.react('2️⃣')
-                welcomeembed.react('3️⃣')
-            }
-        }
+        })
     }
 }
-
-
-
-
-
-
-
-
-
-
