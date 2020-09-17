@@ -2,7 +2,7 @@ module.exports = (client) => {
     client.on('ready', async () => {
         var schedule = require('node-schedule');
 
-        var j = schedule.scheduleJob('6 * * * *', async function () {
+        var j = schedule.scheduleJob('10 * * * *', async function () {
             const birthdayschema = require("@schemas/13-birthdayschema")
             var moment = require('moment');
             const Discord = require('discord.js');
@@ -22,7 +22,7 @@ module.exports = (client) => {
             if (bdresults && bdresults.length > 0) {
                 let reply = '🎈Happy birthday🎈\n'
                 try {
-                    bdresults.foreach(items => {
+                    bdresults.foreach(async items => {
                         let User = await client.users.fetch(items.UserID)
                         let UserId = items.UserID
                         let server = items.guild
