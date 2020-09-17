@@ -11,7 +11,7 @@ module.exports = {
         let date = arguments[0]
         const mention = message.author
         const UserID = mention.id
-        var server = client.guilds.cache.get(serverID);
+        var server = message.client.guilds.cache.get(serverID);
 
         console.log(`saving birthday: ${date}`)
 

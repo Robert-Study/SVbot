@@ -8,8 +8,8 @@ module.exports = (client) => {
             const Discord = require('discord.js');
             const announcementchannel = client.channels.cache.get('732559541895561226')
 
-            let current = moment().format("DD/MM/YYYY")
-            let yesterday = moment().subtract(1, 'days').format("DD/MM/YYYY")
+            let current = moment().format("DD/MM")
+            let yesterday = moment().subtract(1, 'days').format("DD/MM")
 
             const guild = client.guilds.cache.get(serverID);
             if (!guild) return console.log("Couldn't get the guild.");
