@@ -11,7 +11,7 @@ module.exports = {
         
         const mention = message.author
         const UserID = mention.id
-        var server = client.guilds.cache.get(serverID);
+       
 
         console.log(`deleting birthday: ${date}`)
 
