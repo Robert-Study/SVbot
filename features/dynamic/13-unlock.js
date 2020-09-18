@@ -25,7 +25,7 @@ module.exports = (client) => {
                     let currenttime = new Date(Date.now());
                     let current = moment(currenttime).format('DD/MM/YYYY-hh:mm')
 
-                    console.log(currenttime)
+                    console.log(current)
 
                     if (unlocktime === current) {
                         guild.members.cache.get(UserId).roles.remove("735089477088837673")

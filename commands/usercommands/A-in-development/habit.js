@@ -35,7 +35,19 @@ module.exports = {
                 starttime: `${startTime}`,
                 endtime: `${structuretime}`
             }
-            await new lockSchema(user).save()
+            let result = await lockSchema.findOneAndUpdate(
+                {
+                    UserID: `${UserId}`
+                },
+                {
+                    guild: `${server}`,
+                    starttime: `${startTime}`,
+                    endtime: `${endTime}`
+                },
+                {
+                    upsert: true,
+                    new: true
+                })
 
             let role = message.guild.roles.cache.find(role => role.name === "Locked in Focus");
             let focusrole = message.guild.roles.cache.find(role => role.name === "Focused");
