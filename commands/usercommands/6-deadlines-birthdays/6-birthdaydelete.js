@@ -11,9 +11,6 @@ module.exports = {
         
         const mention = message.author
         const UserID = mention.id
-       
-
-        console.log(`deleting birthday: ${date}`)
 
         //defining user properties for inserting in database
         let result = await bdSchema.deleteOne(

@@ -22,8 +22,7 @@ module.exports = {
                 let unlocktime = items.endtime
                 let timeremaining = moment(`${unlocktime}`, "DD/MM/YYYY-hh:mm").fromNow()
 
-                console.log(unlocktime)
-                console.log(timeremaining)
+            
 
                 message.reply(`you are still locked until **${unlocktime} GMT-time**  which is approximately **${timeremaining}** from now`)
             }

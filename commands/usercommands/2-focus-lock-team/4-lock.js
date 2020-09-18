@@ -23,14 +23,13 @@ module.exports = {
         if (addtime < 120000) { message.reply(`You can't lock yourself for less than 2m`) }
 
         else {
-            console.log(addtime)
+           
 
             let startTime = new Date(Date.now());
             let endTime = new Date(startTime.getTime() + addtime);
             let structuretime = moment(endTime).format('DD/MM/YYYY-hh:mm')
 
-            console.log(endTime)
-            console.log(structuretime)
+            
 
             const user = {
                 UserID: `${UserId}`,

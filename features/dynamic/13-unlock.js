@@ -12,8 +12,8 @@ module.exports = (client) => {
             let unlockresults = await lockSchema.find({
                 guild: server
             })
-            console.log(general)
-            console.log(unlockresults)
+            
+            
 
             if (unlockresults) {
                 for (items of unlockresults) {
@@ -23,12 +23,12 @@ module.exports = (client) => {
                     let guild = client.guilds.cache.get(unlockserver)
 
 
-                    console.log(unlocktime)
+                    
 
                     let currenttime = new Date(Date.now());
                     let current = moment(currenttime).format('DD/MM/YYYY-hh:mm')
 
-                    console.log(current)
+                    
 
                     if (unlocktime === current) {
                         guild.members.cache.get(user).roles.remove("735089477088837673")
