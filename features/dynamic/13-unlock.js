@@ -35,7 +35,7 @@ module.exports = (client) => {
 
                         
                         const general = client.channels.cache.get('707547622591692911')
-                        general.send(`${"<@" + user.id + ">"}, you have now been unlocked`)
+                        general.send(`${"<@" + user + ">"}, you have now been unlocked`)
                     }
                 }
             }
