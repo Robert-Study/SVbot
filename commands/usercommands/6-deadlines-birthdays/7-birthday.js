@@ -14,7 +14,9 @@ module.exports = {
             {
                 UserID: `${UserID}`
             })
+
         if (results) {
+            console.log(results)
             for (items of results) {
                 let birthday = items.date
 
