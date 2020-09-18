@@ -2,7 +2,8 @@ const lockSchema = require('@schemas/14-lockdata')
 
 module.exports = {
     commands: ['betaremaining'],
-    minArgs: 1,
+    minArgs: 0,
+    maxArgs: 0,
     expectedArgs: '<!todo>',
 
     callback: async (message, arguments, text) => {

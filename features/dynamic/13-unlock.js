@@ -28,9 +28,9 @@ module.exports = (client) => {
                     console.log(current)
 
                     if (unlocktime === current) {
-                        guild.members.cache.get(UserId).roles.remove("735089477088837673")
-                        guild.members.cache.get(UserId).roles.remove("729706682308886548")
-                        guild.members.cache.get(UserId).roles.add("712563894350250034")
+                        guild.members.cache.get(user).roles.remove("735089477088837673")
+                        guild.members.cache.get(user).roles.remove("729706682308886548")
+                        guild.members.cache.get(user).roles.add("712563894350250034")
 
                         console.log(role.id)
                         const general = client.channels.cache.get('707547622591692911')
