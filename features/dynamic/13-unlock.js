@@ -5,7 +5,7 @@ module.exports = (client) => {
         var schedule = require('node-schedule');
         const lockSchema = require('@schemas/14-lockdata')
         let server = '703937875720273972'
-        const general = client.channels.cache.get("754042973850828821")
+        const general = client.channels.cache.get("703937876634894388")
         
 
         var j = schedule.scheduleJob('*/1 * * * *', async function () {
