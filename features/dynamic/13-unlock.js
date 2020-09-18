@@ -20,7 +20,7 @@ module.exports = (client) => {
                     let unlockserver = items.guild
                     let guild = client.guilds.cache.get(unlockserver)
 
-                    
+
                     console.log(unlocktime)
 
                     let currenttime = new Date(Date.now());
@@ -33,7 +33,7 @@ module.exports = (client) => {
                         guild.members.cache.get(user).roles.remove("729706682308886548")
                         guild.members.cache.get(user).roles.add("712563894350250034")
 
-                        console.log(role.id)
+                        
                         const general = client.channels.cache.get('707547622591692911')
                         general.send(`${"<@" + user.id + ">"}, you have now been unlocked`)
                     }
