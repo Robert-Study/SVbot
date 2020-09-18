@@ -20,6 +20,7 @@ module.exports = (client) => {
                     let unlockserver = items.guild
                     let guild = client.guilds.cache.get(unlockserver)
 
+                    
                     console.log(unlocktime)
 
                     let currenttime = new Date(Date.now());
