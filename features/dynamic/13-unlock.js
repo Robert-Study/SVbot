@@ -11,10 +11,10 @@ module.exports = (client) => {
 
             console.log(unlockresults)
 
-            for (items of unlockresults) {
-                let unlocktime = items.endtime
-                let user = items.UserID
-                let unlockserver = items.guild
+            if (unlockresults) {
+                let unlocktime = unlockresults.endtime
+                let user = unlockresults.UserID
+                let unlockserver = unlockresults.guild
                 let guild = client.guilds.cache.get(unlockserver)
 
                 console.log(unlocktime)
