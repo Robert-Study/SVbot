@@ -26,6 +26,7 @@ module.exports = {
             let startTime = new Date(Date.now());
             let endTime = new Date(startTime.getTime() + addtime);
             let structuretime = moment(endTime).format('DD/MM/YYYY-hh:mm')
+
             console.log(endTime)
             console.log(structuretime)
 
@@ -35,6 +36,7 @@ module.exports = {
                 starttime: `${startTime}`,
                 endtime: `${structuretime}`
             }
+
             let result = await lockSchema.findOneAndUpdate(
                 {
                     UserID: `${UserId}`
@@ -42,7 +44,7 @@ module.exports = {
                 {
                     guild: `${server}`,
                     starttime: `${startTime}`,
-                    endtime: `${endTime}`
+                    endtime: `${structuretime}`
                 },
                 {
                     upsert: true,
