@@ -25,7 +25,7 @@ module.exports = {
                 console.log(unlocktime)
                 console.log(timeremaining)
 
-                message.reply(`You are still locked until **${unlocktime}** which is **${timeremaining}** from now`)
+                message.reply(`You are still locked until **${unlocktime} GMT-time**  which is **${timeremaining}** from now`)
             }
         }
     }

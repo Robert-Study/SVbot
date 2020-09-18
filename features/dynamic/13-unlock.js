@@ -5,12 +5,14 @@ module.exports = (client) => {
         var schedule = require('node-schedule');
         const lockSchema = require('@schemas/14-lockdata')
         let server = '703937875720273972'
+        const general = client.channels.cache.get("754042973850828821")
+        
 
         var j = schedule.scheduleJob('*/1 * * * *', async function () {
             let unlockresults = await lockSchema.find({
                 guild: server
             })
-
+            console.log(general)
             console.log(unlockresults)
 
             if (unlockresults) {
@@ -34,7 +36,7 @@ module.exports = (client) => {
                         guild.members.cache.get(user).roles.add("712563894350250034")
 
                         
-                        const general = client.channels.cache.get('707547622591692911')
+                        
                         general.send(`${"<@" + user + ">"}, you have now been unlocked`)
                     }
                 }

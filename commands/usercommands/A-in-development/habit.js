@@ -19,6 +19,7 @@ module.exports = {
         let time = arguments[0];
         let addtime = ms(`${arguments[0]}`)
         if (isNaN(addtime)) { message.reply('An error occured') }
+        if (addtime < 120000) { message.reply(`You can't lock yourself for less than 2m`) }
 
         else {
             console.log(addtime)
@@ -62,7 +63,7 @@ module.exports = {
             message.member.roles.add(role.id);
             message.member.roles.add(focusrole.id);
             message.member.roles.remove(verifiedrole.id);
-            const focus = message.guild.channels.cache.get('754042973850828821');
+            const focus = message.guild.channels.cache.get('730185814822223962');
             const general = message.guild.channels.cache.get('754042973850828821');
             focus.send(`${"<@" + message.author.id + ">"}, you have now been **Locked** in Focus for ${ms(ms(time))}`)
             general.send(`Getting you locked up in there, good luck!`)
