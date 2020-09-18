@@ -18,7 +18,7 @@ module.exports = {
         })
 
         if(unlockresults){
-            for(items of results){
+            for(items of unlockresults){
                 let unlocktime = items.endtime
                 let timeremaining = moment(`${unlocktime}`, "DD/MM/YYYY-hh:mm").fromNow()
 
