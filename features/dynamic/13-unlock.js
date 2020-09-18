@@ -4,13 +4,14 @@ module.exports = (client) => {
         const lockSchema = require('@schemas/14-lockdata')
         let server = '703937875720273972'
 
-        let lockrole = message.guild.roles.cache.find(role => role.name === "Locked in Focus");           
-        let verifiedrole = message.guild.roles.cache.find(role => role.name === "Verified"); 
-        let focusrole =  message.guild.roles.cache.find(role => role.name === "Focused");
+        let lockrole = client.guild.roles.cache.find(role => role.name === "Locked in Focus");           
+        let verifiedrole = client.guild.roles.cache.find(role => role.name === "Verified"); 
+        let focusrole =  client.guild.roles.cache.find(role => role.name === "Focused");
         
-        if(!lockrole) return message.reply("Couldn't find the lock role.")
-        if(!verifiedrole) return message.reply("Couldn't find the lock role.")
-        if(!focusrole) return message.reply("Couldn't find the lock role.")
+
+        if(!lockrole) return console.log("Couldn't find the lock role.")
+        if(!verifiedrole) return console.log("Couldn't find the lock role.")
+        if(!focusrole) return console.log("Couldn't find the lock role.")
 
         var j = schedule.scheduleJob('*/1 * * * *', async function () {
             let unlockresults = lockSchema.find({
