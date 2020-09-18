@@ -5,7 +5,7 @@ module.exports = (client) => {
         let server = '703937875720273972'
 
         var j = schedule.scheduleJob('*/1 * * * *', async function () {
-            let unlockresults = lockSchema.find({
+            let unlockresults = await lockSchema.find({
                 guild: server
             })
 
