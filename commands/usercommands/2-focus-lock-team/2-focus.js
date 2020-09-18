@@ -7,7 +7,7 @@ module.exports = {
         //add member focus role and remove verified role
         message.reply(`went into Focus - don't disturb!`);
         const focus = message.client.channels.cache.get('730185814822223962');
-        focus.send(`Welcome in **Focus** mode <@${message.author.id}> - to exit please use **!leave** to end both the team and the focus use **!end**.`);
+        focus.send(`Welcome in **Focus** mode <@${message.author.id}> - to exit please use **!leavefocus**. To end both the team and the focus use **!end**.`);
         message.member.roles.add('729706682308886548');
         message.member.roles.remove('707547622591692911');
     }
