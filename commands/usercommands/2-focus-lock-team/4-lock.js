@@ -4,7 +4,7 @@ module.exports = {
     commands: ['lock'],
     minArgs: 1,
     requiredRoles: ['Verified', 'Focused'],
-    expectedArgs: '<!todo>',
+    expectedArgs: '<!lock "time in Xm or Xh">',
 
     callback: async (message, arguments, text) => {
         const ms = require('ms')

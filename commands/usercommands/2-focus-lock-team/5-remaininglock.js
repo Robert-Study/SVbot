@@ -4,7 +4,7 @@ module.exports = {
     commands: ['remaining'],
     minArgs: 0,
     maxArgs: 0,
-    expectedArgs: '<!todo>',
+    expectedArgs: '<!remaining>',
 
     callback: async (message, arguments, text) => {
         const ms = require('ms')
