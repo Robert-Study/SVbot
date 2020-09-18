@@ -41,7 +41,6 @@ module.exports = (client) => {
                         .addFields(
                             { name: `\u200B`, value: `**${reply}**\n*We all wish you a very nice day!🎉* ` },
                         )
-
                     let reacttoday = await announcementchannel.send(todayEmbed);
                     reacttoday.react('🎉')
                     reacttoday.react('🎈')
