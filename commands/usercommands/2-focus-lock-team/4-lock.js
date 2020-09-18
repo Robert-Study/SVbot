@@ -3,7 +3,7 @@ const lockSchema = require('@schemas/14-lockdata')
 module.exports = {
     commands: ['lock'],
     minArgs: 1,
-    requiredRoles: ['Verified', 'Focused'],
+    requiredRoles: ['Verified'],
     expectedArgs: '<!lock "time in Xm or Xh">',
 
     callback: async (message, arguments, text) => {

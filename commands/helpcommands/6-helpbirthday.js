@@ -1,5 +1,5 @@
 module.exports = {
-    commands: ['infobirthday', 'helpbd'],
+    commands: ['infobirthday', 'helpbd', 'infobd'],
     minArgs: 0,
     maxArgs: 0,
     callback: (message, arguments, text) => {
@@ -7,9 +7,12 @@ module.exports = {
         const focusembed = new Discord.MessageEmbed()
         .setColor('#337f4e')
         .addFields(
-            { name: 'Set up your Birthday!', value: ` If you want to be added to the Birthday list and get mentioned on your birthday in the server (+birthday role) use: **!bdadd DD/MM** (*example: !bdadd 28/12*). 
+            { name: 'Set up your Birthday!', value: ` If you want to be added to the Birthday list and get mentioned on your birthday in the server (+birthday role) use: 
+            **!bdadd DD/MM** (*example: !bdadd 28/12*). 
             *Note: use the DD/MM structure!*
-            Use: **!bdremove** to remove yourself from the birthday list.` }
+            
+            Use: **!bdremove** to remove yourself from the birthday list.
+            Use: **!bd** to show your birthday and in how many days/months this is.` }
             )
     message.channel.send(focusembed);
     }

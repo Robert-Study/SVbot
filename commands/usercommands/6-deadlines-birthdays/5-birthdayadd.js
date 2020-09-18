@@ -31,6 +31,6 @@ module.exports = {
                 new: true
             })
 
-        message.reply(`Your birthday on the ${date} has been saved!`)
+        message.reply(`Your birthday on the **${date}** has been saved!`)
     }
 }
