@@ -15,6 +15,7 @@ const birthdayschema = mongoose.Schema({
     type: String,
     required: true,
   },
+  
 })
 
 module.exports = mongoose.model('13-birthdays', birthdayschema)
