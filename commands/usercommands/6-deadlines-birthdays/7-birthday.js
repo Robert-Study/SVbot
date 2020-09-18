@@ -24,6 +24,6 @@ module.exports = {
                 let fromnow = moment(`${birthday}`, "DD/MM").fromNow();
                 message.reply(`, your birthday is on the **${birthday}** which is **${fromnow}**`)
             
-        } else { message.reply('could not find a birthday for you, please use !bdadd DD/MM to add your birthday!') }
+        } else { message.reply('could not find a birthday for you, please use **!bdadd DD/MM** to add your birthday!') }
     }
 }
