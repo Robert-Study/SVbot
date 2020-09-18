@@ -10,7 +10,7 @@ module.exports = {
         const mention = message.author
         const UserID = mention.id
 
-        let result = await bdSchema.findOne(
+        let results = await bdSchema.findOne(
             {
                 UserID: `${UserID}`
             })

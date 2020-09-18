@@ -1,5 +1,5 @@
 module.exports = {
-    commands: ['infobirthday', 'helpbd', 'bd', 'birthday'],
+    commands: ['infobirthday', 'helpbd'],
     minArgs: 0,
     maxArgs: 0,
     callback: (message, arguments, text) => {
