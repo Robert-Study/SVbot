@@ -4,15 +4,6 @@ module.exports = (client) => {
         const lockSchema = require('@schemas/14-lockdata')
         let server = '703937875720273972'
 
-        let lockrole = client.guild.roles.cache.find(role => role.name === "Locked in Focus");           
-        let verifiedrole = client.guild.roles.cache.find(role => role.name === "Verified"); 
-        let focusrole =  client.guild.roles.cache.find(role => role.name === "Focused");
-        
-
-        if(!lockrole) return console.log("Couldn't find the lock role.")
-        if(!verifiedrole) return console.log("Couldn't find the lock role.")
-        if(!focusrole) return console.log("Couldn't find the lock role.")
-
         var j = schedule.scheduleJob('*/1 * * * *', async function () {
             let unlockresults = lockSchema.find({
                 guild: server
@@ -23,6 +14,9 @@ module.exports = (client) => {
             for (items of unlockresults) {
                 let unlocktime = items.endtime
                 let user = items.UserID
+                let unlockserver = items.guild
+                let guild = client.guilds.cache.get(unlockserver)
+
                 console.log(unlocktime)
 
                 let currenttime = new Date(Date.now());
@@ -31,11 +25,12 @@ module.exports = (client) => {
                 console.log(currenttime)
 
                 if (unlocktime === current) {
-                    user.roles.remove(role.id);
-                    user.roles.remove(focusrole.id);
-                    user.roles.add(verifiedrole.id);
+                    guild.members.cache.get(UserId).roles.remove("735089477088837673")
+                    guild.members.cache.get(UserId).roles.remove("729706682308886548")
+                    guild.members.cache.get(UserId).roles.add("712563894350250034")
 
                     console.log(role.id)
+                    const general = client.channels.cache.get('707547622591692911')
                     general.send(`${"<@" + user.id + ">"}, you have now been unlocked`)
                 }
             }

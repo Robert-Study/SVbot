@@ -48,8 +48,8 @@ module.exports = {
             message.member.roles.add(role.id);
             message.member.roles.add(focusrole.id);
             message.member.roles.remove(verifiedrole.id);
-            const focus = message.guild.channels.cache.get('730185814822223962');
-            const general = message.guild.channels.cache.get('703937876634894388');
+            const focus = message.guild.channels.cache.get('754042973850828821');
+            const general = message.guild.channels.cache.get('754042973850828821');
             focus.send(`${"<@" + message.author.id + ">"}, you have now been **Locked** in Focus for ${ms(ms(time))}`)
             general.send(`Getting you locked up in there, good luck!`)
         }
