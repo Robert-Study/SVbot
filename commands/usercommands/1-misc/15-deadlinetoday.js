@@ -20,7 +20,7 @@ module.exports = {
         console.log(dlresults)
 
         if (dlresults && dlresults.length > 0) {
-            let reply = ''
+            let reply = '.'
             try {
                 for (items of dlresults) {
                     let User = await message.guild.members.fetch(items.UserID)
