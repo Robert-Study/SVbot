@@ -24,6 +24,7 @@ module.exports = {
             try {
                 for (items of dlresults) {
                     let User = await message.guild.members.fetch(items.UserID)
+                    if(!User){let User = 'Deleted or unknown User'}
                     let deadline = items.dltext
                     console.log(deadline)
 
