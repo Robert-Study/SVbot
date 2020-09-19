@@ -1,6 +1,6 @@
 module.exports = (client) => {
     client.on('ready', async () => {
-        
+
         var schedule = require('node-schedule');
 
         var j = schedule.scheduleJob('0 5 * * *', async function () {
@@ -28,13 +28,17 @@ module.exports = (client) => {
                 let reply = ':'
                 try {
                     for (items of dlresults) {
-                        let User = await client.users.fetch(items.UserID)
-                        let UserId = items.UserID
-                        let deadline = items.dltext
-                        console.log(deadline)
-                        guild.members.cache.get(UserId).roles.add("755924266779672596")
+                        try {
+                            let User = await client.users.fetch(items.UserID)
 
-                        reply += `${User} deadline: *${deadline}*\n\n`
+                            let UserId = items.UserID
+                            let deadline = items.dltext
+                            console.log(deadline)
+                            guild.members.cache.get(UserId).roles.add("755924266779672596")
+
+                            reply += `${User} deadline: *${deadline}*\n\n`
+
+                        } catch { console.log('user-not found') }
                     }
                 } finally {
                     const todayEmbed = new Discord.MessageEmbed()
@@ -45,20 +49,20 @@ module.exports = (client) => {
                         )
 
                     let reacttoday = await announcementchannel.send(todayEmbed);
-                    reacttoday.react('🍀')                  
+                    reacttoday.react('🍀')
                 }
-            }else{announcementchannel.send('No deadlines for today!')}
+            } else { announcementchannel.send('No deadlines for today!') }
 
             let yesterdayresults = await Deadlineschema.find({
                 date: yesterday
             })
             console.log(yesterdayresults)
 
-            if(yesterdayresults){
-                for(results of yesterdayresults){
-                let oldUserID = results.UserID
+            if (yesterdayresults) {
+                for (results of yesterdayresults) {
+                    let oldUserID = results.UserID
 
-                guild.members.cache.get(oldUserID).roles.remove("755924266779672596")
+                    guild.members.cache.get(oldUserID).roles.remove("755924266779672596")
                 }
             }
 

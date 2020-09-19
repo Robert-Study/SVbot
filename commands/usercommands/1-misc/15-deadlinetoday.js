@@ -23,12 +23,14 @@ module.exports = {
             let reply = '.'
             try {
                 for (items of dlresults) {
+                    try{
                     let User = await message.guild.members.fetch(items.UserID)
-                    if(!User){let User = 'Deleted or unknown User'}
+                    
                     let deadline = items.dltext
                     console.log(deadline)
 
                     reply += `**${User}** deadline: *${deadline}*\n\n`
+                    }catch{console.log('user not found')}
                 }
             } finally {
                 const todayEmbed = new Discord.MessageEmbed()
