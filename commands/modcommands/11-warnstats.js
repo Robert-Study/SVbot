@@ -26,17 +26,17 @@ module.exports = {
 
         console.log(messages)
 
-        for (items of messages) {
-            let messagecount = items.messageCount
-            console.log(messagecount)
+
+        let messagecount = messages.messageCount
+        console.log(messagecount)
 
 
 
-            let average = (messagecount / count)
-            console.log(average)
+        let average = (messagecount / count)
+        console.log(average)
 
-            message.reply(`Warning stats for this user: ${average}`)
-        }
+        message.reply(`Warning stats for this user: ${average}`)
+
     }
 }
 
