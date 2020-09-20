@@ -8,7 +8,6 @@ module.exports = (client) => {
 
     if (message.author.bot) return;
     if (message.channel.id === "746831486451187753") return;
-
     for (var i = 0; i < flaggedwords.length; i++) {
       if (message.content.includes(flaggedwords[i])) {
         message.delete()
