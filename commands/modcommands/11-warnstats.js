@@ -7,6 +7,7 @@ module.exports = {
     callback: async (message, arguments, text) => {
         var person = message.guild.member(message.mentions.users.first());
         if (!person) return message.reply("I CANT FIND THE USER " + person);
+        let user = person.id
 
         const warningcountSchema = require('@schemas/1-warningcount')
         const messageCountSchema = require('@schemas/12-messagecount')
@@ -20,7 +21,7 @@ module.exports = {
         console.log(count)
 
         let messages = await messageCountSchema.findOne({
-            UserId: person
+            UserId: user
         })
 
         console.log(messages)
