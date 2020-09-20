@@ -13,10 +13,10 @@ module.exports = {
 
 
         warnings = await warningcountSchema.findOne({
-            UserID: author
+            UserID: person
         })
         messages = await messageCountSchema.findOne({
-            Userid: author
+            Userid: person
         })
 
         for (items of warnings) {
