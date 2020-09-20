@@ -20,7 +20,7 @@ module.exports = {
         console.log(count)
 
         let messages = await messageCountSchema.findOne({
-            Userid: person
+            UserId: person
         })
 
 
