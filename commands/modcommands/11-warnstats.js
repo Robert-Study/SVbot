@@ -12,25 +12,28 @@ module.exports = {
         const messageCountSchema = require('@schemas/12-messagecount')
 
 
-        warnings = await warningcountSchema.findOne({
+        let warnings = await warningcountSchema.findOne({
             UserID: person
         })
-        messages = await messageCountSchema.findOne({
-            Userid: person
-        })
-
         for (items of warnings) {
             let count = items.warnings
+
+            let messages = await messageCountSchema.findOne({
+                Userid: person
+            })
+
             for (counts of messages) {
                 let messagecount = items.messageCount
 
-                let average = (messagecount/count)
-        
+
+
+                let average = (messagecount / count)
+
                 message.reply(`Warning stats for this user: ${average}`)
             }
         }
+
     }
+
 }
-
-
 
