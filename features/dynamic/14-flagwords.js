@@ -1,6 +1,7 @@
 module.exports = (client) => {
 
   client.on("message", async (message) => {
+    return;
 
     const { flaggedwords } = require('@JSON/flaggedwords.json');
     const { member, content, guild } = message
