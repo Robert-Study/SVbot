@@ -14,7 +14,7 @@ module.exports = (client) => {
         message.delete()
         message.reply('your message was flagged for inappropriate content. A moderator will be here soon.')
         message.channel.send(`<@&707581746937462794> __Flagged message:__\n||${content}||`)
-        
+        break;
       }
       
     }
