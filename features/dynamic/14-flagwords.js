@@ -11,7 +11,7 @@ module.exports = (client) => {
             if (message.content.includes(flaggedwords[i])) {
               message.delete()
               message.reply('your message was flagged for inappropriate content. A moderator will be here soon.')
-              message.channel.send(`Flagged message: \n\n |${content}|`)
+              message.channel.send(`Flagged message:\n||${content}||`)
               break;
             }
           }
