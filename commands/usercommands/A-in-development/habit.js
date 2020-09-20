@@ -4,6 +4,7 @@ module.exports = {
     expectedArgs: '<!dladd 28/08/2020 Exam on...>',
 
     callback: async (message, arguments, text) => {
+        return
         let days = arguments[0]
         let habit = arguments.slice(1).join(" ")
         const mention = message.author
@@ -12,14 +13,25 @@ module.exports = {
 
         
 
-        let count = await annoncountschema.findOne({
-            UserID
-        })
+        let count = await annoncountschema.findOneAndUpdate(
+            {
+                UserId: UserID,
+            },
+            {
+                $inc: {
+                    messageCount: 0,
+                },
+            },
+            {
+                upsert: true,
+                new: true,
+            }
+        )
 
         if (count) {
             for (items of count) {
                 let counted = items.messageCount
-
+                console.log(counted)
 
 
                 if (days = 1 || days === "mon") {
@@ -57,17 +69,17 @@ module.exports = {
                     let savedate = 7
                 }
 
-                if (days = 1 - 5 || days === "everyday") {
+                if (days = 1-7 || days === "everyday") {
                     let day = weekdays
                     let savedate = 8
                 }
 
-                if (days = 1 - 7 || days === "weekday") {
+                if (days = 1-5|| days === "weekday") {
                     let day = everyday
                     let savedate = 9
                 }
 
-                if (days = 6 - 7 || days === "weekend") {
+                if (days = 6-7 || days === "weekend") {
                     let day = weekend
                     let savedate = 10
                 }

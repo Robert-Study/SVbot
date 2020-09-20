@@ -3,7 +3,7 @@ module.exports = {
   description: 'Displays who has invited the most members',
   permissions: 'BAN_MEMBERS',
   callback: (message) => {
-    return
+    
     const { guild } = message
 
     guild.fetchInvites().then((invites) => {

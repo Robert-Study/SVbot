@@ -1,0 +1,48 @@
+module.exports = {
+    commands: ['sup', 'support'],
+    minArgs: 1,
+    maxArgs: 1,
+    permissions: 'BAN_MEMBERS',
+
+    callback: async (message, arguments, text) => {
+        return
+        const warningcountSchema = require('@schemas/1-warningcount')
+        const logchannel = message.guild.channels.cache.get('730029372697870347');
+
+        message.delete()
+        var person = message.guild.member(message.mentions.users.first());
+        if (!person) return message.reply("I CANT FIND THE USER " + person);
+        message.channel.send(`${"<@" + person.user.id + ">"}, a moderator is awkwardly staring at you.. 👀 
+        **Please behave according to the rules!**`)
+        
+        UserID = person
+
+        console.log('Searching the database for warnings')
+
+        const results = await warningcountSchema
+            .findOneAndUpdate(
+                {
+                    UserID: UserID,
+                },
+                {
+                    $inc: {
+                        warnings: 1,
+                    },
+                },
+                {
+                    upsert: true,
+                }
+            )
+            .exec()
+
+        const result = await warningcountSchema.findOne({
+            UserID
+        })
+
+        if (result.warnings >= 3) {
+            logchannel.send(`**${"<@" + person.user.id + ">"} has been warned by ${"<@" + message.author.id + ">"}**, **this is already their #${result.warnings} warning! Please take action against this user.**`)
+
+        } else { logchannel.send(`**${"<@" + person.user.id + ">"} has been warned by ${"<@" + message.author.id + ">"}**, this is their #${result.warnings} warning.`) }
+    }
+}
+
