@@ -17,6 +17,7 @@ module.exports = {
         })
 
         let count = warningcount.warnings
+        console.log(count)
 
         let messages = await messageCountSchema.findOne({
             Userid: person
@@ -24,10 +25,12 @@ module.exports = {
 
 
         let messagecount = messages.messageCount
+        console.log(messagecount)
 
 
 
-        let average = (messagecount / count)
+        let average = (messagecount/count)
+        console.log(average)
 
         message.reply(`Warning stats for this user: ${average}`)
     }
