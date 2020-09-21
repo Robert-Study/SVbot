@@ -62,6 +62,8 @@ module.exports = (client) => {
                 for (results of yesterdayresults) {
                     let oldUserID = results.UserID
 
+                    console.log(oldUserID)
+
                     guild.members.cache.get(oldUserID).roles.remove("755924266779672596")
                 }
             }

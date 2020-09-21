@@ -60,7 +60,7 @@ module.exports = (client) => {
         let average = (messagecount / count)
         console.log(average)
 
-        if ((messagecount / count) < 200) {
+        if ((messagecount / count) < 50) {
 
           guild.members.cache.get(UserId).roles.remove("707547622591692911")
 
@@ -116,7 +116,7 @@ module.exports = (client) => {
           }).catch(err => {
             message.channel.send("Something went wrong");
           });
-
+          
 
 
           break;
