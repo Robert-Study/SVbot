@@ -18,7 +18,7 @@ module.exports = {
         if (results) {
             let sortmyresults = results
             console.log(sortmyresults)
-            let reply = '**Your To-do List:** \n\n'
+            let reply = '**Your To-do List:** \n'
             for (const newresult of sortmyresults) {
                 reply += `**${newresult.todocount})** *${newresult.todo}*\n`
             }
