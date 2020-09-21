@@ -35,11 +35,12 @@ module.exports = (client) => {
               }
             )
             .exec()
-
+        console.log(results)
         let warningcount = await warningcountSchema.findOne({
           UserID: author
         })
-
+        console.log(warningcount)
+        
         let count = warningcount.warnings
         console.log(count)
 
