@@ -37,7 +37,7 @@ module.exports = (client) => {
 
                         
                         
-                        general.send(`${"<@" + user + ">"}, you have now been **unlocked**`)
+                        general.send(`${"<@" + user + ">"}, you have now been **🔐 unlocked** 🔐`)
                     }
                 }
             }
