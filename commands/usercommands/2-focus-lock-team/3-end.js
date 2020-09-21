@@ -9,7 +9,6 @@ module.exports = {
 
         //if member is locked -> cannot do this
         if (message.member.roles.cache.has('735089477088837673')) {
-            
             message.channel.send('You are **Locked in Focus** and cannot do that now! If you are stuck please write the command **!ticket** to get you in a Support Channel.')
 
         } else {
