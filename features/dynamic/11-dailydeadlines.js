@@ -66,7 +66,7 @@ module.exports = (client) => {
                 }
             }
 
-            console.log('The answer to life, the universe, and everything!');
+            console.log('Sending the deadlines of today to announcements');
 
         });
     })
