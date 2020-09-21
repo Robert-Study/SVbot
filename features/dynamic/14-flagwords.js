@@ -41,109 +41,106 @@ module.exports = (client) => {
         })
         console.log(warningcount)
 
-        for (items of warningcount) {
-          let
-          count = items.warnings
+
+        let count = warningcount.warnings
 
 
-          console.log(count)
+        console.log(count)
 
-          let messages = await messageCountSchema.findOne({
-            UserId: author
-          })
+        let messages = await messageCountSchema.findOne({
+          UserId: author
+        })
 
-          console.log(messages)
-
-
-          let messagecount = messages.messageCount
-          console.log(messagecount)
-
-          let average = (messagecount / count)
-          console.log(average)
+        console.log(messages)
 
 
+        let messagecount = messages.messageCount
+        console.log(messagecount)
 
-          if ((messagecount / count) < 200) {
+        let average = (messagecount / count)
+        console.log(average)
 
-            guild.members.cache.get(UserId).roles.remove("707547622591692911")
+        if ((messagecount / count) < 200) {
 
-            const categoryId = "703937876634894387";
-            let role = message.guild.roles.cache.find(role => role.name === "@everyone");
-            let modrole = message.guild.roles.cache.find(role => role.name === "StudyVibes Team");
-            var userName = message.author.username;
-            var userDiscriminator = message.author.discriminator;
+          guild.members.cache.get(UserId).roles.remove("707547622591692911")
 
-            var bool = false;
+          const categoryId = "703937876634894387";
+          let role = message.guild.roles.cache.find(role => role.name === "@everyone");
+          let modrole = message.guild.roles.cache.find(role => role.name === "StudyVibes Team");
+          var userName = message.author.username;
+          var userDiscriminator = message.author.discriminator;
 
-            message.guild.channels.cache.forEach((channel) => {
-              if (channel.name == userName.toLowerCase() + "-" + userDiscriminator) {
+          var bool = false;
 
-                bool = true;
-              }
-            });
+          message.guild.channels.cache.forEach((channel) => {
+            if (channel.name == userName.toLowerCase() + "-" + userDiscriminator) {
 
-            if (bool == true) return;
+              bool = true;
+            }
+          });
 
-            message.guild.channels.create(userName + "-" + userDiscriminator, "text").then((createdChan) => {
-              createdChan.setParent(categoryId).then((settedParent) => {
-                settedParent.updateOverwrite(role, {
-                  "VIEW_CHANNEL": false,
-                  "READ_MESSAGES": false, "SEND_MESSAGES": false,
-                  "ATTACH_FILES": false, "CONNECT": false,
-                  "CREATE_INSTANT_INVITE": false, "ADD_REACTIONS": false
-                });
+          if (bool == true) return;
 
-                settedParent.updateOverwrite(modrole, {
-                  "VIEW_CHANNEL": true,
-                  "READ_MESSAGES": true, "SEND_MESSAGES": true,
-                  "ATTACH_FILES": true, "CONNECT": true,
-                  "CREATE_INSTANT_INVITE": true, "ADD_REACTIONS": true
-                });
-
-                settedParent.updateOverwrite(message.author, {
-                  "VIEW_CHANNEL": true,
-                  "READ_MESSAGES": true, "SEND_MESSAGES": true,
-                  "ATTACH_FILES": true, "CONNECT": true,
-                  "CREATE_INSTANT_INVITE": false, "ADD_REACTIONS": true
-                });
-
-                var embedParent = new discord.MessageEmbed()
-                  .setTitle("Hi, " + message.author.username.toString())
-                  .setDescription(`You have been quarantained for security reasons. A mod will be here shortly`);
-
-                settedParent.send(embedParent);
-              }).catch(err => {
-                message.channel.send("Something went wrong");
+          message.guild.channels.create(userName + "-" + userDiscriminator, "text").then((createdChan) => {
+            createdChan.setParent(categoryId).then((settedParent) => {
+              settedParent.updateOverwrite(role, {
+                "VIEW_CHANNEL": false,
+                "READ_MESSAGES": false, "SEND_MESSAGES": false,
+                "ATTACH_FILES": false, "CONNECT": false,
+                "CREATE_INSTANT_INVITE": false, "ADD_REACTIONS": false
               });
 
+              settedParent.updateOverwrite(modrole, {
+                "VIEW_CHANNEL": true,
+                "READ_MESSAGES": true, "SEND_MESSAGES": true,
+                "ATTACH_FILES": true, "CONNECT": true,
+                "CREATE_INSTANT_INVITE": true, "ADD_REACTIONS": true
+              });
+
+              settedParent.updateOverwrite(message.author, {
+                "VIEW_CHANNEL": true,
+                "READ_MESSAGES": true, "SEND_MESSAGES": true,
+                "ATTACH_FILES": true, "CONNECT": true,
+                "CREATE_INSTANT_INVITE": false, "ADD_REACTIONS": true
+              });
+
+              var embedParent = new discord.MessageEmbed()
+                .setTitle("Hi, " + message.author.username.toString())
+                .setDescription(`You have been quarantained for security reasons. A mod will be here shortly`);
+
+              settedParent.send(embedParent);
             }).catch(err => {
               message.channel.send("Something went wrong");
             });
 
+          }).catch(err => {
+            message.channel.send("Something went wrong");
+          });
 
 
-            break;
 
-          } else {
-            const results = await warningcountSchema
-              .findOneAndUpdate(
-                {
-                  UserID: mention,
+          break;
+
+        } else {
+          const results = await warningcountSchema
+            .findOneAndUpdate(
+              {
+                UserID: mention,
+              },
+              {
+                $inc: {
+                  warnings: 1,
                 },
-                {
-                  $inc: {
-                    warnings: 1,
-                  },
-                },
-                {
-                  upsert: true,
-                }
-              )
-              .exec()
+              },
+              {
+                upsert: true,
+              }
+            )
+            .exec()
 
-            break;
-          }
+          break;
         }
+
       }
     }
   })
