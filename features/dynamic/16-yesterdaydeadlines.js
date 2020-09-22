@@ -3,9 +3,10 @@ module.exports = (client) => {
 
         var schedule = require('node-schedule');
 
-        var j = schedule.scheduleJob('8 * * * *', async function () {
+        var j = schedule.scheduleJob('10 * * * *', async function () {
             const Deadlineschema = require("@schemas/3-deadlineschema")
             var moment = require('moment');
+            const guild = client.guilds.cache.get('703937875720273972');
             
 
             let yesterday = moment().subtract(1, 'days')
