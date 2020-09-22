@@ -3,7 +3,7 @@ module.exports = (client) => {
 
         var schedule = require('node-schedule');
 
-        var j = schedule.scheduleJob('5 * * * *', async function () {
+        var j = schedule.scheduleJob('22 * * * *', async function () {
             const Deadlineschema = require("@schemas/3-deadlineschema")
             const birthdayschema = require("@schemas/13-birthdayschema")
             var moment = require('moment');
@@ -12,6 +12,7 @@ module.exports = (client) => {
 
             let yesterday = moment().subtract(1, 'days')
             let yesterdayformat = moment(yesterday).format("DD/MM/YYYY")
+            let birthdayformat = moment(yesterday).format("DD/MM")
 
             let yesterdayresults = await Deadlineschema.find({
                 date: yesterdayformat
@@ -29,7 +30,7 @@ module.exports = (client) => {
 
             }
             let birthdayresults = await birthdayschema.find({
-                date: yesterday
+                date: birthdayformat
             })
             console.log(birthdayresults)
 
@@ -45,3 +46,6 @@ module.exports = (client) => {
         })
     })
 }
+
+//712563894350250034
+//422751083010457600
