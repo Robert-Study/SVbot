@@ -3,11 +3,11 @@ module.exports = (client) => {
 
         var schedule = require('node-schedule');
 
-        var j = schedule.scheduleJob('10 * * * *', async function () {
+        var j = schedule.scheduleJob('0 * * * *', async function () {
             const Deadlineschema = require("@schemas/3-deadlineschema")
             var moment = require('moment');
             const guild = client.guilds.cache.get('703937875720273972');
-            
+
 
             let yesterday = moment().subtract(1, 'days')
             let yesterdayformat = moment(yesterday).format("DD/MM/YYYY")
@@ -24,8 +24,23 @@ module.exports = (client) => {
                     console.log(oldUserID)
 
                     guild.members.cache.get(oldUserID).roles.remove("755924266779672596")
+                };
+
+            }
+            let birthdayresults = await birthdayschema.find({
+                date: yesterday
+            })
+            console.log(birthdayresults)
+
+            if (birthdayresults) {
+                for (results of birthdayresults) {
+                    let oldUserID = results.UserID
+
+                    guild.members.cache.get(oldUserID).roles.remove("712563894350250034")
                 }
             }
+
+            console.log('Birthdays today!');
         })
     })
 }
