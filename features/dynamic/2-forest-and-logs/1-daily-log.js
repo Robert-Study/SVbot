@@ -1,8 +1,8 @@
-const { schema } = require('../../../schemas/1-logcountuser');
+
 
 module.exports = (client) => {
     client.on('ready', async () => {
-        return
+
 
         var schedule = require('node-schedule');
 
@@ -11,25 +11,17 @@ module.exports = (client) => {
 
         const GuildID = "703937875720273972"
 
-        var j = schedule.scheduleJob('0 5 * * *', async function () {
-            let today = await todaycountschema.find({
-                GuildID: GuildID,
-            })
+        var j = schedule.scheduleJob('48 * * * *', async function () {
 
-            if (today) {
-                for (items of today) {
-                    let todaycount = items.daily
-                    console.log(todaycount)
-                }
 
-                let newresult = await todaycountschema.update({
-                    GuildID: GuildID
-                },
+            let newresult = await todaycountschema.update({
+                GuildID: GuildID
+            },
                 {
                     daily: 0
                 })
 
-            }
+
         })
     })
 }
