@@ -5,45 +5,57 @@ module.exports = {
     callback: async (message, arguments, text) => {
         const target = message.mentions.users.first() || message.author
         const targetId = target.id
-        
+        const GuildID = "703937875720273972"
 
-        const userdataSchema = require('@schemas/10-totalstudytimeschema')
-        const userdocumentSchema = require('@schemas/2-logcountschema')
+
+        const userdataSchema = require('@schemas/1-logcountuser')
+        const userdocumentSchema = require('@schemas/1-logcountuser')
         const UserID = target.id
 
 
         const logperson = await userdocumentSchema.find({
+            GuildID,
             UserID
         })
         for (person of logperson) {
-            const personaltime = person.timeLog
+            const daily = person.daily
+            const weekly = person.weekly
+            const monthly = person.monthly
+            const alltime = person.alltime
 
-            console.log('Searching the database for Deadlines')
-            console.log(personaltime)
+            console.log('Searching the database for logs')
+            console.log(daily)
             const results = await userdataSchema.find({
+                GuildID,
                 UserID: 'anon'
             })
             for (const time of results) {
-                const totaltime = time.timeLog
-                console.log(totaltime)
+                const alldaily = time.daily
+                const allweekly = time.weekly
+                const allmonthly = time.monthly
+                const allalltime = time.alltime
+
                 const users = await userdocumentSchema.countDocuments({
-                    barcode: 101,
+                    GuildID: GuildID
                 })
+
                 console.log(users)
-                let averagenotround = (totaltime / users)
-                let average = Math.round(averagenotround * 10) / 10
-                console.log(average)
-                if (personaltime > average) {
-                    message.reply(`You have been planting trees for ${personaltime} hours with us this week, the total hours of the server is ${totaltime} by ${users} users! That makes an average of ${average} hours per user. **Good job!**`)
 
-                } else if (personaltime < average) {
-                    message.reply(`You have been planting trees for ${personaltime} hours with us this week, the total hours of the server is ${totaltime} by ${users} users! That makes an average of ${average} hours per user.`)
+                let averagedaily = (alldaily/users)
+                let dailyround = Math.round(averagedaily * 10) / 10
 
-                } else if (personaltime = average) {
-                    message.reply(`You have been planting trees for ${personaltime} hours with us this week, the total hours of the server is ${totaltime} by ${users} users! That makes an average of ${average} hours per user. **You are exactly on average, wow!**`)
+                let averageweekly = (allweekly/users)
+                let weeklyround = Math.round(averageweekly * 10) / 10
 
-                }
+                let averagemonthly = (allmonthly/users)
+                let monthround = Math.round(averagemonthly * 10) / 10
 
+                let averageall = (allalltime/users)
+                let allround = Math.round(averageall * 10) / 10
+
+
+
+                message.channel.send(`**__Study time for ${target}__**\n\n**${daily}** hours today (*average: ${dailyround}*)\n**${weekly}** hours this week (*average: ${weeklyround}*)\n**${monthly}** hours this month (*average: ${monthround})\n**${alltime}** hours all-time (*average: ${allround})\n`)
             }
         }
 
