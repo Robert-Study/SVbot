@@ -9,8 +9,29 @@ module.exports = {
         if (!person) return message.reply("I CANT FIND THE USER " + person);
         let user = person.id
 
-        const warningcountSchema = require('@schemas/1-warningcount')
+        const warningcountSchema = require('@schemas/16-userstats')
         const messageCountSchema = require('@schemas/12-messagecount')
+
+        const results = await warningcountSchema
+            .findOneAndUpdate(
+                {
+                    UserID: mention,
+                },
+                {
+                    $inc: {
+                        positive: 0,
+                        modwarn: 0,
+                        warnings: 0
+                    },
+                },
+                {
+                    upsert: true,
+                    new: true,
+                }
+            )
+            .exec()
+        console.log(results)
+
 
 
         let warningcount = await warningcountSchema.findOne({
@@ -18,7 +39,12 @@ module.exports = {
         })
 
         let count = warningcount.warnings
+        let modwarn = warningcount.modwarnings
+        let positive = warningcount.positive
+
         console.log(count)
+        console.log(modwarn)
+        console.log(positive)
 
         let messages = await messageCountSchema.findOne({
             UserId: user
@@ -32,10 +58,10 @@ module.exports = {
 
 
 
-        let average = (messagecount / count)
+        let average = (messagecount / (count + modwarn) * positive)
         console.log(average)
 
-        message.reply(`Warning stats for this user: ${average}`)
+        message.reply(`**warning stats for this user:**\nTotal score:${average}\nPositive flags: ${positive}\nNegative flags (inc Silent): ${count}\nWarnings by mods: ${modwarn}`)
 
     }
 }

@@ -13,10 +13,10 @@ module.exports = (client) => {
     for (var i = 0; i < flaggedwords.length; i++) {
       if (message.content.includes(flaggedwords[i])) {
         const warningcountSchema = require('@schemas/1-warningcount')
-        const messageCountSchema = require('@schemas/12-messagecount')
+        const messageCountSchema = require('@schemas/16-userstats')
 
         message.delete()
-        message.reply('your message was flagged for inappropriate content. A moderator will be here soon.')
+        message.reply('your message was flagged for inappropriate content.')
         message.channel.send(` __Flagged message:__\n||${content}||`)
 
         const results = await warningcountSchema
@@ -26,7 +26,9 @@ module.exports = (client) => {
             },
             {
               $inc: {
-                warnings: 1,
+                warnings: 2,
+                positive: 0,
+                modwarns: 0,
               },
             },
             {
@@ -39,10 +41,13 @@ module.exports = (client) => {
         let warningcount = await warningcountSchema.findOne({
           UserID: mention
         })
+
         console.log(warningcount)
 
 
         let count = warningcount.warnings
+        let positive = warningcount.positive
+        let modwarn = warningcount.modwarns
 
 
         console.log(count)
@@ -57,10 +62,28 @@ module.exports = (client) => {
         let messagecount = messages.messageCount
         console.log(messagecount)
 
-        let average = (messagecount / count)
+        let average = (messagecount / (count + modwarn) * positive)
         console.log(average)
 
-        if ((messagecount / count) < 50) {
+        const newresults = await warningcountSchema
+          .findOneAndUpdate(
+            {
+              UserID: mention,
+            },
+            {
+
+              average: average,
+
+            },
+            {
+              upsert: true,
+              new: true,
+            }
+          )
+          .exec()
+        console.log(newresults)
+
+        if ((average) < 50) {
 
           guild.members.cache.get(UserId).roles.remove("707547622591692911")
 
@@ -116,7 +139,7 @@ module.exports = (client) => {
           }).catch(err => {
             message.channel.send("Something went wrong");
           });
-          
+
 
 
           break;
@@ -130,6 +153,8 @@ module.exports = (client) => {
               {
                 $inc: {
                   warnings: 1,
+                  positive: 0,
+                  modwarns: 0,
                 },
               },
               {
@@ -142,6 +167,8 @@ module.exports = (client) => {
         }
 
       }
+
+
     }
   })
 }
