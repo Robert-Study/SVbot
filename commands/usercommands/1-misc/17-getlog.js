@@ -55,7 +55,7 @@ module.exports = {
 
 
 
-                message.channel.send(`**__Study time for ${target}__**\n\n**${daily}** hours today (*average: ${dailyround}*)\n**${weekly}** hours this week (*average: ${weeklyround}*)\n**${monthly}** hours this month (*average: ${monthround})\n**${alltime}** hours all-time (*average: ${allround})\n`)
+                message.channel.send(`**__Study time for ${target}__**\n\n**${daily}** hours today (*average: ${dailyround}*)\n**${weekly}** hours this week (*average: ${weeklyround}*)\n**${monthly}** hours this month (*average: ${monthround}*)\n**${alltime}** hours all-time (*average: ${allround}*)\n`)
             }
         }
 

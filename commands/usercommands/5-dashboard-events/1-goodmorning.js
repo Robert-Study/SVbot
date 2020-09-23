@@ -11,12 +11,13 @@ module.exports = {
         const todocountSchema = require('@schemas/7-todocountschema')
         const userdataSchema = require('@schemas/9-userinfoschema')
         const usertimeSchema = require('@schemas/10-totalstudytimeschema')
-        const userdocumentSchema = require('@schemas/2-logcountschema')
+        const userdocumentSchema = require('@schemas/1-logcountuser')
         const { randomQuotes } = require('@JSON/randomQuotes.json');
         let getquote = randomQuotes[Math.floor(Math.random() * randomQuotes.length)]
         const mention = message.author
         const UserID = mention.id
         const UserId = mention.id
+        const GuildID = "703937875720273972"
 
         try {
             //first we find the study time for this user in userdocument database
@@ -26,24 +27,24 @@ module.exports = {
             })
             for (person of logperson) {
                 //this is the study time logged in the personaltimeschema
-                const personaltime = person.timeLog
+                const personaltime = person.weekly
                 console.log('Searching the database for timelogs')
                 //search for the server total study time in usertimeschema
                 const results = await usertimeSchema.find({
                     UserID: 'anon'
                 })
                 for (const time of results) {
-                    const totaltime = time.timeLog
+                    const totaltime = time.weekly
                     //search for the total amount of users that logged time
                     const users = await userdocumentSchema.countDocuments({
-                        barcode: 101,
+                        GuildID: GuildID
                     })
                     //average study time based on users and total time, rounded to 1 after comma
                     let averagenotround = (totaltime / users)
                     let average = Math.round(averagenotround * 10) / 10
 
                     //set the first reply (treereply)
-                    let treereply = (`🌴 **Study Time:**\n You studied **${personaltime} hours** this week\n The server-average is **${average} hours**`)
+                    let treereply = (`🌴 **Study Time:**\n You studied **${personaltime} hours** this week\n The server-average is **${average} hours**\nTo view more detailed stats use **!tree**`)
                     if (treereply) {
                         //continue by searching for the settings for this user in userdataschema 
                         const results = await userdataSchema.find({
