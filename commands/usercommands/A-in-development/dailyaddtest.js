@@ -10,7 +10,7 @@ module.exports = {
         let logUser = UserID.id
         let GuildID = "703937875720273972"
 
-        await logcountuserschema.findOneAndUpdate(
+        let results = await logcountuserschema.findOneAndUpdate(
             {
                 UserID: logUser,
                 GuildID: GuildID
