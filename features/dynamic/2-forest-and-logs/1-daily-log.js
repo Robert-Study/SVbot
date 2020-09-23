@@ -11,10 +11,10 @@ module.exports = (client) => {
 
         const GuildID = "703937875720273972"
 
-        var j = schedule.scheduleJob('58 * * * *', async function () {
+        var j = schedule.scheduleJob('0 * * * *', async function () {
 
 
-            let newresult = await todaycountschema.update(
+            let newresult = await todaycountschema.updateMany(
                 {
                     GuildID: GuildID
                 },
