@@ -20,7 +20,7 @@ module.exports = {
                 {
                     $inc: {
                         positive: 0,
-                        modwarn: 0,
+                        modwarnings: 0,
                         warnings: 0
                     },
                 },

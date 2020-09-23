@@ -28,7 +28,7 @@ module.exports = (client) => {
               $inc: {
                 warnings: 2,
                 positive: 0,
-                modwarns: 0,
+                modwarnings: 0,
               },
             },
             {
@@ -47,7 +47,7 @@ module.exports = (client) => {
 
         let count = warningcount.warnings
         let positive = warningcount.positive
-        let modwarn = warningcount.modwarns
+        let modwarn = warningcount.modwarnings
 
 
         console.log(count)
@@ -154,7 +154,7 @@ module.exports = (client) => {
                 $inc: {
                   warnings: 1,
                   positive: 0,
-                  modwarns: 0,
+                  modwarnings: 0,
                 },
               },
               {

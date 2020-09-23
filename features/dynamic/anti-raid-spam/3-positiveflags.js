@@ -23,7 +23,7 @@ module.exports = (client) => {
                         {
                             $inc: {
                                 positive: 1,
-                                modwarn: 0,
+                                modwarnings: 0,
                                 warnings: 0
                             },
                         },
