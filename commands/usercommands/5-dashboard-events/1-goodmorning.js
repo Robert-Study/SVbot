@@ -10,7 +10,7 @@ module.exports = {
         const userSchema = require('@schemas/3-deadlineschema')
         const todocountSchema = require('@schemas/7-todocountschema')
         const userdataSchema = require('@schemas/9-userinfoschema')
-        const usertimeSchema = require('@schemas/10-totalstudytimeschema')
+        const usertimeSchema = require('@schemas/1-logcountuser')
         const userdocumentSchema = require('@schemas/1-logcountuser')
         const { randomQuotes } = require('@JSON/randomQuotes.json');
         let getquote = randomQuotes[Math.floor(Math.random() * randomQuotes.length)]
@@ -33,6 +33,7 @@ module.exports = {
                 const results = await usertimeSchema.find({
                     UserID: 'anon'
                 })
+                console.log(results)
                 for (const time of results) {
                     const totaltime = time.weekly
                     //search for the total amount of users that logged time
