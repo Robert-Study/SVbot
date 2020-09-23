@@ -45,7 +45,7 @@ module.exports = {
                     let average = Math.round(averagenotround * 10) / 10
 
                     //set the first reply (treereply)
-                    let treereply = (`🌴 **Study Time:**\n You studied **${personaltime} hours** this week\n The server-average is **${average} hours**\nTo view more detailed stats use **!tree**`)
+                    let treereply = (`🌴 **Study Time:**\n You studied **${personaltime} hours** this week\n The server-average is **${average} hours**\n*To view more detailed stats use* **!tree**`)
                     if (treereply) {
                         //continue by searching for the settings for this user in userdataschema 
                         const results = await userdataSchema.find({
