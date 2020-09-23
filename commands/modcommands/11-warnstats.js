@@ -61,7 +61,7 @@ module.exports = {
         let average = (messagecount / (count + modwarn) * positive)
         console.log(average)
 
-        message.reply(`**warning stats for this user:**\nTotal score: **${average}**\nPositive flags: **${positive}**\nNegative flags (inc Silent): **${count}**\nWarnings by mods: **${modwarn}**`)
+        message.reply(`**warning stats for this user:**\nTotal score: **${average}**\nPositive flags: **${positive}**\nNegative flags (*inc. silent*): **${count}**\nWarnings by mods: **${modwarn}**`)
 
     }
 }
