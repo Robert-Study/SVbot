@@ -69,7 +69,7 @@ module.exports = {
 
         console.log(averageround)
 
-        message.channel.send(`**__Warning stats for ${mentions}__**\nTotal score: **${averageround}**\n✅ Positive flags: **${positiveround}**\n🚩 Negative flags (*inc. silent*): **${countround}**\n🏴‍☠️ Warnings by mods: **${modround}**`)
+        message.channel.send(`**__Warning stats for ${mentions}__**\nTotal score: **${averageround}**\n\n🏳️--**${positiveround}**--Positive flags \n🏴--**${countround}**--Negative flags (*inc. silent*)\n🏴‍☠️--**${modround}**--Warnings by mods`)
 
     }
 }
