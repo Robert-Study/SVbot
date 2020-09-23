@@ -12,8 +12,8 @@ module.exports = (client) => {
 
     for (var i = 0; i < flaggedwords.length; i++) {
       if (message.content.includes(flaggedwords[i])) {
-        const warningcountSchema = require('@schemas/1-warningcount')
-        const messageCountSchema = require('@schemas/16-userstats')
+        const warningcountSchema = require('@schemas/16-userstats')
+        const messageCountSchema = require('@schemas/12-messagecount')
 
         message.delete()
         message.reply('your message was flagged for inappropriate content.')
