@@ -1,12 +1,10 @@
-
-
 module.exports = (client) => {
     client.on('ready', async () => {
 
 
         var schedule = require('node-schedule');
 
-        const logcountuserschema = require("@schemas/1-logcountuser")
+        
         const todaycountschema = require("@schemas/1-logcountuser")
 
         const GuildID = "703937875720273972"
@@ -29,7 +27,7 @@ module.exports = (client) => {
             console.log(newresult)
         })
 
-        var K = schedule.scheduleJob('7 * * * *', async function () {
+        var K = schedule.scheduleJob('1 2 * * 7', async function () {
 
 
             let newresult = await todaycountschema.updateMany(
@@ -48,7 +46,7 @@ module.exports = (client) => {
             console.log(newresult)
         })
 
-        var L = schedule.scheduleJob('8 * * * *', async function () {
+        var L = schedule.scheduleJob('2 2 1 * *', async function () {
 
 
             let newresult = await todaycountschema.updateMany(

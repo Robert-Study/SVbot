@@ -1,22 +1,27 @@
-const logcountSchema = require('@schemas/2-logcountschema')
+const logcountSchema = require('@schemas/1-logcountuser')
 const totalstudytimeSchema = require('@schemas/10-totalstudytimeschema')
 const logCache = {}
 
 module.exports = (client) => { }
 
 module.exports.addLog = async (UserID, timeLog) => {
-
+  const GuildID = "703937875720273972"
   console.log('Running findOneAndUpdate()')
 
   const result = await logcountSchema.findOneAndUpdate(
     {
-      UserID,
+      GuildID: GuildID,
+      UserID
     },
     {
       UserID,
-      barcode: 101,
+
       $inc: {
-        timeLog,
+        daily: timeLog,
+        weekly: timeLog,
+        monthly: timeLog,
+        alltime: timeLog
+
       },
     },
     {
@@ -24,16 +29,21 @@ module.exports.addLog = async (UserID, timeLog) => {
       new: true,
     }
   )
+  console.log(result)
 
-  const total = await totalstudytimeSchema.findOneAndUpdate(
+  const total = await logcountSchema.findOneAndUpdate(
     {
+      GuildID: GuildID,
       UserID: 'anon'
     },
     {
       UserID: 'anon',
-      barcode: 101,
+
       $inc: {
-        timeLog,
+        daily: timeLog,
+        weekly: timeLog,
+        monthly: timeLog,
+        alltime: timeLog
       },
     },
     {
