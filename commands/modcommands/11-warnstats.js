@@ -19,9 +19,9 @@ module.exports = {
                 },
                 {
                     $inc: {
-                        positive: 0,
-                        modwarnings: 0,
-                        warnings: 0
+                        positive: 0.1,
+                        modwarnings: 0.1,
+                        warnings: 0.1
                     },
                 },
                 {
@@ -61,7 +61,7 @@ module.exports = {
         let average = (messagecount / (count + modwarn) * positive)
         console.log(average)
 
-        message.reply(`**warning stats for this user:**\nTotal score:${average}\nPositive flags: ${positive}\nNegative flags (inc Silent): ${count}\nWarnings by mods: ${modwarn}`)
+        message.reply(`**warning stats for this user:**\nTotal score: **${average}**\nPositive flags: **${positive}**\nNegative flags (inc Silent): **${count}**\nWarnings by mods: **${modwarn}**`)
 
     }
 }
