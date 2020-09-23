@@ -8,6 +8,7 @@ module.exports = {
         var person = message.guild.member(message.mentions.users.first());
         if (!person) return message.reply("I CANT FIND THE USER " + person);
         let user = person.id
+        let mentions = arguments[0]
 
         const warningcountSchema = require('@schemas/16-userstats')
         const messageCountSchema = require('@schemas/12-messagecount')
@@ -68,7 +69,7 @@ module.exports = {
 
         console.log(averageround)
 
-        message.reply(`**warning stats for this user:**\nTotal score: **${averageround}**\nPositive flags: **${positiveround}**\nNegative flags (*inc. silent*): **${countround}**\nWarnings by mods: **${modround}**`)
+        message.channel.send(`**__Warning stats for ${mentions}__**\nTotal score: **${averageround}**\n✅ Positive flags: **${positiveround}**\n🚩 Negative flags (*inc. silent*): **${countround}**\n🏴‍☠️ Warnings by mods: **${modround}**`)
 
     }
 }
