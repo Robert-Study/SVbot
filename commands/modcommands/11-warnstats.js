@@ -19,9 +19,9 @@ module.exports = {
                 },
                 {
                     $inc: {
-                        positive: 0.1,
-                        modwarnings: 0.1,
-                        warnings: 0.1
+                        positive: 0.001,
+                        modwarnings: 0.001,
+                        warnings: 0.001
                     },
                 },
                 {
@@ -39,12 +39,15 @@ module.exports = {
         })
 
         let count = warningcount.warnings
+        let countround = Math.round(count * 1) / 1
         let modwarn = warningcount.modwarnings
+        let modround = Math.round(modwarn * 1) / 1
         let positive = warningcount.positive
+        let positiveround = Math.round(positive * 1) / 1
 
-        console.log(count)
-        console.log(modwarn)
-        console.log(positive)
+        console.log(countround)
+        console.log(modround)
+        console.log(positiveround)
 
         let messages = await messageCountSchema.findOne({
             UserId: user
@@ -61,7 +64,7 @@ module.exports = {
         let average = (messagecount / (count + modwarn) * positive)
         console.log(average)
 
-        message.reply(`**warning stats for this user:**\nTotal score: **${average}**\nPositive flags: **${positive}**\nNegative flags (*inc. silent*): **${count}**\nWarnings by mods: **${modwarn}**`)
+        message.reply(`**warning stats for this user:**\nTotal score: **${average}**\nPositive flags: **${positiveround}**\nNegative flags (*inc. silent*): **${countround}**\nWarnings by mods: **${modround}**`)
 
     }
 }
