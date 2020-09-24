@@ -24,11 +24,11 @@ module.exports = (client) => {
                 })
 
                 if (result) {
-                    for (items of result) {
-                        let timeLog = items.time
+                    
+                        let timeLog = result.time
 
                         const newLog = await economy.addLog(UserID, timeLog)
-                    }
+                    
                 }
 
             }
@@ -45,11 +45,11 @@ module.exports = (client) => {
                 })
 
                 if (result) {
-                    for (items of result) {
-                        let timeLog = items.time
+                   
+                        let timeLog = result.time
 
                         const newLog = await economy.addLog(UserID, timeLog)
-                    }
+                    
                 }
 
             }
@@ -66,12 +66,12 @@ module.exports = (client) => {
                 })
 
                 if (result) {
-                    for (items of result) {
-                        let timeLog = items.time
+                    
+                        let timeLog = result.time
 
                         const newLog = await economy.addLog(UserID, timeLog)
                     }
-                }
+                
             }
 
             if (reaction.emoji.name === '🟢') {
@@ -86,11 +86,11 @@ module.exports = (client) => {
                 })
 
                 if (result) {
-                    for (items of result) {
-                        let timeLog = items.time
+                    
+                        let timeLog = result.time
 
                         const newLog = await economy.addLog(UserID, timeLog)
-                    }
+                    
                 }
 
             }
