@@ -68,198 +68,197 @@ module.exports = {
         }
 
         else {
-            
-                let color = result.color
 
-                if (color === 'red') {
-                    //create an embed with the arguments provided
-                    let forestEmbed = new Discord.MessageEmbed()
-                        .setColor('#337f4e')
-                        .setTitle(`${message.author.username} wants to plant a tree! :evergreen_tree:`)
-                        .setThumbnail(`${thumb}`)
-                        .setTimestamp()
-                        .setFooter(`Planter: ${message.author.username} `)
-                        .addFields(
-                            { name: '\u200B', value: 'Forest info:' },
-                            { name: `Use code: ${arguments[0]} or click this link: https://www.forestapp.cc/join-room?token=${arguments[0]}.`, value: '\u200B' },
-                            { name: ':stopwatch: Duration:', value: `${arguments[1]} min`, inline: true },
-                            { name: ':closed_lock_with_key: Starting in:', value: `${arguments[2]} min`, inline: true },
-                            { name: '\u200B', value: 'Good luck! :palm_tree: | Join the 🔴 team or go in focus 🔇 by reacting.| Time is logged automatically when clicking 🔴 or reacting with the amount of hours.' }
-                        )
+            let color = result.color
 
-                    //send the embed to english channel and react
-                    let englishembed = await englishchannel.send(forestEmbed);
-                    englishembed.react('🔴')
-                    englishembed.react('🔇')
-                    englishembed.react('1️⃣')
-                    englishembed.react('2️⃣')
-                    englishembed.react('3️⃣')
+            if (color === 'red') {
+                //create an embed with the arguments provided
+                let forestEmbed = new Discord.MessageEmbed()
+                    .setColor('#337f4e')
+                    .setTitle(`${message.author.username} wants to plant a tree! :evergreen_tree:`)
+                    .setThumbnail(`${thumb}`)
+                    .setTimestamp()
+                    .setFooter(`Planter: ${message.author.username} `)
+                    .addFields(
+                        { name: '\u200B', value: 'Forest info:' },
+                        { name: `Use code: ${arguments[0]} or click this link: https://www.forestapp.cc/join-room?token=${arguments[0]}.`, value: '\u200B' },
+                        { name: ':stopwatch: Duration:', value: `${arguments[1]} min`, inline: true },
+                        { name: ':closed_lock_with_key: Starting in:', value: `${arguments[2]} min`, inline: true },
+                        { name: '\u200B', value: 'Good luck! :palm_tree: | Join the 🔴 team or go in focus 🔇 by reacting.| Time is logged automatically when clicking 🔴 or reacting with the amount of hours.' }
+                    )
 
-                    //send the embed to forest channel and react
-                    let forestembed = await forestchannel.send(forestEmbed);
-                    forestembed.react('🔴')
-                    forestembed.react('🔇')
-                    forestembed.react('1️⃣')
-                    forestembed.react('2️⃣')
-                    forestembed.react('3️⃣')
+                //send the embed to english channel and react
+                let englishembed = await englishchannel.send(forestEmbed);
+                englishembed.react('🔴')
+                englishembed.react('🔇')
+                englishembed.react('1️⃣')
+                englishembed.react('2️⃣')
+                englishembed.react('3️⃣')
 
-                    let treetaken = await forestSchema.findOneAndUpdate(
-                        {
-                            color: 'red'
-                        },
-                        {
-                            taken: 1,
-                            time: uptime,
-                            endtime: structuretime,
-                        },
-                        {
-                            upsert: true,
-                            new: true
-                        })
-                }
+                //send the embed to forest channel and react
+                let forestembed = await forestchannel.send(forestEmbed);
+                forestembed.react('🔴')
+                forestembed.react('🔇')
+                forestembed.react('1️⃣')
+                forestembed.react('2️⃣')
+                forestembed.react('3️⃣')
 
-
-                if (color === 'blue') {
-                    //create an embed with the arguments provided
-                    let forestEmbed = new Discord.MessageEmbed()
-                        .setColor('#337f4e')
-                        .setTitle(`${message.author.username} wants to plant a tree! :evergreen_tree:`)
-                        .setThumbnail(`${thumb}`)
-                        .setTimestamp()
-                        .setFooter(`Planter: ${message.author.username} `)
-                        .addFields(
-                            { name: '\u200B', value: 'Forest info:' },
-                            { name: `Use code: ${arguments[0]} or click this link: https://www.forestapp.cc/join-room?token=${arguments[0]}.`, value: '\u200B' },
-                            { name: ':stopwatch: Duration:', value: `${arguments[1]} min`, inline: true },
-                            { name: ':closed_lock_with_key: Starting in:', value: `${arguments[2]} min`, inline: true },
-                            { name: '\u200B', value: 'Good luck! :palm_tree: | Join the 🔵 team or go in focus 🔇 by reacting.| Time is logged automatically when clicking 🔵 or reacting with the amount of hours.'  }
-                        )
-
-                    //send the embed to english channel and react
-                    let englishembed = await englishchannel.send(forestEmbed);
-                    englishembed.react('🔵')
-                    englishembed.react('🔇')
-                    englishembed.react('1️⃣')
-                    englishembed.react('2️⃣')
-                    englishembed.react('3️⃣')
-
-                    //send the embed to forest channel and react
-                    let forestembed = await forestchannel.send(forestEmbed);
-                    forestembed.react('🔵')
-                    forestembed.react('🔇')
-                    forestembed.react('1️⃣')
-                    forestembed.react('2️⃣')
-                    forestembed.react('3️⃣')
-
-                    let treetaken = await forestSchema.findOneAndUpdate(
-                        {
-                            color: 'blue'
-                        },
-                        {
-                            taken: 1,
-                            time: uptime,
-                            endtime: structuretime,
-                        },
-                        {
-                            upsert: true,
-                            new: true
-                        })
-
-                }
-                if (color === 'orange') {
-                    //create an embed with the arguments provided
-                    let forestEmbed = new Discord.MessageEmbed()
-                        .setColor('#337f4e')
-                        .setTitle(`${message.author.username} wants to plant a tree! :evergreen_tree:`)
-                        .setThumbnail(`${thumb}`)
-                        .setTimestamp()
-                        .setFooter(`Planter: ${message.author.username} `)
-                        .addFields(
-                            { name: '\u200B', value: 'Forest info:' },
-                            { name: `Use code: ${arguments[0]} or click this link: https://www.forestapp.cc/join-room?token=${arguments[0]}.`, value: '\u200B' },
-                            { name: ':stopwatch: Duration:', value: `${arguments[1]} min`, inline: true },
-                            { name: ':closed_lock_with_key: Starting in:', value: `${arguments[2]} min`, inline: true },
-                            { name: '\u200B', value: 'Good luck! :palm_tree: | Join the 🟠 team or go in focus 🔇 by reacting.| Time is logged automatically when clicking 🟠 or reacting with the amount of hours.' }
-                        )
-
-                    //send the embed to english channel and react
-                    let englishembed = await englishchannel.send(forestEmbed);
-                    englishembed.react('🟠')
-                    englishembed.react('🔇')
-                    englishembed.react('1️⃣')
-                    englishembed.react('2️⃣')
-                    englishembed.react('3️⃣')
-
-                    //send the embed to forest channel and react
-                    let forestembed = await forestchannel.send(forestEmbed);
-                    forestembed.react('🟠')
-                    forestembed.react('🔇')
-                    forestembed.react('1️⃣')
-                    forestembed.react('2️⃣')
-                    forestembed.react('3️⃣')
-
-                    let treetaken = await forestSchema.findOneAndUpdate(
-                        {
-                            color: 'orange'
-                        },
-                        {
-                            taken: 1,
-                            time: uptime,
-                            endtime: structuretime,
-                        },
-                        {
-                            upsert: true,
-                            new: true
-                        })
-                }
-                if (color === 'green') {
-                    //create an embed with the arguments provided
-                    let forestEmbed = new Discord.MessageEmbed()
-                        .setColor('#337f4e')
-                        .setTitle(`${message.author.username} wants to plant a tree! :evergreen_tree:`)
-                        .setThumbnail(`${thumb}`)
-                        .setTimestamp()
-                        .setFooter(`Planter: ${message.author.username} `)
-                        .addFields(
-                            { name: '\u200B', value: 'Forest info:' },
-                            { name: `Use code: ${arguments[0]} or click this link: https://www.forestapp.cc/join-room?token=${arguments[0]}.`, value: '\u200B' },
-                            { name: ':stopwatch: Duration:', value: `${arguments[1]} min`, inline: true },
-                            { name: ':closed_lock_with_key: Starting in:', value: `${arguments[2]} min`, inline: true },
-                            { name: '\u200B', value: 'Good luck! :palm_tree: | Join the 🟢 team or go in focus 🔇 by reacting.| Time is logged automatically when clicking 🟢 or reacting with the amount of hours.'  }
-                        )
-
-                    //send the embed to english channel and react
-                    let englishembed = await englishchannel.send(forestEmbed);
-                    englishembed.react('🟢')
-                    englishembed.react('🔇')
-                    englishembed.react('1️⃣')
-                    englishembed.react('2️⃣')
-                    englishembed.react('3️⃣')
-
-                    //send the embed to forest channel and react
-                    let forestembed = await forestchannel.send(forestEmbed);
-                    forestembed.react('🟢')
-                    forestembed.react('🔇')
-                    forestembed.react('1️⃣')
-                    forestembed.react('2️⃣')
-                    forestembed.react('3️⃣')
-
-                    let treetaken = await forestSchema.findOneAndUpdate(
-                        {
-                            color: 'green'
-                        },
-                        {
-                            taken: 1,
-                            time: uptime,
-                            endtime: structuretime,
-                        },
-                        {
-                            upsert: true,
-                            new: true
-                        })
+                let treetaken = await forestSchema.findOneAndUpdate(
+                    {
+                        color: 'red'
+                    },
+                    {
+                        taken: 1,
+                        time: uptime,
+                        endtime: structuretime,
+                    },
+                    {
+                        upsert: true,
+                        new: true
+                    })
+            }
 
 
-                }
+            if (color === 'blue') {
+                //create an embed with the arguments provided
+                let forestEmbed = new Discord.MessageEmbed()
+                    .setColor('#337f4e')
+                    .setTitle(`${message.author.username} wants to plant a tree! :evergreen_tree:`)
+                    .setThumbnail(`${thumb}`)
+                    .setTimestamp()
+                    .setFooter(`Planter: ${message.author.username} `)
+                    .addFields(
+                        { name: '\u200B', value: 'Forest info:' },
+                        { name: `Use code: ${arguments[0]} or click this link: https://www.forestapp.cc/join-room?token=${arguments[0]}.`, value: '\u200B' },
+                        { name: ':stopwatch: Duration:', value: `${arguments[1]} min`, inline: true },
+                        { name: ':closed_lock_with_key: Starting in:', value: `${arguments[2]} min`, inline: true },
+                        { name: '\u200B', value: 'Good luck! :palm_tree: | Join the 🔵 team or go in focus 🔇 by reacting.| Time is logged automatically when clicking 🔵 or reacting with the amount of hours.' }
+                    )
+
+                //send the embed to english channel and react
+                let englishembed = await englishchannel.send(forestEmbed);
+                englishembed.react('🔵')
+                englishembed.react('🔇')
+                englishembed.react('1️⃣')
+                englishembed.react('2️⃣')
+                englishembed.react('3️⃣')
+
+                //send the embed to forest channel and react
+                let forestembed = await forestchannel.send(forestEmbed);
+                forestembed.react('🔵')
+                forestembed.react('🔇')
+                forestembed.react('1️⃣')
+                forestembed.react('2️⃣')
+                forestembed.react('3️⃣')
+
+                let treetaken = await forestSchema.findOneAndUpdate(
+                    {
+                        color: 'blue'
+                    },
+                    {
+                        taken: 1,
+                        time: uptime,
+                        endtime: structuretime,
+                    },
+                    {
+                        upsert: true,
+                        new: true
+                    })
+
+            }
+            if (color === 'orange') {
+                //create an embed with the arguments provided
+                let forestEmbed = new Discord.MessageEmbed()
+                    .setColor('#337f4e')
+                    .setTitle(`${message.author.username} wants to plant a tree! :evergreen_tree:`)
+                    .setThumbnail(`${thumb}`)
+                    .setTimestamp()
+                    .setFooter(`Planter: ${message.author.username} `)
+                    .addFields(
+                        { name: '\u200B', value: 'Forest info:' },
+                        { name: `Use code: ${arguments[0]} or click this link: https://www.forestapp.cc/join-room?token=${arguments[0]}.`, value: '\u200B' },
+                        { name: ':stopwatch: Duration:', value: `${arguments[1]} min`, inline: true },
+                        { name: ':closed_lock_with_key: Starting in:', value: `${arguments[2]} min`, inline: true },
+                        { name: '\u200B', value: 'Good luck! :palm_tree: | Join the 🟠 team or go in focus 🔇 by reacting.| Time is logged automatically when clicking 🟠 or reacting with the amount of hours.' }
+                    )
+
+                //send the embed to english channel and react
+                let englishembed = await englishchannel.send(forestEmbed);
+                englishembed.react('🟠')
+                englishembed.react('🔇')
+                englishembed.react('1️⃣')
+                englishembed.react('2️⃣')
+                englishembed.react('3️⃣')
+
+                //send the embed to forest channel and react
+                let forestembed = await forestchannel.send(forestEmbed);
+                forestembed.react('🟠')
+                forestembed.react('🔇')
+                forestembed.react('1️⃣')
+                forestembed.react('2️⃣')
+                forestembed.react('3️⃣')
+
+                let treetaken = await forestSchema.findOneAndUpdate(
+                    {
+                        color: 'orange'
+                    },
+                    {
+                        taken: 1,
+                        time: uptime,
+                        endtime: structuretime,
+                    },
+                    {
+                        upsert: true,
+                        new: true
+                    })
+            }
+            if (color === 'green') {
+                //create an embed with the arguments provided
+                let forestEmbed = new Discord.MessageEmbed()
+                    .setColor('#337f4e')
+                    .setTitle(`${message.author.username} wants to plant a tree! :evergreen_tree:`)
+                    .setThumbnail(`${thumb}`)
+                    .setTimestamp()
+                    .setFooter(`Planter: ${message.author.username} `)
+                    .addFields(
+                        { name: '\u200B', value: 'Forest info:' },
+                        { name: `Use code: ${arguments[0]} or click this link: https://www.forestapp.cc/join-room?token=${arguments[0]}.`, value: '\u200B' },
+                        { name: ':stopwatch: Duration:', value: `${arguments[1]} min`, inline: true },
+                        { name: ':closed_lock_with_key: Starting in:', value: `${arguments[2]} min`, inline: true },
+                        { name: '\u200B', value: 'Good luck! :palm_tree: | Join the 🟢 team or go in focus 🔇 by reacting.| Time is logged automatically when clicking 🟢 or reacting with the amount of hours.' }
+                    )
+
+                //send the embed to english channel and react
+                let englishembed = await englishchannel.send(forestEmbed);
+                englishembed.react('🟢')
+                englishembed.react('🔇')
+                englishembed.react('1️⃣')
+                englishembed.react('2️⃣')
+                englishembed.react('3️⃣')
+
+                //send the embed to forest channel and react
+                let forestembed = await forestchannel.send(forestEmbed);
+                forestembed.react('🟢')
+                forestembed.react('🔇')
+                forestembed.react('1️⃣')
+                forestembed.react('2️⃣')
+                forestembed.react('3️⃣')
+
+                let treetaken = await forestSchema.findOneAndUpdate(
+                    {
+                        color: 'green'
+                    },
+                    {
+                        taken: 1,
+                        time: uptime,
+                        endtime: structuretime,
+                    },
+                    {
+                        upsert: true,
+                        new: true
+                    })
+
+
             }
         }
     }
