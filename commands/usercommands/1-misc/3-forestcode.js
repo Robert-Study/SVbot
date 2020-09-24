@@ -20,8 +20,8 @@ module.exports = {
 
         let time = `${arguments[1]}m`;
         let addtime = ms(`${time}`)
-        if (isNaN(addtime)) { message.reply('An error occured - Please only write the amount of min as a number (60,120,180)') }
-        if (addtime < 120000) { message.reply(`you can't lock yourself for less than 2m`) }
+        if (isNaN(addtime)) { return message.reply('An error occured - Please only write the amount of min as a number (60,120,180)') } 
+        if (addtime < 120000) { return message.reply(`you can't lock yourself for less than 2m`) }
 
         let startTime = new Date(Date.now());
         let endTime = new Date(startTime.getTime() + addtime);
