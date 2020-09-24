@@ -16,6 +16,10 @@ module.exports = {
             general.send(`<@${message.author.id}> you have left the **Focus Mode** and the **Study Team**!`)
             message.member.roles.remove('729706682308886548');
             message.member.roles.remove('729444698812579870');
+            message.member.roles.remove('729444698812579870');
+            message.member.roles.remove('729444698812579870');
+            message.member.roles.remove('729444698812579870');
+            message.member.roles.remove('729444698812579870');
             message.member.roles.add('707547622591692911');
 
             //update the verified member counter
