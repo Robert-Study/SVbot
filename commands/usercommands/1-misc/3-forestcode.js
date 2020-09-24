@@ -68,8 +68,8 @@ module.exports = {
         }
 
         else {
-            for (items of result) {
-                let color = items.color
+            
+                let color = result.color
 
                 if (color === 'red') {
                     //create an embed with the arguments provided
