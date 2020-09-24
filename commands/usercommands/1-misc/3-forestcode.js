@@ -8,6 +8,9 @@ module.exports = {
         const Discord = require('discord.js');
         const englishchannel = message.client.channels.cache.get('703937876634894388');
         const forestchannel = message.client.channels.cache.get('732292791287283862');
+        const ms = require('ms')
+        var moment = require('moment');
+        var schedule = require('node-schedule');
 
         const { randomForest } = require('@JSON/randomForest.json');
         let thumb = randomForest[Math.floor(Math.random() * randomForest.length)]
