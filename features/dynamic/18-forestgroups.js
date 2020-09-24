@@ -10,7 +10,7 @@ module.exports = (client) => {
 
 
         if (user.bot) return;
-        if (reaction.message.channel.id === "755187097207308328" || reaction.message.channel.id === "755187097207308328") {
+        if (reaction.message.channel.id === "732292791287283862" || reaction.message.channel.id === "703937876634894388") {
             if (reaction.emoji.name === '🔴') {
                 await reaction.message.guild.members.cache.get(user.id).roles.add("758651469841825813")
                 await reaction.message.guild.members.cache.get(user.id).roles.remove("758651778962292776")
