@@ -81,7 +81,7 @@ module.exports = {
                             { name: `Use code: ${arguments[0]} or click this link: https://www.forestapp.cc/join-room?token=${arguments[0]}.`, value: '\u200B' },
                             { name: ':stopwatch: Duration:', value: `${arguments[1]} min`, inline: true },
                             { name: ':closed_lock_with_key: Starting in:', value: `${arguments[2]} min`, inline: true },
-                            { name: '\u200B', value: 'Good luck! :palm_tree: | Join the team 👥 or go in focus 🔇 by reacting.| Log time by reacting to the amount of hours!' }
+                            { name: '\u200B', value: 'Good luck! :palm_tree: | Join the 🔴 team or go in focus 🔇 by reacting.| Time is logged automatically when clicking 🔴 or reacting with the amount of hours.' }
                         )
 
                     //send the embed to english channel and react
@@ -129,7 +129,7 @@ module.exports = {
                             { name: `Use code: ${arguments[0]} or click this link: https://www.forestapp.cc/join-room?token=${arguments[0]}.`, value: '\u200B' },
                             { name: ':stopwatch: Duration:', value: `${arguments[1]} min`, inline: true },
                             { name: ':closed_lock_with_key: Starting in:', value: `${arguments[2]} min`, inline: true },
-                            { name: '\u200B', value: 'Good luck! :palm_tree: | Join the team 👥 or go in focus 🔇 by reacting.| Log time by reacting to the amount of hours!' }
+                            { name: '\u200B', value: 'Good luck! :palm_tree: | Join the 🔵 team or go in focus 🔇 by reacting.| Time is logged automatically when clicking 🔵 or reacting with the amount of hours.'  }
                         )
 
                     //send the embed to english channel and react
@@ -176,7 +176,7 @@ module.exports = {
                             { name: `Use code: ${arguments[0]} or click this link: https://www.forestapp.cc/join-room?token=${arguments[0]}.`, value: '\u200B' },
                             { name: ':stopwatch: Duration:', value: `${arguments[1]} min`, inline: true },
                             { name: ':closed_lock_with_key: Starting in:', value: `${arguments[2]} min`, inline: true },
-                            { name: '\u200B', value: 'Good luck! :palm_tree: | Join the team 👥 or go in focus 🔇 by reacting.| Log time by reacting to the amount of hours!' }
+                            { name: '\u200B', value: 'Good luck! :palm_tree: | Join the 🟠 team or go in focus 🔇 by reacting.| Time is logged automatically when clicking 🟠 or reacting with the amount of hours.' }
                         )
 
                     //send the embed to english channel and react
@@ -222,7 +222,7 @@ module.exports = {
                             { name: `Use code: ${arguments[0]} or click this link: https://www.forestapp.cc/join-room?token=${arguments[0]}.`, value: '\u200B' },
                             { name: ':stopwatch: Duration:', value: `${arguments[1]} min`, inline: true },
                             { name: ':closed_lock_with_key: Starting in:', value: `${arguments[2]} min`, inline: true },
-                            { name: '\u200B', value: 'Good luck! :palm_tree: | Join the team 👥 or go in focus 🔇 by reacting.| Log time by reacting to the amount of hours!' }
+                            { name: '\u200B', value: 'Good luck! :palm_tree: | Join the 🟢 team or go in focus 🔇 by reacting.| Time is logged automatically when clicking 🟢 or reacting with the amount of hours.'  }
                         )
 
                     //send the embed to english channel and react

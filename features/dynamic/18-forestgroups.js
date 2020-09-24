@@ -12,12 +12,12 @@ module.exports = (client) => {
         if (user.bot) return;
         if (reaction.message.channel.id === "755187097207308328" || reaction.message.channel.id === "755187097207308328") {
             if (reaction.emoji.name === '🔴') {
-                await reaction.message.guild.members.cache.get(user.id).roles.add("756186590233231381")
-                await reaction.message.guild.members.cache.get(user.id).roles.remove("756186590233231381")
-                await reaction.message.guild.members.cache.get(user.id).roles.remove("756186590233231381")
-                await reaction.message.guild.members.cache.get(user.id).roles.remove("756186590233231381")
-                await reaction.message.guild.members.cache.get(user.id).roles.remove("756186590233231381")
-                await reaction.message.guild.members.cache.get(user.id).roles.remove("756186590233231381")
+                await reaction.message.guild.members.cache.get(user.id).roles.add("758651469841825813")
+                await reaction.message.guild.members.cache.get(user.id).roles.remove("758651778962292776")
+                await reaction.message.guild.members.cache.get(user.id).roles.remove("758651692198920192")
+                await reaction.message.guild.members.cache.get(user.id).roles.remove("758651852337577994")
+                await reaction.message.guild.members.cache.get(user.id).roles.remove("729444698812579870")
+                
 
                 let result = await forestSchema.findOne({
                     color: 'red'
@@ -33,12 +33,12 @@ module.exports = (client) => {
 
             }
             if (reaction.emoji.name === '🔵') {
-                await reaction.message.guild.members.cache.get(user.id).roles.add("756186590233231381")
-                await reaction.message.guild.members.cache.get(user.id).roles.remove("756186590233231381")
-                await reaction.message.guild.members.cache.get(user.id).roles.remove("756186590233231381")
-                await reaction.message.guild.members.cache.get(user.id).roles.remove("756186590233231381")
-                await reaction.message.guild.members.cache.get(user.id).roles.remove("756186590233231381")
-                await reaction.message.guild.members.cache.get(user.id).roles.remove("756186590233231381")
+                await reaction.message.guild.members.cache.get(user.id).roles.add("758651852337577994")
+                await reaction.message.guild.members.cache.get(user.id).roles.remove("758651778962292776")
+                await reaction.message.guild.members.cache.get(user.id).roles.remove("758651692198920192")
+                await reaction.message.guild.members.cache.get(user.id).roles.remove("758651469841825813")
+                await reaction.message.guild.members.cache.get(user.id).roles.remove("729444698812579870")
+                
 
                 let result = await forestSchema.findOne({
                     color: 'red'
@@ -54,12 +54,12 @@ module.exports = (client) => {
 
             }
             if (reaction.emoji.name === '🟠') {
-                await reaction.message.guild.members.cache.get(user.id).roles.add("756186590233231381")
-                await reaction.message.guild.members.cache.get(user.id).roles.remove("756186590233231381")
-                await reaction.message.guild.members.cache.get(user.id).roles.remove("756186590233231381")
-                await reaction.message.guild.members.cache.get(user.id).roles.remove("756186590233231381")
-                await reaction.message.guild.members.cache.get(user.id).roles.remove("756186590233231381")
-                await reaction.message.guild.members.cache.get(user.id).roles.remove("756186590233231381")
+                await reaction.message.guild.members.cache.get(user.id).roles.add("758651692198920192")
+                await reaction.message.guild.members.cache.get(user.id).roles.remove("758651778962292776")
+                await reaction.message.guild.members.cache.get(user.id).roles.remove("758651469841825813")
+                await reaction.message.guild.members.cache.get(user.id).roles.remove("758651852337577994")
+                await reaction.message.guild.members.cache.get(user.id).roles.remove("729444698812579870")
+               
 
                 let result = await forestSchema.findOne({
                     color: 'red'
@@ -75,12 +75,11 @@ module.exports = (client) => {
             }
 
             if (reaction.emoji.name === '🟢') {
-                await reaction.message.guild.members.cache.get(user.id).roles.add("756186590233231381")
-                await reaction.message.guild.members.cache.get(user.id).roles.remove("756186590233231381")
-                await reaction.message.guild.members.cache.get(user.id).roles.remove("756186590233231381")
-                await reaction.message.guild.members.cache.get(user.id).roles.remove("756186590233231381")
-                await reaction.message.guild.members.cache.get(user.id).roles.remove("756186590233231381")
-                await reaction.message.guild.members.cache.get(user.id).roles.remove("756186590233231381")
+                await reaction.message.guild.members.cache.get(user.id).roles.add("758651778962292776")
+                await reaction.message.guild.members.cache.get(user.id).roles.remove("758651692198920192")
+                await reaction.message.guild.members.cache.get(user.id).roles.remove("758651469841825813")
+                await reaction.message.guild.members.cache.get(user.id).roles.remove("758651852337577994")
+                await reaction.message.guild.members.cache.get(user.id).roles.remove("729444698812579870")
 
                 let result = await forestSchema.findOne({
                     color: 'red'
