@@ -5,7 +5,7 @@ module.exports = (client) => {
     client.on("messageReactionAdd", async (reaction, user) => {
         if (reaction.message.partial) await reaction.message.fetch();
         if (reaction.partial) await reaction.fetch
-        const { member, content, guild } = reaction
+        
         const ms = require('ms')
         var moment = require('moment');
 
