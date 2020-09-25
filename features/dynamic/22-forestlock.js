@@ -11,6 +11,7 @@ module.exports = (client) => {
 
         if (reaction.partial) await reaction.fetch
         const forestSchema = require('@schemas/17-forestschema')
+        const lockSchema = require('@schemas/14-lockdata')
         
         const msg = reaction.message;
         const guild = msg.guild;
