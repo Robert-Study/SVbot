@@ -5,6 +5,7 @@ module.exports = {
     expectedArgs: '!showtimers',
 
     callback: async (message, arguments, text) => {
+        return
         const Discord = require('discord.js');
         const englishchannel = message.client.channels.cache.get('703937876634894388');
         const forestchannel = message.client.channels.cache.get('732292791287283862');
@@ -29,7 +30,7 @@ module.exports = {
 
             let reply = '**Team-Timers:** \n\n'
             for (const newresult of sortmyresults) {
-                reply += `Team **${newresult.color}** - timer: *${newresult.remaining}* min. remaining\n`
+                reply += `Team **${newresult.color}** - timer: *${newresult.remaining}* min. remaining`
 
                 forestchannel.send(reply)
             }
