@@ -48,7 +48,7 @@ module.exports = (client) => {
                         {
                             GuildID: server,
                             color: color,
-                            endTime: structuretime,
+                            endtime: structuretime,
                             remaining: minutetime
                         },
                         {
