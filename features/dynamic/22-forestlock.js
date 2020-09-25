@@ -67,7 +67,7 @@ module.exports = (client) => {
                     const focus = reaction.message.guild.channels.cache.get('730185814822223962');
                     const general = reaction.message.guild.channels.cache.get('703937876634894388');
                     focus.send(`${"<@" + UserID + ">"}, you have now been **🔒 Locked 🔒** in Focus for ${ms(ms(minute))} min.`)
-                    general.send(`went into **🔒 lock for ${minute} min. 🔒**, leave this person alone.`)
+                    general.send(`${"<@" + UserID + ">"} went into **🔒 lock for ${minute} min. 🔒**, leave this person alone.`)
                 }
                 if (guildMember.roles.cache.some((role) => role.name === 'Red-Team')) {
                     blueresult = await forestSchema.findOne({
@@ -108,7 +108,7 @@ module.exports = (client) => {
                     const focus = reaction.message.guild.channels.cache.get('730185814822223962');
                     const general = reaction.message.guild.channels.cache.get('703937876634894388');
                     focus.send(`${"<@" + UserID + ">"}, you have now been **🔒 Locked 🔒** in Focus for ${ms(ms(minute))} min.`)
-                    general.send(`went into **🔒 lock for ${minute} min. 🔒**, leave this person alone.`)
+                    general.send(`${"<@" + UserID + ">"} went into **🔒 lock for ${minute} min. 🔒**, leave this person alone.`)
                 }
                 if (guildMember.roles.cache.some((role) => role.name === 'Orange-Team')) {
                     blueresult = await forestSchema.findOne({
@@ -149,7 +149,7 @@ module.exports = (client) => {
                     const focus = reaction.message.guild.channels.cache.get('730185814822223962');
                     const general = reaction.message.guild.channels.cache.get('703937876634894388');
                     focus.send(`${"<@" + UserID + ">"}, you have now been **🔒 Locked 🔒** in Focus for ${ms(ms(minute))} min.`)
-                    general.send(`went into **🔒 lock for ${minute} min. 🔒**, leave this person alone.`)
+                    general.send(`${"<@" + UserID + ">"} went into **🔒 lock for ${minute} min. 🔒**, leave this person alone.`)
                 }
                 if (guildMember.roles.cache.some((role) => role.name === 'Green-Team')) {
                     blueresult = await forestSchema.findOne({
@@ -190,7 +190,7 @@ module.exports = (client) => {
                     const focus = reaction.message.guild.channels.cache.get('730185814822223962');
                     const general = reaction.message.guild.channels.cache.get('703937876634894388');
                     focus.send(`${"<@" + UserID + ">"}, you have now been **🔒 Locked 🔒** in Focus for ${ms(ms(minute))} min.`)
-                    general.send(`went into **🔒 lock for ${minute} min.🔒**, leave this person alone.`)
+                    general.send(`${"<@" + UserID + ">"} went into **🔒 lock for ${minute} min.🔒**, leave this person alone.`)
                 }
             }
         }
