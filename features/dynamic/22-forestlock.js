@@ -29,7 +29,7 @@ module.exports = (client) => {
 
                 if (guildMember.roles.cache.some((role) => role.name === 'Blue-Team')) {
                     blueresult = await forestSchema.findOne({
-                        color: blue
+                        color: 'blue'
                     })
 
                     let locktime = blueresult.time
