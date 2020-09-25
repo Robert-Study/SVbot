@@ -15,7 +15,7 @@ module.exports = (client) => {
 
         let UserID = user.id
         let server = '703937875720273972'
-        guild.fetchMember(user)
+        
 
 
         if (user.bot) return;
