@@ -33,4 +33,4 @@ const forestSchema = mongoose.Schema({
 
 })
 
-module.exports = mongoose.model('17-forest', forestSchema)
+module.exports = mongoose.model('19-forest', forestSchema)

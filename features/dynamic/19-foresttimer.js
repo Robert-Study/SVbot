@@ -4,7 +4,7 @@ module.exports = (client) => {
         if (reaction.message.partial) await reaction.message.fetch();
         if (reaction.partial) await reaction.fetch
         const forestSchema = require('@schemas/17-forestschema')
-        const teamtimerSchema = require('@schemas/18-teamtimerSchema')
+        const teamtimerSchema = require('@schemas/18-teamtimerschema')
         
         let UserID = user.id
         let server = '703937875720273972'
