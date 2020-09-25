@@ -87,16 +87,14 @@ module.exports = {
                         { name: `Use code: ${arguments[0]} or click this link: https://www.forestapp.cc/join-room?token=${arguments[0]}.`, value: '\u200B' },
                         { name: ':stopwatch: Duration:', value: `${arguments[1]} min`, inline: true },
                         { name: ':closed_lock_with_key: Starting in:', value: `${arguments[2]} min`, inline: true },
-                        { name: '\u200B', value: 'Good luck! :palm_tree: | Join the 🔴 team or go in focus 🔇 by reacting.| Time is logged automatically when clicking 🔴 or reacting with the amount of hours.' }
+                        { name: '\u200B', value: `Good luck! :palm_tree: | Join the 🔴 team or go in focus 🔇 by reacting.| Time is logged automatically when clicking 🔴| Go in lock with 🔒 for the duration of tree!, ${message.author.username} you can start timer by clicking ⏰` }
                     )
 
                 //send the embed to english channel and react
                 let englishembed = await englishchannel.send(forestEmbed);
                 englishembed.react('🔴')
                 englishembed.react('🔇')
-                englishembed.react('1️⃣')
-                englishembed.react('2️⃣')
-                englishembed.react('3️⃣')
+         
                 englishembed.react('⏰')
                 englishembed.react('🔒')
 
@@ -104,9 +102,7 @@ module.exports = {
                 let forestembed = await forestchannel.send(forestEmbed);
                 forestembed.react('🔴')
                 forestembed.react('🔇')
-                forestembed.react('1️⃣')
-                forestembed.react('2️⃣')
-                forestembed.react('3️⃣')
+                
                 forestembed.react('⏰')
                 forestembed.react('🔒')
 
@@ -140,16 +136,14 @@ module.exports = {
                         { name: `Use code: ${arguments[0]} or click this link: https://www.forestapp.cc/join-room?token=${arguments[0]}.`, value: '\u200B' },
                         { name: ':stopwatch: Duration:', value: `${arguments[1]} min`, inline: true },
                         { name: ':closed_lock_with_key: Starting in:', value: `${arguments[2]} min`, inline: true },
-                        { name: '\u200B', value: 'Good luck! :palm_tree: | Join the 🔵 team or go in focus 🔇 by reacting.| Time is logged automatically when clicking 🔵 or reacting with the amount of hours.' }
+                        { name: '\u200B', value: `Good luck! :palm_tree: | Join the 🔵 team or go in focus 🔇 by reacting.| Time is logged automatically when clicking 🔵| Go in lock with 🔒 for the duration of tree!, ${message.author.username} you can start timer by clicking ⏰` }
                     )
 
                 //send the embed to english channel and react
                 let englishembed = await englishchannel.send(forestEmbed);
                 englishembed.react('🔵')
                 englishembed.react('🔇')
-                englishembed.react('1️⃣')
-                englishembed.react('2️⃣')
-                englishembed.react('3️⃣')
+           
                 englishembed.react('⏰')
                 englishembed.react('🔒')
 
@@ -157,9 +151,7 @@ module.exports = {
                 let forestembed = await forestchannel.send(forestEmbed);
                 forestembed.react('🔵')
                 forestembed.react('🔇')
-                forestembed.react('1️⃣')
-                forestembed.react('2️⃣')
-                forestembed.react('3️⃣')
+
                 forestembed.react('⏰')
                 forestembed.react('🔒')
 
@@ -192,16 +184,14 @@ module.exports = {
                         { name: `Use code: ${arguments[0]} or click this link: https://www.forestapp.cc/join-room?token=${arguments[0]}.`, value: '\u200B' },
                         { name: ':stopwatch: Duration:', value: `${arguments[1]} min`, inline: true },
                         { name: ':closed_lock_with_key: Starting in:', value: `${arguments[2]} min`, inline: true },
-                        { name: '\u200B', value: 'Good luck! :palm_tree: | Join the 🟠 team or go in focus 🔇 by reacting.| Time is logged automatically when clicking 🟠 or reacting with the amount of hours.' }
+                        { name: '\u200B', value: `Good luck! :palm_tree: | Join the 🟠 team or go in focus 🔇 by reacting.| Time is logged automatically when clicking 🟠| Go in lock with 🔒 for the duration of tree!, ${message.author.username} you can start timer by clicking ⏰` }
                     )
 
                 //send the embed to english channel and react
                 let englishembed = await englishchannel.send(forestEmbed);
                 englishembed.react('🟠')
                 englishembed.react('🔇')
-                englishembed.react('1️⃣')
-                englishembed.react('2️⃣')
-                englishembed.react('3️⃣')
+     
                 englishembed.react('⏰')
                 englishembed.react('🔒')
 
@@ -209,9 +199,7 @@ module.exports = {
                 let forestembed = await forestchannel.send(forestEmbed);
                 forestembed.react('🟠')
                 forestembed.react('🔇')
-                forestembed.react('1️⃣')
-                forestembed.react('2️⃣')
-                forestembed.react('3️⃣')
+   
                 forestembed.react('⏰')
                 forestembed.react('🔒')
                 
@@ -244,16 +232,14 @@ module.exports = {
                         { name: `Use code: ${arguments[0]} or click this link: https://www.forestapp.cc/join-room?token=${arguments[0]}.`, value: '\u200B' },
                         { name: ':stopwatch: Duration:', value: `${arguments[1]} min`, inline: true },
                         { name: ':closed_lock_with_key: Starting in:', value: `${arguments[2]} min`, inline: true },
-                        { name: '\u200B', value: 'Good luck! :palm_tree: | Join the 🟢 team or go in focus 🔇 by reacting.| Time is logged automatically when clicking 🟢 or reacting with the amount of hours.' }
+                        { name: '\u200B', value: `Good luck! :palm_tree: | Join the 🟢 team or go in focus 🔇 by reacting.| Time is logged automatically when clicking 🟢| Go in lock with 🔒 for the duration of tree!, ${message.author.username} you can start timer by clicking ⏰` }
                     )
 
                 //send the embed to english channel and react
                 let englishembed = await englishchannel.send(forestEmbed);
                 englishembed.react('🟢')
                 englishembed.react('🔇')
-                englishembed.react('1️⃣')
-                englishembed.react('2️⃣')
-                englishembed.react('3️⃣')
+     
                 englishembed.react('⏰')
                 englishembed.react('🔒')
 
@@ -261,9 +247,7 @@ module.exports = {
                 let forestembed = await forestchannel.send(forestEmbed);
                 forestembed.react('🟢')
                 forestembed.react('🔇')
-                forestembed.react('1️⃣')
-                forestembed.react('2️⃣')
-                forestembed.react('3️⃣')
+       
                 forestembed.react('⏰')
                 forestembed.react('🔒')
 
