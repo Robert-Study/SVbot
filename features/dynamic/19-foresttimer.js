@@ -17,6 +17,8 @@ module.exports = (client) => {
                 let authorcheck = await forestSchema.findOne({
                     UserID: UserID
                 })
+                console.log(authorcheck)
+                console.log(UserID)
 
                 if (authorcheck) {
                     let color = authorcheck.color
