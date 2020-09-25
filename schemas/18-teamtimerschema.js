@@ -17,7 +17,7 @@ const forestSchema = mongoose.Schema({
     },
 
     remaining: {
-        type: String,
+        type: Number,
         required: false,
     },
 
@@ -33,4 +33,4 @@ const forestSchema = mongoose.Schema({
 
 })
 
-module.exports = mongoose.model('17-forest', forestSchema)
+module.exports = mongoose.model('18-foresttimers', forestSchema)
