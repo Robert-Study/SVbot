@@ -21,7 +21,7 @@ module.exports = (client) => {
         if (reaction.message.channel.id === "732292791287283862" || reaction.message.channel.id === "703937876634894388") {
             if (reaction.emoji.name === '🔒') {
 
-                if (reaction.member.roles.cache.some((role) => role.name === 'Blue-Team')) {
+                if (user.message.roles.cache.some((role) => role.name === 'Blue-Team')) {
                     blueresult = await forestSchema.findOne({
                         color: blue
                     })
