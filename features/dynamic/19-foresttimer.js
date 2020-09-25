@@ -15,7 +15,7 @@ module.exports = (client) => {
         if (reaction.message.channel.id === "732292791287283862" || reaction.message.channel.id === "703937876634894388") {
             if (reaction.emoji.name === '⏰') {
                 let authorcheck = await forestSchema.findOne({
-                    UserID: UserID
+                    number: UserID
                 })
                 console.log(authorcheck)
                 console.log(UserID)
