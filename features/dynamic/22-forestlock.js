@@ -65,13 +65,12 @@ module.exports = (client) => {
                    
                     const focus = reaction.message.guild.channels.cache.get('730185814822223962');
                     const general = reaction.message.guild.channels.cache.get('703937876634894388');
-                    focus.send(`${"<@" + UserID + ">"}, you have now been **🔒 Locked 🔒** in Focus for ${ms(ms(time))}`)
-                    general.send(`went into **🔒 lock for ${time} 🔒**, leave this person alone.`)
+                    focus.send(`${"<@" + UserID + ">"}, you have now been **🔒 Locked 🔒** in Focus for ${ms(ms(minute))}`)
+                    general.send(`went into **🔒 lock for ${minute} 🔒**, leave this person alone.`)
                 }
-
-                if (reaction.member.roles.cache.some((role) => role.name === 'Red-Team')) {
+                if (guildMember.roles.cache.some((role) => role.name === 'Red-Team')) {
                     blueresult = await forestSchema.findOne({
-                        color: red
+                        color: 'red'
                     })
 
                     let locktime = blueresult.time
@@ -99,25 +98,19 @@ module.exports = (client) => {
                             new: true
                         })
 
-                    let role = reaction.guild.roles.cache.find(role => role.name === "Locked in Focus");
-                    let focusrole = reaction.guild.roles.cache.find(role => role.name === "Focused");
-                    let verifiedrole = reaction.guild.roles.cache.find(role => role.name === "Verified");
-
-                    if (!role) return reaction.reply("Couldn't find the lock role.")
-                    if (!focusrole) return reaction.reply("Couldn't find the focus role.")
-                    if (!verifiedrole) return reaction.reply("Couldn't find the verified role.")
-
-                    reaction.member.roles.add(role.id);
-                    reaction.member.roles.add(focusrole.id);
-                    reaction.member.roles.remove(verifiedrole.id);
-                    const focus = reaction.guild.channels.cache.get('730185814822223962');
-                    const general = reaction.guild.channels.cache.get('703937876634894388');
-                    focus.send(`${"<@" + UserID + ">"}, you have now been **🔒 Locked 🔒** in Focus for ${ms(ms(time))}`)
-                    general.send(`went into **🔒 lock for ${time} 🔒**, leave this person alone.`)
+                    
+                    await reaction.message.guild.members.cache.get(user.id).roles.add("735089477088837673")
+                    await reaction.message.guild.members.cache.get(user.id).roles.add("729706682308886548")
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove("707547622591692911")
+                   
+                    const focus = reaction.message.guild.channels.cache.get('730185814822223962');
+                    const general = reaction.message.guild.channels.cache.get('703937876634894388');
+                    focus.send(`${"<@" + UserID + ">"}, you have now been **🔒 Locked 🔒** in Focus for ${ms(ms(minute))}`)
+                    general.send(`went into **🔒 lock for ${minute} 🔒**, leave this person alone.`)
                 }
-                if (reaction.member.roles.cache.some((role) => role.name === 'Green-Team')) {
+                if (guildMember.roles.cache.some((role) => role.name === 'Orange-Team')) {
                     blueresult = await forestSchema.findOne({
-                        color: green
+                        color: 'orange'
                     })
 
                     let locktime = blueresult.time
@@ -145,25 +138,19 @@ module.exports = (client) => {
                             new: true
                         })
 
-                    let role = reaction.guild.roles.cache.find(role => role.name === "Locked in Focus");
-                    let focusrole = reaction.guild.roles.cache.find(role => role.name === "Focused");
-                    let verifiedrole = reaction.guild.roles.cache.find(role => role.name === "Verified");
-
-                    if (!role) return reaction.reply("Couldn't find the lock role.")
-                    if (!focusrole) return reaction.reply("Couldn't find the focus role.")
-                    if (!verifiedrole) return reaction.reply("Couldn't find the verified role.")
-
-                    reaction.member.roles.add(role.id);
-                    reaction.member.roles.add(focusrole.id);
-                    reaction.member.roles.remove(verifiedrole.id);
-                    const focus = reaction.guild.channels.cache.get('730185814822223962');
-                    const general = reaction.guild.channels.cache.get('703937876634894388');
-                    focus.send(`${"<@" + UserID + ">"}, you have now been **🔒 Locked 🔒** in Focus for ${ms(ms(time))}`)
-                    general.send(`went into **🔒 lock for ${time} 🔒**, leave this person alone.`)
+                    
+                    await reaction.message.guild.members.cache.get(user.id).roles.add("735089477088837673")
+                    await reaction.message.guild.members.cache.get(user.id).roles.add("729706682308886548")
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove("707547622591692911")
+                   
+                    const focus = reaction.message.guild.channels.cache.get('730185814822223962');
+                    const general = reaction.message.guild.channels.cache.get('703937876634894388');
+                    focus.send(`${"<@" + UserID + ">"}, you have now been **🔒 Locked 🔒** in Focus for ${ms(ms(minute))}`)
+                    general.send(`went into **🔒 lock for ${minute} 🔒**, leave this person alone.`)
                 }
-                if (reaction.member.roles.cache.some((role) => role.name === 'Orange-Team')) {
+                if (guildMember.roles.cache.some((role) => role.name === 'Green-Team')) {
                     blueresult = await forestSchema.findOne({
-                        color: orange
+                        color: 'green'
                     })
 
                     let locktime = blueresult.time
@@ -191,23 +178,19 @@ module.exports = (client) => {
                             new: true
                         })
 
-                    let role = reaction.guild.roles.cache.find(role => role.name === "Locked in Focus");
-                    let focusrole = reaction.guild.roles.cache.find(role => role.name === "Focused");
-                    let verifiedrole = reaction.guild.roles.cache.find(role => role.name === "Verified");
-
-                    if (!role) return reaction.reply("Couldn't find the lock role.")
-                    if (!focusrole) return reaction.reply("Couldn't find the focus role.")
-                    if (!verifiedrole) return reaction.reply("Couldn't find the verified role.")
-
-                    reaction.member.roles.add(role.id);
-                    reaction.member.roles.add(focusrole.id);
-                    reaction.member.roles.remove(verifiedrole.id);
-                    const focus = reaction.guild.channels.cache.get('730185814822223962');
-                    const general = reaction.guild.channels.cache.get('703937876634894388');
-                    focus.send(`${"<@" + UserID + ">"}, you have now been **🔒 Locked 🔒** in Focus for ${ms(ms(time))}`)
-                    general.send(`went into **🔒 lock for ${time} 🔒**, leave this person alone.`)
+                    
+                    await reaction.message.guild.members.cache.get(user.id).roles.add("735089477088837673")
+                    await reaction.message.guild.members.cache.get(user.id).roles.add("729706682308886548")
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove("707547622591692911")
+                   
+                    const focus = reaction.message.guild.channels.cache.get('730185814822223962');
+                    const general = reaction.message.guild.channels.cache.get('703937876634894388');
+                    focus.send(`${"<@" + UserID + ">"}, you have now been **🔒 Locked 🔒** in Focus for ${ms(ms(minute))}`)
+                    general.send(`went into **🔒 lock for ${minute} 🔒**, leave this person alone.`)
                 }
             }
         }
     })
 }
+
+                
