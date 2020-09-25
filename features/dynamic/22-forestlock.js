@@ -14,14 +14,14 @@ module.exports = (client) => {
 
         let UserID = user.id
         let server = '703937875720273972'
-
+        guild.fetchMember(user)
 
 
         if (user.bot) return;
         if (reaction.message.channel.id === "732292791287283862" || reaction.message.channel.id === "703937876634894388") {
             if (reaction.emoji.name === '🔒') {
 
-                if (user.message.roles.cache.some((role) => role.name === 'Blue-Team')) {
+                if (member.guild.roles.cache.some((role) => role.name === 'Blue-Team')) {
                     blueresult = await forestSchema.findOne({
                         color: blue
                     })
