@@ -35,11 +35,12 @@ module.exports = (client) => {
 
                     let locktime = blueresult.time
                     let minute = (locktime * 60)
+                    let msminute = `${minute}m`
 
                     const mention = user
                     const UserId = mention.id
 
-                    let addtime = ms(`${minute}`)
+                    let addtime = ms(`${msminute}`)
                     let startTime = new Date(Date.now());
                     let endTime = new Date(startTime.getTime() + addtime);
                     let structuretime = moment(endTime).format('DD/MM/YYYY-hh:mm')
@@ -75,11 +76,12 @@ module.exports = (client) => {
 
                     let locktime = blueresult.time
                     let minute = (locktime * 60)
+                    let msminute = `${minute}m`
 
                     const mention = user
                     const UserId = mention.id
 
-                    let addtime = ms(`${minute}`)
+                    let addtime = ms(`${msminute}`)
                     let startTime = new Date(Date.now());
                     let endTime = new Date(startTime.getTime() + addtime);
                     let structuretime = moment(endTime).format('DD/MM/YYYY-hh:mm')
@@ -115,11 +117,12 @@ module.exports = (client) => {
 
                     let locktime = blueresult.time
                     let minute = (locktime * 60)
+                    let msminute = `${minute}m`
 
                     const mention = user
                     const UserId = mention.id
 
-                    let addtime = ms(`${minute}`)
+                    let addtime = ms(`${msminute}`)
                     let startTime = new Date(Date.now());
                     let endTime = new Date(startTime.getTime() + addtime);
                     let structuretime = moment(endTime).format('DD/MM/YYYY-hh:mm')
@@ -155,11 +158,12 @@ module.exports = (client) => {
 
                     let locktime = blueresult.time
                     let minute = (locktime * 60)
+                    let msminute = `${minute}m`
 
                     const mention = user
                     const UserId = mention.id
 
-                    let addtime = ms(`${minute}`)
+                    let addtime = ms(`${msminute}`)
                     let startTime = new Date(Date.now());
                     let endTime = new Date(startTime.getTime() + addtime);
                     let structuretime = moment(endTime).format('DD/MM/YYYY-hh:mm')
