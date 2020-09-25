@@ -1,3 +1,5 @@
+const { min } = require('moment');
+
 module.exports = (client) => {
 
     client.on("messageReactionAdd", async (reaction, user) => {
@@ -29,7 +31,8 @@ module.exports = (client) => {
 
                     let hourtime = `${time}h`;
                     let minutetime = (time * 60)
-                    let addtime = ms(`${hourtime}`)
+                    let minutems = `${minutetime}m`
+                    let addtime = ms(`${minutems}`)
                     if (isNaN(addtime)) { return }
                     if (addtime < 120000) { return }
 
@@ -55,19 +58,19 @@ module.exports = (client) => {
 
                     if (color === 'red') {
                         let team = '758651469841825813'
-                        timerchannel.send(`⏰ Timer of the  <@&758651469841825813> started - timer for **${time}** hour(s)! ⏰`)
+                        timerchannel.send(`⏰ Timer of the  <@&758651469841825813> started - timer for **${minutetime}** minute(s)! ⏰`)
                     }
                     if (color === 'blue') {
                         let team = '758651852337577994'
-                        timerchannel.send(`⏰ Timer of the  <@&758651852337577994> started - timer for **${time}** hour(s)! ⏰`)
+                        timerchannel.send(`⏰ Timer of the  <@&758651852337577994> started - timer for **${minutetime}** minute(s)! ⏰`)
                     }
                     if (color === 'orange') {
                         let team = '758651692198920192'
-                        timerchannel.send(`⏰ Timer of the  <@&758651692198920192> started - timer for **${time}** hour(s)! ⏰`)
+                        timerchannel.send(`⏰ Timer of the  <@&758651692198920192> started - timer for **${minutetime}** minute(s)! ⏰`)
                     }
                     if (color === 'green') {
                         let team = '758651778962292776'
-                        timerchannel.send(`⏰ Timer of the  <@&758651778962292776> started - timer for **${time}** hour(s)! ⏰`)
+                        timerchannel.send(`⏰ Timer of the  <@&758651778962292776> started - timer for **${minutetime}** minute(s)! ⏰`)
                     }
 
 
