@@ -98,6 +98,7 @@ module.exports = {
                 englishembed.react('2️⃣')
                 englishembed.react('3️⃣')
                 englishembed.react('⏰')
+                englishembed.react('🔒')
 
                 //send the embed to forest channel and react
                 let forestembed = await forestchannel.send(forestEmbed);
@@ -107,6 +108,7 @@ module.exports = {
                 forestembed.react('2️⃣')
                 forestembed.react('3️⃣')
                 forestembed.react('⏰')
+                forestembed.react('🔒')
 
                 let treetaken = await forestSchema.findOneAndUpdate(
                     {
@@ -149,6 +151,7 @@ module.exports = {
                 englishembed.react('2️⃣')
                 englishembed.react('3️⃣')
                 englishembed.react('⏰')
+                englishembed.react('🔒')
 
                 //send the embed to forest channel and react
                 let forestembed = await forestchannel.send(forestEmbed);
@@ -158,6 +161,7 @@ module.exports = {
                 forestembed.react('2️⃣')
                 forestembed.react('3️⃣')
                 forestembed.react('⏰')
+                forestembed.react('🔒')
 
                 let treetaken = await forestSchema.findOneAndUpdate(
                     {
@@ -199,6 +203,7 @@ module.exports = {
                 englishembed.react('2️⃣')
                 englishembed.react('3️⃣')
                 englishembed.react('⏰')
+                englishembed.react('🔒')
 
                 //send the embed to forest channel and react
                 let forestembed = await forestchannel.send(forestEmbed);
@@ -208,6 +213,7 @@ module.exports = {
                 forestembed.react('2️⃣')
                 forestembed.react('3️⃣')
                 forestembed.react('⏰')
+                forestembed.react('🔒')
                 
 
                 let treetaken = await forestSchema.findOneAndUpdate(
@@ -249,6 +255,7 @@ module.exports = {
                 englishembed.react('2️⃣')
                 englishembed.react('3️⃣')
                 englishembed.react('⏰')
+                englishembed.react('🔒')
 
                 //send the embed to forest channel and react
                 let forestembed = await forestchannel.send(forestEmbed);
@@ -258,6 +265,7 @@ module.exports = {
                 forestembed.react('2️⃣')
                 forestembed.react('3️⃣')
                 forestembed.react('⏰')
+                forestembed.react('🔒')
 
                 let treetaken = await forestSchema.findOneAndUpdate(
                     {

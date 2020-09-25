@@ -1,6 +1,6 @@
 module.exports = (client) => {
     client.on('ready', async () => {
-        return
+        
         const ms = require('ms')
         var moment = require('moment');
         var schedule = require('node-schedule');
