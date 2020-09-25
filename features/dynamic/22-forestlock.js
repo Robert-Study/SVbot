@@ -15,7 +15,7 @@ module.exports = (client) => {
         const msg = reaction.message;
         const guild = msg.guild;
         const guildMembers = guild.members;
-        const guildMember = guildMembers.get(user.id);
+        const guildMember = guildMembers.cache.get(user.id);
 
 
         let UserID = user.id
