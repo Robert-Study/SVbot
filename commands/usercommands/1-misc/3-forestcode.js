@@ -18,6 +18,9 @@ module.exports = {
         const forestSchema = require("@schemas/17-forestschema")
         const GuildID = "703937875720273972"
 
+        const mention = message.author
+        const UserID = mention.id
+
         let time = `${arguments[1]}m`;
         let addtime = ms(`${time}`)
         if (isNaN(addtime)) { return message.reply('An error occured - Please only write the amount of min as a number (60,120,180)') } 
@@ -94,6 +97,7 @@ module.exports = {
                 englishembed.react('1️⃣')
                 englishembed.react('2️⃣')
                 englishembed.react('3️⃣')
+                englishembed.react('⏰')
 
                 //send the embed to forest channel and react
                 let forestembed = await forestchannel.send(forestEmbed);
@@ -102,6 +106,7 @@ module.exports = {
                 forestembed.react('1️⃣')
                 forestembed.react('2️⃣')
                 forestembed.react('3️⃣')
+                forestembed.react('⏰')
 
                 let treetaken = await forestSchema.findOneAndUpdate(
                     {
@@ -111,6 +116,7 @@ module.exports = {
                         taken: 1,
                         time: uptime,
                         endtime: structuretime,
+                        number: UserID
                     },
                     {
                         upsert: true,
@@ -142,6 +148,7 @@ module.exports = {
                 englishembed.react('1️⃣')
                 englishembed.react('2️⃣')
                 englishembed.react('3️⃣')
+                englishembed.react('⏰')
 
                 //send the embed to forest channel and react
                 let forestembed = await forestchannel.send(forestEmbed);
@@ -150,6 +157,7 @@ module.exports = {
                 forestembed.react('1️⃣')
                 forestembed.react('2️⃣')
                 forestembed.react('3️⃣')
+                forestembed.react('⏰')
 
                 let treetaken = await forestSchema.findOneAndUpdate(
                     {
@@ -159,6 +167,7 @@ module.exports = {
                         taken: 1,
                         time: uptime,
                         endtime: structuretime,
+                        number: UserID
                     },
                     {
                         upsert: true,
@@ -189,6 +198,7 @@ module.exports = {
                 englishembed.react('1️⃣')
                 englishembed.react('2️⃣')
                 englishembed.react('3️⃣')
+                englishembed.react('⏰')
 
                 //send the embed to forest channel and react
                 let forestembed = await forestchannel.send(forestEmbed);
@@ -197,6 +207,8 @@ module.exports = {
                 forestembed.react('1️⃣')
                 forestembed.react('2️⃣')
                 forestembed.react('3️⃣')
+                forestembed.react('⏰')
+                
 
                 let treetaken = await forestSchema.findOneAndUpdate(
                     {
@@ -206,6 +218,7 @@ module.exports = {
                         taken: 1,
                         time: uptime,
                         endtime: structuretime,
+                        number: UserID
                     },
                     {
                         upsert: true,
@@ -235,6 +248,7 @@ module.exports = {
                 englishembed.react('1️⃣')
                 englishembed.react('2️⃣')
                 englishembed.react('3️⃣')
+                englishembed.react('⏰')
 
                 //send the embed to forest channel and react
                 let forestembed = await forestchannel.send(forestEmbed);
@@ -243,6 +257,7 @@ module.exports = {
                 forestembed.react('1️⃣')
                 forestembed.react('2️⃣')
                 forestembed.react('3️⃣')
+                forestembed.react('⏰')
 
                 let treetaken = await forestSchema.findOneAndUpdate(
                     {
@@ -252,6 +267,7 @@ module.exports = {
                         taken: 1,
                         time: uptime,
                         endtime: structuretime,
+                        number: UserID
                     },
                     {
                         upsert: true,

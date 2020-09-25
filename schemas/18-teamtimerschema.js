@@ -16,7 +16,7 @@ const forestSchema = mongoose.Schema({
         required: false,
     },
 
-    number: {
+    remaining: {
         type: String,
         required: false,
     },
