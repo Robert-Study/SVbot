@@ -3,8 +3,8 @@ const { min } = require('moment');
 module.exports = (client) => {
 
     client.on("messageReactionAdd", async (reaction, user) => {
-
-        if (reaction.reaction.partial) await reaction.reaction.fetch();
+        if (reaction.message.partial) await reaction.message.fetch();
+        if (reaction.partial) await reaction.fetch
         const ms = require('ms')
         var moment = require('moment');
 
