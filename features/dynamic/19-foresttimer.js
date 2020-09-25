@@ -2,6 +2,9 @@ module.exports = (client) => {
 
     client.on("messageReactionAdd", async (reaction, user) => {
         if (reaction.message.partial) await reaction.message.fetch();
+        const ms = require('ms')
+        var moment = require('moment');
+        var schedule = require('node-schedule');
         if (reaction.partial) await reaction.fetch
         const forestSchema = require('@schemas/17-forestschema')
         const teamtimerSchema = require('@schemas/18-teamtimerschema')
