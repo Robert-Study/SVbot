@@ -17,6 +17,7 @@ module.exports = (client) => {
             if (unlockresults) {
                 for (items of unlockresults) {
                     let remainingtime = items.remaining
+                    if (remainingtime >= 1){
                     let newremaining = await teamtimerSchema.updateMany(
                         {
                             GuildID: server
@@ -32,6 +33,7 @@ module.exports = (client) => {
                             new: false,
                         }
                     )
+                    }
                 }
             }
         })
