@@ -26,10 +26,7 @@ module.exports = {
         return
       }
 
-      if (timeLog < 0){
-        message.reply('Added time cannot be a negative number')
-        return
-      }
+ 
 
       const UserID = mention.id
   
