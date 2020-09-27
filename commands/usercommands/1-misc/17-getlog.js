@@ -23,6 +23,11 @@ module.exports = {
             const monthly = person.monthly
             const alltime = person.alltime
 
+            const roundeddaily = Math.round(daily * 10) / 10
+            const roundedweekly = Math.round(weekly * 10) / 10
+            const roundedmonthly = Math.round(monthly * 10) / 10
+            const roundedalltime = Math.round(alltime * 10) / 10
+
             console.log('Searching the database for logs')
             console.log(daily)
             const results = await userdataSchema.find({
@@ -55,7 +60,7 @@ module.exports = {
 
 
 
-                message.channel.send(`**__Study time for ${target}__**\n\n**${daily}** hours today (*average: ${dailyround}*)\n**${weekly}** hours this week (*average: ${weeklyround}*)\n**${monthly}** hours this month (*average: ${monthround}*)\n**${alltime}** hours all-time (*average: ${allround}*)\n`)
+                message.channel.send(`**__Study time for ${target}__**\n\n**${roundeddaily}** hours today (*average: ${dailyround}*)\n**${roundedweekly}** hours this week (*average: ${weeklyround}*)\n**${roundedmonthly}** hours this month (*average: ${monthround}*)\n**${roundedalltime}** hours all-time (*average: ${allround}*)\n`)
             }
         }
 

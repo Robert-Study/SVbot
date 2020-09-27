@@ -23,6 +23,7 @@ module.exports = {
         })
         if (results) {
             let newsort = results.remaining
+            
             let sortmyresults = results.reverse()
             console.log(sortmyresults)
 
@@ -30,9 +31,10 @@ module.exports = {
 
             let reply = '**Team-Timers:** \n\n'
             for (const newresult of sortmyresults) {
-                reply += `Team **${newresult.color}** - timer: *${newresult.remaining}* min. remaining`
+                reply += `Team **${newresult.color}** - timer: *${newresult.remaining}* min. remaining\n`
 
                 forestchannel.send(reply)
+                break
             }
         }
     }
