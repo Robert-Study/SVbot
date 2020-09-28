@@ -25,32 +25,32 @@ module.exports = (client) => {
                     if (unlocktime === current) {
                         if (color === 'red') {
                             let team = '758651469841825813'
-                            let deletetimer = await teamtimerSchema.deleteOne({
-                                GuildID: server, 
-                                color: 'red'
+                            let deletetimer = await teamtimerSchema.findOneAndUpdate({
+                                GuildID: server, },{
+                                color: 'deletethis'
                             })
                             timerchannel.send(`⏰ Timer of the  <@&758651469841825813> has finished! ⏰`)
                         }
                         if (color === 'blue') {
-                            let deletetimer = await teamtimerSchema.deleteOne({
-                                GuildID: server, 
-                                color: 'blue'
+                            let deletetimer = await teamtimerSchema.findOneAndUpdate({
+                                GuildID: server, },{
+                                color: 'deletethis'
                             })
                             let team = '758651852337577994'
                             timerchannel.send(`⏰ Timer of the  <@&758651852337577994> has finished! ⏰`)
                         }
                         if (color === 'orange') {
-                            let deletetimer = await teamtimerSchema.deleteOne({
-                                GuildID: server, 
-                                color: 'orange'
+                            let deletetimer = await teamtimerSchema.findOneAndUpdate({
+                                GuildID: server, },{
+                                color: 'delete'
                             })
                             let team = '758651692198920192'
                             timerchannel.send(`⏰ Timer of the  <@&758651692198920192> has finished! ⏰`)
                         }
                         if (color === 'green') {
-                            let deletetimer = await teamtimerSchema.deleteOne({
-                                GuildID: server, 
-                                color: 'green'
+                            let deletetimer = await teamtimerSchema.findOneAndUpdate({
+                                GuildID: server, },{
+                                color: 'deletethis'
                             })
                             let team = '758651778962292776'
                             timerchannel.send(`⏰ Timer of the  <@&758651778962292776> has finished! ⏰`)

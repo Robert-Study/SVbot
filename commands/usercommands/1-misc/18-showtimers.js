@@ -5,7 +5,7 @@ module.exports = {
     expectedArgs: '!showtimers',
 
     callback: async (message, arguments, text) => {
-        
+
         const Discord = require('discord.js');
         const englishchannel = message.client.channels.cache.get('703937876634894388');
         const forestchannel = message.client.channels.cache.get('732292791287283862');
@@ -23,23 +23,37 @@ module.exports = {
         })
         if (results) {
             let newsort = results.remaining
-            
+
             let sortmyresults = results.reverse()
             console.log(sortmyresults)
+
+            if (newsort <= 0) {
+                let deleting = await teamtimerSchema.deleteOne({
+                    GuildID,
+
+                })
+            }
 
 
 
             let reply = '**Team-Timers:** \n\n'
             for (const newresult of sortmyresults) {
-                reply += `Team **${newresult.color}** - timer: *${newresult.remaining}* min. remaining\n`
-                }   
+
+                if (newresult.remaining <= 0) {
+                    await teamtimerSchema.deleteOne({
+                        GuildID,
+                        color: deletethis
+                    })
+
+                    reply += `Team **${newresult.color}** - timer: *${newresult.remaining}* min. remaining\n`
+                }
                 forestchannel.send(reply)
-                
-            
+
+
+            }
         }
     }
 }
-
 
 
 
