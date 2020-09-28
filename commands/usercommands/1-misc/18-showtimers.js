@@ -40,9 +40,9 @@ module.exports = {
             for (const newresult of sortmyresults) {
 
                 if (newresult.remaining <= 0) {
-                    await teamtimerSchema.deleteOne({
+                    await teamtimerSchema.deleteMany({
                         GuildID,
-                        color: deletethis
+                        color: 'deletethis'
                     })
 
                     reply += `Team **${newresult.color}** - timer: *${newresult.remaining}* min. remaining\n`
