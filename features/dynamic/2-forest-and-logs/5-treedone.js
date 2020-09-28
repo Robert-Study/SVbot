@@ -1,4 +1,3 @@
-const { findOneAndUpdate } = require('../../schemas/17-forestschema');
 
 module.exports = (client) => {
     client.on('ready', async () => {
