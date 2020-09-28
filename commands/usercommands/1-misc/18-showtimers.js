@@ -32,10 +32,10 @@ module.exports = {
             let reply = '**Team-Timers:** \n\n'
             for (const newresult of sortmyresults) {
                 reply += `Team **${newresult.color}** - timer: *${newresult.remaining}* min. remaining\n`
-
+                }   
                 forestchannel.send(reply)
-                break
-            }
+                
+            
         }
     }
 }
