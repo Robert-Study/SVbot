@@ -27,15 +27,6 @@ module.exports = {
             let sortmyresults = results.reverse()
             console.log(sortmyresults)
 
-            if (newsort <= 0) {
-                let deleting = await teamtimerSchema.deleteOne({
-                    GuildID,
-
-                })
-            }
-
-
-
             let reply = '**Team-Timers:** \n\n'
             for (const newresult of sortmyresults) {
 
@@ -44,14 +35,15 @@ module.exports = {
                         GuildID,
                         color: 'deletethis'
                     })
-                }else{
+                } else {
                     reply += `Team **${newresult.color}** - timer: *${newresult.remaining}* min. remaining\n`
                 }
-                forestchannel.send(reply)
-                
-
-
             }
+            forestchannel.send(reply)
+
+
+
+
         }
     }
 }
