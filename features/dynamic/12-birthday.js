@@ -36,7 +36,7 @@ module.exports = (client) => {
 
 
                     const todayEmbed = new Discord.MessageEmbed()
-                        .setColor('#28a1c9')
+                        .setColor('#990608')
                         .setTitle(`Birthday today!`)
                         .addFields(
                             { name: `\u200B`, value: `**${reply}**\n*We all wish you a very nice day!🎉* ` },
