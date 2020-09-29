@@ -1,6 +1,6 @@
 module.exports = (client) => {
     client.on('ready', async () => {
-        
+
         const ms = require('ms')
         var moment = require('moment');
         var schedule = require('node-schedule');
@@ -26,14 +26,18 @@ module.exports = (client) => {
                         if (color === 'red') {
                             let team = '758651469841825813'
                             let deletetimer = await teamtimerSchema.findOneAndUpdate({
-                                GuildID: server, },{
+                                GuildID: server,
+                                color: 'red'
+                            }, {
                                 color: 'deletethis'
                             })
                             timerchannel.send(`⏰ Timer of the  <@&758651469841825813> has finished! ⏰`)
                         }
                         if (color === 'blue') {
                             let deletetimer = await teamtimerSchema.findOneAndUpdate({
-                                GuildID: server, },{
+                                GuildID: server,
+                                color: 'blue'
+                            }, {
                                 color: 'deletethis'
                             })
                             let team = '758651852337577994'
@@ -41,7 +45,9 @@ module.exports = (client) => {
                         }
                         if (color === 'orange') {
                             let deletetimer = await teamtimerSchema.findOneAndUpdate({
-                                GuildID: server, },{
+                                GuildID: server,
+                                color: 'orange'
+                            }, {
                                 color: 'deletethis'
                             })
                             let team = '758651692198920192'
@@ -49,7 +55,9 @@ module.exports = (client) => {
                         }
                         if (color === 'green') {
                             let deletetimer = await teamtimerSchema.findOneAndUpdate({
-                                GuildID: server, },{
+                                GuildID: server,
+                                color: 'green'
+                            }, {
                                 color: 'deletethis'
                             })
                             let team = '758651778962292776'
