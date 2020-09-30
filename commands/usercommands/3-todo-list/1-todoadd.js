@@ -54,7 +54,7 @@ module.exports = {
             })
 
             //reply to user with the added item
-            let reply = `Added your item ${newtodo} to your list`
+            let reply = `Added your item **${newtodo}** to your list`
             message.channel.send(reply)
         }
     }
