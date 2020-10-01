@@ -37,7 +37,7 @@ module.exports = (client) => {
                 {
                     $set:
                     {
-                        daily: 0,
+                        
                         weekly: 0,
 
                     }
@@ -56,8 +56,8 @@ module.exports = (client) => {
                 {
                     $set:
                     {
-                        daily: 0,
-                        weekly: 0,
+                       
+                        
                         monthly: 0,
 
                     }

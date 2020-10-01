@@ -41,7 +41,7 @@ module.exports = (client) => {
                 
 
                 let result = await forestSchema.findOne({
-                    color: 'red'
+                    color: 'blue'
                 })
 
                 if (result) {
@@ -62,7 +62,7 @@ module.exports = (client) => {
                
 
                 let result = await forestSchema.findOne({
-                    color: 'red'
+                    color: 'orange'
                 })
 
                 if (result) {
@@ -82,7 +82,7 @@ module.exports = (client) => {
                 await reaction.message.guild.members.cache.get(user.id).roles.remove("729444698812579870")
 
                 let result = await forestSchema.findOne({
-                    color: 'red'
+                    color: 'green'
                 })
 
                 if (result) {
