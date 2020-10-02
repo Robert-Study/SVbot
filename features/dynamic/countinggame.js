@@ -21,10 +21,10 @@ module.exports = (client) => {
 
             if (count) {
 
-                let currentcount = number
+                let currentcount = count.number
 
                 let usercount = message.content
-                let lastcounter = lastuser
+                let lastcounter = count.lastuser
                 let addone = (currentcount + 1)
 
                 if (isNaN(usercount) || usercount != (addone) || User === lastcounter) {
