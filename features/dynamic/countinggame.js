@@ -3,7 +3,7 @@ const { Guild } = require('discord.js');
 module.exports = (client) => {
 
     client.on("message", async (message) => {
-        return
+        
         const messageCountSchema = require('@schemas/19-countschema')
 
         if (message.author.bot) return;
@@ -28,15 +28,15 @@ module.exports = (client) => {
                     let addone = (currentcount + 1)
 
                     if (isNaN(usercount) || usercount != (addone) || User === lastcounter) {
-                        let count = await messageCountSchema.findOne({
+                        let failure = await messageCountSchema.findOne({
                             GuildID: Guild,
                             UserID: 'countgame'
                         })
 
-                        for (resultaten of count) {
+                        for (resultaten of failure) {
                             let save = resultaten.save
 
-                            if (save = 0) {
+                            if (save === 0) {
                                 message.reply("That was the wrong number, there are no saves left. Start again at 1!")
                                 let failure = await messageCountSchema.findOneAndUpdate(
                                     {
@@ -117,12 +117,17 @@ module.exports = (client) => {
                             let newsave = await messageCountSchema.findOneAndUpdate(
                                 {
                                     UserID: 'countgame'
-                                }, {
-                                UserID: 'countgame',
-                                $inc: {
-                                    save: 1,
-                                }
-                            })
+                                },
+                                {
+                                    UserID: 'countgame',
+                                    $inc: {
+                                        save: 1,
+                                    },
+                                },
+                                {
+                                    upsert: true,
+                                    new: true,
+                                })
                         }
 
                         if (addone = 500) {
@@ -130,12 +135,17 @@ module.exports = (client) => {
                             let newsave = await messageCountSchema.findOneAndUpdate(
                                 {
                                     UserID: 'countgame'
-                                }, {
-                                UserID: 'countgame',
-                                $inc: {
-                                    save: 1,
-                                }
-                            })
+                                },
+                                {
+                                    UserID: 'countgame',
+                                    $inc: {
+                                        save: 1,
+                                    },
+                                },
+                                {
+                                    upsert: true,
+                                    new: true,
+                                })
                         }
 
                         if (addone = 1000) {
@@ -143,12 +153,17 @@ module.exports = (client) => {
                             let newsave = await messageCountSchema.findOneAndUpdate(
                                 {
                                     UserID: 'countgame'
-                                }, {
-                                UserID: 'countgame',
-                                $inc: {
-                                    save: 1,
-                                }
-                            })
+                                },
+                                {
+                                    UserID: 'countgame',
+                                    $inc: {
+                                        save: 1,
+                                    },
+                                },
+                                {
+                                    upsert: true,
+                                    new: true,
+                                })
                         }
 
                         let highscore = await messageCountSchema.findOne({

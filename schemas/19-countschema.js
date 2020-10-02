@@ -17,12 +17,12 @@ const countSchema = mongoose.Schema({
     },
 
     wrong: {
-        type: String,
+        type: Number,
         required: false,
     },
 
     save: {
-        type: String,
+        type: Number,
         required: false,
     },
 
