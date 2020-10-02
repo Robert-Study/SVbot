@@ -3,7 +3,7 @@ const { Guild } = require('discord.js');
 module.exports = (client) => {
 
     client.on("message", async (message) => {
-
+        return
         const messageCountSchema = require('@schemas/19-countschema')
 
         if (message.author.bot) return;
