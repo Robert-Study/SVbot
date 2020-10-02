@@ -37,7 +37,7 @@ module.exports = {
 
             let lifesremaining = countgame.gameresc
 
-            message.reply(`You have counted in total: **${hs} numbers**\nYou have wrongly counted **${wrong} times**\n Percentage: **${averagescore}%**\nYou have earned **${resques} saves** for the server!\n\nServer Highscore: **${serverhigh}**\nRemaining saves: **${lifesremaining}** `)
+            message.reply(`**Here are your stats:**\n⬆️You have counted in total: **${hs} numbers**\n⬇️You have wrongly counted **${wrong} times**\n#️⃣Percentage: **${averagescore}%**\n🧡You have earned **${resques} saves** for the server!\n\n📶Server Highscore: **${serverhigh}**\n💚Remaining saves: **${lifesremaining}** `)
 
         }else{message.reply('No results found for you yet!')}
     }
