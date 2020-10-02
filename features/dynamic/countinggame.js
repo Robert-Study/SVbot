@@ -112,8 +112,27 @@ module.exports = (client) => {
                             new: true,
                         })
 
+                    if (addone === 50) {
+                        gamechannel.send(`GG <@${User}> you have counted to 50 and earned a save for the server!`)
+                        let newsave = await messageCountSchema.findOneAndUpdate(
+                            {
+                                UserID: 'countgame'
+                            },
+                            {
+                                UserID: 'countgame',
+                                $inc: {
+                                    gameresc: 1,
+                                },
+                            },
+                            {
+                                upsert: true,
+                                new: true,
+                            })
+                    }
+
+
                     if (addone === 100) {
-                        gamechannel.send(`GG <@${User}> you have counted to 100 and earned a save for the server!`)
+                        gamechannel.send(`GG <@${User}> you have counted to 50 and earned a save for the server!`)
                         let newsave = await messageCountSchema.findOneAndUpdate(
                             {
                                 UserID: 'countgame'
