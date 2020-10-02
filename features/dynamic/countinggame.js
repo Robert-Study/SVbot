@@ -166,25 +166,25 @@ module.exports = (client) => {
                             })
                     }
 
-                    let highscore = await messageCountSchema.findOne({
+                    let resultG = await messageCountSchema.findOne({
                         UserID: 'highscore'
                     })
 
-                    for (results of highscore) {
-                        let highscore = results.number
-                        if (highscore <= addone) {
-                            let newhighscore = await messageCountSchema.findOneAndUpdate(
-                                {
-                                    UserID: 'highscore'
-                                }, {
-                                UserID: 'highscore',
-                                number: addone
-                            })
-                        }
+
+                    let highscore = resultG.number
+                    if (highscore <= addone) {
+                        let newhighscore = await messageCountSchema.findOneAndUpdate(
+                            {
+                                UserID: 'highscore'
+                            }, {
+                            UserID: 'highscore',
+                            number: addone
+                        })
                     }
                 }
-
             }
+
         }
+
     })
 }
