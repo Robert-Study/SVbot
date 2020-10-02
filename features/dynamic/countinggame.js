@@ -3,7 +3,7 @@ const { Guild } = require('discord.js');
 module.exports = (client) => {
 
     client.on("message", async (message) => {
-        
+
         const messageCountSchema = require('@schemas/19-countschema')
 
         if (message.author.bot) return;
@@ -32,54 +32,59 @@ module.exports = (client) => {
                             GuildID: Guild,
                             UserID: 'countgame'
                         })
-                        if (save = 0) {
-                            message.reply("That was the wrong number, there are no saves left. Start again at 1!")
-                            let failure = await messageCountSchema.findOneAndUpdate(
-                                {
-                                    UserID: 'countgame',
-                                },
-                                {
-                                    UserID: 'countgame',
-                                    number: 0,
-                                    lastuser: 'reset'
-                                })
 
-                                
-                            let userfailure = await messageCountSchema.findOneAndUpdate(
-                                {
-                                    UserID: User,
-                                },
-                                {
-                                    UserID: User,
-                                    $inc: {
-                                        wrong: 1,
+                        for (resultaten of count) {
+                            let save = resultaten.save
+
+                            if (save = 0) {
+                                message.reply("That was the wrong number, there are no saves left. Start again at 1!")
+                                let failure = await messageCountSchema.findOneAndUpdate(
+                                    {
+                                        UserID: 'countgame',
                                     },
-                                },
-                                {
-                                    upsert: true,
-                                    new: true,
-                                })
-                        } if (save > 0){
-                            message.reply(`That was the wrong number, luckily this server has a save. Count on with the number **${addone}**`)
-                            let savedgame = await messageCountSchema.findOneAndUpdate(
-                                {
-                                    UserID: 'countgame',
-                                },
-                                {
-                                    UserID: 'countgame',
-                                    $inc: {
-                                        save: -1,
+                                    {
+                                        UserID: 'countgame',
+                                        number: 0,
+                                        lastuser: 'reset'
+                                    })
+
+
+                                let userfailure = await messageCountSchema.findOneAndUpdate(
+                                    {
+                                        UserID: User,
                                     },
-                                },
-                                {
-                                    upsert: true,
-                                    new: true,
-                                })
-                        
-                        
+                                    {
+                                        UserID: User,
+                                        $inc: {
+                                            wrong: 1,
+                                        },
+                                    },
+                                    {
+                                        upsert: true,
+                                        new: true,
+                                    })
+                            } if (save > 0) {
+                                message.reply(`That was the wrong number, luckily this server has a save. Count on with the number **${addone}**`)
+                                let savedgame = await messageCountSchema.findOneAndUpdate(
+                                    {
+                                        UserID: 'countgame',
+                                    },
+                                    {
+                                        UserID: 'countgame',
+                                        $inc: {
+                                            save: -1,
+                                        },
+                                    },
+                                    {
+                                        upsert: true,
+                                        new: true,
+                                    })
+
+
+                            }
+
+
                         }
-
-
                     }
                     else {
                         let newcount = await messageCountSchema.findOneAndUpdate(
