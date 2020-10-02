@@ -27,7 +27,7 @@ module.exports = {
             }
         )
 
-        let setup = await forestSchema.findOneAndUpdate(
+        let high = await forestSchema.findOneAndUpdate(
             {
                 GuildID: server,
                 UserID: 'highscore'
