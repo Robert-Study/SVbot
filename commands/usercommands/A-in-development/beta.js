@@ -6,7 +6,7 @@ module.exports = {
     expectedArgs: '<!dladd 28/08/2020 Exam on...>',
 
     callback: async (message, arguments, text) => {
-        const forestSchema = require('@schemas/19-counschema')
+        const forestSchema = require('@schemas/19-countschema')
         let server = '703937875720273972'
 
         let setup = await forestSchema.findOneAndUpdate(
