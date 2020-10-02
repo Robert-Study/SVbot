@@ -21,7 +21,7 @@ const countSchema = mongoose.Schema({
         required: false,
     },
 
-    save: {
+    gameresc: {
         type: Number,
         required: false,
     },

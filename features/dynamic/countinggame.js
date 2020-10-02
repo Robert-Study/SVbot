@@ -34,7 +34,7 @@ module.exports = (client) => {
                         })
 
                         for (resultaten of failure) {
-                            let savegame = resultaten.save
+                            let savegame = resultaten.gameresc
 
                             if (savegame === 0) {
                                 message.reply("That was the wrong number, there are no saves left. Start again at 1!")
@@ -72,7 +72,7 @@ module.exports = (client) => {
                                     {
                                         UserID: 'countgame',
                                         $inc: {
-                                            save: -1,
+                                            gameresc: -1,
                                         },
                                     },
                                     {
@@ -121,7 +121,7 @@ module.exports = (client) => {
                                 {
                                     UserID: 'countgame',
                                     $inc: {
-                                        save: 1,
+                                        gameresc: 1,
                                     },
                                 },
                                 {
@@ -139,7 +139,7 @@ module.exports = (client) => {
                                 {
                                     UserID: 'countgame',
                                     $inc: {
-                                        save: 1,
+                                        gameresc: 1,
                                     },
                                 },
                                 {
@@ -157,7 +157,7 @@ module.exports = (client) => {
                                 {
                                     UserID: 'countgame',
                                     $inc: {
-                                        save: 1,
+                                        gameresc: 1,
                                     },
                                 },
                                 {
