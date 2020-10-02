@@ -40,6 +40,7 @@ module.exports = (client) => {
                         message.reply("That was the wrong number, there are no saves left.\nStart again at 1!")
                         let failure = await messageCountSchema.findOneAndUpdate(
                             {
+                                GuildID: Guild,
                                 UserID: 'countgame',
                             },
                             {
@@ -51,6 +52,7 @@ module.exports = (client) => {
 
                         let userfailure = await messageCountSchema.findOneAndUpdate(
                             {
+                                GuildID: Guild,
                                 UserID: User,
                             },
                             {
@@ -67,6 +69,7 @@ module.exports = (client) => {
                         message.reply(`That was the wrong number, luckily this server has ${savegame} save(s).\nCount on with the number **${addone}**`)
                         let savedgame = await messageCountSchema.findOneAndUpdate(
                             {
+                                GuildID: Guild,
                                 UserID: 'countgame',
                             },
                             {
@@ -89,6 +92,7 @@ module.exports = (client) => {
                 else {
                     let newcount = await messageCountSchema.findOneAndUpdate(
                         {
+                            GuildID: Guild,
                             UserID: 'countgame',
                         },
                         {
@@ -99,6 +103,7 @@ module.exports = (client) => {
 
                     let userscore = await messageCountSchema.findOneAndUpdate(
                         {
+                            GuildID: Guild,
                             UserID: User,
                         },
                         {
@@ -118,6 +123,7 @@ module.exports = (client) => {
                         gamechannel.send(`GG <@${User}> you have counted to 50 and earned a save for the server!`)
                         let newsave = await messageCountSchema.findOneAndUpdate(
                             {
+                                GuildID: Guild,
                                 UserID: 'countgame'
                             },
                             {
@@ -137,6 +143,7 @@ module.exports = (client) => {
                         gamechannel.send(`GG <@${User}> you have counted to 50 and earned a save for the server!`)
                         let newsave = await messageCountSchema.findOneAndUpdate(
                             {
+                                GuildID: Guild,
                                 UserID: 'countgame'
                             },
                             {
@@ -150,26 +157,28 @@ module.exports = (client) => {
                                 new: true,
                             })
 
-                            let userres = await messageCountSchema.findOneAndUpdate(
-                                {
-                                    UserID: User
+                        let userres = await messageCountSchema.findOneAndUpdate(
+                            {
+                                GuildID: Guild,
+                                UserID: User
+                            },
+                            {
+                                UserID: User,
+                                $inc: {
+                                    gameresc: 1,
                                 },
-                                {
-                                    UserID: User,
-                                    $inc: {
-                                        gameresc: 1,
-                                    },
-                                },
-                                {
-                                    upsert: true,
-                                    new: true,
-                                })
+                            },
+                            {
+                                upsert: true,
+                                new: true,
+                            })
                     }
 
                     if (addone === 500) {
                         gamechannel.send(`GG <@${User}> you have counted to 500 and earned a save for the server!`)
                         let newsave = await messageCountSchema.findOneAndUpdate(
                             {
+                                GuildID: Guild,
                                 UserID: 'countgame'
                             },
                             {
@@ -183,26 +192,28 @@ module.exports = (client) => {
                                 new: true,
                             })
 
-                            let userres = await messageCountSchema.findOneAndUpdate(
-                                {
-                                    UserID: User
+                        let userres = await messageCountSchema.findOneAndUpdate(
+                            {
+                                GuildID: Guild,
+                                UserID: User
+                            },
+                            {
+                                UserID: User,
+                                $inc: {
+                                    gameresc: 1,
                                 },
-                                {
-                                    UserID: User,
-                                    $inc: {
-                                        gameresc: 1,
-                                    },
-                                },
-                                {
-                                    upsert: true,
-                                    new: true,
-                                })
+                            },
+                            {
+                                upsert: true,
+                                new: true,
+                            })
                     }
 
                     if (addone === 1000) {
                         gamechannel.send(`GG <@${User}> you have counted to 1000 and earned a save for the server!`)
                         let newsave = await messageCountSchema.findOneAndUpdate(
                             {
+                                GuildID: Guild,
                                 UserID: 'countgame'
                             },
                             {
@@ -216,20 +227,21 @@ module.exports = (client) => {
                                 new: true,
                             })
 
-                            let userres = await messageCountSchema.findOneAndUpdate(
-                                {
-                                    UserID: User
+                        let userres = await messageCountSchema.findOneAndUpdate(
+                            {
+                                GuildID: Guild,
+                                UserID: User
+                            },
+                            {
+                                UserID: User,
+                                $inc: {
+                                    gameresc: 1,
                                 },
-                                {
-                                    UserID: User,
-                                    $inc: {
-                                        gameresc: 1,
-                                    },
-                                },
-                                {
-                                    upsert: true,
-                                    new: true,
-                                })
+                            },
+                            {
+                                upsert: true,
+                                new: true,
+                            })
                     }
 
                     let resultG = await messageCountSchema.findOne({
@@ -241,6 +253,7 @@ module.exports = (client) => {
                     if (highscore <= addone) {
                         let newhighscore = await messageCountSchema.findOneAndUpdate(
                             {
+                                GuildID: Guild,
                                 UserID: 'highscore'
                             }, {
                             UserID: 'highscore',
