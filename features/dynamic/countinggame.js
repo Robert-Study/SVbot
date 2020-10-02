@@ -34,9 +34,9 @@ module.exports = (client) => {
                         })
 
                         for (resultaten of failure) {
-                            let save = resultaten.save
+                            let savegame = resultaten.save
 
-                            if (save === 0) {
+                            if (savegame === 0) {
                                 message.reply("That was the wrong number, there are no saves left. Start again at 1!")
                                 let failure = await messageCountSchema.findOneAndUpdate(
                                     {
@@ -63,7 +63,7 @@ module.exports = (client) => {
                                         upsert: true,
                                         new: true,
                                     })
-                            } if (save > 0) {
+                            } if (savegame > 0) {
                                 message.reply(`That was the wrong number, luckily this server has a save. Count on with the number **${addone}**`)
                                 let savedgame = await messageCountSchema.findOneAndUpdate(
                                     {
