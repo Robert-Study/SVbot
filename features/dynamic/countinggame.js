@@ -9,7 +9,7 @@ module.exports = (client) => {
         if (message.author.bot) return;
 
         if (message.channel.id === "751713825190969385") {
-            let gamechannel = client.channels.cache.get('759487772993126460')
+            let gamechannel = client.channels.cache.get('751713825190969385')
             let Guild = "703937875720273972"
             const mention = message.author
             const User = mention.id
@@ -37,7 +37,7 @@ module.exports = (client) => {
                     let savegame = failure.gameresc
 
                     if (savegame === 0) {
-                        message.reply("That was the wrong number, there are no saves left. Start again at 1!")
+                        message.reply("That was the wrong number, there are no saves left.\nStart again at 1!")
                         let failure = await messageCountSchema.findOneAndUpdate(
                             {
                                 UserID: 'countgame',
@@ -64,7 +64,7 @@ module.exports = (client) => {
                                 new: true,
                             })
                     } if (savegame > 0) {
-                        message.reply(`That was the wrong number, luckily this server has a save. Count on with the number **${addone}**`)
+                        message.reply(`That was the wrong number, luckily this server has ${savegame} save(s).\nCount on with the number **${addone}**`)
                         let savedgame = await messageCountSchema.findOneAndUpdate(
                             {
                                 UserID: 'countgame',
