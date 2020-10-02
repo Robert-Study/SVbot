@@ -38,6 +38,6 @@ module.exports = {
 
             message.reply(`You have counted in total: **${hs} numbers**\nYou have wrongly counted ${wrong}\n Percentage: ${averagescore}\nYou have earned ${resques} saves for the server!\n\nServer Highscore: ${serverhigh}\nRemaining saves: ${lifesremaining} `)
 
-        }
+        }else{message.reply('No results found for you yet!')}
     }
 }
