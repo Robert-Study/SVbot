@@ -26,7 +26,12 @@ const countSchema = mongoose.Schema({
         required: false,
     },
 
+    lastuser: {
+        type: String,
+        required: false,
+    },
+
 
 })
 
-module.exports = mongoose.model('20-countschema', countSchema)
+module.exports = mongoose.model('19-countschema', countSchema)
