@@ -33,58 +33,58 @@ module.exports = (client) => {
                         UserID: 'countgame'
                     })
 
-                    for (resultaten of failure) {
-                        let savegame = resultaten.gameresc
 
-                        if (savegame === 0) {
-                            message.reply("That was the wrong number, there are no saves left. Start again at 1!")
-                            let failure = await messageCountSchema.findOneAndUpdate(
-                                {
-                                    UserID: 'countgame',
-                                },
-                                {
-                                    UserID: 'countgame',
-                                    number: 0,
-                                    lastuser: 'reset'
-                                })
+                    let savegame = failure.gameresc
 
-
-                            let userfailure = await messageCountSchema.findOneAndUpdate(
-                                {
-                                    UserID: User,
-                                },
-                                {
-                                    UserID: User,
-                                    $inc: {
-                                        wrong: 1,
-                                    },
-                                },
-                                {
-                                    upsert: true,
-                                    new: true,
-                                })
-                        } if (savegame > 0) {
-                            message.reply(`That was the wrong number, luckily this server has a save. Count on with the number **${addone}**`)
-                            let savedgame = await messageCountSchema.findOneAndUpdate(
-                                {
-                                    UserID: 'countgame',
-                                },
-                                {
-                                    UserID: 'countgame',
-                                    $inc: {
-                                        gameresc: -1,
-                                    },
-                                },
-                                {
-                                    upsert: true,
-                                    new: true,
-                                })
+                    if (savegame === 0) {
+                        message.reply("That was the wrong number, there are no saves left. Start again at 1!")
+                        let failure = await messageCountSchema.findOneAndUpdate(
+                            {
+                                UserID: 'countgame',
+                            },
+                            {
+                                UserID: 'countgame',
+                                number: 0,
+                                lastuser: 'reset'
+                            })
 
 
-                        }
+                        let userfailure = await messageCountSchema.findOneAndUpdate(
+                            {
+                                UserID: User,
+                            },
+                            {
+                                UserID: User,
+                                $inc: {
+                                    wrong: 1,
+                                },
+                            },
+                            {
+                                upsert: true,
+                                new: true,
+                            })
+                    } if (savegame > 0) {
+                        message.reply(`That was the wrong number, luckily this server has a save. Count on with the number **${addone}**`)
+                        let savedgame = await messageCountSchema.findOneAndUpdate(
+                            {
+                                UserID: 'countgame',
+                            },
+                            {
+                                UserID: 'countgame',
+                                $inc: {
+                                    gameresc: -1,
+                                },
+                            },
+                            {
+                                upsert: true,
+                                new: true,
+                            })
 
 
                     }
+
+
+
                 }
                 else {
                     let newcount = await messageCountSchema.findOneAndUpdate(
