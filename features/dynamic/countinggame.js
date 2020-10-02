@@ -105,6 +105,8 @@ module.exports = (client) => {
                             UserID: User,
                             $inc: {
                                 number: 1,
+                                wrong: 0,
+                                gameresc: 0,
                             },
                         },
                         {
@@ -147,6 +149,21 @@ module.exports = (client) => {
                                 upsert: true,
                                 new: true,
                             })
+
+                            let userres = await messageCountSchema.findOneAndUpdate(
+                                {
+                                    UserID: User
+                                },
+                                {
+                                    UserID: User,
+                                    $inc: {
+                                        gameresc: 1,
+                                    },
+                                },
+                                {
+                                    upsert: true,
+                                    new: true,
+                                })
                     }
 
                     if (addone === 500) {
@@ -165,6 +182,21 @@ module.exports = (client) => {
                                 upsert: true,
                                 new: true,
                             })
+
+                            let userres = await messageCountSchema.findOneAndUpdate(
+                                {
+                                    UserID: User
+                                },
+                                {
+                                    UserID: User,
+                                    $inc: {
+                                        gameresc: 1,
+                                    },
+                                },
+                                {
+                                    upsert: true,
+                                    new: true,
+                                })
                     }
 
                     if (addone === 1000) {
@@ -183,6 +215,21 @@ module.exports = (client) => {
                                 upsert: true,
                                 new: true,
                             })
+
+                            let userres = await messageCountSchema.findOneAndUpdate(
+                                {
+                                    UserID: User
+                                },
+                                {
+                                    UserID: User,
+                                    $inc: {
+                                        gameresc: 1,
+                                    },
+                                },
+                                {
+                                    upsert: true,
+                                    new: true,
+                                })
                     }
 
                     let resultG = await messageCountSchema.findOne({
