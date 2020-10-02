@@ -14,8 +14,9 @@ module.exports = {
             UserID: User,
             GuildID: Guild
         })
-
+        console.log(result)
         if (result) {
+            console.log(result)
             let hs = result.number
             let wrong = result.wrong
             let resques = result.gameresc
