@@ -158,7 +158,7 @@ module.exports = (client) => {
                                     })
                             }
                         }).catch(async message => {
-                            gamechannel.send('✅ GG, No one responded, that was not Simon says ✅')
+                            gamechannel.send('✅ GG, No one responded, that was not a Simon says ✅')
                             console.log('No one responded to me in time. Wait for the next word.')
                                 let randomize = Math.floor(Math.random() * 50) + 1;
                                 let randomminute = `${randomize}m`

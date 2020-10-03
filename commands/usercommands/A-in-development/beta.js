@@ -6,25 +6,23 @@ module.exports = {
     expectedArgs: '<!dladd 28/08/2020 Exam on...>',
 
     callback: async (message, arguments, text) => {
-        const forestSchema = require('@schemas/21-simonschema')
+        const starschema = require('@schemas/22-starbarschema')
         let server = '703937875720273972'
 
-        let setup = await forestSchema.findOneAndUpdate(
+        let C = await starschema.findOneAndUpdate(
             {
                 GuildID: server,
-                UserID: 'gameset'
+                UserID: 'current',
             },
             {
-                number: 0,
-                wrong: 0,
-                time: "03/10/2020-08:30"
-
+                UserID: 'current',
+                ticker: 0
+              
             },
             {
                 upsert: true,
-                new: true
-            }
-        )
+                new: true,
+            })
 
        
     
