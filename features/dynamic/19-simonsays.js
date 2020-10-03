@@ -250,7 +250,7 @@ module.exports = (client) => {
                                         new: true,
                                     })
                             }
-                        }).catch(message => {
+                        }).catch(async message => {
                             gamechannel.send('Time has run out, better luck next time!')
                             console.log('No one responded to me in time. Wait for the next word.')
                                 let randomize = Math.floor(Math.random() * 50) + 1;
