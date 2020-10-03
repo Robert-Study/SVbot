@@ -28,11 +28,9 @@ module.exports = (client) => {
                     const { simonWords } = require('@JSON/simonWords.json');
                     randomword = simonWords[Math.floor(Math.random() * simonWords.length)]
                     console.log(randomword)
-                    try {
-                        gamechannel.send(`Simon says: **${randomword}**\nReply me with the same word to get a point.`)
-                    }
-                    finally {
-                        const filter = response => { return response.author.id != server }
+                    const filter = response => { return response.author.id != server }
+                    
+                        gamechannel.send(`Simon says: **${randomword}**\nReply me with the same word to get a point.`).then(() =>{
                         gamechannel.awaitMessages(filter, { max: 1 }).then(async message => {
                             try {
                                 let userresponse = message.first().content.toLowerCase()
@@ -254,7 +252,7 @@ module.exports = (client) => {
                             }
                         })
 
-                    }
+                    })
                 }
             }
         })
