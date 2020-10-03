@@ -1,8 +1,8 @@
 module.exports = {
-    commands: ['starbar'],
+    commands: ['claim'],
     minArgs: 0,
     maxArgs: 0,
-    expectedArgs: '!starbar',
+    expectedArgs: '!claim',
 
     callback: async (message, arguments, text) => {
         const starschema = require('@schemas/22-starbarschema')
