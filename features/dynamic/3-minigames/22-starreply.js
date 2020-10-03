@@ -29,7 +29,7 @@ module.exports = (client) => {
                 let current = A.ticker
                 if (current === 1) {
                     const attachment = new MessageAttachment(imageone)
-                    gamechannel.send(`Added one level to the 🌟StarBar🌟! - **Level ${current}**\n*claim this level with !claim*`, attachment)
+                    gamechannel.send(`No one claimed the full 🌟StarBar🌟! - reset to **Level ${current}**\n*claim this level with !claim*`, attachment)
                 }
                 if (current === 2) {
                     const attachment = new MessageAttachment(imagetwo)
