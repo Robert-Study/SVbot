@@ -30,7 +30,7 @@ module.exports = (client) => {
 
                     gamechannel.send(`Simon says: **${randomword}**\nReply me with the same word to get a point.`)
                     const filter = response => {return response.author.id != server}
-                    gamechannel.awaitMessages(filter,{max: 1}).then(async collected => {
+                    gamechannel.awaitMessages(filter,{max: 1}).then(async message => {
                         try {
                             let userresponse = message.content.toLowerCase()
                             const mention = message.author
