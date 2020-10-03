@@ -39,7 +39,7 @@ module.exports = (client) => {
                                 console.log("good")
                                 let B = await simonSchema.findOneAndUpdate(
                                     {
-                                        GuildID: Guild,
+                                        GuildID: server,
                                         UserID: user,
                                     },
                                     {
@@ -56,7 +56,7 @@ module.exports = (client) => {
 
                                 let Ba = await simonSchema.findOneAndUpdate(
                                     {
-                                        GuildID: Guild,
+                                        GuildID: server,
                                         UserID: 'gameset',
                                     },
                                     {
@@ -131,7 +131,7 @@ module.exports = (client) => {
                             } if (userresponse != randomword) {
                                 let D = await simonSchema.findOneAndUpdate(
                                     {
-                                        GuildID: Guild,
+                                        GuildID: server,
                                         UserID: user,
                                     },
                                     {
@@ -148,7 +148,7 @@ module.exports = (client) => {
 
                                 let Da = await simonSchema.findOneAndUpdate(
                                     {
-                                        GuildID: Guild,
+                                        GuildID: server,
                                         UserID: 'gameset',
                                     },
                                     {
@@ -222,7 +222,7 @@ module.exports = (client) => {
 
                             }
                         } finally {
-                            gamechannel.send('No one responded to me in time. Wait for the next word.') 
+                            console.log('No one responded to me in time. Wait for the next word.') 
                             let randomize = Math.floor(Math.random() * 50) + 1;
                             let randomminute = `${randomize}m`
                             let addthis = ms(`${randomminute}`)
