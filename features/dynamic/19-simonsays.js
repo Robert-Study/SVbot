@@ -29,7 +29,7 @@ module.exports = (client) => {
                     console.log(randomword)
 
                     gamechannel.send(`Simon says: **${randomword}**\nReply me with the same word to get a point.`)
-                    collector.once('collect', async message => {
+                    collector.once('collect', async () => {
                         try {
                             let userresponse = message.content.toLowerCase()
                             const mention = message.author
