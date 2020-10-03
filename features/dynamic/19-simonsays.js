@@ -23,13 +23,14 @@ module.exports = (client) => {
 
                 if (current === simontime) {
                     const Discord = require('discord.js')
-                    const collector = new Discord.MessageCollector(gamechannel);
+                    
                     const { simonWords } = require('@JSON/simonWords.json');
                     randomword = simonWords[Math.floor(Math.random() * simonWords.length)]
                     console.log(randomword)
 
                     gamechannel.send(`Simon says: **${randomword}**\nReply me with the same word to get a point.`)
-                    collector.once('collect', async () => {
+                    gamechannel.awaitMessages(m => m.author.id == message.author.bot,
+                        {max: 1, time: 30000}).then(collected => {
                         try {
                             let userresponse = message.content.toLowerCase()
                             const mention = message.author
