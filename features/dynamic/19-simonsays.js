@@ -29,8 +29,8 @@ module.exports = (client) => {
                     randomword = simonWords[Math.floor(Math.random() * simonWords.length)]
                     console.log(randomword)
                     const filter = response => { return response.author.id != server }
-                    
-                        gamechannel.send(`Simon says: **${randomword}**\nReply me with the same word to get a point.`).then(() =>{
+
+                    gamechannel.send(`Simon says: **${randomword}**\nReply me with the same word to get a point.`).then(() => {
                         gamechannel.awaitMessages(filter, { max: 1 }).then(async message => {
                             try {
                                 let userresponse = message.first().content.toLowerCase()
@@ -82,7 +82,7 @@ module.exports = (client) => {
                                     if (C) {
                                         let userscore = C.number
                                         let userwrong = C.wrong
-                                        message.reply(`that was the correct response, adding one point.\nYour total score is now ${userscore} correct, ${userwrong} wrong responses`)
+                                        gamechannel.send(`${mention} that was the correct response, adding one point.\nYour total score is now ${userscore} correct, ${userwrong} wrong responses`)
                                         let randomize = Math.floor(Math.random() * 50) + 1;
                                         let randomminute = `${randomize}m`
                                         let addthis = ms(`${randomminute}`)
@@ -250,6 +250,31 @@ module.exports = (client) => {
                                         new: true,
                                     })
                             }
+                        }).catch(message => {
+                            gamechannel.send('Time has run out, better luck next time!')
+                            console.log('No one responded to me in time. Wait for the next word.')
+                                let randomize = Math.floor(Math.random() * 50) + 1;
+                                let randomminute = `${randomize}m`
+                                let addthis = ms(`${randomminute}`)
+
+                                let startTime = new Date(Date.now());
+                                let endTime = new Date(startTime.getTime() + addthis);
+                                let structuretime = moment(endTime).format('DD/MM/YYYY-hh:mm')
+
+                                let F = await simonSchema.findOneAndUpdate(
+                                    {
+                                        GuildID: server,
+                                        UserID: 'gameset',
+                                    },
+                                    {
+                                        UserID: 'gameset',
+                                        time: structuretime
+
+                                    },
+                                    {
+                                        upsert: true,
+                                        new: true,
+                                    })
                         })
 
                     })
