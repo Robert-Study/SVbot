@@ -22,7 +22,7 @@ module.exports = (client) => {
 
                 if (current === simontime) {
                     const Discord = require('discord.js')
-                    const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 60 * 10000 });
+                    const collector = new Discord.MessageCollector(filter, { max: 1, time: 30000, errors: ['time'] });
                     const { simonWords } = require('@JSON/simonWords.json');
                     randomword = simonWords[Math.floor(Math.random() * simonWords.length)]
 
@@ -139,7 +139,7 @@ module.exports = (client) => {
 
                 let F = await simonSchema.findOneAndUpdate(
                     {
-                        GuildID: Guild,
+                        GuildID: server,
                         UserID: 'gameset',
                     },
                     {
