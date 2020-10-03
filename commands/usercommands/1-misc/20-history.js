@@ -5,8 +5,9 @@ module.exports = {
     callback: async (message, arguments) => {
         const Discord = require("discord.js");
         const snekfetch = require('snekfetch');
+        const fetch = require('node-fetch');
 
-        const { website } = await snekfetch.get('http://history.muffinlabs.com/date');
+        const { website } = await fetch('http://history.muffinlabs.com/date');
         const body = JSON.parse(website);
         const events = body.data.Events;
         const event = events[Math.floor(Math.random() * events.length)];
