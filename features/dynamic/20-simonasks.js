@@ -30,7 +30,7 @@ module.exports = (client) => {
                     console.log(randomword)
                     const filter = response => { return response.author.id != server }
 
-                    gamechannel.send(`🤔 Simon asks: **${randomword}** 🤔\nReply me with the same word to get a point.`).then(() => {
+                    gamechannel.send(`🤔 Simon asks: **${randomword}** 🤔\nReply to me? 😺`).then(() => {
                         gamechannel.awaitMessages(filter, { max: 1, time: 150000, errors: ['time'] }).then(async message => {
                             try {
                                 let userresponse = message.first().content.toLowerCase()
