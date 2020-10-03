@@ -33,7 +33,7 @@ module.exports = (client) => {
                     gamechannel.awaitMessages(filter,{max: 1}).then(async message => {
                         try {
                             let userresponse = message.first().content.toLowerCase()
-                            const mention = message.author
+                            const mention = message.first().author
                             const user = mention.id
                             if (userresponse === randomword) {
                                 console.log("good")
