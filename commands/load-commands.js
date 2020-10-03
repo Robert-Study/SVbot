@@ -13,7 +13,7 @@ module.exports = (client) => {
       const stat = fs.lstatSync(path.join(__dirname, dir, file))
       if (stat.isDirectory()) {
         readCommands(path.join(dir, file))
-      } else if (file !== baseFile && file !== 'load-commands.js' && file !== '.DS_Store') {
+      } else if (file !== baseFile && file !== 'load-commands.js' && file !== '.DS_Store' && file !== 'image1.jpg' && file !== 'image2.jpg' && file !== 'image3.jpg' && file !== 'image4.jpg' && file !== 'image5.jpg') {
         const option = require(path.join(__dirname, dir, file))
         commands.push(option)
         if (client) {
