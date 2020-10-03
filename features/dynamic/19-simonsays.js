@@ -1,7 +1,6 @@
 module.exports = (client) => {
-
-    client.on("message", async (message) => {
-        return
+    client.on('ready', async () => {
+        
         const ms = require('ms')
         var moment = require('moment');
         var schedule = require('node-schedule');
@@ -21,12 +20,14 @@ module.exports = (client) => {
                 let currenttime = new Date(Date.now());
                 let current = moment(currenttime).format('DD/MM/YYYY-hh:mm')
                 console.log("found this")
+
                 if (current === simontime) {
                     const Discord = require('discord.js')
                     const collector = new Discord.MessageCollector(message.channel);
                     const { simonWords } = require('@JSON/simonWords.json');
                     randomword = simonWords[Math.floor(Math.random() * simonWords.length)]
                     console.log(randomword)
+
                     gamechannel.send(`Simon says: **${randomword}**\nReply me with the same word to get a point.`)
                     collector.once('collect', async message => {
                         try {
