@@ -7,12 +7,13 @@ module.exports = {
         const snek = require('snekfetch');
         const fetch = require('node-fetch');
 
-        try {
-            const { text } = await snek
-                .get('http://history.muffinlabs.com/date');
-            console.log(text)
-        }
-        finally {
+
+        const { text } = await snek
+            .get('http://history.muffinlabs.com/date');
+        console.log(text)
+        let fetched = text
+
+        if (fetched) {
             const body = JSON.parse(text);
             const events = body.data.Events;
             const event = events[Math.floor(Math.random() * events.length)];
