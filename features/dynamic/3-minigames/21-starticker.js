@@ -9,7 +9,7 @@ module.exports = (client) => {
         let botid = '733824756746420267'
         const gamechannel = client.channels.cache.get("759487772993126460")
 
-        var j = schedule.scheduleJob('25 * * * *', async function () {
+        var j = schedule.scheduleJob('1 * * * *', async function () {
             let A = await starschema.findOne({
                 GuildID: server,
                 UserID: 'current'

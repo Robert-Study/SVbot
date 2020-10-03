@@ -45,7 +45,7 @@ module.exports = {
                     new: true,
                 })
 
-            message.reply(`your 🌟StarBar🌟 level is now **${current}** stars, try to rank as high as possible! Resetting the 🌟StarBar🌟!`)
+            message.reply(`your 🌟StarBar🌟 level is now **${current}** stars, try to rank as high as possible! Resetting the 🌟StarBar🌟 to **Level 1**!`)
         }
 
     }

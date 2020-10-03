@@ -1,5 +1,5 @@
 module.exports = {
-    commands: ['starbar'],
+    commands: ['starbar', 'bar'],
     minArgs: 0,
     maxArgs: 0,
     expectedArgs: '!starbar',
