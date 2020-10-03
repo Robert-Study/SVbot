@@ -2,7 +2,7 @@ module.exports = {
     commands: ['history'],
     minArgs: 0,
     maxArgs: 0,
-    callback: (message, arguments) => {
+    callback: async (message, arguments) => {
         const Discord = require("discord.js");
         const snekfetch = require('snekfetch');
 
@@ -17,7 +17,7 @@ module.exports = {
             .setTitle(`On this day (${body.date})...`)
             .setTimestamp()
             .setDescription(`${event.year}: ${event.text}`);
-            
+
         return message.channel.send(embed)
     }
 }
