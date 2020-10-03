@@ -22,7 +22,7 @@ module.exports = (client) => {
                 console.log("found this")
                 if (current === simontime) {
                     const Discord = require('discord.js')
-                    const collector = new Discord.MessageCollector();
+                    const collector = new Discord.MessageCollector(message.channel);
                     const { simonWords } = require('@JSON/simonWords.json');
                     randomword = simonWords[Math.floor(Math.random() * simonWords.length)]
                     console.log(randomword)
