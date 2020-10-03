@@ -31,7 +31,7 @@ module.exports = (client) => {
                     const filter = response => { return response.author.id != server }
 
                     gamechannel.send(`Simon says: **${randomword}**\nReply me with the same word to get a point.`).then(() => {
-                        gamechannel.awaitMessages(filter, { max: 1, time: 30000, errors: ['time'] }).then(async message => {
+                        gamechannel.awaitMessages(filter, { max: 1, time: 300000, errors: ['time'] }).then(async message => {
                             try {
                                 let userresponse = message.first().content.toLowerCase()
                                 console.log(userresponse)
@@ -175,7 +175,7 @@ module.exports = (client) => {
                                     if (E) {
                                         let userscore = E.number
                                         let userwrong = E.wrong
-                                        gamechannel.send(`You got it wrong this time!.\nYour total score is now ${userscore} correct, ${userwrong} wrong responses`)
+                                        gamechannel.send(`${mention} you got it wrong this time! Try again later.\nYour total score is now ${userscore} correct, ${userwrong} wrong responses`)
                                         let randomize = Math.floor(Math.random() * 50) + 1;
                                         let randomminute = `${randomize}m`
                                         let addthis = ms(`${randomminute}`)

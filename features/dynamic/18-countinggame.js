@@ -139,8 +139,8 @@ module.exports = (client) => {
                     }
 
 
-                    if (addone === 100) {
-                        gamechannel.send(`GG <@${User}> you have counted to 50 and earned a save for the server!`)
+                    if (addone === 101) {
+                        gamechannel.send(`GG <@${User}> you have counted to 101 and earned a save for the server!`)
                         let newsave = await messageCountSchema.findOneAndUpdate(
                             {
                                 GuildID: Guild,
@@ -210,7 +210,7 @@ module.exports = (client) => {
                     }
 
                     if (addone === 1000) {
-                        gamechannel.send(`GG <@${User}> you have counted to 1000 and earned a save for the server!`)
+                        gamechannel.send(`GG <@${User}> you have counted to 1001 and earned a save for the server!`)
                         let newsave = await messageCountSchema.findOneAndUpdate(
                             {
                                 GuildID: Guild,
