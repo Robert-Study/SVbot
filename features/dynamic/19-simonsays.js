@@ -83,7 +83,7 @@ module.exports = (client) => {
                                         let userscore = C.number
                                         let userwrong = C.wrong
                                         gamechannel.send(`✅ ${mention} that was the correct response, adding one point.✅\nYour total score is now ${userscore} correct, ${userwrong} wrong responses`)
-                                        let randomize = Math.floor(Math.random() * 50) + 1;
+                                        let randomize = Math.floor(Math.random() * 20) + 1;
                                         let randomminute = `${randomize}m`
                                         let addthis = ms(`${randomminute}`)
 
