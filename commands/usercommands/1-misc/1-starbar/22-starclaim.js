@@ -38,14 +38,14 @@ module.exports = {
                 },
                 {
                     UserID: 'current',
-                    ticker: 0
+                    ticker: 1
                 },
                 {
                     upsert: true,
                     new: true,
                 })
 
-            message.reply(`your 🌟StarBar🌟 level is now **${current}** stars, try to rank as high as possible!`)
+            message.reply(`your 🌟StarBar🌟 level is now **${current}** stars, try to rank as high as possible! Resetting the 🌟StarBar🌟!`)
         }
 
     }
