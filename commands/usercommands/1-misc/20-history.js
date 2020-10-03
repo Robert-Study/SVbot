@@ -7,8 +7,9 @@ module.exports = {
         const snek = require('snekfetch');
         const fetch = require('node-fetch');
 
-        const { text } =  snek
+        const {text} =  snek
             .get('http://history.muffinlabs.com/date');
+            console.log(text)
         const body = JSON.parse(text);
         const events = body.data.Events;
         const event = events[Math.floor(Math.random() * events.length)];
