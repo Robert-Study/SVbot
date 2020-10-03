@@ -6,19 +6,18 @@ module.exports = {
     expectedArgs: '<!dladd 28/08/2020 Exam on...>',
 
     callback: async (message, arguments, text) => {
-        const forestSchema = require('@schemas/19-countschema')
+        const forestSchema = require('@schemas/21-simonschema')
         let server = '703937875720273972'
 
         let setup = await forestSchema.findOneAndUpdate(
             {
                 GuildID: server,
-                UserID: 'countgame'
+                UserID: 'gameset'
             },
             {
                 number: 0,
                 wrong: 0,
-                gameresq: 0,
-                lastuser: 'empty'
+                time: "03/10/2020-08:30"
 
             },
             {
@@ -27,23 +26,7 @@ module.exports = {
             }
         )
 
-        let high = await forestSchema.findOneAndUpdate(
-            {
-                GuildID: server,
-                UserID: 'highscore'
-            },
-            {
-                number: 0,
-                wrong: 0,
-                gameresq: 0,
-                lastuser: 'empty'
-
-            },
-            {
-                upsert: true,
-                new: true
-            }
-        )
+       
     
     }
 }
