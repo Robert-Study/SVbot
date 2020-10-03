@@ -2,7 +2,7 @@ module.exports = {
     commands: ['history'],
     minArgs: 0,
     maxArgs: 0,
-    callback: (message, arguments, text) => {
+    callback: (message, arguments) => {
         const Discord = require("discord.js");
         const snekfetch = require('snekfetch');
 
