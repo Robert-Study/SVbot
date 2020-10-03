@@ -30,7 +30,7 @@ module.exports = (client) => {
                     console.log(randomword)
                     const filter = response => { return response.author.id != server }
 
-                    gamechannel.send(`Simon says: **${randomword}**\nReply me with the same word to get a point.`).then(() => {
+                    gamechannel.send(`🤔 Simon says: **${randomword}** 🤔\nReply me with the same word to get a point.`).then(() => {
                         gamechannel.awaitMessages(filter, { max: 1, time: 300000, errors: ['time'] }).then(async message => {
                             try {
                                 let userresponse = message.first().content.toLowerCase()
@@ -82,7 +82,7 @@ module.exports = (client) => {
                                     if (C) {
                                         let userscore = C.number
                                         let userwrong = C.wrong
-                                        gamechannel.send(`${mention} that was the correct response, adding one point.\nYour total score is now ${userscore} correct, ${userwrong} wrong responses`)
+                                        gamechannel.send(`✅ ${mention} that was the correct response, adding one point.✅\nYour total score is now ${userscore} correct, ${userwrong} wrong responses`)
                                         let randomize = Math.floor(Math.random() * 50) + 1;
                                         let randomminute = `${randomize}m`
                                         let addthis = ms(`${randomminute}`)
@@ -175,7 +175,7 @@ module.exports = (client) => {
                                     if (E) {
                                         let userscore = E.number
                                         let userwrong = E.wrong
-                                        gamechannel.send(`${mention} you got it wrong this time! Try again later.\nYour total score is now ${userscore} correct, ${userwrong} wrong responses`)
+                                        gamechannel.send(`❎ ${mention} you got it wrong this time! Try again later.❎\nYour total score is now ${userscore} correct, ${userwrong} wrong responses`)
                                         let randomize = Math.floor(Math.random() * 50) + 1;
                                         let randomminute = `${randomize}m`
                                         let addthis = ms(`${randomminute}`)
@@ -251,7 +251,7 @@ module.exports = (client) => {
                                     })
                             }
                         }).catch(async message => {
-                            gamechannel.send('Time has run out, better luck next time!')
+                            gamechannel.send('⛔️ Time has run out, better luck next time! ⛔️')
                             console.log('No one responded to me in time. Wait for the next word.')
                                 let randomize = Math.floor(Math.random() * 50) + 1;
                                 let randomminute = `${randomize}m`
