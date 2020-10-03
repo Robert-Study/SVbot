@@ -8,7 +8,7 @@ module.exports = {
         const fetch = require('node-fetch');
 
         const { website } = await fetch('http://history.muffinlabs.com/date').then(() => {
-            console.log(website)
+            
             const body = JSON.parse(website);
             const events = body.data.Events;
             const event = events[Math.floor(Math.random() * events.length)];
