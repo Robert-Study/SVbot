@@ -35,6 +35,7 @@ module.exports = {
                     { name: "Time:", value: `${providedtime}`, inline: true },
                     { name: "Event description:", value: `${provideddescription}` },
                 )
+                
             message.channel.send(eventEmbed)
         } else { message.reply('no event found!') }
     }
