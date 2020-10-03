@@ -60,10 +60,10 @@ module.exports = (client) => {
                                     let Da = await simonSchema.findOneAndUpdate(
                                         {
                                             GuildID: server,
-                                            UserID: 'wrongset',
+                                            UserID: 'gameset',
                                         },
                                         {
-                                            UserID: 'wrongset',
+                                            UserID: 'gameset',
                                             $inc: {
                                                 number: 0,
                                                 wrong: 1
