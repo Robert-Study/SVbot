@@ -18,8 +18,8 @@ module.exports = (client) => {
         const imagetwo = fs.readFileSync(path.join(__dirname, 'image2.jpg'))
         const imageone = fs.readFileSync(path.join(__dirname, 'image1.jpg'))
 
-        var j = schedule.scheduleJob('1 * * * *', async function () {
-            let A = await simonSchema.findOne({
+        var j = schedule.scheduleJob('6 * * * *', async function () {
+            let A = await starschema.findOne({
                 GuildID: server,
                 UserID: 'current'
             })
