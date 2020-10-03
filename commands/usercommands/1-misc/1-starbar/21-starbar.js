@@ -6,7 +6,7 @@ module.exports = {
 
     callback: async (message, arguments, text) => {
         const {MessageAttachment} = require('discord.js')
-        const fs = retuire('fs')
+        const fs = require('fs')
         const path = require('path')
 
         const image = fs.readFileSync(path.join(__dirname, 'fivestars.jpg'))
