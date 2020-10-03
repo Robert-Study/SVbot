@@ -27,23 +27,23 @@ module.exports = {
 
             if (current === 1){
                 const attachment = new MessageAttachment(imageone)
-                message.reply(`The current star-bar - **Level ${current}**\nclaim this level with !claim`, attachment)
+                message.reply(`The current 🌟StarBar🌟 - **Level ${current}**\nclaim this level with !claim`, attachment)
             }
             if (current === 2){
                 const attachment = new MessageAttachment(imagetwo)
-                message.reply(`The current star-bar - **Level ${current}**\nclaim this level with !claim`, attachment)
+                message.reply(`The current 🌟StarBar🌟 - **Level ${current}**\nclaim this level with !claim`, attachment)
             }
             if (current === 3){
                 const attachment = new MessageAttachment(imagethree)
-                message.reply(`The current star-bar - **Level ${current}**\nclaim this level with !claim`, attachment)
+                message.reply(`The current 🌟StarBar🌟 - **Level ${current}**\nclaim this level with !claim`, attachment)
             }
             if (current === 4){
                 const attachment = new MessageAttachment(imagefour)
-                message.reply(`The current star-bar - **Level ${current}**\nclaim this level with !claim`, attachment)
+                message.reply(`The current 🌟StarBar🌟 - **Level ${current}**\nclaim this level with !claim`, attachment)
             }
             if (current === 5){
                 const attachment = new MessageAttachment(imagefive)
-                message.reply(`The current star-bar - **Level ${current}**\nclaim this level with !claim`, attachment)
+                message.reply(`The current 🌟StarBar🌟 - **Level ${current}**\nclaim this level with !claim`, attachment)
             }
         } 
     }

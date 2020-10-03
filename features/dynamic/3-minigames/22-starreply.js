@@ -6,8 +6,9 @@ module.exports = (client) => {
         var schedule = require('node-schedule');
         const fs = require('fs')
         const path = require('path')
+        const {MessageAttachment} = require('discord.js')
 
-        const starschema = require('@schemas/22-starbarschema')
+        const starschema = require('@schemas/22-🌟StarBar🌟schema')
         let server = '703937875720273972'
         let botid = '733824756746420267'
         const gamechannel = client.channels.cache.get("759487772993126460")
@@ -18,7 +19,7 @@ module.exports = (client) => {
         const imagetwo = fs.readFileSync(path.join(__dirname, 'image2.jpg'))
         const imageone = fs.readFileSync(path.join(__dirname, 'image1.jpg'))
 
-        var j = schedule.scheduleJob('6 * * * *', async function () {
+        var j = schedule.scheduleJob('10 * * * *', async function () {
             let A = await starschema.findOne({
                 GuildID: server,
                 UserID: 'current'
@@ -28,23 +29,23 @@ module.exports = (client) => {
                 let current = A.ticker
                 if (current === 1) {
                     const attachment = new MessageAttachment(imageone)
-                    gamechannel.send(`Added one level to the StarBar! - **Level ${current}**\n, claim this level with !claim`, attachment)
+                    gamechannel.send(`Added one level to the 🌟StarBar🌟! - **Level ${current}**\n*claim this level with !claim*`, attachment)
                 }
                 if (current === 2) {
                     const attachment = new MessageAttachment(imagetwo)
-                    gamechannel.send(`Added one level to the StarBar! - **Level ${current}**\n, claim this level with !claim`, attachment)
+                    gamechannel.send(`Added one level to the 🌟StarBar🌟! - **Level ${current}**\n*claim this level with !claim*`, attachment)
                 }
                 if (current === 3) {
                     const attachment = new MessageAttachment(imagethree)
-                    gamechannel.send(`Added one level to the StarBar! - **Level ${current}**\n, claim this level with !claim`, attachment)
+                    gamechannel.send(`Added one level to the 🌟StarBar🌟! - **Level ${current}**\n*claim this level with !claim*`, attachment)
                 }
                 if (current === 4) {
                     const attachment = new MessageAttachment(imagefour)
-                    gamechannel.send(`Added one level to the StarBar! - **Level ${current}**\n, claim this level with !claim`, attachment)
+                    gamechannel.send(`Added one level to the 🌟StarBar🌟! - **Level ${current}**\n*claim this level with !claim*`, attachment)
                 }
                 if (current === 5) {
                     const attachment = new MessageAttachment(imagefive)
-                    gamechannel.send(`Added one level to the StarBar! - **Level ${current}**\n, claim this level with !claim`, attachment)
+                    gamechannel.send(`Added one level to the 🌟StarBar🌟! - **Level ${current}**\n*claim this level with !claim*`, attachment)
                 }
             }
         })
