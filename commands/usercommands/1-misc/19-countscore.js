@@ -58,6 +58,7 @@ module.exports = {
             let wrong = result.wrong
             let resques = result.gameresc
             let averagescore = (100 - (wrong/hs*100))
+            let averageround = Math.round(averagescore * 10) / 10
 
             let highscore = await messageCountSchema.findOne({
                 UserID: 'highscore',
@@ -92,7 +93,7 @@ module.exports = {
 
             
 
-            message.reply(`**__Here are your stats:__**\n⬆️You have counted in total: **${hs} numbers**\n⬇️You have wrongly counted **${wrong} times**\n#️⃣Percentage: **${averagescore}%**\n🧡You have earned **${resques} saves** for the server!\n\n📶Server Highscore: **${serverhigh}**\n💚Remaining saves: **${lifesremaining}**\n\n🤔Simon score: ${simonnumber} (total: ${totalsimon})\n😨Simon wrong: ${simonwrong} (total: ${totalwrong}) `)
+            message.reply(`**__Here are your stats:__**\n⬆️ You have counted in total: **${hs} numbers**\n⬇️ You have wrongly counted **${wrong} times**\n#️⃣ Percentage: **${averageround}%**\n🧡 You have earned **${resques} saves** for the server!\n\n📶 Server Highscore: **${serverhigh}**\n💚 Remaining saves: **${lifesremaining}**\n\n🤔 Simon score: **${simonnumber}** (total: **${totalsimon}**)\n😨 Simon wrong: **${simonwrong}** (total: **${totalwrong}**) `)
 
         }else{message.reply('No results found for you yet!')}
     }
