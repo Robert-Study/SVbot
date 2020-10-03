@@ -20,7 +20,7 @@ module.exports = (client) => {
                 let simontime = A.time
                 let currenttime = new Date(Date.now());
                 let current = moment(currenttime).format('DD/MM/YYYY-hh:mm')
-                console.log("found this")
+           
 
                 if (current === simontime) {
                     const Discord = require('discord.js')
