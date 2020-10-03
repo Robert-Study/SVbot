@@ -4,10 +4,10 @@ module.exports = {
     maxArgs: 0,
     callback: async (message, arguments) => {
         const Discord = require("discord.js");
-        const snekfetch = require('snekfetch');
+        const snek = require('snekfetch');
         const fetch = require('node-fetch');
 
-        const { text } = await snekfetch
+        const { text } =  snek
             .get('http://history.muffinlabs.com/date');
         const body = JSON.parse(text);
         const events = body.data.Events;
