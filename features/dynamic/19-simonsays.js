@@ -33,7 +33,9 @@ module.exports = (client) => {
                     gamechannel.awaitMessages(filter,{max: 1}).then(async message => {
                         try {
                             let userresponse = message.first().content.toLowerCase()
+                            console.log(userresponse)
                             const mention = message.first().author
+                            console.log(mention)
                             const user = mention.id
                             if (userresponse === randomword) {
                                 console.log("good")
@@ -103,6 +105,7 @@ module.exports = (client) => {
                                             new: true,
                                         })
                                 } else {
+                                    console.log(bad)
                                     gamechannel.send("Something went wrong, error 12")
                                     let randomize = Math.floor(Math.random() * 50) + 1;
                                     let randomminute = `${randomize}m`
@@ -171,7 +174,7 @@ module.exports = (client) => {
                                 if (E) {
                                     let userscore = E.number
                                     let userwrong = E.wrong
-                                    message.reply(`You got it wrong this time!.\nYour total score is now ${userscore} correct, ${userwrong} wrong responses`)
+                                    gamechannel.send(`You got it wrong this time!.\nYour total score is now ${userscore} correct, ${userwrong} wrong responses`)
                                     let randomize = Math.floor(Math.random() * 50) + 1;
                                     let randomminute = `${randomize}m`
                                     let addthis = ms(`${randomminute}`)
