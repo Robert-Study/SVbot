@@ -7,6 +7,7 @@ module.exports = {
     callback: async (message, arguments, text) => {
         const messageCountSchema = require('@schemas/19-countschema')
         const simonSchema = require('@schemas/21-simonschema')
+        const starschema = require('@schemas/22-starbarschema')
         let Guild = "703937875720273972"
         const mention = message.author
         const User = mention.id
@@ -38,15 +39,31 @@ module.exports = {
                 UserID: User,
                 $inc: {
                     number: 0,
-                    wrong: 0,
-                    gameresc: 0
                 },
             },
             {
                 upsert: true,
                 new: true,
             })
-
+        
+            let F = await starschema.findOneAndUpdate(
+                {
+                    GuildID: Guild,
+                    UserID: User,
+                },
+                {
+                    UserID: User,
+                    $inc: {
+                        number: 0,
+                        wrong: 0,
+                        gameresc: 0
+                    },
+                },
+                {
+                    upsert: true,
+                    new: true,
+                })
+        
         let result = await messageCountSchema.findOne({
             UserID: User,
             GuildID: Guild
@@ -91,9 +108,16 @@ module.exports = {
             let totalsimon = totalgame.number
             let totalwrong = totalgame.wrong
 
+            let E = await starschema.findOne({
+                UserID: User,
+                GuildID: Guild
+            })
+
+            let stars = E.number
+
             
 
-            message.reply(`**__Here are your stats:__**\n⬆️ You have counted in total: **${hs} numbers**\n⬇️ You have wrongly counted **${wrong} times**\n#️⃣ Percentage: **${averageround}%**\n🧡 You have earned **${resques} saves** for the server!\n\n📶 Server Highscore: **${serverhigh}**\n💚 Remaining saves: **${lifesremaining}**\n\n🤔 Simon score: **${simonnumber}** (total: **${totalsimon}**)\n😨 Simon wrong: **${simonwrong}** (total: **${totalwrong}**)\n\n🌟 Star bar level: **coming soon**`)
+            message.reply(`**__Here are your stats:__**\n⬆️ You have counted in total: **${hs} numbers**\n⬇️ You have wrongly counted **${wrong} times**\n#️⃣ Percentage: **${averageround}%**\n🧡 You have earned **${resques} saves** for the server!\n\n📶 Server Highscore: **${serverhigh}**\n💚 Remaining saves: **${lifesremaining}**\n\n🤔 Simon score: **${simonnumber}** (total: **${totalsimon}**)\n😨 Simon wrong: **${simonwrong}** (total: **${totalwrong}**)\n\n🌟 StarBar level: **${stars}**`)
 
         }else{message.reply('No results found for you yet!')}
     }
