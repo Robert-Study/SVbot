@@ -129,7 +129,7 @@ module.exports = (client) => {
                         } catch { gamechannel.send('No one responded to me in time. Wait for the next word.') }
                     })
 
-                } let randomize = Math.floor(Math.random() * 20) + 1;
+                } let randomize = Math.floor(Math.random() * 50) + 1;
                 let randomminute = `${randomize}m`
                 let addthis = ms(`${randomminute}`)
 
