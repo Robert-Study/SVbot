@@ -117,7 +117,7 @@ module.exports = {
 
             
 
-            message.reply(`**__Here are your stats:__**\n⬆️ You have counted in total: **${hs} numbers**\n⬇️ You have wrongly counted **${wrong} times**\n#️⃣ Percentage: **${averageround}%**\n🧡 You have earned **${resques} saves** for the server!\n\n📶 Server Highscore: **${serverhigh}**\n💚 Remaining saves: **${lifesremaining}**\n\n🤔 Simon score: **${simonnumber}** (total: **${totalsimon}**)\n😨 Simon wrong: **${simonwrong}** (total: **${totalwrong}**)\n\n🌟 StarBar level: **${stars}**`)
+            message.reply(`**__Here are your stats:__**\n⬆️ You have counted in total: **${hs} numbers**\n⬇️ You have wrongly counted **${wrong} times**\n#️⃣ Percentage: **${averageround}%**\n🧡 You have earned **${resques} saves** for the server!\n\n📶 Server Highscore: **${serverhigh}**\n💚 Remaining saves: **${lifesremaining}**\n----------\n🤔 Simon score: **${simonnumber}** (total: **${totalsimon}**)\n😨 Simon wrong: **${simonwrong}** (total: **${totalwrong}**)\n----------\n🌟 StarBar level: **${stars}**`)
 
         }else{message.reply('No results found for you yet!')}
     }
