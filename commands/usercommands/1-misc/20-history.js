@@ -6,8 +6,7 @@ module.exports = {
         const Discord = require("discord.js");
         const snekfetch = require('snekfetch');
 
-        const { text } = await snekfetch
-            .get('http://history.muffinlabs.com/date');
+        const { text } = await snekfetch.get('http://history.muffinlabs.com/date');
         const body = JSON.parse(text);
         const events = body.data.Events;
         const event = events[Math.floor(Math.random() * events.length)];
