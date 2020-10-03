@@ -9,7 +9,7 @@ module.exports = {
         const fs = require('fs')
         const path = require('path')
 
-        const image = fs.readFileSync(path.join(__dirname, 'fivestars.jpg'))
+        const image = fs.readFileSync(path.join(__dirname, 'image5.jpg'))
 
         
         const attachment = new MessageAttachment(image)
