@@ -8,7 +8,7 @@ module.exports = (client) => {
         const path = require('path')
         const {MessageAttachment} = require('discord.js')
 
-        const starschema = require('@schemas/22-🌟StarBar🌟schema')
+        const starschema = require('@schemas/22-starbarschema')
         let server = '703937875720273972'
         let botid = '733824756746420267'
         const gamechannel = client.channels.cache.get("759487772993126460")
@@ -19,7 +19,7 @@ module.exports = (client) => {
         const imagetwo = fs.readFileSync(path.join(__dirname, 'image2.jpg'))
         const imageone = fs.readFileSync(path.join(__dirname, 'image1.jpg'))
 
-        var j = schedule.scheduleJob('10 * * * *', async function () {
+        var j = schedule.scheduleJob('20 * * * *', async function () {
             let A = await starschema.findOne({
                 GuildID: server,
                 UserID: 'current'
