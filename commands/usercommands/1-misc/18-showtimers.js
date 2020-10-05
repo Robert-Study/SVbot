@@ -23,7 +23,7 @@ module.exports = {
 
         for(items of results){
             let A = items.color
-        }
+        
         if (A === 'red' || A === 'blue' || A === 'orange' || A === 'green') {
             let newsort = results.remaining
 
@@ -44,7 +44,7 @@ module.exports = {
             }
             message.channel.send(reply)
 
-            
+        }
 
 
 
