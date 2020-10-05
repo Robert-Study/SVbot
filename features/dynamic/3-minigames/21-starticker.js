@@ -52,5 +52,49 @@ module.exports = (client) => {
 
             }
         })
+
+        var j = schedule.scheduleJob('31 * * * *', async function () {
+            let A = await starschema.findOne({
+                GuildID: server,
+                UserID: 'current'
+            })
+
+            if (A) {
+                let currenttick = A.ticker
+                if (currenttick === 5) {
+                    let B = await starschema.findOneAndUpdate(
+                        {
+                            GuildID: server,
+                            UserID: 'current',
+                        },
+                        {
+                            UserID: 'current',
+                            ticker: 1
+                        },
+                        {
+                            upsert: true,
+                            new: true,
+                        })
+                }
+                else {
+                    let C = await starschema.findOneAndUpdate(
+                        {
+                            GuildID: server,
+                            UserID: 'current',
+                        },
+                        {
+                            UserID: 'current',
+                            $inc: {
+                                ticker: 1
+                            },
+                        },
+                        {
+                            upsert: true,
+                            new: true,
+                        })
+                }
+
+            }
+        })
     })
 }

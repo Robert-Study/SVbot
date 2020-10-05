@@ -49,5 +49,36 @@ module.exports = (client) => {
                 }
             }
         })
+
+        var j = schedule.scheduleJob('32 * * * *', async function () {
+            let A = await starschema.findOne({
+                GuildID: server,
+                UserID: 'current'
+            })
+
+            if (A) {
+                let current = A.ticker
+                if (current === 1) {
+                    const attachment = new MessageAttachment(imageone)
+                    gamechannel.send(`No one claimed the full 🌟StarBar🌟! - reset to **Level ${current}**\n*claim this level with !claim*`, attachment)
+                }
+                if (current === 2) {
+                    const attachment = new MessageAttachment(imagetwo)
+                    gamechannel.send(`Added one level to the 🌟StarBar🌟! - **Level ${current}**\n*claim this level with !claim*`, attachment)
+                }
+                if (current === 3) {
+                    const attachment = new MessageAttachment(imagethree)
+                    gamechannel.send(`Added one level to the 🌟StarBar🌟! - **Level ${current}**\n*claim this level with !claim*`, attachment)
+                }
+                if (current === 4) {
+                    const attachment = new MessageAttachment(imagefour)
+                    gamechannel.send(`Added one level to the 🌟StarBar🌟! - **Level ${current}**\n*claim this level with !claim*`, attachment)
+                }
+                if (current === 5) {
+                    const attachment = new MessageAttachment(imagefive)
+                    gamechannel.send(`Added one level to the 🌟StarBar🌟! - **Level ${current}**\n*claim this level with !claim*`, attachment)
+                }
+            }
+        })
     })
 }
