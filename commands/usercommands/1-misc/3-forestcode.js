@@ -3,6 +3,7 @@ module.exports = {
     minArgs: 3,
     maxArgs: 3,
     expectedArgs: '<code> <duration> <starttime>',
+    cooldown: 60 * 10,
 
     callback: async (message, arguments, text) => {
         const Discord = require('discord.js');

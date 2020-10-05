@@ -41,6 +41,7 @@ const validatePermissions = (permissions) => {
     }
   }
 }
+let recentlyRan = []
 
 module.exports = (client, commandOptions) => {
   let {
@@ -49,6 +50,7 @@ module.exports = (client, commandOptions) => {
     permissionError = 'You do not have permission to run this command.',
     minArgs = 0,
     maxArgs = null,
+    cooldown = -1,
     permissions = [],
     requiredRoles = [],
     callback,
@@ -104,7 +106,11 @@ module.exports = (client, commandOptions) => {
             return
           }
         }
-
+        let cooldownString = ''
+        if (cooldown > 0 && recentlyRan.includes(cooldownString)) {
+          message.reply('you cannot use that command so soon. Please wait at least 10m.')
+          return
+        }
         // Split on any number of spaces
         const arguments = content.split(/[ ]+/)
 
@@ -120,6 +126,17 @@ module.exports = (client, commandOptions) => {
             `Incorrect syntax! Use ${prefix}${alias} ${expectedArgs}`
           )
           return
+        }
+        if (cooldown > 0) {
+          recentlyRan.push(cooldownString)
+          setTimeout(() => {
+            console.log('before:', recentlyRan)
+            recentlyRan = recentlyRan.filter((string) => {
+              return string !== cooldownString
+
+            })
+            console.log('after:', recentlyRan)
+          }, 1000 * cooldown)
         }
 
         // Handle the custom command code
