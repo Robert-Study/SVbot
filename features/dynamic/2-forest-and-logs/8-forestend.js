@@ -7,7 +7,11 @@ module.exports = (client) => {
         const teamtimerSchema = require('@schemas/18-teamtimerschema')
         let server = '703937875720273972'
         const timerchannel = client.channels.cache.get("732292791287283862")
-
+        const redchannel = client.channels.cache.get("760809013494808606")
+        const bluechannel = client.channels.cache.get("760808951242555392")
+        const orangechannel = client.channels.cache.get("760809070549663755")
+        const greenchannel = client.channels.cache.get("760808388467884042")
+//r 760809013494808606 b 760808951242555392 g 760809070549663755 O 760808388467884042
 
         var j = schedule.scheduleJob('*/1 * * * *', async function () {
             let unlockresults = await teamtimerSchema.find({
@@ -32,6 +36,7 @@ module.exports = (client) => {
                                 color: 'deletethis'
                             })
                             timerchannel.send(`⏰ Timer of the  <@&758651469841825813> has finished! ⏰`)
+                            redchannel.send(`⏰ Timer of the  <@&758651469841825813> has finished! ⏰`)
                         }
                         if (color === 'blue') {
                             let deletetimer = await teamtimerSchema.findOneAndUpdate({
@@ -42,6 +47,7 @@ module.exports = (client) => {
                             })
                             let team = '758651852337577994'
                             timerchannel.send(`⏰ Timer of the  <@&758651852337577994> has finished! ⏰`)
+                            bluechannel.send(`⏰ Timer of the  <@&758651852337577994> has finished! ⏰`)
                         }
                         if (color === 'orange') {
                             let deletetimer = await teamtimerSchema.findOneAndUpdate({
@@ -52,6 +58,7 @@ module.exports = (client) => {
                             })
                             let team = '758651692198920192'
                             timerchannel.send(`⏰ Timer of the  <@&758651692198920192> has finished! ⏰`)
+                            orangechannel.send(`⏰ Timer of the  <@&758651692198920192> has finished! ⏰`)
                         }
                         if (color === 'green') {
                             let deletetimer = await teamtimerSchema.findOneAndUpdate({
@@ -62,6 +69,7 @@ module.exports = (client) => {
                             })
                             let team = '758651778962292776'
                             timerchannel.send(`⏰ Timer of the  <@&758651778962292776> has finished! ⏰`)
+                            greenchannel.send(`⏰ Timer of the  <@&758651778962292776> has finished! ⏰`)
                         }
 
 
