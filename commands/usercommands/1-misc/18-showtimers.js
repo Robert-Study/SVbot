@@ -19,9 +19,12 @@ module.exports = {
 
         let results = await teamtimerSchema.find({
             GuildID,
-
         })
-        if (results) {
+
+        for(items of results){
+            let A = items.color
+        }
+        if (A === 'red' || A === 'blue' || A === 'orange' || A === 'green') {
             let newsort = results.remaining
 
             let sortmyresults = results.reverse()
@@ -40,6 +43,8 @@ module.exports = {
                 }
             }
             message.channel.send(reply)
+
+            
 
 
 
