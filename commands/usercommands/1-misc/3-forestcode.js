@@ -20,9 +20,11 @@ module.exports = {
 
         const mention = message.author
         const UserID = mention.id
+        let tree = arguments[1]+10
 
         let time = `${arguments[1]}m`;
-        let addtime = ms(`${time}`)
+        let treetimer = `${tree}m`
+        let addtime = ms(`${treetimer}`)
         if (isNaN(addtime)) { return message.reply('An error occured - Please only write the amount of min as a number (60,120,180)') } 
         if (addtime < 120000) { return message.reply(`you can't lock yourself for less than 2m`) }
 
