@@ -106,7 +106,7 @@ module.exports = (client, commandOptions) => {
             return
           }
         }
-        let cooldownString = ''
+        let cooldownString = `${guild.id}-${member.id}-${commands[0]}`
         if (cooldown > 0 && recentlyRan.includes(cooldownString)) {
           message.reply('you cannot use that command so soon. Please wait at least 10m.')
           return
