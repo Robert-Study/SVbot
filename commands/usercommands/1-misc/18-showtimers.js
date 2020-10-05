@@ -39,7 +39,7 @@ module.exports = {
                     reply += `Team **${newresult.color}** - timer: *${newresult.remaining}* min. remaining\n`
                 }
             }
-            forestchannel.send(reply)
+            message.channel.send(reply)
 
 
 
