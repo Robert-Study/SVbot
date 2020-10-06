@@ -31,7 +31,8 @@ module.exports = (client) => {
                             {
                                 taken: 0,
                                 time: 0,
-                                endtime: 'zero'
+                                endtime: 'zero',
+                                number: 0
                             },
                             {
                                 upsert: false,
