@@ -191,7 +191,9 @@ module.exports = (client) => {
                     const general = reaction.message.guild.channels.cache.get('703937876634894388');
                     focus.send(`${"<@" + UserID + ">"}, you have now been **🔒 Locked 🔒** in Focus for ${ms(ms(minute))} min.`)
                     general.send(`${"<@" + UserID + ">"} went into **🔒 lock for ${minute} min.🔒**, leave this person alone.`)
-                }else{general.send(`${"<@" + UserID + ">"} are you in one of the colored teams?`)}
+                }else{
+                    const general = reaction.message.guild.channels.cache.get('703937876634894388');
+                    general.send(`${"<@" + UserID + ">"} are you in one of the colored teams?`)}
             }
         }
     })
