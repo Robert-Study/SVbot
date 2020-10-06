@@ -1,6 +1,7 @@
 module.exports = {
   commands: ['weather', 'wt'],
   minArgs: 1,
+  cooldown: 5,
   expectedArgs: '<!weather location>',
 
   callback: async (message, arguments, text) => {
