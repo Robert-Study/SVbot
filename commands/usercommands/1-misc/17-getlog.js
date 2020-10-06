@@ -60,7 +60,7 @@ module.exports = {
 
 
 
-                message.channel.send(`**__Study time for ${target}__**\n\n**${roundeddaily}** hours today (*average: ${dailyround}*)\n**${roundedweekly}** hours this week (*average: ${weeklyround}*)\n**${roundedmonthly}** hours this month (*average: ${monthround}*)\n**${roundedalltime}** hours all-time (*average: ${allround}*)\n`)
+                message.channel.send(`**__🕰 Study time for ${target} 🕰__**\n**${roundeddaily}** hours today (*average: ${dailyround}*)\n**${roundedweekly}** hours this week (*average: ${weeklyround}*)\n**${roundedmonthly}** hours this month (*average: ${monthround}*)\n**${roundedalltime}** hours all-time (*average: ${allround}*)\n`)
             }
         }
 
