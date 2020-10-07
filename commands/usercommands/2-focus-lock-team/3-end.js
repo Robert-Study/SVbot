@@ -9,7 +9,14 @@ module.exports = {
 
         //if member is locked -> cannot do this
         if (message.member.roles.cache.has('735089477088837673')) {
-            message.channel.send('You are **Locked in Focus** and cannot do that now! If you are stuck please write the command **!ticket** to get you in a Support Channel.')
+            message.channel.send('You are **Locked in Focus**, I will not remove the focus role, but I removed the team you were part of. If you are stuck please write the command **!ticket** to get you in a Support Channel.')
+            message.member.roles.remove('729444698812579870');
+            message.member.roles.remove('758651778962292776');
+            message.member.roles.remove('758651852337577994');
+            message.member.roles.remove('758651692198920192');
+            message.member.roles.remove('758651469841825813');
+
+            // Study team 729444698812579870 Green 758651778962292776 Blue 758651852337577994 orange 758651692198920192 red 758651469841825813
 
         } else {
             //let member know they ended and remove focus+team, add verified
