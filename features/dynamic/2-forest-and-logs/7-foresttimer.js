@@ -57,19 +57,19 @@ module.exports = (client) => {
                             new: true
                         })
 
-                    if (color === 'red') {
+                    if (color === 'ghosts') {
                         let team = '758651469841825813'
                         timerchannel.send(`⏰ Timer of the  <@&758651469841825813> started - timer for **${minutetime}** minute(s)! ⏰`)
                     }
-                    if (color === 'blue') {
+                    if (color === 'monsters') {
                         let team = '758651852337577994'
                         timerchannel.send(`⏰ Timer of the  <@&758651852337577994> started - timer for **${minutetime}** minute(s)! ⏰`)
                     }
-                    if (color === 'orange') {
+                    if (color === 'pumpkins') {
                         let team = '758651692198920192'
                         timerchannel.send(`⏰ Timer of the  <@&758651692198920192> started - timer for **${minutetime}** minute(s)! ⏰`)
                     }
-                    if (color === 'green') {
+                    if (color === 'witches') {
                         let team = '758651778962292776'
                         timerchannel.send(`⏰ Timer of the  <@&758651778962292776> started - timer for **${minutetime}** minute(s)! ⏰`)
                     }

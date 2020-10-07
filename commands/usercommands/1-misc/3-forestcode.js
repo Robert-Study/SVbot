@@ -76,7 +76,7 @@ module.exports = {
 
             let color = result.color
 
-            if (color === 'red') {
+            if (color === 'ghosts') {
                 //create an embed with the arguments provided
                 let forestEmbed = new Discord.MessageEmbed()
                     .setColor('#337f4e')
@@ -89,12 +89,12 @@ module.exports = {
                         { name: `Use code: ${arguments[0]} or click this link: https://www.forestapp.cc/join-room?token=${arguments[0]}.`, value: '\u200B' },
                         { name: ':stopwatch: Duration:', value: `${arguments[1]} min`, inline: true },
                         { name: ':closed_lock_with_key: Starting in:', value: `${arguments[2]} min`, inline: true },
-                        { name: '\u200B', value: `**__Options:__**\n🔴 Join the team and log your time\n🔇 Go in focus\n🔒 Lock yourself for the duration of tree!\n${message.author.username} you can start timer by clicking ⏰` }
+                        { name: '\u200B', value: `**__Options:__**\n👻 Join the ghost team and log your time\n🔇 Go in focus\n🔒 Lock yourself for the duration of tree!\n${message.author.username} you can start timer by clicking ⏰` }
                     )
 
                 //send the embed to english channel and react
                 let englishembed = await englishchannel.send(forestEmbed);
-                englishembed.react('🔴')
+                englishembed.react('👻')
                 englishembed.react('🔇')
          
                 englishembed.react('⏰')
@@ -102,7 +102,7 @@ module.exports = {
 
                 //send the embed to forest channel and react
                 let forestembed = await forestchannel.send(forestEmbed);
-                forestembed.react('🔴')
+                forestembed.react('👻')
                 forestembed.react('🔇')
                 
                 forestembed.react('⏰')
@@ -110,7 +110,7 @@ module.exports = {
 
                 let treetaken = await forestSchema.findOneAndUpdate(
                     {
-                        color: 'red'
+                        color: 'ghosts'
                     },
                     {
                         taken: 1,
@@ -125,7 +125,7 @@ module.exports = {
             }
 
 
-            if (color === 'blue') {
+            if (color === 'monsters') {
                 //create an embed with the arguments provided
                 let forestEmbed = new Discord.MessageEmbed()
                     .setColor('#337f4e')
@@ -138,12 +138,12 @@ module.exports = {
                         { name: `Use code: ${arguments[0]} or click this link: https://www.forestapp.cc/join-room?token=${arguments[0]}.`, value: '\u200B' },
                         { name: ':stopwatch: Duration:', value: `${arguments[1]} min`, inline: true },
                         { name: ':closed_lock_with_key: Starting in:', value: `${arguments[2]} min`, inline: true },
-                        { name: '\u200B', value: `**__Options:__**\n🔵 Join the team and log your time\n🔇 Go in focus\n🔒 Lock yourself for the duration of tree!\n${message.author.username} you can start timer by clicking ⏰` }
+                        { name: '\u200B', value: `**__Options:__**\n🧟‍♂️ Join the monsters team and log your time\n🔇 Go in focus\n🔒 Lock yourself for the duration of tree!\n${message.author.username} you can start timer by clicking ⏰` }
                     )
 
                 //send the embed to english channel and react
                 let englishembed = await englishchannel.send(forestEmbed);
-                englishembed.react('🔵')
+                englishembed.react('🧟‍♂️')
                 englishembed.react('🔇')
            
                 englishembed.react('⏰')
@@ -151,7 +151,7 @@ module.exports = {
 
                 //send the embed to forest channel and react
                 let forestembed = await forestchannel.send(forestEmbed);
-                forestembed.react('🔵')
+                forestembed.react('🧟‍♂️')
                 forestembed.react('🔇')
 
                 forestembed.react('⏰')
@@ -159,7 +159,7 @@ module.exports = {
 
                 let treetaken = await forestSchema.findOneAndUpdate(
                     {
-                        color: 'blue'
+                        color: 'monsters'
                     },
                     {
                         taken: 1,
@@ -173,7 +173,7 @@ module.exports = {
                     })
 
             }
-            if (color === 'orange') {
+            if (color === 'pumpkins') {
                 //create an embed with the arguments provided
                 let forestEmbed = new Discord.MessageEmbed()
                     .setColor('#337f4e')
@@ -186,12 +186,12 @@ module.exports = {
                         { name: `Use code: ${arguments[0]} or click this link: https://www.forestapp.cc/join-room?token=${arguments[0]}.`, value: '\u200B' },
                         { name: ':stopwatch: Duration:', value: `${arguments[1]} min`, inline: true },
                         { name: ':closed_lock_with_key: Starting in:', value: `${arguments[2]} min`, inline: true },
-                        { name: '\u200B', value: `**__Options:__**\n🟠 Join the team and log your time\n🔇 Go in focus\n🔒 Lock yourself for the duration of tree!\n${message.author.username} you can start timer by clicking ⏰` }
+                        { name: '\u200B', value: `**__Options:__**\n🎃 Join the Pumpkin team and log your time\n🔇 Go in focus\n🔒 Lock yourself for the duration of tree!\n${message.author.username} you can start timer by clicking ⏰` }
                     )
 
                 //send the embed to english channel and react
                 let englishembed = await englishchannel.send(forestEmbed);
-                englishembed.react('🟠')
+                englishembed.react('🎃')
                 englishembed.react('🔇')
      
                 englishembed.react('⏰')
@@ -199,7 +199,7 @@ module.exports = {
 
                 //send the embed to forest channel and react
                 let forestembed = await forestchannel.send(forestEmbed);
-                forestembed.react('🟠')
+                forestembed.react('🎃')
                 forestembed.react('🔇')
    
                 forestembed.react('⏰')
@@ -208,7 +208,7 @@ module.exports = {
 
                 let treetaken = await forestSchema.findOneAndUpdate(
                     {
-                        color: 'orange'
+                        color: 'pumpkins'
                     },
                     {
                         taken: 1,
@@ -221,7 +221,7 @@ module.exports = {
                         new: true
                     })
             }
-            if (color === 'green') {
+            if (color === 'witches') {
                 //create an embed with the arguments provided
                 let forestEmbed = new Discord.MessageEmbed()
                     .setColor('#337f4e')
@@ -234,12 +234,12 @@ module.exports = {
                         { name: `Use code: ${arguments[0]} or click this link: https://www.forestapp.cc/join-room?token=${arguments[0]}.`, value: '\u200B' },
                         { name: ':stopwatch: Duration:', value: `${arguments[1]} min`, inline: true },
                         { name: ':closed_lock_with_key: Starting in:', value: `${arguments[2]} min`, inline: true },
-                        { name: '\u200B', value: `**__Options:__**\n🟢 Join the team and log your time\n🔇 Go in focus\n🔒 Lock yourself for the duration of tree!\n**${message.author.username}** you can start timer by clicking ⏰` }
+                        { name: '\u200B', value: `**__Options:__**\n🧙‍♀️ Join the witches team and log your time\n🔇 Go in focus\n🔒 Lock yourself for the duration of tree!\n**${message.author.username}** you can start timer by clicking ⏰` }
                     )
 
                 //send the embed to english channel and react
                 let englishembed = await englishchannel.send(forestEmbed);
-                englishembed.react('🟢')
+                englishembed.react('🧙‍♀️')
                 englishembed.react('🔇')
      
                 englishembed.react('⏰')
@@ -247,7 +247,7 @@ module.exports = {
 
                 //send the embed to forest channel and react
                 let forestembed = await forestchannel.send(forestEmbed);
-                forestembed.react('🟢')
+                forestembed.react('🧙‍♀️')
                 forestembed.react('🔇')
        
                 forestembed.react('⏰')
@@ -255,7 +255,7 @@ module.exports = {
 
                 let treetaken = await forestSchema.findOneAndUpdate(
                     {
-                        color: 'green'
+                        color: 'witches'
                     },
                     {
                         taken: 1,

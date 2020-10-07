@@ -18,10 +18,10 @@ module.exports = (client) => {
         const {MessageAttachment} = require('discord.js')
 
         
-        const imagefour = fs.readFileSync(path.join(__dirname, 'timer4.jpg'))
-        const imagethree = fs.readFileSync(path.join(__dirname, 'timer3.jpg'))
-        const imagetwo = fs.readFileSync(path.join(__dirname, 'timer2.jpg'))
-        const imageone = fs.readFileSync(path.join(__dirname, 'timer1.jpg'))
+        const imagefour = fs.readFileSync(path.join(__dirname, 'halloween3.jpg'))
+        const imagethree = fs.readFileSync(path.join(__dirname, 'halloween4.jpg'))
+        const imagetwo = fs.readFileSync(path.join(__dirname, 'halloween2.jpg'))
+        const imageone = fs.readFileSync(path.join(__dirname, 'halloween1.jpg'))
 
 
         var j = schedule.scheduleJob('*/1 * * * *', async function () {
@@ -38,11 +38,11 @@ module.exports = (client) => {
                     let current = moment(currenttime).format('DD/MM/YYYY-hh:mm')
 
                     if (unlocktime === current) {
-                        if (color === 'red') {
+                        if (color === 'ghosts') {
                             let team = '758651469841825813'
                             let deletetimer = await teamtimerSchema.findOneAndUpdate({
                                 GuildID: server,
-                                color: 'red'
+                                color: 'ghosts'
                             }, {
                                 color: 'deletethis'
                             })
@@ -50,10 +50,10 @@ module.exports = (client) => {
                             const attachment = new MessageAttachment(imageone)
                             redchannel.send(`⏰ Timer of the  <@&758651469841825813> has finished! ⏰`, attachment)
                         }
-                        if (color === 'blue') {
+                        if (color === 'monsters') {
                             let deletetimer = await teamtimerSchema.findOneAndUpdate({
                                 GuildID: server,
-                                color: 'blue'
+                                color: 'monsters'
                             }, {
                                 color: 'deletethis'
                             })
@@ -62,10 +62,10 @@ module.exports = (client) => {
                             const attachment = new MessageAttachment(imagetwo)
                             bluechannel.send(`⏰ Timer of the  <@&758651852337577994> has finished! ⏰`, attachment)
                         }
-                        if (color === 'orange') {
+                        if (color === 'pumpkins') {
                             let deletetimer = await teamtimerSchema.findOneAndUpdate({
                                 GuildID: server,
-                                color: 'orange'
+                                color: 'pumpkins'
                             }, {
                                 color: 'deletethis'
                             })
@@ -74,10 +74,10 @@ module.exports = (client) => {
                             const attachment = new MessageAttachment(imagefour)
                             greenchannel.send(`⏰ Timer of the  <@&758651692198920192> has finished! ⏰`, attachment)
                         }
-                        if (color === 'green') {
+                        if (color === 'witches') {
                             let deletetimer = await teamtimerSchema.findOneAndUpdate({
                                 GuildID: server,
-                                color: 'green'
+                                color: 'witches'
                             }, {
                                 color: 'deletethis'
                             })

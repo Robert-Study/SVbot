@@ -11,7 +11,7 @@ module.exports = (client) => {
 
         if (user.bot) return;
         if (reaction.message.channel.id === "732292791287283862" || reaction.message.channel.id === "703937876634894388") {
-            if (reaction.emoji.name === '🔴') {
+            if (reaction.emoji.name === '👻') {
                 await reaction.message.guild.members.cache.get(user.id).roles.add("758651469841825813")
                 await reaction.message.guild.members.cache.get(user.id).roles.remove("758651778962292776")
                 await reaction.message.guild.members.cache.get(user.id).roles.remove("758651692198920192")
@@ -20,7 +20,7 @@ module.exports = (client) => {
                 
 
                 let result = await forestSchema.findOne({
-                    color: 'red'
+                    color: 'ghosts'
                 })
 
                 if (result) {
@@ -32,7 +32,7 @@ module.exports = (client) => {
                 }
 
             }
-            if (reaction.emoji.name === '🔵') {
+            if (reaction.emoji.name === '🧟‍♂️') {
                 await reaction.message.guild.members.cache.get(user.id).roles.add("758651852337577994")
                 await reaction.message.guild.members.cache.get(user.id).roles.remove("758651778962292776")
                 await reaction.message.guild.members.cache.get(user.id).roles.remove("758651692198920192")
@@ -41,7 +41,7 @@ module.exports = (client) => {
                 
 
                 let result = await forestSchema.findOne({
-                    color: 'blue'
+                    color: 'monsters'
                 })
 
                 if (result) {
@@ -53,7 +53,7 @@ module.exports = (client) => {
                 }
 
             }
-            if (reaction.emoji.name === '🟠') {
+            if (reaction.emoji.name === '🎃') {
                 await reaction.message.guild.members.cache.get(user.id).roles.add("758651692198920192")
                 await reaction.message.guild.members.cache.get(user.id).roles.remove("758651778962292776")
                 await reaction.message.guild.members.cache.get(user.id).roles.remove("758651469841825813")
@@ -62,7 +62,7 @@ module.exports = (client) => {
                
 
                 let result = await forestSchema.findOne({
-                    color: 'orange'
+                    color: 'pumpkins'
                 })
 
                 if (result) {
@@ -74,7 +74,7 @@ module.exports = (client) => {
                 
             }
 
-            if (reaction.emoji.name === '🟢') {
+            if (reaction.emoji.name === '🧙‍♀️') {
                 await reaction.message.guild.members.cache.get(user.id).roles.add("758651778962292776")
                 await reaction.message.guild.members.cache.get(user.id).roles.remove("758651692198920192")
                 await reaction.message.guild.members.cache.get(user.id).roles.remove("758651469841825813")
@@ -82,7 +82,7 @@ module.exports = (client) => {
                 await reaction.message.guild.members.cache.get(user.id).roles.remove("729444698812579870")
 
                 let result = await forestSchema.findOne({
-                    color: 'green'
+                    color: 'witches'
                 })
 
                 if (result) {

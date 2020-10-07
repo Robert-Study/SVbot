@@ -28,9 +28,9 @@ module.exports = (client) => {
         if (reaction.message.channel.id === "732292791287283862" || reaction.message.channel.id === "703937876634894388") {
             if (reaction.emoji.name === '🔒') {
 
-                if (guildMember.roles.cache.some((role) => role.name === 'Blue-Team')) {
+                if (guildMember.roles.cache.some((role) => role.name === 'Team-Monsters')) {
                     blueresult = await forestSchema.findOne({
-                        color: 'blue'
+                        color: 'monsters'
                     })
 
                     let locktime = blueresult.time
@@ -69,9 +69,9 @@ module.exports = (client) => {
                     focus.send(`${"<@" + UserID + ">"}, you have now been **🔒 Locked 🔒** in Focus for ${ms(ms(minute))} min.`)
                     general.send(`${"<@" + UserID + ">"} went into **🔒 lock for ${minute} min. 🔒**, leave this person alone.`)
                 }
-                if (guildMember.roles.cache.some((role) => role.name === 'Red-Team')) {
+                if (guildMember.roles.cache.some((role) => role.name === 'Team-Ghosts')) {
                     blueresult = await forestSchema.findOne({
-                        color: 'red'
+                        color: 'ghosts'
                     })
 
                     let locktime = blueresult.time
@@ -110,9 +110,9 @@ module.exports = (client) => {
                     focus.send(`${"<@" + UserID + ">"}, you have now been **🔒 Locked 🔒** in Focus for ${ms(ms(minute))} min.`)
                     general.send(`${"<@" + UserID + ">"} went into **🔒 lock for ${minute} min. 🔒**, leave this person alone.`)
                 }
-                if (guildMember.roles.cache.some((role) => role.name === 'Orange-Team')) {
+                if (guildMember.roles.cache.some((role) => role.name === 'Team-Pumpkins')) {
                     blueresult = await forestSchema.findOne({
-                        color: 'orange'
+                        color: 'pumpkins'
                     })
 
                     let locktime = blueresult.time
@@ -151,9 +151,9 @@ module.exports = (client) => {
                     focus.send(`${"<@" + UserID + ">"}, you have now been **🔒 Locked 🔒** in Focus for ${ms(ms(minute))} min.`)
                     general.send(`${"<@" + UserID + ">"} went into **🔒 lock for ${minute} min. 🔒**, leave this person alone.`)
                 }
-                if (guildMember.roles.cache.some((role) => role.name === 'Green-Team')) {
+                if (guildMember.roles.cache.some((role) => role.name === 'Team-Witches')) {
                     blueresult = await forestSchema.findOne({
-                        color: 'green'
+                        color: 'witches'
                     })
 
                     let locktime = blueresult.time
