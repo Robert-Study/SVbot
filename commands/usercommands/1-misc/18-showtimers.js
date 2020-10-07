@@ -24,7 +24,7 @@ module.exports = {
         for(items of results){
             let A = items.color
         
-        if (A === 'red' || A === 'blue' || A === 'orange' || A === 'green') {
+        if (A === 'ghosts' || A === 'monsters' || A === 'pumpkins' || A === 'witches') {
             let newsort = results.remaining
 
             let sortmyresults = results.reverse()
