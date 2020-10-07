@@ -33,6 +33,7 @@ module.exports = (client) => {
                             new: false,
                         }
                     )
+                    break
                     }
                 }
             }
