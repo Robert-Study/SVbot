@@ -72,7 +72,7 @@ module.exports = (client) => {
                             let team = '758651692198920192'
                             timerchannel.send(`⏰ Timer of the  <@&758651692198920192> has finished! ⏰`)
                             const attachment = new MessageAttachment(imagefour)
-                            orangechannel.send(`⏰ Timer of the  <@&758651692198920192> has finished! ⏰`, attachment)
+                            greenchannel.send(`⏰ Timer of the  <@&758651692198920192> has finished! ⏰`, attachment)
                         }
                         if (color === 'green') {
                             let deletetimer = await teamtimerSchema.findOneAndUpdate({
@@ -84,7 +84,7 @@ module.exports = (client) => {
                             let team = '758651778962292776'
                             timerchannel.send(`⏰ Timer of the  <@&758651778962292776> has finished! ⏰`)
                             const attachment = new MessageAttachment(imagethree)
-                            greenchannel.send(`⏰ Timer of the  <@&758651778962292776> has finished! ⏰`, attachment)
+                            orangechannel.send(`⏰ Timer of the  <@&758651778962292776> has finished! ⏰`, attachment)
                         }
 
 
