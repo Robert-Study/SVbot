@@ -30,7 +30,7 @@ module.exports = {
             let sortmyresults = results.reverse()
             console.log(sortmyresults)
 
-            let reply = '**__⏳ Team-Timers: ⌛️__** \n'
+            let reply = '**__⌛️ Team-Timers: ⌛️__** \n'
             for (const newresult of sortmyresults) {
 
                 if (newresult.remaining <= 0) {
