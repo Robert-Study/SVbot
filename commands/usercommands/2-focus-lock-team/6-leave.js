@@ -5,7 +5,7 @@ module.exports = {
     maxArgs: 0,
     callback: (message, arguments, text) => {
         //ending the focus 
-        const general = message.client.channels.cache.get('703937876634894388');
+        const general = message.client.channels.cache.get('765171377447239700');
 
         //if member is locked -> cannot do this
         if (message.member.roles.cache.has('735089477088837673')) {

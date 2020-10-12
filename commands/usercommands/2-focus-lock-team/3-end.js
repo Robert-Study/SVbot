@@ -5,11 +5,11 @@ module.exports = {
     maxArgs: 0,
     callback: (message, arguments, text) => {
         //ending the focus or team role
-        const general = message.client.channels.cache.get('703937876634894388');
+        const general = message.client.channels.cache.get('765171377447239700');
 
         //if member is locked -> cannot do this
         if (message.member.roles.cache.has('735089477088837673')) {
-            message.channel.send('You are **Locked in Focus**, I will not remove the focus role, but I removed the team you were part of. If you are stuck please write the command **!ticket** to get you in a Support Channel.')
+            general.send('You are **Locked in Focus**, I will not remove the focus role, but I removed the team you were part of. If you are stuck please write the command **!ticket** to get you in a Support Channel.')
             message.member.roles.remove('729444698812579870');
             message.member.roles.remove('758651778962292776');
             message.member.roles.remove('758651852337577994');

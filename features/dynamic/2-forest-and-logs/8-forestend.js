@@ -6,7 +6,7 @@ module.exports = (client) => {
         var schedule = require('node-schedule');
         const teamtimerSchema = require('@schemas/18-teamtimerschema')
         let server = '703937875720273972'
-        const timerchannel = client.channels.cache.get("732292791287283862")
+        const timerchannel = client.channels.cache.get("765171377447239700")
         const redchannel = client.channels.cache.get("760809013494808606")
         const bluechannel = client.channels.cache.get("760808951242555392")
         const orangechannel = client.channels.cache.get("760809070549663755")

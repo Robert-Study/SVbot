@@ -64,9 +64,9 @@ module.exports = (client) => {
                     await reaction.message.guild.members.cache.get(user.id).roles.add("729706682308886548")
                     await reaction.message.guild.members.cache.get(user.id).roles.remove("707547622591692911")
                    
-                    const focus = reaction.message.guild.channels.cache.get('730185814822223962');
-                    const general = reaction.message.guild.channels.cache.get('703937876634894388');
-                    focus.send(`${"<@" + UserID + ">"}, you have now been **🔒 Locked 🔒** in Focus for ${ms(ms(minute))} min.`)
+                    
+                    const general = reaction.message.guild.channels.cache.get('765171377447239700');
+                    
                     general.send(`${"<@" + UserID + ">"} went into **🔒 lock for ${minute} min. 🔒**, leave this person alone.`)
                 }
                 if (guildMember.roles.cache.some((role) => role.name === 'Team-Ghosts')) {
@@ -105,9 +105,7 @@ module.exports = (client) => {
                     await reaction.message.guild.members.cache.get(user.id).roles.add("729706682308886548")
                     await reaction.message.guild.members.cache.get(user.id).roles.remove("707547622591692911")
                    
-                    const focus = reaction.message.guild.channels.cache.get('730185814822223962');
-                    const general = reaction.message.guild.channels.cache.get('703937876634894388');
-                    focus.send(`${"<@" + UserID + ">"}, you have now been **🔒 Locked 🔒** in Focus for ${ms(ms(minute))} min.`)
+                    const general = reaction.message.guild.channels.cache.get('765171377447239700');
                     general.send(`${"<@" + UserID + ">"} went into **🔒 lock for ${minute} min. 🔒**, leave this person alone.`)
                 }
                 if (guildMember.roles.cache.some((role) => role.name === 'Team-Pumpkins')) {
@@ -146,9 +144,7 @@ module.exports = (client) => {
                     await reaction.message.guild.members.cache.get(user.id).roles.add("729706682308886548")
                     await reaction.message.guild.members.cache.get(user.id).roles.remove("707547622591692911")
                    
-                    const focus = reaction.message.guild.channels.cache.get('730185814822223962');
-                    const general = reaction.message.guild.channels.cache.get('703937876634894388');
-                    focus.send(`${"<@" + UserID + ">"}, you have now been **🔒 Locked 🔒** in Focus for ${ms(ms(minute))} min.`)
+                    const general = reaction.message.guild.channels.cache.get('765171377447239700');
                     general.send(`${"<@" + UserID + ">"} went into **🔒 lock for ${minute} min. 🔒**, leave this person alone.`)
                 }
                 if (guildMember.roles.cache.some((role) => role.name === 'Team-Witches')) {
@@ -187,12 +183,10 @@ module.exports = (client) => {
                     await reaction.message.guild.members.cache.get(user.id).roles.add("729706682308886548")
                     await reaction.message.guild.members.cache.get(user.id).roles.remove("707547622591692911")
                    
-                    const focus = reaction.message.guild.channels.cache.get('730185814822223962');
-                    const general = reaction.message.guild.channels.cache.get('703937876634894388');
-                    focus.send(`${"<@" + UserID + ">"}, you have now been **🔒 Locked 🔒** in Focus for ${ms(ms(minute))} min.`)
+                    const general = reaction.message.guild.channels.cache.get('765171377447239700');
                     general.send(`${"<@" + UserID + ">"} went into **🔒 lock for ${minute} min.🔒**, leave this person alone.`)
                 }else{
-                    const general = reaction.message.guild.channels.cache.get('703937876634894388');
+                    const general = reaction.message.guild.channels.cache.get('765171377447239700');
                     general.send(`${"<@" + UserID + ">"} are you in one of the colored teams?`)}
             }
         }
