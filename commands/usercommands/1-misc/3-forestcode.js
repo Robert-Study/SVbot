@@ -7,8 +7,8 @@ module.exports = {
 
     callback: async (message, arguments, text) => {
         const Discord = require('discord.js');
-        const englishchannel = message.client.channels.cache.get('703937876634894388');
-        const forestchannel = message.client.channels.cache.get('732292791287283862');
+       
+        const forestchannel = message.client.channels.cache.get('765171377447239700');
         const ms = require('ms')
         var moment = require('moment');
         var schedule = require('node-schedule');
@@ -56,13 +56,7 @@ module.exports = {
                 )
 
             //send the embed to english channel and react
-            let englishembed = await englishchannel.send(forestEmbed);
-            englishembed.react('👥')
-            englishembed.react('🔇')
-            englishembed.react('1️⃣')
-            englishembed.react('2️⃣')
-            englishembed.react('3️⃣')
-
+            
             //send the embed to forest channel and react
             let forestembed = await forestchannel.send(forestEmbed);
             forestembed.react('👥')
@@ -93,12 +87,7 @@ module.exports = {
                     )
 
                 //send the embed to english channel and react
-                let englishembed = await englishchannel.send(forestEmbed);
-                englishembed.react('👻')
-                englishembed.react('🔇')
-         
-                englishembed.react('⏰')
-                englishembed.react('🔒')
+                
 
                 //send the embed to forest channel and react
                 let forestembed = await forestchannel.send(forestEmbed);
@@ -142,12 +131,7 @@ module.exports = {
                     )
 
                 //send the embed to english channel and react
-                let englishembed = await englishchannel.send(forestEmbed);
-                englishembed.react('🧟‍♂️')
-                englishembed.react('🔇')
-           
-                englishembed.react('⏰')
-                englishembed.react('🔒')
+                
 
                 //send the embed to forest channel and react
                 let forestembed = await forestchannel.send(forestEmbed);
@@ -190,12 +174,7 @@ module.exports = {
                     )
 
                 //send the embed to english channel and react
-                let englishembed = await englishchannel.send(forestEmbed);
-                englishembed.react('🎃')
-                englishembed.react('🔇')
-     
-                englishembed.react('⏰')
-                englishembed.react('🔒')
+                
 
                 //send the embed to forest channel and react
                 let forestembed = await forestchannel.send(forestEmbed);
@@ -238,12 +217,7 @@ module.exports = {
                     )
 
                 //send the embed to english channel and react
-                let englishembed = await englishchannel.send(forestEmbed);
-                englishembed.react('🧙‍♀️')
-                englishembed.react('🔇')
-     
-                englishembed.react('⏰')
-                englishembed.react('🔒')
+                
 
                 //send the embed to forest channel and react
                 let forestembed = await forestchannel.send(forestEmbed);
