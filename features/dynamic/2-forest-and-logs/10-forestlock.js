@@ -25,7 +25,7 @@ module.exports = (client) => {
 
 
         if (user.bot) return;
-        if (reaction.message.channel.id === "732292791287283862" || reaction.message.channel.id === "703937876634894388") {
+        if (reaction.message.channel.id === "765171377447239700" || reaction.message.channel.id === "703937876634894388") {
             if (reaction.emoji.name === '🔒') {
 
                 if (guildMember.roles.cache.some((role) => role.name === 'Team-Monsters')) {

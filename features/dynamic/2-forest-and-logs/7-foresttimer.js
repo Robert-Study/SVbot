@@ -14,11 +14,11 @@ module.exports = (client) => {
         
         let UserID = user.id
         let server = '703937875720273972'
-        let timerchannel = client.channels.cache.get('732292791287283862')
+        let timerchannel = client.channels.cache.get('765171377447239700')
 
 
         if (user.bot) return;
-        if (reaction.message.channel.id === "732292791287283862" || reaction.message.channel.id === "703937876634894388") {
+        if (reaction.message.channel.id === "765171377447239700" || reaction.message.channel.id === "703937876634894388") {
             if (reaction.emoji.name === '⏰') {
                 let authorcheck = await forestSchema.findOne({
                     number: UserID
