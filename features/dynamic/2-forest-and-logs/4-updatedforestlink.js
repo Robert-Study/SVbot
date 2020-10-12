@@ -11,7 +11,7 @@ module.exports = (client) => {
             const command = args.shift().toLowerCase();
 
 
-            const channel = client.channels.cache.get('703937876634894388');
+            const channel = client.channels.cache.get('765171377447239700');
             const exampleEmbed = new Discord.MessageEmbed()
                 .setColor('#337f4e')
                 .setTitle(`${message.author.username} wants to plant a tree!`)
@@ -35,13 +35,6 @@ module.exports = (client) => {
             channelembed.react('2️⃣')
             channelembed.react('3️⃣')
 
-            const welcome = message.client.channels.cache.get('732292791287283862');
-            let welcomeembed = await welcome.send(exampleEmbed);
-            welcomeembed.react('👥')
-            welcomeembed.react('🔇')
-            welcomeembed.react('1️⃣')
-            welcomeembed.react('2️⃣')
-            welcomeembed.react('3️⃣')
         }
     })
 }
